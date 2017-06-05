@@ -1,0 +1,24 @@
+{
+    "name": "alexgunkel/project-organizer",
+    "description": "TYPO3 extension template",
+    "type": "typo3-cms-extension",
+    "authors": [
+        {
+            "name": "Alexander Gunkel",
+            "email": "alexandergunkel@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AlexGunkel\\ProjectOrganizer\\": "Classes/",
+            "AlexGunkel\\ProjectOrganizerTests\\": "Tests/Unit/"
+        }
+    },
+    "minimum-stability": "alpha",
+    "repositories": [
+        { "type": "composer", "url": "https://composer.typo3.org/" }
+    ],
+    "require": {
+        "fluidtypo3/vhs": "*"
+    }
+}

@@ -1,0 +1,39 @@
+<div xmlns:f="http://www.w3.org/1999/html" >
+    <h1>Test</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Titel</td>
+                <td>Themenfeld</td>
+                <td>Laufzeit bis</td>
+                <td>Status</td>
+                <td>Region</td>
+                <td>Accept</td>
+            </tr>
+        </thead>
+        <tbody>
+            <f:for each="{projects}" as="project">
+                <tr>
+                    <td>
+                        <f:link.action action="detail" arguments="{project: project}" >
+                            {project.title}
+                        </f:link.action>
+                    </td>
+                    <td>
+                        <f:for each="{project.topics}" as="topic" >
+                            {topic.title}
+                        </f:for>
+                    </td>
+                    <td>{project.runtimeAsString}</td>
+                    <td>{project.status.title}</td>
+                    <td>{project.region.title}</td>
+                    <td>
+                        <f:link.action action="validate" class="t3-link"  arguments="{project: project.uid}">
+                            <span class="t3-icon t3-icon-actions-edit t3-icon-edit-add">Accept</span>
+                        </f:link.action>
+                    </td>
+                </tr>
+            </f:for>
+        </tbody>
+    </table>
+</div>

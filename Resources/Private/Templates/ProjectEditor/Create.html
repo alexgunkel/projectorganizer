@@ -1,0 +1,85 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
+    <h2>Neues Projekt</h2>
+
+    <f:form action="submit" controller="ProjectEditor" object="{project}" name="project">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <f:form.textfield size="30" property="title"></f:form.textfield>
+                </td>
+            </tr>
+            <tr>
+                <td>Beschreibung:</td>
+                <td>
+                    <f:form.textarea property="description" rows="5" cols="50" ></f:form.textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Link:</td>
+                <td>
+                    <f:form.textfield property="link" />
+                </td>
+            </tr>
+            <tr>
+                <td>Topics:</td>
+                <td>
+                    <v:form.select property="topics" multiple="true" >
+                        <f:for each="{topics}" as="topic" >
+                            <v:form.select.option selected="false"
+                                                  value="{topic.uid}" >
+                                {topic.title}
+                            </v:form.select.option>
+                        </f:for>
+                    </v:form.select>
+                </td>
+            </tr>
+            <tr>
+                <td>Status:</td>
+                <td>
+                    <v:form.select property="status"
+                                   multiple="false" >
+                        <f:for each="{statusOptions}" as="statusOption" >
+                            <v:form.select.option value="{statusOption.uid}" >{statusOption.title}</v:form.select.option>
+                        </f:for>
+                    </v:form.select>
+                </td>
+            </tr>
+            <tr>
+                <td>Laufzeit</td>
+                <td>
+                    <f:form.textfield property="runtime" />
+                </td>
+            </tr>
+            <tr>
+                <td>Region:</td>
+                <td>
+                    <v:form.select property="region">
+                        <f:for each="{regions}" as="region" >
+                            <v:form.select.option value="{region.uid}" >
+                                {region.title}
+                            </v:form.select.option>
+                        </f:for>
+                    </v:form.select>
+                </td>
+            </tr>
+            <tr>
+                <td>WSK:</td>
+                <td>
+                    <v:form.select property="wskelements"
+                                   multiple="true" >
+                        <f:for each="{wskelements}" as="wsk" >
+                            <v:form.select.option value="{wsk.uid}" >
+                                {wsk.title}
+                            </v:form.select.option>
+                        </f:for>
+                    </v:form.select>
+                </td>
+            </tr>
+        </table>
+
+        <f:form.button>Create</f:form.button>
+    </f:form>
+</div>

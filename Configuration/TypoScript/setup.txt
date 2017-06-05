@@ -1,0 +1,19 @@
+
+config.tx_extbase {
+    persistence.classes {
+        AlexGunkel\ProjectOrganizer\Domain\Model\Project {
+            mapping {
+                tableName = tx_projectorganizer_domain_model_project
+                columns {
+                    tstamp.mapOnProperty = tstamp
+                }
+            }
+        }
+    }
+
+    objects {
+        AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
+            className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
+        }
+    }
+}

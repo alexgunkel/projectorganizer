@@ -1,0 +1,34 @@
+<h1 xmlns:f="http://www.w3.org/1999/html">Test</h1>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Themenfeld</td>
+        <td>WSK</td>
+        <td>Fachbereich</td>
+        <td>Institution</td>
+        <td>tätig seit</td>
+    </tr>
+    <f:for each="{persons}" as="person">
+        <tr>
+            <td>
+                <f:link.action action="detail" arguments="{person:person.uid}">{person.title}</f:link.action></td>
+            <td>
+                <f:for each="{person.topics}" as="topic" >
+                    {topic.title}
+                </f:for>
+            </td>
+            <td>
+                <f:for each="{person.wskelement}" as="wsk">
+                    {wsk.title}
+                </f:for>
+            </td>
+            <td>{person.specialistField}</td>
+            <td>
+                <f:for each="{person.institutions}" as="institution" >
+                    {institution.title}
+                </f:for>
+            </td>
+            <td>{person.entryDate}</td>
+        </tr>
+    </f:for>
+</table>

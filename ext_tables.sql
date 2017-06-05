@@ -1,0 +1,442 @@
+
+# Small basic entities
+CREATE TABLE tx_projectorganizer_domain_model_status (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_topic (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+
+  institutions INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  projects INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  persons INT(11) UNSIGNED NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_region (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_wskelement (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+
+  institutions INT(11) NOT NULL DEFAULT '0',
+  persons INT(11) NOT NULL DEFAULT '0',
+  projects INT(11) NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_institution_type (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_publication_type (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (uid)
+);
+
+#main entities
+CREATE TABLE tx_projectorganizer_domain_model_researchprogram (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+  supporting VARCHAR(255),
+  link VARCHAR(255),
+  runtime VARCHAR(255),
+  description TEXT,
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_project (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+  description TEXT,
+  volume INT(11),
+  overall_volume INT(11),
+  link VARCHAR(255),
+  runtime INT(11),
+  place VARCHAR(255),
+  salt INT(11),
+  accepted INT(11),
+  accepted_by VARCHAR(11),
+
+  status VARCHAR(255),
+  wsk_element VARCHAR(255),
+  region VARCHAR(255),
+  researchprogram VARCHAR(255),
+  contact_person VARCHAR(255),
+
+  institutions INT(11) NOT NULL DEFAULT '0',
+  publications INT(11) NOT NULL DEFAULT '0',
+  persons INT(11) NOT NULL DEFAULT '0',
+  topics INT(11) NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_person (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+  specialist_field VARCHAR(255),
+  entry_date INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  place VARCHAR(255),
+  e_mail VARCHAR(255),
+  description TEXT,
+
+  wsk_element VARCHAR(255),
+
+  projects INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  institutions INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  publications INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  topics INT(11) UNSIGNED NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_publication (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+  type INT(11) NOT NULL DEFAULT '0',
+  year INT(4) UNSIGNED,
+  link VARCHAR(255),
+
+  institutions VARCHAR(255),
+  projects VARCHAR(255),
+
+  persons INT(11) UNSIGNED NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_institution (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+  type INT(11) UNSIGNED NOT NULL ,
+  place VARCHAR(255) NOT NULL DEFAULT '',
+  state VARCHAR(255) NOT NULL DEFAULT '',
+  country VARCHAR(255) NOT NULL DEFAULT '',
+
+  wsk_element VARCHAR(255),
+
+  projects INT(11) NOT NULL DEFAULT '0',
+  persons INT(11) NOT NULL DEFAULT '0',
+  topics INT(11) NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_domain_model_engagement (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  position VARCHAR(255) NOT NULL DEFAULT '',
+  start_date INT(11),
+  end_date INT(11),
+
+  person_uid INT(11) NOT NULL NULL DEFAULT '0',
+  person_sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  institution_uid INT(11) NOT NULL DEFAULT '0',
+  institution_sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
+# n:m relations
+CREATE TABLE tx_projectorganizer_mm_project_institution (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  sorting INT(11) DEFAULT '0' NOT NULL,
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_local INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  uid_foreign INT(11) UNSIGNED NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_mm_project_publication (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  uid_local INT(11) NOT NULL DEFAULT '0',
+  sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_foreign INT(11) UNSIGNED NULL DEFAULT '0',
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
+# n:m relations
+CREATE TABLE tx_projectorganizer_mm_project_persons (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  uid_local INT(11) NOT NULL DEFAULT '0',
+  sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_foreign INT(11) NOT NULL DEFAULT '0',
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_mm_project_topic (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  uid_local INT(11) NOT NULL DEFAULT '0',
+  sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_foreign INT(11) NOT NULL DEFAULT '0',
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_mm_person_publication (
+  uid INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  authorship VARCHAR(255) NOT NULL DEFAULT '',
+
+  uid_local INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_foreign INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_mm_person_institution (
+  uid INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  position VARCHAR(255) NOT NULL DEFAULT '',
+  start_date INT(11) UNSIGNED,
+  end_date INT(11) UNSIGNED,
+
+  uid_local INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_foreign INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_mm_person_topic (
+  uid INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  uid_local INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_foreign INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_mm_institution_topic (
+  uid INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  uid_local INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_foreign INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);

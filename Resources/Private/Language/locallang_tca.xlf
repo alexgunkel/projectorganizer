@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+    <file t3:id="1495360943" source-language="en" datatype="plaintext" original="messages" date="2017-05-21T12:12:34Z" product-name="project_organizer">
+        <header/>
+        <body>
+            <trans-unit id="tx_projectorganizer_domain_model_project">
+                <source>Projects</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_project.title">
+                <source>Bezeichnung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_region">
+                <source>Region</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_region.title">
+                <source>Bezeichnung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_status">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_status.title">
+                <source>Bezeichnung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_topic">
+                <source>Topic</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_topic.title">
+                <source>Bezeichnung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_researchprogram">
+                <source>Research program</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_researchprogram.title">
+                <source>Bezeichnung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_researchprogram.supporting">
+                <source>Träger des Forschungsprogramms</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_institution">
+                <source>Institut</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_institution.title">
+                <source>Bezeichnung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_institution_type">
+                <source>Art der Einrichtung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_institution_type.title">
+                <source>Bezeichnung</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_person">
+                <source>Person</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_person.title">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_person.start_date">
+                <source>Seit wann in der Branche</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_publication">
+                <source>Publication</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_publication.title">
+                <source>Titel</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_publication_type">
+                <source>Veröffentlichungstyp</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_publication_type.title">
+                <source>Titel</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_wsk">
+                <source>WSK</source>
+            </trans-unit>
+            <trans-unit id="tx_projectorganizer_domain_model_wsk.title">
+                <source>Titel</source>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>E-Mail</source>
+            </trans-unit>
+            <trans-unit id="label.publications">
+                <source>Veröffentlichungen</source>
+            </trans-unit>
+            <trans-unit id="label.place">
+                <source>Sitz (Stadt)</source>
+            </trans-unit>
+            <trans-unit id="label.runtime">
+                <source>Laufzeit</source>
+            </trans-unit>
+            <trans-unit id="label.link">
+                <source>Link zu weiteren Informationen</source>
+            </trans-unit>
+            <trans-unit id="label.description">
+                <source>Beschreibung</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

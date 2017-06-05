@@ -1,0 +1,29 @@
+<div xmlns:f="http://www.w3.org/1999/html">
+    <table>
+        <tr>
+            <td>Titel</td>
+            <td>Themenfeld</td>
+            <td>Laufzeit bis</td>
+            <td>Status</td>
+            <td>Region</td>
+        </tr>
+        <f:for each="{projects}" as="project">
+            <tr>
+                <td>
+                    <f:link.action action="detail" arguments="{project:project.uid}">
+                        {project.title}
+                    </f:link.action>
+                </td>
+                <td>
+                    <f:for each="{project.topics}" as="topic" >
+                        {topic.title}
+                    </f:for>
+                </td>
+                <td>{project.runtimeAsString}</td>
+                <td>{project.status.title}</td>
+                <td>{project.region.title}</td>
+            </tr>
+        </f:for>
+    </table>
+</div>
+
