@@ -3,6 +3,7 @@
 namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
 use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatableInterface;
+use TYPO3\CMS\Backend\Routing\UriBuilder;
 
 class ValidationCodeMessage
     implements ValidationCodeMessageInterface
@@ -22,13 +23,32 @@ class ValidationCodeMessage
     private $validator;
 
     /**
+     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+     *
+     * @inject
+     */
+    private $contentObjectRenderer;
+
+    /**
      * @var AccessValidatableInterface
      */
     private $object;
 
+    /**
+     * @var \TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder
+     */
+    private $uriBuilder;
+
     public function setObject(AccessValidatableInterface $object) : ValidationCodeMessageInterface
     {
         $this->object = $object;
+
+        return $this;
+    }
+
+    public function setUriBuilder(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder $uriBuilder) : ValidationCodeMessageInterface
+    {
+        $this->uriBuilder = $uriBuilder;
 
         return $this;
     }
@@ -42,8 +62,25 @@ class ValidationCodeMessage
 
     public function send() : bool
     {
+        $link = $this->uriBuilder
+            ->reset()
+            ->setCreateAbsoluteUri(true)
+            ->setTargetPageUid(3)
+            ->uriFor(
+                'validateByValidationCode',
+                [
+                    'validationCode' => $this->validator->generateValidationCode($this->object),
+                    'projectUid' => (string) $this->object->getUid(),
+                ],
+                'ProjectManager'
+            );
+
+
         $this->messageObject->setBody(
-            'Code: ' . $this->validator->generateValidationCode($this->object)
+            'Uid: ' . $this->object->getUid() . "\n"
+            . 'Title: ' . $this->object->getTitle() . "\n"
+            . 'Code: ' . $this->validator->generateValidationCode($this->object) . "\n"
+            . 'Link: ' . $link
         );
 
         $this->messageObject->send();

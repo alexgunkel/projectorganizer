@@ -25,13 +25,15 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Traits\Inject\AccessValidatorTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\ProjectRepositoryTrait;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
 
 class ProjectManagerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-    use ProjectRepositoryTrait;
+    use ProjectRepositoryTrait,
+        AccessValidatorTrait;
 
     /**
      * List all open requests

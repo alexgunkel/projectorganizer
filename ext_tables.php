@@ -36,11 +36,17 @@ if (!defined('TYPO3_MODE')) {
     'edit_projects',
     'Create and edit projects'
 );
-$TCA['tt_content']['types']['list']['subtypes_excludelist']['project_organizer_edit_projects'] = 'layout,select_key,pages,recursive';
-$TCA['tt_content']['types']['list']['subtypes_addlist']['project_organizer_edit_projects'] = 'pi_flexform';
+$TCA['tt_content']['types']['list']['subtypes_excludelist']['projectorganizer_edit_projects'] = 'layout,select_key,pages,recursive';
+$TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_edit_projects'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-    'project_organizer_edit_projects',
+    'projectorganizer_edit_projects',
     'FILE:EXT:project_organizer/Configuration/FlexForms/project_organizer_edit_projects.xml'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'AlexGunkel.' . $_EXTKEY,
+    'validate_project',
+    'Projekte validieren'
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(

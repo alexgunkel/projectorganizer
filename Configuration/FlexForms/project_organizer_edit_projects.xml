@@ -3,7 +3,7 @@
         <sDEF>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>sheetTitle</sheetTitle>
+                    <sheetTitle>Konfiguration</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>

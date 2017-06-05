@@ -73,12 +73,15 @@ class ProjectEditorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionCo
         $this->projectRepository->add($project);
         /** @var PersistenceManager $persistenceManager */
         $this->objectManager->get(PersistenceManager::class)->persistAll();
+
         /** @var ValidationCodeMessageInterface $message */
         $message = $this->objectManager->get(ValidationCodeMessageInterface::class);
+        $message->setObject($project)
+            ->setUriBuilder($this->uriBuilder);
+
         /** @var DeliveryAgentInterface $deliveryAgent */
         $deliveryAgent = $this->objectManager->get(DeliveryAgentInterface::class);
 
-        $message->setObject($project);
         $success = $deliveryAgent->addRecipient($this->settings['receiver'])
             ->sendMessage($message);
 
