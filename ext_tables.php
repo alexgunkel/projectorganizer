@@ -64,8 +64,8 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['project_organizer_edit_
         'ProjectManager' => 'listOpenRequests, detail, validate',
     ),
     array(
-        'access' => 'user, group',
-        'labels'  => 'Projektmanager',
+        'access' => 'admin',
+        'labels'  => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang.xlf',
     )
 );
 
