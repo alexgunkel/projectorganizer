@@ -10,10 +10,22 @@ config.tx_extbase {
             }
         }
     }
+}
 
-    objects {
-        AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
-            className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
-        }
+plugin.tx_projectorganizer_show_projects.objects {
+    AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
+        className = AlexGunkel\ProjectOrganizer\AccessValidator\ConcatAccessValidator
+    }
+    AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
+        className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
+    }
+}
+
+module.tx_projectorganizer.objects {
+    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface {
+        className = AlexGunkel\ProjectOrganizer\AccessValidator\ConcatAccessValidator
+    }
+    AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
+        className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
     }
 }

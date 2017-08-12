@@ -7,10 +7,10 @@
             <td>Status</td>
             <td>Region</td>
         </tr>
-        <f:for each="{projects}" as="project">
+        <f:for each="{entities}" as="project">
             <tr>
                 <td>
-                    <f:link.action action="detail" arguments="{project:project.uid}">
+                    <f:link.action action="detail" arguments="{uid:project.uid}">
                         {project.title}
                     </f:link.action>
                 </td>

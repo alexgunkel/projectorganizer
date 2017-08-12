@@ -22,9 +22,10 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\Controller;
+namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
 
-class ProjectController extends DisplayController
+interface AccessValidatorInterface
 {
-
+    public function generateValidationCode(AccessValidatableInterface $accessValidatable) : string;
+    public function validate(AccessValidatableInterface $accessValidatable, string $validationCode): bool;
 }

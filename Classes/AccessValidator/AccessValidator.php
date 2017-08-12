@@ -22,28 +22,20 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\AccessValidation;
+namespace AlexGunkel\ProjectOrganizer\AccessValidator;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatableInterface,
-    AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface;
 
-class ValidationLinkGenerator
+class AccessValidator implements AccessValidatorInterface
 {
-    /**
-     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
-     */
-    private $validator;
-
-    public function __construct(
-        AccessValidatorInterface $validator
-    ) {
-        $this->validator = $validator;
+    public function generateValidationCode(AccessValidatableInterface $accessValidatable): string
+    {
+        return $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
     }
 
-    public function generateLink(
-        AccessValidatableInterface $object,
-        int $targetPageUid
-    ) : string {
-        return $_SERVER['HTTP_HOST'] . '/index.php?id=' . $targetPageUid . '&code=' . $this->validator->generateValidationCode($object);
+    public function validate(AccessValidatableInterface $accessValidatable, string $validationCode): bool
+    {
+        return $validationCode === $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
     }
 }

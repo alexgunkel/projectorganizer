@@ -24,10 +24,12 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-class ProjectRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+class ProjectRepository
+    extends \TYPO3\CMS\Extbase\Persistence\Repository
+    implements ManagableRepository
 {
     /**
      * Find all accepted projects

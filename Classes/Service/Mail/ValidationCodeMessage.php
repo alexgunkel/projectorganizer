@@ -2,8 +2,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatableInterface;
-use TYPO3\CMS\Backend\Routing\UriBuilder;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 
 class ValidationCodeMessage
     implements ValidationCodeMessageInterface
@@ -16,7 +15,7 @@ class ValidationCodeMessage
     private $messageObject;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
+     * @var \AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface
      *
      * @inject
      */

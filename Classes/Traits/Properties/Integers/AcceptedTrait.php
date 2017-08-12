@@ -24,6 +24,8 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Integers;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\ManagableInterface;
+
 trait AcceptedTrait
 {
     /**
@@ -36,9 +38,11 @@ trait AcceptedTrait
      */
     protected $acceptedBy = null;
 
-    public function setAccepted(int $acceptanceDate)
+    public function setAccepted(int $acceptanceDate) : ManagableInterface
     {
         $this->accepted = $acceptanceDate;
+
+        return $this;
     }
 
     public function getAccepted() : int
@@ -56,14 +60,18 @@ trait AcceptedTrait
         return $this->acceptedBy;
     }
 
-    public function setAcceptedBy(int $accepter)
+    public function setAcceptedBy(int $accepter) : ManagableInterface
     {
         $this->acceptedBy = $accepter;
+
+        return $this;
     }
 
-    public function initializeAsNotYetAccepted()
+    public function initializeAsNotYetAccepted() : ManagableInterface
     {
         $this->accepted = null;
         $this->acceptedBy = null;
+
+        return $this;
     }
 }

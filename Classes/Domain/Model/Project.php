@@ -24,9 +24,10 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\HiddenTrait;
-use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\AcceptedTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\CrDateTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\OverallVolumeTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\RuntimeTrait;
@@ -48,7 +49,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Project
     extends AbstractDomainObject
-    implements AccessValidatableInterface
+    implements AccessValidatableInterface, ManagableInterface
 {
     use TitleTrait;
     use DescriptionTrait;
@@ -65,9 +66,23 @@ class Project
     use LinkTrait;
     use InstitutionsTrait;
     use HiddenTrait;
-    use AcceptedTrait;
     use CrDateTrait;
     use TstampTrait;
+
+    /**
+     * @var AcceptanceManagerInterface
+     */
+    private $acceptanceManager;
+
+    public function getAcceptanceManager(): AcceptanceManagerInterface
+    {
+        return $this->acceptanceManager;
+    }
+
+    public function isAccepted(): bool
+    {
+        return $this->acceptanceManager->isAccepted();
+    }
 
     public function __construct()
     {

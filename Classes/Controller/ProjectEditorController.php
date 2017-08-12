@@ -25,6 +25,7 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Management\EditorControllerInterface;
 use AlexGunkel\ProjectOrganizer\Service\Mail\DeliveryAgentInterface;
 use AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessageInterface;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\ProjectRepositoryTrait;
@@ -33,9 +34,10 @@ use AlexGunkel\ProjectOrganizer\Traits\Repository\StatusRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\WskelementRepositoryTrait;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
-class ProjectEditorController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class ProjectEditorController
+    extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+    implements EditorControllerInterface
 {
     use ProjectRepositoryTrait,
         StatusRepositoryTrait,

@@ -22,10 +22,10 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\AccessValidation;
+namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
 
-interface AccessValidatorInterface
+interface AccessValidatableInterface
 {
-    public function generateValidationCode(AccessValidatableInterface $accessValidatable) : string;
-    public function validate(AccessValidatableInterface $accessValidatable, string $validationCode): bool;
+    public function getTitle() : string ;
+    public function getUid();
 }

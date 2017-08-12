@@ -25,26 +25,38 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-use AlexGunkel\ProjectOrganizer\Traits\Inject\AccessValidatorTrait;
-use AlexGunkel\ProjectOrganizer\Traits\Repository\ProjectRepositoryTrait;
+use AlexGunkel\ProjectOrganizer\Management\ManagerControllerInterface;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
 
-class ProjectManagerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class ProjectManagerController
+    extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+    implements ManagerControllerInterface
 {
-    use ProjectRepositoryTrait,
-        AccessValidatorTrait;
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
+     *
+     * @inject
+     */
+    private $repository;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface
+     *
+     * @inject
+     */
+    protected $accessValidator;
 
     /**
      * List all open requests
      *
      * @return void
      */
-    public function listOpenRequestsAction()
+    public function listOpenRequestsAction() : void
     {
         $this->view->assign(
             'projects',
-            $this->projectRepository->findOpenRequests()
+            $this->repository->findOpenRequests()
         );
     }
 
@@ -53,10 +65,10 @@ class ProjectManagerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
      *
      * @return void
      */
-    public function detailAction()
+    public function detailAction() : void
     {
         /** @var Project $project */
-        $project = $this->projectRepository->findByUid(
+        $project = $this->repository->findByUid(
             $this->request->getArgument('project')
         );
 
@@ -72,7 +84,7 @@ class ProjectManagerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
      * @return void
      * @throws RequiredArgumentMissingException
      */
-    public function validateAction()
+    public function validateAction() : void
     {
         if (!$this->request->hasArgument('project')) {
             throw new RequiredArgumentMissingException(
@@ -82,16 +94,16 @@ class ProjectManagerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
         }
 
         /** @var Project $project */
-        $project = $this->projectRepository->findByUid(
+        $project = $this->repository->findByUid(
             $this->request->getArgument('project')
         );
 
-        $project->setAccepted(time());
+        $project->setAccepted(new \DateTime());
         $project->setAcceptedBy(
             $this->getBackendUser()->user['uid']
         );
 
-        $this->projectRepository->update($project);
+        $this->repository->update($project);
 
         $this->view->assign(
             'acceptedProject',
@@ -102,7 +114,7 @@ class ProjectManagerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
     public function validateByValidationCodeAction() : void
     {
         $code = $this->request->getArgument('validationCode');
-        $project = $this->projectRepository->findByIdentifier(
+        $project = $this->repository->findByIdentifier(
             $this->request->getArgument('projectUid')
         );
 
@@ -110,8 +122,8 @@ class ProjectManagerController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionC
             throw new \Exception('Not validated');
         }
 
-        $project->setAccepted(time());
-        $this->projectRepository->update($project);
+        $project->setAccepted(new \DateTime());
+        $this->repository->update($project);
 
         $this->view->assign('project', $project);
     }

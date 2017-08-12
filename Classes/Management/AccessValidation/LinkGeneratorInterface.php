@@ -22,9 +22,11 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\Controller;
+namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
 
-class ProjectController extends DisplayController
+interface LinkGeneratorInterface
 {
+    public function __construct(AccessValidatorInterface $validator);
 
+    public function generateLink(AccessValidatableInterface $object,int $targetPageUid) : string;
 }

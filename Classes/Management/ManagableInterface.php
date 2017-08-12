@@ -22,17 +22,12 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\AccessValidation;
+namespace AlexGunkel\ProjectOrganizer\Management;
 
-class AccessValidator implements AccessValidatorInterface
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
+
+interface ManagableInterface
 {
-    public function generateValidationCode(AccessValidatableInterface $accessValidatable): string
-    {
-        return $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
-    }
-
-    public function validate(AccessValidatableInterface $accessValidatable, string $validationCode): bool
-    {
-        return $validationCode === $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
-    }
+    public function getAcceptanceManager() : AcceptanceManagerInterface;
+    public function isAccepted() : bool;
 }

@@ -2,7 +2,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 
 interface ValidationCodeMessageInterface
