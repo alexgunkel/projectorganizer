@@ -19,13 +19,10 @@ class DisplayController
 {
     /**
      * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
+     *
+     * @inject
      */
     private $entityRepository;
-
-    public function injectEntityRepository(ManagableRepository $repo) : void
-    {
-        $this->entityRepository = $repo;
-    }
 
     final public function listAction() : void
     {

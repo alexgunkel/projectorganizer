@@ -32,7 +32,7 @@ if (!defined('TYPO3_MODE')) {
         'Display' => 'list, detail',
     ],
     [
-        'Display' => '',
+        'Display' => 'list',
     ]
 );
 
@@ -40,10 +40,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'edit_projects',
     [
-        'ProjectEditor' => 'create, submit',
+        'Editor' => 'create, submit',
     ],
     [
-        'ProjectEditor' => 'create, submit',
+        'Editor' => 'create, submit',
     ]
 );
 
@@ -51,10 +51,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'experts',
     [
-        'Person' => 'list, detail',
+        'Display' => 'list, detail',
     ],
     [
-        'Person' => '',
+        'Display' => 'list',
     ]
 );
 
@@ -73,10 +73,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'validate_project',
     [
-        'ProjectManager' => 'validateByValidationCode',
+        'Validator' => 'validateByValidationCode',
     ],
     [
-        'ProjectManager' => 'validateByValidationCode',
+        'Validator' => 'validateByValidationCode',
     ]
 );
 

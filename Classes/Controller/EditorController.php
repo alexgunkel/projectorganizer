@@ -34,7 +34,7 @@ use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\WskelementRepositoryTrait;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
-class ProjectEditorController
+class EditorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     implements EditorControllerInterface
 {
