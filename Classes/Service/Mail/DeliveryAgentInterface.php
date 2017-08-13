@@ -1,6 +1,6 @@
 <?php
 
-namespace AlexGunkel\ProjectOrganizer\Management\Mail;
+namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
 interface DeliveryAgentInterface
 {

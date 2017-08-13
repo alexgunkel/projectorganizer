@@ -24,11 +24,10 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
-use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\Management\EditorControllerInterface;
+use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
 use AlexGunkel\ProjectOrganizer\Service\Mail\DeliveryAgentInterface;
 use AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessageInterface;
-use AlexGunkel\ProjectOrganizer\Traits\Repository\ProjectRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\RegionRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\StatusRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
@@ -39,16 +38,22 @@ class ProjectEditorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     implements EditorControllerInterface
 {
-    use ProjectRepositoryTrait,
-        StatusRepositoryTrait,
+    use StatusRepositoryTrait,
         TopicRepositoryTrait,
         RegionRepositoryTrait,
         WskelementRepositoryTrait;
 
     /**
-     * @param Project|null $project
+     * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
+     *
+     * @inject
      */
-    public function createAction(Project $project = null) : void
+    private $projectRepository;
+
+    /**
+     * @param ManagableInterface|null $project
+     */
+    public function createAction(ManagableInterface $project = null) : void
     {
         $this->view
             ->assignMultiple(
@@ -65,13 +70,13 @@ class ProjectEditorController
     /**
      * Add the given project and return project to view
      *
-     * @param Project $project
+     * @param ManagableInterface $project
      *
      * @return void
      */
-    public function submitAction(Project $project) : void
+    public function submitAction(ManagableInterface $project) : void
     {
-        $project->initializeAsNotYetAccepted();
+        $project->getAcceptanceManager()->initializeAsNotYetAccepted();
         $this->projectRepository->add($project);
         /** @var PersistenceManager $persistenceManager */
         $this->objectManager->get(PersistenceManager::class)->persistAll();
