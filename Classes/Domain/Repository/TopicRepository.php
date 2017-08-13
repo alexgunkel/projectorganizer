@@ -24,9 +24,37 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
-class TopicRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+
+class TopicRepository
+    extends \TYPO3\CMS\Extbase\Persistence\Repository
+    implements ManagableRepository
 {
+    /**
+     * Find all accepted projects
+     *
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findAccepted(): QueryResultInterface
+    {
+        return $this->findAll();
+    }
 
+    /**
+     * Find all open requests
+     *
+     * @return QueryResultInterface
+     */
+    public function findOpenRequests(): QueryResultInterface
+    {
+        $query = $this->createQuery();
+        $query->getQuerySettings()->setRespectStoragePage(false);
+
+        $query->matching(
+            $query->equals('accepted', null)
+        );
+
+        return $query->execute();
+    }
 }
-
-?>

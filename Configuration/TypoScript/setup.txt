@@ -30,6 +30,12 @@ plugin.tx_projectorganizer_experts.objects {
     }
 }
 
+plugin.tx_projectorganizer_topics.objects {
+    AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
+        className = AlexGunkel\ProjectOrganizer\Domain\Repository\TopicRepository
+    }
+}
+
 plugin.tx_projectorganizer_edit_projects.objects {
     AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
         className = AlexGunkel\ProjectOrganizer\AccessValidator\ConcatAccessValidator

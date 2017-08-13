@@ -62,10 +62,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'topics',
     [
-        'Topic' => 'list',
+        'Display' => 'list',
     ],
     [
-        'Topic' => '',
+        'Display' => '',
     ]
 );
 

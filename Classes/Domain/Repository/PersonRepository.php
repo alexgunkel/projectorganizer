@@ -24,7 +24,11 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
-class PersonRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
+use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
+
+class PersonRepository
+    extends \TYPO3\CMS\Extbase\Persistence\Repository
+    implements ManagableRepository
 {
 
 }

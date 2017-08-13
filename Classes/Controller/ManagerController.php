@@ -29,7 +29,7 @@ use AlexGunkel\ProjectOrganizer\Management\ManagerControllerInterface;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
 
-class ProjectManagerController
+class ManagerController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     implements ManagerControllerInterface
 {
