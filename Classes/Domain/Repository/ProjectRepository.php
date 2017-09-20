@@ -24,13 +24,21 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Management\EditableRepositoryInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 class ProjectRepository
     extends \TYPO3\CMS\Extbase\Persistence\Repository
-    implements ManagableRepository
+    implements ManagableRepository, EditableRepositoryInterface
 {
+    private const propertyRepositories = [
+        'topics' => TopicRepository::class,
+        'statusOptions' => StatusRepository::class,
+        'regions' => RegionRepository::class,
+        'wskelements' => WskelementRepository::class,
+    ];
+
     /**
      * Find all accepted projects
      *
@@ -59,6 +67,19 @@ class ProjectRepository
         );
 
         return $query->execute();
+    }
+
+    /**
+     * @return array
+     */
+    public function getPropertyOptions(): array
+    {
+        return array_map(
+            function ($var) {
+                return $this->objectManager->get($var)->findAll();
+            },
+            self::propertyRepositories
+        );
     }
 }
 

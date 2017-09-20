@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface;
 use AlexGunkel\ProjectOrganizer\Management\EditorControllerInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
 use AlexGunkel\ProjectOrganizer\Service\Mail\DeliveryAgentInterface;
@@ -44,26 +45,28 @@ class EditorController
         WskelementRepositoryTrait;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
+     * @var \AlexGunkel\ProjectOrganizer\Management\EditableRepositoryInterface
      *
      * @inject
      */
     private $projectRepository;
 
     /**
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManagerInterface
+     *
+     * @inject
+     */
+    private $acceptanceManager;
+
+    /**
      * @param ManagableInterface|null $project
      */
-    public function createAction(ManagableInterface $project = null) : void
+    public function createAction(AcceptableInterface $project = null) : void
     {
         $this->view
+            ->assign('project', $project)
             ->assignMultiple(
-                array(
-                    'project'       => $project,
-                    'topics'        => $this->topicRepository->findAll(),
-                    'statusOptions' => $this->statusRepository->findAll(),
-                    'regions'       => $this->regionRepository->findAll(),
-                    'wskelements'   => $this->wskelementRepository->findAll(),
-                )
+                $this->projectRepository->getPropertyOptions()
             );
     }
 
@@ -74,9 +77,9 @@ class EditorController
      *
      * @return void
      */
-    public function submitAction(ManagableInterface $project) : void
+    public function submitAction(AcceptableInterface $project) : void
     {
-        $project->getAcceptanceManager()->initializeAsNotYetAccepted();
+        $this->acceptanceManager->initializeAsNotYetAccepted($project);
         $this->projectRepository->add($project);
         /** @var PersistenceManager $persistenceManager */
         $this->objectManager->get(PersistenceManager::class)->persistAll();

@@ -41,9 +41,11 @@ if (!defined('TYPO3_MODE')) {
     'edit_projects',
     [
         'Editor' => 'create, submit',
+        'Validator' => 'validateByValidationCode',
     ],
     [
         'Editor' => 'create, submit',
+        'Validator' => 'validateByValidationCode',
     ]
 );
 

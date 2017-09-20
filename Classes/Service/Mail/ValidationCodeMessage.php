@@ -64,14 +64,14 @@ class ValidationCodeMessage
         $link = $this->uriBuilder
             ->reset()
             ->setCreateAbsoluteUri(true)
-            ->setTargetPageUid(3)
+            //->setTargetPageUid(3)
             ->uriFor(
                 'validateByValidationCode',
                 [
                     'validationCode' => $this->validator->generateValidationCode($this->object),
                     'projectUid' => (string) $this->object->getUid(),
                 ],
-                'ProjectManager'
+                'Validator'
             );
 
 

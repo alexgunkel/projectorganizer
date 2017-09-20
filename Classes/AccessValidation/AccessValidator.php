@@ -22,10 +22,9 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\AccessValidator;
+namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface;
 
 class AccessValidator implements AccessValidatorInterface
 {

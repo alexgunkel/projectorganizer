@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
@@ -49,7 +50,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Project
     extends AbstractDomainObject
-    implements AccessValidatableInterface, ManagableInterface
+    implements AccessValidatableInterface, AcceptableInterface
 {
     use TitleTrait;
     use DescriptionTrait;
@@ -70,18 +71,31 @@ class Project
     use TstampTrait;
 
     /**
-     * @var AcceptanceManagerInterface
+     * timestamp of acceptance date, not accepted if zero
+     *
+     * @var int
      */
-    private $acceptanceManager;
+    protected $accepted = 0;
+    private $acceptedBy = 0;
 
-    public function getAcceptanceManager(): AcceptanceManagerInterface
+    public function getAccepted(): int
     {
-        return $this->acceptanceManager;
+        return $this->accepted;
     }
 
-    public function isAccepted(): bool
+    public function setAccepted(int $accepted)
     {
-        return $this->acceptanceManager->isAccepted();
+        $this->accepted = $accepted;
+    }
+
+    public function getAcceptingManagerUid(): int
+    {
+        return $this->acceptedBy;
+    }
+
+    public function setAcceptingManagerUid(int $managerUid)
+    {
+        $this->acceptedBy = $managerUid;
     }
 
     public function __construct()

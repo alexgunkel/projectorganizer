@@ -14,16 +14,19 @@ config.tx_extbase {
 
 plugin.tx_projectorganizer_show_projects.objects {
     AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
-        className = AlexGunkel\ProjectOrganizer\AccessValidator\ConcatAccessValidator
+        className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
     }
     AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
         className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
+    }
+    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface {
+        className = AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
     }
 }
 
 plugin.tx_projectorganizer_experts.objects {
     AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
-        className = AlexGunkel\ProjectOrganizer\AccessValidator\ConcatAccessValidator
+        className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
     }
     AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
         className = AlexGunkel\ProjectOrganizer\Domain\Repository\PersonRepository
@@ -37,17 +40,32 @@ plugin.tx_projectorganizer_topics.objects {
 }
 
 plugin.tx_projectorganizer_edit_projects.objects {
-    AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
-        className = AlexGunkel\ProjectOrganizer\AccessValidator\ConcatAccessValidator
+    AlexGunkel\ProjectOrganizer\Management\ManagableInterface {
+        className = AlexGunkel\ProjectOrganizer\Domain\Model\Project
+    }
+    AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface {
+        className = AlexGunkel\ProjectOrganizer\Domain\Model\Project
     }
     AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
         className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
+    }
+    AlexGunkel\ProjectOrganizer\Management\EditableRepositoryInterface {
+        className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
+    }
+    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface {
+        className = AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
+    }
+    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface {
+        className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
     }
 }
 
 module.tx_projectorganizer.objects {
     AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface {
-        className = AlexGunkel\ProjectOrganizer\AccessValidator\ConcatAccessValidator
+        className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
+    }
+    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface {
+        className = AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
     }
     AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
         className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository

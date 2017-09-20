@@ -25,7 +25,6 @@
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Objects;
 
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 trait WskelementTrait
 {

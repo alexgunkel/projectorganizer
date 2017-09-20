@@ -22,10 +22,22 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
+namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
-interface AccessValidatorInterface
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+
+class ConcatAccessValidator implements AccessValidatorInterface
 {
-    public function generateValidationCode(AccessValidatableInterface $accessValidatable) : string;
-    public function validate(AccessValidatableInterface $accessValidatable, string $validationCode): bool;
+    public function generateValidationCode(
+        AccessValidatableInterface $accessValidatable
+    ): string {
+        return md5($accessValidatable->getTitle() . (string) $accessValidatable->getUid());
+    }
+
+    public function validate(
+        AccessValidatableInterface $accessValidatable,
+        string $validationCode
+    ): bool {
+        return $validationCode === $this->generateValidationCode($accessValidatable);
+    }
 }

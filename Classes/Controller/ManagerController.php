@@ -26,8 +26,8 @@ namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\Management\ManagerControllerInterface;
-use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ManagerController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -41,11 +41,18 @@ class ManagerController
     private $repository;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
      *
      * @inject
      */
     protected $accessValidator;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManagerInterface
+     *
+     * @inject
+     */
+    private $acceptanceManager;
 
     /**
      * List all open requests
@@ -98,9 +105,8 @@ class ManagerController
             $this->request->getArgument('project')
         );
 
-        $project->setAccepted(new \DateTime());
-        $project->setAcceptedBy(
-            $this->getBackendUser()->user['uid']
+        $this->acceptanceManager->accept(
+            $project
         );
 
         $this->repository->update($project);
@@ -122,22 +128,10 @@ class ManagerController
             throw new \Exception('Not validated');
         }
 
-        $project->setAccepted(new \DateTime());
+        $this->acceptanceManager->setAccepted($project, new \DateTime());
         $this->repository->update($project);
 
         $this->view->assign('project', $project);
-    }
-
-    /**
-     * Returns the backend user
-     *
-     * @return BackendUserAuthentication
-     */
-    private function getBackendUser() : BackendUserAuthentication
-    {
-        global $BE_USER;
-
-        return $BE_USER;
     }
 }
 ?>

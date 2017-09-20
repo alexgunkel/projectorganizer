@@ -10,23 +10,32 @@ namespace AlexGunkel\ProjectOrganizer\Controller;
 
 
 use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ValidatorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
      *
      * @inject
      */
     private $repository;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
      *
      * @inject
      */
     protected $accessValidator;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManagerInterface
+     *
+     * @inject
+     */
+    private $acceptanceManager;
 
     /**
      * Accept a single project
@@ -48,12 +57,7 @@ class ValidatorController
             $this->request->getArgument('project')
         );
 
-        $project->getAcceptanceManager()
-            ->setAccepted(new \DateTime())
-            ->setAcceptedBy(
-            $this->getBackendUser()->user['uid']
-        );
-
+        $this->acceptanceManager->accept($project);
         $this->repository->update($project);
 
         $this->view->assign(
@@ -73,7 +77,7 @@ class ValidatorController
             throw new \Exception('Not validated');
         }
 
-        $project->setAccepted(new \DateTime());
+        $this->acceptanceManager->accept($project);
         $this->repository->update($project);
 
         $this->view->assign('project', $project);

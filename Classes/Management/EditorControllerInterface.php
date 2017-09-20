@@ -9,9 +9,11 @@
 namespace AlexGunkel\ProjectOrganizer\Management;
 
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface;
+
 interface EditorControllerInterface
 {
-    public function createAction(ManagableInterface $project = null) : void;
+    public function createAction(AcceptableInterface $project = null) : void;
 
     /**
      * Add the given project and return project to view
@@ -20,5 +22,5 @@ interface EditorControllerInterface
      *
      * @return void
      */
-    public function submitAction(ManagableInterface $project) : void;
+    public function submitAction(AcceptableInterface $project) : void;
 }
