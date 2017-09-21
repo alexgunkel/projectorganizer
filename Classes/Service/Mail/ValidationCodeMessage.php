@@ -61,10 +61,15 @@ class ValidationCodeMessage
 
     public function send() : bool
     {
-        $link = $this->uriBuilder
+        return $this->generateMessageBody($this->generateLink())
+            ->sendMessage();
+    }
+
+    private function generateLink()
+    {
+        return $this->uriBuilder
             ->reset()
             ->setCreateAbsoluteUri(true)
-            //->setTargetPageUid(3)
             ->uriFor(
                 'validateByValidationCode',
                 [
@@ -75,7 +80,10 @@ class ValidationCodeMessage
                 null,
                 'edit_projects'
             );
+    }
 
+    private function generateMessageBody(string $link) : ValidationCodeMessage
+    {
 
         $this->messageObject->setBody(
             'Uid: ' . $this->object->getUid() . "\n"
@@ -84,8 +92,12 @@ class ValidationCodeMessage
             . 'Link: ' . $link
         );
 
-        $this->messageObject->send();
+        return $this;
+    }
 
+    private function sendMessage() : bool
+    {
+        $this->messageObject->send();
         return $this->messageObject->isSent();
     }
 }

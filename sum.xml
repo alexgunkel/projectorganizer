@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metrics generated="2017-09-21T22:55:56" pdepend="2.5.0" ahh="0.69230769230769" andc="0.026315789473684" calls="140" ccn="116" ccn2="116" cloc="1848" clsa="1" clsc="33" eloc="1293" fanout="94" leafs="29" lloc="650" loc="3539" maxDIT="3" ncloc="1691" noc="34" nof="0" noi="13" nom="87" nop="20" roots="4">
+  <files>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/AccessValidation/AcceptanceManager.php" loc="69" cloc="11" eloc="45" lloc="22" ncloc="58"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/AccessValidation/AccessValidator.php" loc="40" cloc="22" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/AccessValidation/ConcatAccessValidator.php" loc="44" cloc="22" eloc="17" lloc="6" ncloc="22"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/DisplayController.php" loc="40" cloc="11" eloc="25" lloc="6" ncloc="29"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/EditorController.php" loc="102" cloc="45" eloc="46" lloc="27" ncloc="57"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/ManagerController.php" loc="138" cloc="55" eloc="65" lloc="28" ncloc="83"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/ValidatorController.php" loc="85" cloc="28" eloc="43" lloc="22" ncloc="57"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Institution.php" loc="36" cloc="22" eloc="10" lloc="6" ncloc="14"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Person.php" loc="44" cloc="22" eloc="18" lloc="14" ncloc="22"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Project.php" loc="111" cloc="27" eloc="74" lloc="57" ncloc="84"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Publication.php" loc="33" cloc="22" eloc="8" lloc="4" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Region.php" loc="33" cloc="22" eloc="8" lloc="4" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Researchprogram.php" loc="36" cloc="22" eloc="10" lloc="6" ncloc="14"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Status.php" loc="33" cloc="22" eloc="8" lloc="4" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Topic.php" loc="40" cloc="22" eloc="14" lloc="10" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Wskelement.php" loc="33" cloc="22" eloc="8" lloc="4" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Institution/Type.php" loc="33" cloc="22" eloc="8" lloc="4" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Publication/Type.php" loc="33" cloc="22" eloc="8" lloc="4" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/User/Manager.php" loc="25" cloc="6" eloc="14" lloc="6" ncloc="19"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/InstitutionRepository.php" loc="31" cloc="22" eloc="5" lloc="1" ncloc="9"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/PersonRepository.php" loc="37" cloc="22" eloc="9" lloc="2" ncloc="15"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/PublicationRepository.php" loc="33" cloc="22" eloc="6" lloc="1" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/RegionRepository.php" loc="33" cloc="22" eloc="6" lloc="1" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/StatusRepository.php" loc="33" cloc="22" eloc="6" lloc="1" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/TopicRepository.php" loc="61" cloc="32" eloc="22" lloc="10" ncloc="29"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/WskelementRepository.php" loc="33" cloc="22" eloc="6" lloc="1" ncloc="11"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/User/ManagerRepository.php" loc="36" cloc="11" eloc="18" lloc="8" ncloc="25"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Service/Mail/DeliveryAgent.php" loc="22" cloc="0" eloc="17" lloc="7" ncloc="22"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Service/Mail/ValidationCodeMessage.php" loc="103" cloc="21" eloc="63" lloc="26" ncloc="82"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Inject/AccessValidatorTrait.php" loc="35" cloc="27" eloc="6" lloc="2" ncloc="8"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Booleans/HiddenTrait.php" loc="48" cloc="30" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/AcceptedTrait.php" loc="77" cloc="28" eloc="36" lloc="20" ncloc="49"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/CrDateTrait.php" loc="43" cloc="25" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/EntryDateTrait.php" loc="53" cloc="30" eloc="18" lloc="8" ncloc="23"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/OverallVolumeTrait.php" loc="53" cloc="35" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/RuntimeTrait.php" loc="55" cloc="32" eloc="18" lloc="8" ncloc="23"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/TstampTrait.php" loc="43" cloc="25" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/VolumeTrait.php" loc="51" cloc="33" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/ContactPersonTrait.php" loc="62" cloc="37" eloc="19" lloc="9" ncloc="25"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/InstitutionsTrait.php" loc="63" cloc="37" eloc="20" lloc="10" ncloc="26"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/PersonsTrait.php" loc="63" cloc="37" eloc="20" lloc="10" ncloc="26"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/ProjectsTrait.php" loc="63" cloc="37" eloc="20" lloc="10" ncloc="26"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/PublicationsTrait.php" loc="63" cloc="37" eloc="20" lloc="10" ncloc="26"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/RegionTrait.php" loc="45" cloc="25" eloc="15" lloc="7" ncloc="20"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/ResearchprogramTrait.php" loc="56" cloc="31" eloc="19" lloc="9" ncloc="25"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/StatusTrait.php" loc="46" cloc="25" eloc="16" lloc="8" ncloc="21"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/TopicsTrait.php" loc="63" cloc="37" eloc="20" lloc="10" ncloc="26"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/WskelementTrait.php" loc="61" cloc="36" eloc="19" lloc="9" ncloc="25"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/DescriptionTrait.php" loc="51" cloc="33" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/LinkTrait.php" loc="53" cloc="35" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/SpecialistFieldTrait.php" loc="51" cloc="33" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/TitleTrait.php" loc="52" cloc="34" eloc="14" lloc="6" ncloc="18"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/PersonRepositoryTrait.php" loc="35" cloc="27" eloc="6" lloc="2" ncloc="8"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/ProjectRepositoryTrait.php" loc="47" cloc="32" eloc="11" lloc="5" ncloc="15"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/PublicationRepositoryTrait.php" loc="47" cloc="32" eloc="11" lloc="5" ncloc="15"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/RegionRepositoryTrait.php" loc="35" cloc="27" eloc="6" lloc="2" ncloc="8"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/StatusRepositoryTrait.php" loc="35" cloc="27" eloc="6" lloc="2" ncloc="8"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/TopicRepositoryTrait.php" loc="47" cloc="32" eloc="11" lloc="5" ncloc="15"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/WskelementRepositoryTrait.php" loc="35" cloc="27" eloc="6" lloc="2" ncloc="8"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/View/EmailView.php" loc="13" cloc="5" eloc="6" lloc="2" ncloc="8"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/View/ValidationLinkGenerator.php" loc="50" cloc="25" eloc="20" lloc="9" ncloc="25"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Test/Unit/AccessValidation/AbstractAccessValidatorTest.php" loc="92" cloc="40" eloc="41" lloc="18" ncloc="52"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Test/Unit/AccessValidation/ConcatAccessValidatorTest.php" loc="36" cloc="22" eloc="11" lloc="5" ncloc="14"/>
+    <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Test/Unit/ProjectTest.php" loc="78" cloc="33" eloc="41" lloc="17" ncloc="45"/>
+  </files>
+  <package name="AlexGunkel\ProjectOrganizer\AccessValidation" noc="3" noi="3" nom="24" nof="0" cr="0.28909090909091" rcr="0.15">
+    <class name="AcceptanceManager" fqname="AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager" start="13" end="69" loc="57" cloc="5" eloc="29" lloc="12" ncloc="52" dit="0" noam="0" nocc="0" noom="0" nom="7" cr="0.15" rcr="0.2775" ca="0" cbo="5" ce="5" impl="1" cis="7" csz="8" npm="7" vars="1" varsi="1" varsnp="0" wmc="7" wmci="7" wmcnp="7">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/AccessValidation/AcceptanceManager.php"/>
+      <method name="accept" start="22" end="29" ccn="1" ccn2="1" loc="8" cloc="0" eloc="7" lloc="2" ncloc="8" npath="1" hnt="11" hnd="17" hv="44.962091253754" hd="5.5" hl="0.18181818181818" he="247.29150189565" ht="13.73841677198" hb="0.013132624904871" hi="8.1749256825007" mi="69.857305877719"/>
+      <method name="setAccepted" start="31" end="38" ccn="1" ccn2="1" loc="8" cloc="0" eloc="4" lloc="2" ncloc="8" npath="1" hnt="8" hnd="10" hv="26.575424759099" hd="5.8333333333333" hl="0.17142857142857" he="155.02331109474" ht="8.6124061719302" hb="0.0096192988542301" hi="4.5557871015598" mi="76.757952883514"/>
+      <method name="getAccepted" start="40" end="43" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="11" hv="27.675452949098" hd="13.5" hl="0.074074074074074" he="373.61861481283" ht="20.756589711824" hb="0.017291436836621" hi="2.0500335517851" mi="79.360024870534"/>
+      <method name="isAccepted" start="45" end="48" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="8" hv="24" hd="9" hl="0.11111111111111" he="216" ht="12" hb="0.012" hi="2.6666666666667" mi="79.793333921501"/>
+      <method name="getAcceptedBy" start="50" end="53" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="7" hnd="8" hv="21" hd="7.5" hl="0.13333333333333" he="157.5" ht="8.75" hb="0.0097214814250369" hi="2.8" mi="80.199394296734"/>
+      <method name="setAcceptedBy" start="55" end="60" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="8" hnd="10" hv="26.575424759099" hd="5.8333333333333" hl="0.17142857142857" he="155.02331109474" ht="8.6124061719302" hb="0.0096192988542301" hi="4.5557871015598" mi="76.757952883514"/>
+      <method name="initializeAsNotYetAccepted" start="62" end="68" ccn="1" ccn2="1" loc="7" cloc="0" eloc="5" lloc="3" ncloc="7" npath="1" hnt="9" hnd="13" hv="33.30395746327" hd="4" hl="0.25" he="133.21582985308" ht="7.4008794362822" hb="0.0086945938896519" hi="8.3259893658175" mi="73.957654624973"/>
+    </class>
+    <class name="AccessValidator" fqname="AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidator" start="29" end="40" loc="12" cloc="0" eloc="6" lloc="2" ncloc="12" dit="0" noam="0" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.21375" ca="0" cbo="1" ce="1" impl="1" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/AccessValidation/AccessValidator.php"/>
+      <method name="generateValidationCode" start="31" end="34" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="9" hnd="10" hv="29.897352853986" hd="14" hl="0.071428571428571" he="418.56293995581" ht="23.253496664212" hb="0.018651736030804" hi="2.1355252038562" mi="79.125191356207"/>
+      <method name="validate" start="36" end="39" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="11" hnd="12" hv="39.434587507933" hd="12" hl="0.083333333333333" he="473.21505009519" ht="26.289725005288" hb="0.020241892351726" hi="3.2862156256611" mi="78.283237328948"/>
+    </class>
+    <class name="ConcatAccessValidator" fqname="AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator" start="29" end="43" loc="15" cloc="0" eloc="6" lloc="2" ncloc="15" dit="0" noam="0" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.21375" ca="1" cbo="1" ce="1" impl="1" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/AccessValidation/ConcatAccessValidator.php"/>
+      <method name="generateValidationCode" start="31" end="35" ccn="1" ccn2="1" loc="5" cloc="0" eloc="3" lloc="1" ncloc="5" npath="1" hnt="10" hnd="12" hv="35.849625007212" hd="10.5" hl="0.095238095238095" he="376.42106257572" ht="20.912281254207" hb="0.017377795792053" hi="3.4142500006868" mi="78.573069454669"/>
+      <method name="validate" start="37" end="42" ccn="1" ccn2="1" loc="6" cloc="0" eloc="3" lloc="1" ncloc="6" npath="1" hnt="9" hnd="9" hv="28.529325012981" hd="6" hl="0.16666666666667" he="171.17595007788" ht="9.5097750043269" hb="0.010276389970974" hi="4.7548875021635" mi="79.267620989406"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Controller" noc="4" noi="0" nom="10" nof="0" cr="0.15" rcr="0.35329166666667">
+    <class name="DisplayController" fqname="AlexGunkel\ProjectOrganizer\Controller\DisplayController" start="11" end="40" loc="30" cloc="5" eloc="16" lloc="2" ncloc="25" dit="2" noam="2" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.181875" ca="0" cbo="2" ce="2" impl="0" cis="2" csz="3" npm="2" vars="1" varsi="1" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/DisplayController.php"/>
+      <method name="listAction" start="21" end="29" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="1" ncloc="9" npath="1" hnt="13" hnd="16" hv="52" hd="8.8" hl="0.11363636363636" he="457.6" ht="25.422222222222" hb="0.019794115001517" hi="5.9090909090909" mi="68.150046601265"/>
+      <method name="detailAction" start="31" end="39" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="1" ncloc="9" npath="1" hnt="11" hnd="13" hv="40.704836899552" hd="4.8" hl="0.20833333333333" he="195.38321711785" ht="10.854623173214" hb="0.011223722387817" hi="8.4801743540733" mi="68.894761987439"/>
+    </class>
+    <class name="EditorController" fqname="AlexGunkel\ProjectOrganizer\Controller\EditorController" start="38" end="102" loc="65" cloc="23" eloc="21" lloc="11" ncloc="42" dit="2" noam="2" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.309375" ca="0" cbo="7" ce="7" impl="1" cis="2" csz="4" npm="2" vars="2" varsi="2" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/EditorController.php"/>
+      <method name="createAction" start="64" end="71" ccn="1" ccn2="1" loc="8" cloc="0" eloc="7" lloc="1" ncloc="8" npath="1" hnt="9" hnd="11" hv="31.134884567736" hd="4.375" hl="0.22857142857143" he="136.21511998384" ht="7.5675066657691" hb="0.0088246120816467" hi="7.1165450440539" mi="70.974821874227"/>
+      <method name="submitAction" start="80" end="101" ccn="1" ccn2="1" loc="22" cloc="3" eloc="14" lloc="10" ncloc="19" npath="1" hnt="28" hnd="62" hv="166.71749669083" hd="3.9827586206897" hl="0.25108225108225" he="663.99554716521" ht="36.888641509178" hb="0.025370100633831" hi="41.859804363932" mi="59.305559879849"/>
+    </class>
+    <class name="ManagerController" fqname="AlexGunkel\ProjectOrganizer\Controller\ManagerController" start="32" end="136" loc="105" cloc="33" eloc="46" lloc="16" ncloc="72" dit="2" noam="4" nocc="0" noom="0" nom="4" cr="0.15" rcr="0.309375" ca="0" cbo="7" ce="7" impl="1" cis="4" csz="7" npm="4" vars="3" varsi="3" varsnp="0" wmc="6" wmci="6" wmcnp="6">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/ManagerController.php"/>
+      <method name="listOpenRequestsAction" start="62" end="68" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="1" ncloc="7" npath="1" hnt="8" hnd="9" hv="25.359400011539" hd="5" hl="0.2" he="126.79700005769" ht="7.0442777809829" hb="0.0084130098545288" hi="5.0718800023077" mi="73.059134124109"/>
+      <method name="detailAction" start="75" end="86" ccn="1" ccn2="1" loc="12" cloc="1" eloc="9" lloc="2" ncloc="11" npath="1" hnt="11" hnd="16" hv="44" hd="3.8571428571429" hl="0.25925925925926" he="169.71428571429" ht="9.4285714285714" hb="0.010217806619383" hi="11.407407407407" mi="67.542208041391"/>
+      <method name="validateAction" start="94" end="118" ccn="2" ccn2="2" loc="25" cloc="1" eloc="19" lloc="6" ncloc="24" npath="2" hnt="21" hnd="37" hv="109.39852067821" hd="5.90625" hl="0.16931216931217" he="646.13501275567" ht="35.896389597537" hb="0.02491308991354" hi="18.52250085557" mi="57.559124108278"/>
+      <method name="validateByValidationCodeAction" start="120" end="135" ccn="2" ccn2="2" loc="16" cloc="0" eloc="12" lloc="7" ncloc="16" npath="2" hnt="24" hnd="48" hv="134.03910001731" hd="7" hl="0.14285714285714" he="938.27370012115" ht="52.126316673397" hb="0.031947124488399" hi="19.148442859615" mi="61.294870304627"/>
+    </class>
+    <class name="ValidatorController" fqname="AlexGunkel\ProjectOrganizer\Controller\ValidatorController" start="16" end="85" loc="70" cloc="22" eloc="29" lloc="13" ncloc="48" dit="2" noam="2" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.181875" ca="0" cbo="6" ce="6" impl="0" cis="2" csz="5" npm="2" vars="3" varsi="3" varsnp="0" wmc="4" wmci="4" wmcnp="4">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Controller/ValidatorController.php"/>
+      <method name="validateAction" start="46" end="67" ccn="2" ccn2="2" loc="22" cloc="1" eloc="17" lloc="6" ncloc="21" npath="2" hnt="21" hnd="37" hv="109.39852067821" hd="5.90625" hl="0.16931216931217" he="646.13501275567" ht="35.896389597537" hb="0.02491308991354" hi="18.52250085557" mi="58.612840651427"/>
+      <method name="validateByValidationCodeAction" start="69" end="84" ccn="2" ccn2="2" loc="16" cloc="0" eloc="12" lloc="7" ncloc="16" npath="2" hnt="23" hnd="44" hv="125.56692722866" hd="6.5789473684211" hl="0.152" he="826.0982054517" ht="45.894344747316" hb="0.029347190494963" hi="19.086172938756" mi="61.493421045397"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Domain\Model" noc="9" noi="0" nom="5" nof="0" cr="0.15" rcr="0.44556818181818">
+    <class name="Institution" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Institution" start="32" end="36" loc="5" cloc="0" eloc="0" lloc="0" ncloc="5" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="2" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Institution.php"/>
+    </class>
+    <class name="Person" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Person" start="36" end="44" loc="9" cloc="0" eloc="0" lloc="0" ncloc="9" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="2" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Person.php"/>
+    </class>
+    <class name="Project" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Project" start="51" end="109" loc="59" cloc="5" eloc="19" lloc="9" ncloc="54" dit="2" noam="5" nocc="0" noom="0" nom="5" cr="0.15" rcr="0.41659090909091" ca="2" cbo="1" ce="1" impl="2" cis="5" csz="7" npm="5" vars="2" varsi="2" varsnp="0" wmc="5" wmci="5" wmcnp="5">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Project.php"/>
+      <method name="getAccepted" start="81" end="84" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+      <method name="setAccepted" start="86" end="89" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getAcceptingManagerUid" start="91" end="94" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+      <method name="setAcceptingManagerUid" start="96" end="99" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="__construct" start="101" end="108" ccn="1" ccn2="1" loc="8" cloc="0" eloc="7" lloc="5" ncloc="8" npath="1" hnt="10" hnd="27" hv="47.548875021635" hd="3.4" hl="0.29411764705882" he="161.66617507356" ht="8.9814541707532" hb="0.0098921688512318" hi="13.984963241657" mi="69.687200766099"/>
+    </class>
+    <class name="Publication" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Publication" start="30" end="33" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="2" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Publication.php"/>
+    </class>
+    <class name="Region" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Region" start="30" end="33" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="1" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Region.php"/>
+    </class>
+    <class name="Researchprogram" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Researchprogram" start="32" end="36" loc="5" cloc="0" eloc="0" lloc="0" ncloc="5" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="2" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Researchprogram.php"/>
+    </class>
+    <class name="Status" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Status" start="30" end="33" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="1" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Status.php"/>
+    </class>
+    <class name="Topic" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Topic" start="34" end="40" loc="7" cloc="0" eloc="0" lloc="0" ncloc="7" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="2" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Topic.php"/>
+    </class>
+    <class name="Wskelement" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement" start="30" end="33" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="2" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Wskelement.php"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Domain\Model\Institution" noc="1" noi="0" nom="0" nof="0" cr="0.15" rcr="0.16159090909091">
+    <class name="Type" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Institution\Type" start="30" end="33" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Institution/Type.php"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Domain\Model\Publication" noc="1" noi="0" nom="0" nof="0" cr="0.15" rcr="0.16159090909091">
+    <class name="Type" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\Publication\Type" start="30" end="33" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16159090909091" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/Publication/Type.php"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Domain\Model\User" noc="1" noi="0" nom="2" nof="0" cr="0.15" rcr="0.15">
+    <class name="Manager" fqname="AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager" start="12" end="25" loc="14" cloc="0" eloc="6" lloc="2" ncloc="14" dit="0" noam="0" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.15" ca="3" cbo="0" ce="0" impl="0" cis="2" csz="3" npm="2" vars="1" varsi="1" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Model/User/Manager.php"/>
+      <method name="__construct" start="16" end="19" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getUid" start="21" end="24" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Domain\Repository" noc="7" noi="0" nom="2" nof="0" cr="0.15" rcr="0.32495833333333">
+    <class name="InstitutionRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\InstitutionRepository" start="27" end="30" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16821428571429" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/InstitutionRepository.php"/>
+    </class>
+    <class name="PersonRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\PersonRepository" start="29" end="34" loc="6" cloc="0" eloc="0" lloc="0" ncloc="6" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.25905803571429" ca="0" cbo="0" ce="0" impl="2" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/PersonRepository.php"/>
+    </class>
+    <class name="PublicationRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\PublicationRepository" start="27" end="30" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16821428571429" ca="1" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/PublicationRepository.php"/>
+    </class>
+    <class name="RegionRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\RegionRepository" start="27" end="30" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16821428571429" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/RegionRepository.php"/>
+    </class>
+    <class name="StatusRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\StatusRepository" start="27" end="30" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16821428571429" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/StatusRepository.php"/>
+    </class>
+    <class name="TopicRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\TopicRepository" start="30" end="60" loc="31" cloc="10" eloc="11" lloc="5" ncloc="21" dit="2" noam="2" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.25905803571429" ca="1" cbo="1" ce="1" impl="2" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/TopicRepository.php"/>
+      <method name="findAccepted" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+      <method name="findOpenRequests" start="49" end="59" ccn="1" ccn2="1" loc="11" cloc="0" eloc="8" lloc="4" ncloc="11" npath="1" hnt="16" hnd="24" hv="73.359400011539" hd="5.8333333333333" hl="0.17142857142857" he="427.92983340064" ht="23.773879633369" hb="0.018928976049165" hi="12.575897144835" mi="67.103578741989"/>
+    </class>
+    <class name="WskelementRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\WskelementRepository" start="27" end="30" loc="4" cloc="0" eloc="0" lloc="0" ncloc="4" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.16821428571429" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/WskelementRepository.php"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Domain\Repository\User" noc="1" noi="0" nom="2" nof="0" cr="0.15" rcr="0.15">
+    <class name="ManagerRepository" fqname="AlexGunkel\ProjectOrganizer\Domain\Repository\User\ManagerRepository" start="15" end="36" loc="22" cloc="5" eloc="9" lloc="3" ncloc="17" dit="0" noam="0" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.15" ca="1" cbo="2" ce="2" impl="0" cis="1" csz="2" npm="1" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="1">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Domain/Repository/User/ManagerRepository.php"/>
+      <method name="getActiveManager" start="17" end="22" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="1" ncloc="6" npath="1" hnt="9" hnd="10" hv="29.897352853986" hd="7" hl="0.14285714285714" he="209.2814699779" ht="11.626748332106" hb="0.011749857421146" hi="4.2710504077123" mi="74.285790710003"/>
+      <method name="getBackendUser" start="30" end="35" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="6" hnd="8" hv="18" hd="7.5" hl="0.13333333333333" he="135" ht="7.5" hb="0.0087720532146386" hi="2.4" mi="77.942747490525"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Service\Mail" noc="2" noi="2" nom="15" nof="0" cr="0.15" rcr="0.15">
+    <class name="DeliveryAgent" fqname="AlexGunkel\ProjectOrganizer\Service\Mail\DeliveryAgent" start="5" end="22" loc="18" cloc="0" eloc="8" lloc="3" ncloc="18" dit="0" noam="0" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.2775" ca="0" cbo="1" ce="1" impl="1" cis="2" csz="3" npm="2" vars="1" varsi="1" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Service/Mail/DeliveryAgent.php"/>
+      <method name="addRecipient" start="10" end="15" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="9" hnd="10" hv="29.897352853986" hd="7" hl="0.14285714285714" he="209.2814699779" ht="11.626748332106" hb="0.011749857421146" hi="4.2710504077123" mi="76.399782248769"/>
+      <method name="sendMessage" start="17" end="21" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="1" ncloc="5" npath="1" hnt="7" hnd="8" hv="21" hd="7.5" hl="0.13333333333333" he="157.5" ht="8.75" hb="0.0097214814250369" hi="2.8" mi="77.473985189296"/>
+    </class>
+    <class name="ValidationCodeMessage" fqname="AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessage" start="7" end="103" loc="97" cloc="21" eloc="44" lloc="12" ncloc="76" dit="0" noam="0" nocc="0" noom="0" nom="7" cr="0.15" rcr="0.2775" ca="0" cbo="5" ce="5" impl="1" cis="4" csz="12" npm="4" vars="5" varsi="5" varsnp="0" wmc="7" wmci="7" wmcnp="4">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Service/Mail/ValidationCodeMessage.php"/>
+      <method name="setObject" start="41" end="46" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="8" hnd="9" hv="25.359400011539" hd="5" hl="0.2" he="126.79700005769" ht="7.0442777809829" hb="0.0084130098545288" hi="5.0718800023077" mi="76.900382516713"/>
+      <method name="setUriBuilder" start="48" end="53" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="8" hnd="9" hv="25.359400011539" hd="5" hl="0.2" he="126.79700005769" ht="7.0442777809829" hb="0.0084130098545288" hi="5.0718800023077" mi="76.900382516713"/>
+      <method name="setTo" start="55" end="60" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="8" hnd="9" hv="25.359400011539" hd="5" hl="0.2" he="126.79700005769" ht="7.0442777809829" hb="0.0084130098545288" hi="5.0718800023077" mi="76.900382516713"/>
+      <method name="send" start="62" end="66" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="1" ncloc="5" npath="1" hnt="7" hnd="9" hv="22.189475010096" hd="8.75" hl="0.11428571428571" he="194.15790633834" ht="10.78655035213" hb="0.011176748163238" hi="2.5359400011538" mi="77.306442891946"/>
+      <method name="generateLink" start="68" end="83" ccn="1" ccn2="1" loc="16" cloc="0" eloc="15" lloc="1" ncloc="16" npath="1" hnt="20" hnd="30" hv="98.13781191217" hd="7.7727272727273" hl="0.12865497076023" he="762.79844713551" ht="42.377691507528" hb="0.027828210434041" hi="12.625917322034" mi="60.263420187714"/>
+      <method name="generateMessageBody" start="85" end="96" ccn="1" ccn2="1" loc="12" cloc="0" eloc="9" lloc="2" ncloc="12" npath="1" hnt="18" hnd="33" hv="90.799094148452" hd="4.0714285714286" hl="0.24561403508772" he="369.68202617584" ht="20.537890343102" hb="0.017169763079351" hi="22.301531896111" mi="65.339172771471"/>
+      <method name="sendMessage" start="98" end="102" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="7" hnd="9" hv="22.189475010096" hd="8.75" hl="0.11428571428571" he="194.15790633834" ht="10.78655035213" hb="0.011176748163238" hi="2.5359400011538" mi="77.306442891946"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Traits\Inject" noc="0" noi="0" nom="0" nof="0">
+    <trait name="AccessValidatorTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Inject\AccessValidatorTrait" start="27" end="35" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Inject/AccessValidatorTrait.php"/>
+    </trait>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans" noc="0" noi="0" nom="0" nof="0">
+    <trait name="HiddenTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\HiddenTrait" start="27" end="48" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Booleans/HiddenTrait.php"/>
+      <method name="setHidden" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="isHidden" start="44" end="47" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers" noc="0" noi="0" nom="0" nof="0">
+    <trait name="AcceptedTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\AcceptedTrait" start="29" end="77" ca="0" cbo="1" ce="1" impl="0" cis="6" csz="6" npm="6" vars="0" varsi="0" varsnp="0" wmc="6" wmci="6" wmcnp="6">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/AcceptedTrait.php"/>
+      <method name="setAccepted" start="41" end="46" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="8" hnd="9" hv="25.359400011539" hd="5" hl="0.2" he="126.79700005769" ht="7.0442777809829" hb="0.0084130098545288" hi="5.0718800023077" mi="76.900382516713"/>
+      <method name="getAccepted" start="48" end="51" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+      <method name="isAccepted" start="53" end="56" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="7" hnd="7" hv="19.651484454403" hd="6.25" hl="0.16" he="122.82177784002" ht="6.8234321022233" hb="0.0082362400950509" hi="3.1442375127045" mi="80.401219851729"/>
+      <method name="getAcceptedBy" start="58" end="61" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+      <method name="setAcceptedBy" start="63" end="68" ccn="1" ccn2="1" loc="6" cloc="0" eloc="4" lloc="2" ncloc="6" npath="1" hnt="8" hnd="9" hv="25.359400011539" hd="5" hl="0.2" he="126.79700005769" ht="7.0442777809829" hb="0.0084130098545288" hi="5.0718800023077" mi="76.900382516713"/>
+      <method name="initializeAsNotYetAccepted" start="70" end="76" ccn="1" ccn2="1" loc="7" cloc="0" eloc="5" lloc="3" ncloc="7" npath="1" hnt="9" hnd="13" hv="33.30395746327" hd="4" hl="0.25" he="133.21582985308" ht="7.4008794362822" hb="0.0086945938896519" hi="8.3259893658175" mi="73.957654624973"/>
+    </trait>
+    <trait name="CrDateTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\CrDateTrait" start="27" end="43" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/CrDateTrait.php"/>
+      <method name="setCrDate" start="34" end="37" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getCrDate" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="EntryDateTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\EntryDateTrait" start="27" end="53" ca="0" cbo="0" ce="0" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/EntryDateTrait.php"/>
+      <method name="setEntryDate" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getEntryDate" start="44" end="47" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+      <method name="getEntryDateAsString" start="49" end="52" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="9" hnd="10" hv="29.897352853986" hd="7" hl="0.14285714285714" he="209.2814699779" ht="11.626748332106" hb="0.011749857421146" hi="4.2710504077123" mi="79.125191356207"/>
+    </trait>
+    <trait name="OverallVolumeTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\OverallVolumeTrait" start="27" end="53" ca="0" cbo="1" ce="1" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/OverallVolumeTrait.php"/>
+      <method name="setOverallVolume" start="41" end="44" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getOverallVolume" start="49" end="52" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="RuntimeTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\RuntimeTrait" start="27" end="55" ca="0" cbo="0" ce="0" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/RuntimeTrait.php"/>
+      <method name="setRunTime" start="41" end="44" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getRuntime" start="46" end="49" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+      <method name="getRunTimeAsString" start="51" end="54" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="9" hnd="10" hv="29.897352853986" hd="7" hl="0.14285714285714" he="209.2814699779" ht="11.626748332106" hb="0.011749857421146" hi="4.2710504077123" mi="79.125191356207"/>
+    </trait>
+    <trait name="TstampTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\TstampTrait" start="27" end="43" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/TstampTrait.php"/>
+      <method name="setTstamp" start="34" end="37" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getTstamp" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="VolumeTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\VolumeTrait" start="27" end="51" ca="0" cbo="2" ce="2" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Integers/VolumeTrait.php"/>
+      <method name="setVolume" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getVolume" start="47" end="50" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects" noc="0" noi="0" nom="0" nof="0">
+    <trait name="ContactPersonTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\ContactPersonTrait" start="29" end="62" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/ContactPersonTrait.php"/>
+      <method name="addContactPerson" start="42" end="45" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="setContactPerson" start="50" end="53" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getContactPerson" start="58" end="61" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="InstitutionsTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\InstitutionsTrait" start="30" end="63" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/InstitutionsTrait.php"/>
+      <method name="addInstitution" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getInstitutions" start="51" end="54" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+      <method name="setInstitutions" start="59" end="62" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+    </trait>
+    <trait name="PersonsTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\PersonsTrait" start="30" end="63" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/PersonsTrait.php"/>
+      <method name="addPerson" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="setPersons" start="51" end="54" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getPersons" start="59" end="62" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+    </trait>
+    <trait name="ProjectsTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\ProjectsTrait" start="30" end="63" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/ProjectsTrait.php"/>
+      <method name="addProject" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="setProjects" start="51" end="54" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getProjects" start="59" end="62" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+    </trait>
+    <trait name="PublicationsTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\PublicationsTrait" start="30" end="63" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/PublicationsTrait.php"/>
+      <method name="addPublication" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="setPublications" start="51" end="54" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getPublications" start="59" end="62" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+    </trait>
+    <trait name="RegionTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\RegionTrait" start="29" end="45" ca="0" cbo="1" ce="1" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/RegionTrait.php"/>
+      <method name="setRegion" start="36" end="39" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getRegion" start="41" end="44" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+    </trait>
+    <trait name="ResearchprogramTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\ResearchprogramTrait" start="29" end="56" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/ResearchprogramTrait.php"/>
+      <method name="addResearchprogram" start="42" end="45" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="setResearchprograms" start="47" end="50" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getResearchprograms" start="52" end="55" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+    </trait>
+    <trait name="StatusTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\StatusTrait" start="30" end="46" ca="0" cbo="1" ce="1" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/StatusTrait.php"/>
+      <method name="setStatus" start="37" end="40" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getStatus" start="42" end="45" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="TopicsTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait" start="30" end="63" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/TopicsTrait.php"/>
+      <method name="addTopic" start="42" end="45" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="setTopics" start="51" end="54" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getTopics" start="59" end="62" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+    </trait>
+    <trait name="WskelementTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait" start="29" end="61" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="3" npm="3" vars="0" varsi="0" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Objects/WskelementTrait.php"/>
+      <method name="addWskelement" start="41" end="44" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="setWskelements" start="49" end="52" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getWskelements" start="57" end="60" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="12.5" hl="0.08" he="193.87218755409" ht="10.770677086338" hb="0.011165780490257" hi="1.2407820003462" mi="81.120955834208"/>
+    </trait>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Traits\Properties\Strings" noc="0" noi="0" nom="0" nof="0">
+    <trait name="DescriptionTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\DescriptionTrait" start="27" end="51" ca="0" cbo="1" ce="1" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/DescriptionTrait.php"/>
+      <method name="setDescription" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getDescription" start="47" end="50" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="LinkTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\LinkTrait" start="27" end="53" ca="0" cbo="1" ce="1" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/LinkTrait.php"/>
+      <method name="setLink" start="41" end="44" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getLink" start="49" end="52" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="SpecialistFieldTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\SpecialistFieldTrait" start="27" end="51" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/SpecialistFieldTrait.php"/>
+      <method name="setSpecialistField" start="39" end="42" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getSpecialistField" start="47" end="50" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+    <trait name="TitleTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait" start="27" end="52" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="2" vars="0" varsi="0" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Properties/Strings/TitleTrait.php"/>
+      <method name="setTitle" start="40" end="43" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="getTitle" start="48" end="51" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
+    </trait>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\Traits\Repository" noc="0" noi="0" nom="0" nof="0">
+    <trait name="PersonRepositoryTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Repository\PersonRepositoryTrait" start="27" end="35" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/PersonRepositoryTrait.php"/>
+    </trait>
+    <trait name="ProjectRepositoryTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Repository\ProjectRepositoryTrait" start="29" end="47" ca="0" cbo="1" ce="1" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/ProjectRepositoryTrait.php"/>
+      <method name="injectProjectRepository" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+    </trait>
+    <trait name="PublicationRepositoryTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Repository\PublicationRepositoryTrait" start="29" end="47" ca="0" cbo="1" ce="1" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/PublicationRepositoryTrait.php"/>
+      <method name="injectPublicationRepository" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+    </trait>
+    <trait name="RegionRepositoryTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Repository\RegionRepositoryTrait" start="27" end="35" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/RegionRepositoryTrait.php"/>
+    </trait>
+    <trait name="StatusRepositoryTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Repository\StatusRepositoryTrait" start="27" end="35" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/StatusRepositoryTrait.php"/>
+    </trait>
+    <trait name="TopicRepositoryTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait" start="29" end="47" ca="0" cbo="1" ce="1" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/TopicRepositoryTrait.php"/>
+      <method name="injectTopicRepository" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+    </trait>
+    <trait name="WskelementRepositoryTrait" fqname="AlexGunkel\ProjectOrganizer\Traits\Repository\WskelementRepositoryTrait" start="27" end="35" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/Traits/Repository/WskelementRepositoryTrait.php"/>
+    </trait>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizer\View" noc="2" noi="0" nom="2" nof="0" cr="0.15" rcr="0.21375">
+    <class name="EmailView" fqname="AlexGunkel\ProjectOrganizer\View\EmailView" start="5" end="13" loc="9" cloc="5" eloc="0" lloc="0" ncloc="4" dit="0" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.15" ca="0" cbo="1" ce="1" impl="0" cis="0" csz="1" npm="0" vars="1" varsi="1" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/View/EmailView.php"/>
+    </class>
+    <class name="ValidationLinkGenerator" fqname="AlexGunkel\ProjectOrganizer\View\ValidationLinkGenerator" start="31" end="50" loc="20" cloc="3" eloc="6" lloc="2" ncloc="17" dit="0" noam="0" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.2775" ca="0" cbo="2" ce="2" impl="1" cis="2" csz="3" npm="2" vars="1" varsi="1" varsnp="0" wmc="2" wmci="2" wmcnp="2">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Classes/View/ValidationLinkGenerator.php"/>
+      <method name="__construct" start="38" end="42" ccn="1" ccn2="1" loc="5" cloc="0" eloc="3" lloc="1" ncloc="5" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="generateLink" start="44" end="49" ccn="1" ccn2="1" loc="6" cloc="0" eloc="3" lloc="1" ncloc="6" npath="1" hnt="14" hnd="17" hv="57.224479777505" hd="5" hl="0.2" he="286.12239888752" ht="15.895688827085" hb="0.014473713897564" hi="11.444895955501" mi="77.15097993785"/>
+    </class>
+  </package>
+  <package name="AlexGunkel\ProjectOrganizerTest\AccessValidation" noc="2" noi="0" nom="4" nof="0" cr="0.15" rcr="0.21375">
+    <class name="AbstractAccessValidatorTest" fqname="AlexGunkel\ProjectOrganizerTest\AccessValidation\AbstractAccessValidatorTest" start="29" end="92" loc="64" cloc="18" eloc="30" lloc="11" ncloc="46" dit="2" noam="3" nocc="1" noom="0" nom="3" cr="0.2775" rcr="0.21375" ca="0" cbo="2" ce="2" impl="0" cis="3" csz="5" npm="3" vars="2" varsi="2" varsnp="0" wmc="3" wmci="3" wmcnp="3">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Test/Unit/AccessValidation/AbstractAccessValidatorTest.php"/>
+      <method name="testCodeDiffersWithUid" start="46" end="60" ccn="1" ccn2="1" loc="15" cloc="0" eloc="11" lloc="6" ncloc="15" npath="1" hnt="24" hnd="44" hv="131.0263588473" hd="6.5" hl="0.15384615384615" he="851.67133250742" ht="47.31507402819" hb="0.029949765843681" hi="20.157901361122" mi="62.322821228001"/>
+      <method name="testValidatorValidatesGeneratedCode" start="69" end="81" ccn="1" ccn2="1" loc="13" cloc="0" eloc="11" lloc="4" ncloc="13" npath="1" hnt="17" hnd="30" hv="83.417140125345" hd="3.4285714285714" hl="0.29166666666667" he="286.0016232869" ht="15.888979071494" hb="0.01446964059537" hi="24.329999203226" mi="63.695939644972"/>
+      <method name="uidDataProvider" start="83" end="91" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="1" ncloc="9" npath="1" hnt="13" hnd="25" hv="60.370130467071" hd="6.375" hl="0.15686274509804" he="384.85958172758" ht="21.381087873754" hb="0.017636549202163" hi="9.4698243869916" mi="67.696184715994"/>
+    </class>
+    <class name="ConcatAccessValidatorTest" fqname="AlexGunkel\ProjectOrganizerTest\AccessValidation\ConcatAccessValidatorTest" start="29" end="36" loc="8" cloc="0" eloc="4" lloc="2" ncloc="8" dit="3" noam="1" nocc="0" noom="0" nom="1" cr="0.15" rcr="0.3316875" ca="0" cbo="1" ce="1" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="2" varsnp="0" wmc="1" wmci="4" wmcnp="1">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Test/Unit/AccessValidation/ConcatAccessValidatorTest.php"/>
+      <method name="setUp" start="31" end="35" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="9" hnd="11" hv="31.134884567736" hd="8" hl="0.125" he="249.07907654189" ht="13.837726474549" hb="0.013195836014061" hi="3.891860570967" mi="76.276445128352"/>
+    </class>
+  </package>
+  <package name="Project" noc="1" noi="0" nom="4" nof="0" cr="0.15" rcr="0.21375">
+    <class name="ProjectTest" fqname="Project\ProjectTest" start="25" end="78" loc="54" cloc="11" eloc="34" lloc="13" ncloc="43" dit="2" noam="4" nocc="0" noom="0" nom="4" cr="0.15" rcr="0.21375" ca="0" cbo="7" ce="7" impl="0" cis="4" csz="4" npm="4" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
+      <file name="/srv/web/hypos/typo3conf/ext/project_organizer/Test/Unit/ProjectTest.php"/>
+      <method name="anInstanceOfProjectCanBeConstructed" start="30" end="38" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="3" ncloc="9" npath="1" hnt="17" hnd="27" hv="80.833087536779" hd="5.0909090909091" hl="0.19642857142857" he="411.51390018724" ht="22.861883343735" hb="0.018441733916832" hi="15.87792790901" mi="66.808560142683"/>
+      <method name="theTopicsAreInitializedAsEmptyObjectStorage" start="44" end="50" ccn="1" ccn2="1" loc="7" cloc="0" eloc="7" lloc="4" ncloc="7" npath="1" hnt="28" hnd="51" hv="158.8279095752" hd="5.2727272727273" hl="0.18965517241379" he="837.45625048743" ht="46.525347249302" hb="0.029615574665208" hi="30.122534574607" mi="66.019640290186"/>
+      <method name="topicsCanBeStored" start="56" end="66" ccn="1" ccn2="1" loc="11" cloc="0" eloc="10" lloc="5" ncloc="11" npath="1" hnt="29" hnd="52" hv="165.31275182609" hd="5.6739130434783" hl="0.17624521072797" he="937.97017883935" ht="52.109454379964" hb="0.031940234419938" hi="29.13558078161" mi="62.518922770464"/>
+      <method name="objectStorages" start="68" end="77" ccn="1" ccn2="1" loc="10" cloc="0" eloc="9" lloc="1" ncloc="10" npath="1" hnt="21" hnd="75" hv="130.80519250041" hd="5.25" hl="0.19047619047619" he="686.72726062717" ht="38.151514479287" hb="0.025945871950383" hi="24.915274761984" mi="64.229049320848"/>
+    </class>
+  </package>
+</metrics>
