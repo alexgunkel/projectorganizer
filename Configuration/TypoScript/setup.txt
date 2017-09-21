@@ -55,7 +55,7 @@ plugin.tx_projectorganizer_edit_projects.objects {
     AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface {
         className = AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
     }
-    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface {
+    AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface {
         className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
     }
 }

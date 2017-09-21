@@ -71,7 +71,9 @@ class ValidationCodeMessage
                     'validationCode' => $this->validator->generateValidationCode($this->object),
                     'projectUid' => (string) $this->object->getUid(),
                 ],
-                'Validator'
+                'Validator',
+                null,
+                'edit_projects'
             );
 
 

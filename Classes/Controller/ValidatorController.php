@@ -69,7 +69,7 @@ class ValidatorController
     public function validateByValidationCodeAction() : void
     {
         $code = $this->request->getArgument('validationCode');
-        $project = $this->repository->findByIdentifier(
+        $project = $this->repository->findByUid(
             $this->request->getArgument('projectUid')
         );
 
