@@ -25,6 +25,8 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
 use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface;
+use AlexGunkel\ProjectOrganizer\Domain\Model\User\DummyManager;
+use AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
@@ -70,13 +72,23 @@ class Project
     use CrDateTrait;
     use TstampTrait;
 
+    protected $deleted;
+    public function setDeleted(bool $deleted)
+    {
+        $this->deleted = $deleted;
+    }
+
     /**
      * timestamp of acceptance date, not accepted if zero
      *
      * @var int
      */
     protected $accepted = 0;
-    private $acceptedBy = 0;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager
+     */
+    protected $acceptedBy;
 
     public function getAccepted(): int
     {
@@ -86,6 +98,11 @@ class Project
     public function setAccepted(int $accepted)
     {
         $this->accepted = $accepted;
+    }
+
+    public function getAcceptedBy() : Manager
+    {
+        return $this->acceptedBy ?: new DummyManager();
     }
 
     public function getAcceptingManagerUid(): int

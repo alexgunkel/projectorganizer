@@ -9,6 +9,14 @@ config.tx_extbase {
                 }
             }
         }
+        AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager {
+            mapping {
+                tableName = be_users
+                columns {
+                    tstamp.mapOnProperty = tstamp
+                }
+            }
+        }
     }
 }
 

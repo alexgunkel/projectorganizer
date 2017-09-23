@@ -8,6 +8,8 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
+use AlexGunkel\ProjectOrganizer\Domain\Repository\TopicRepository;
+
 class DisplayController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
@@ -18,11 +20,28 @@ class DisplayController
      */
     private $entityRepository;
 
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\TopicRepository
+     *
+     * @inject
+     */
+    private $topicRepository;
+
     final public function listAction() : void
     {
         $this->view->assignMultiple(
             [
                 'entities' => $this->entityRepository->findAccepted(),
+                'pluginName' => $this->request->getPluginName()
+            ]
+        );
+    }
+
+    final public function listByTopicsAction(): void
+    {
+        $this->view->assignMultiple(
+            [
+                'entities' => $this->topicRepository->findAll(),
                 'pluginName' => $this->request->getPluginName()
             ]
         );

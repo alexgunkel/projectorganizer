@@ -65,6 +65,7 @@ class EditorController
     {
         $this->view
             ->assign('project', $project)
+            ->assign('pluginName', $this->request->getPluginName())
             ->assignMultiple(
                 $this->projectRepository->getPropertyOptions()
             );

@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Objects;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 trait ContactPersonTrait
@@ -55,7 +56,7 @@ trait ContactPersonTrait
     /**
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Person>
      */
-    public function getContactPerson()
+    public function getContactPerson(): ?Person
     {
         return $this->contactPerson;
     }

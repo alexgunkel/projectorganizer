@@ -39,7 +39,7 @@ trait StatusTrait
         $this->status = $status;
     }
 
-    public function getStatus() : Status
+    public function getStatus() : ?Status
     {
         return $this->status;
     }

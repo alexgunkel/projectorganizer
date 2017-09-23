@@ -67,7 +67,7 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_edit_p
     'Projects',
     '',
     array(
-        'Manager' => 'listOpenRequests, detail, validate',
+        'Manager' => 'listOpenRequests, detail, validate, refuse, delete',
     ),
     array(
         'access' => 'admin',

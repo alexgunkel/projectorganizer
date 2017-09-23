@@ -9,17 +9,29 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Model\User;
 
 
-class Manager
+use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
+
+class Manager extends AbstractDomainObject
 {
-    private $nBeUserUid;
+    protected $nBeUserUid = 0;
+
+    /**
+     * @var string
+     */
+    protected $username;
 
     public function __construct(int $uid)
     {
-        $this->nBeUserUid = $uid;
+        $this->nBeUserUid = $uid ?: 0;
     }
 
     public function getUid() : int
     {
         return $this->nBeUserUid;
+    }
+
+    public function getUsername() : string
+    {
+        return $this->username;
     }
 }

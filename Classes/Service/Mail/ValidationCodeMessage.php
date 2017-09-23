@@ -15,7 +15,7 @@ class ValidationCodeMessage
     private $messageObject;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
      *
      * @inject
      */

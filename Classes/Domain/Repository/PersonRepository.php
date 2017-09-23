@@ -24,12 +24,16 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
-use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
 class PersonRepository
     extends \TYPO3\CMS\Extbase\Persistence\Repository
-    implements ManagableRepository
 {
+    public function initializeObject() {
+        /** @var Typo3QuerySettings $querySettings */
+        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
+        $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
+    }
 
 }
 

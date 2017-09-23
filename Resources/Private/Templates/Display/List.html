@@ -16,7 +16,9 @@
                 </td>
                 <td>
                     <f:for each="{project.topics}" as="topic" >
-                        {topic.title}
+                        <f:link.action action="listByProperty" pluginName="{pluginName}">
+                            {topic.title}
+                        </f:link.action>
                     </f:for>
                 </td>
                 <td>{project.runtimeAsString}</td>

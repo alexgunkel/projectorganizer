@@ -16,4 +16,5 @@ interface ManagableRepository extends RepositoryInterface
 {
     public function findAccepted() : QueryResultInterface;
     public function findOpenRequests() : QueryResultInterface;
+    public function findDenied() : QueryResultInterface;
 }

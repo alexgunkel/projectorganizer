@@ -26,7 +26,7 @@ return array(
         'title' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_engagement',
         'label' => 'position',
         'tstamp' => 'tstamp',
-        'hideTable' => false,
+        'hideTable' => true,
         'rootLevel' => false,
         'default_sortby' => 'ORDER BY title ASC',
         'security' => [
@@ -50,7 +50,7 @@ return array(
                         0
                     ]
                 ],
-                'foreign_table' => 'tx_projectorganizer_domain_model_institution_person',
+                'foreign_table' => 'tx_projectorganizer_domain_model_person',
             ],
         ],
         'institution' => [
@@ -65,7 +65,7 @@ return array(
                         0
                     ]
                 ],
-                'foreign_table' => 'tx_projectorganizer_domain_model_institution_institution',
+                'foreign_table' => 'tx_projectorganizer_domain_model_institution',
             ],
         ],
         'position' => [

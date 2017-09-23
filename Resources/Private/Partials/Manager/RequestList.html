@@ -1,0 +1,51 @@
+{namespace core = TYPO3\CMS\Core\ViewHelpers}
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Titel</td>
+                <td>Themenfeld</td>
+                <td>Laufzeit bis</td>
+                <td>zuletzt geändert</td>
+                <td>geändert von</td>
+                <td>Accept</td>
+                <td>Deny</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <f:for each="{projects}" as="project">
+                <tr>
+                    <td>
+                        <f:link.action action="detail" arguments="{project: project}" >
+                            {project.title}
+                        </f:link.action>
+                    </td>
+                    <td>
+                        <f:for each="{project.topics}" as="topic" >
+                            {topic.title}
+                        </f:for>
+                    </td>
+                    <td>{project.runtimeAsString}</td>
+                    <td>{project.accepted}</td>
+                    <td>{project.acceptedBy}</td>
+                    <td>
+                        <f:link.action action="validate" class="t3-link"  arguments="{project: project.uid}">
+                            <core:icon identifier="actions-check" size="small" />
+                        </f:link.action>
+                    </td>
+                    <td>
+                        <f:link.action action="refuse" class="t3-link"  arguments="{project: project.uid}">
+                            <core:icon identifier="actions-edit-undo" size="small" />
+                        </f:link.action>
+                    </td>
+                    <td>
+                        <f:link.action action="delete" class="t3-link"  arguments="{project: project.uid}">
+                            <core:icon identifier="actions-delete" size="small" />
+                        </f:link.action>
+                    </td>
+                </tr>
+            </f:for>
+        </tbody>
+    </table>
+</div>

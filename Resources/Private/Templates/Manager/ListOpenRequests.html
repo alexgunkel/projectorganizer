@@ -1,39 +1,46 @@
-<div xmlns:f="http://www.w3.org/1999/html" >
-    <h1>Test</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <td>Titel</td>
-                <td>Themenfeld</td>
-                <td>Laufzeit bis</td>
-                <td>Status</td>
-                <td>Region</td>
-                <td>Accept</td>
-            </tr>
-        </thead>
-        <tbody>
-            <f:for each="{projects}" as="project">
-                <tr>
-                    <td>
-                        <f:link.action action="detail" arguments="{project: project}" >
-                            {project.title}
-                        </f:link.action>
-                    </td>
-                    <td>
-                        <f:for each="{project.topics}" as="topic" >
-                            {topic.title}
-                        </f:for>
-                    </td>
-                    <td>{project.runtimeAsString}</td>
-                    <td>{project.status.title}</td>
-                    <td>{project.region.title}</td>
-                    <td>
-                        <f:link.action action="validate" class="t3-link"  arguments="{project: project.uid}">
-                            <span class="t3-icon t3-icon-actions-edit t3-icon-edit-add">Accept</span>
-                        </f:link.action>
-                    </td>
-                </tr>
-            </f:for>
-        </tbody>
-    </table>
-</div>
+<f:layout name="Default" />
+
+<f:section name="content">
+    <div role="tabpanel">
+        <ul class="nav nav-tabs t3js-tabs" role="tablist" id="tabs-tab" data-store-last-tab="1">
+            <li role="presentation" class="t3js-tabmenu-item  active">
+                <a href="#tab-1" title="" aria-controls="tab-1" role="tab" data-toggle="tab">
+                    Open Requests
+                </a>
+            </li>
+            <li role="presentation" class="t3js-tabmenu-item ">
+                <a href="#tab-2" title="" aria-controls="tab-2" role="tab" data-toggle="tab">
+                    Accepted
+                </a>
+            </li>
+            <li role="presentation" class="t3js-tabmenu-item ">
+                <a href="#tab-3" title="" aria-controls="tab-3" role="tab" data-toggle="tab">
+                    Denied
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab-1">
+                <div class="panel panel-tab">
+                    <div class="panel-body">
+                        <f:render partial="Manager/RequestList" arguments="{projects:open}" />
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab-2">
+                <div class="panel panel-tab">
+                    <div class="panel-body">
+                        <f:render partial="Manager/RequestList" arguments="{projects:accepted}" />
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab-3">
+                <div class="panel panel-tab">
+                    <div class="panel-body">
+                        <f:render partial="Manager/RequestList" arguments="{projects:denied}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:section>

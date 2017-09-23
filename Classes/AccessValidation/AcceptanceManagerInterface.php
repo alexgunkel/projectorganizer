@@ -13,28 +13,8 @@ use AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager;
 
 interface AcceptanceManagerInterface
 {
-    public function accept(AcceptableInterface $acceptable);
-    public function setAccepted(
-        AcceptableInterface $acceptable,
-        \DateTimeInterface $acceptanceDate
-    ) : AcceptanceManagerInterface;
-
-    public function getAccepted(
-        AcceptableInterface $acceptable
-    ) : \DateTimeInterface;
-
-    public function isAccepted(
-        AcceptableInterface $acceptable
-    ) : bool;
-
-    public function getAcceptedBy(
-        AcceptableInterface $acceptable
-    ) : Manager;
-
-    public function setAcceptedBy(
-        AcceptableInterface $acceptable,
-        Manager $accepter
-    ) : AcceptanceManagerInterface;
+    public function accept(AcceptableInterface $acceptable) : AcceptanceManagerInterface;
+    public function refuse(AcceptableInterface $acceptable) : AcceptanceManagerInterface;
 
     public function initializeAsNotYetAccepted(
         AcceptableInterface $acceptable

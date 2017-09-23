@@ -24,17 +24,55 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
-
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\InstitutionsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\PersonsTrait;
-use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\ProjectsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class Topic extends AbstractDomainObject
 {
     use TitleTrait;
     use InstitutionsTrait;
-    use ProjectsTrait;
     use PersonsTrait;
+
+    /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Project>
+     * @lazy
+     */
+    protected $projects;
+
+    /**
+     * @param \AlexGunkel\ProjectOrganizer\Domain\Model\Project $project
+     *
+     * @return void
+     */
+    public function addProject(Project $project)
+    {
+        $this->projects->attach($project);
+    }
+
+    /**
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Project>
+     */
+    public function setProjects(ObjectStorage $wsk)
+    {
+        $this->projects = $wsk;
+    }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Project>
+     */
+    public function getProjects() : ObjectStorage
+    {
+        $projects = clone $this->projects;
+        /** @var Project $project */
+        foreach ($projects as $project) {
+            if ($project->getAccepted() <= 0) {
+                $projects->offsetUnset($project);
+            }
+        }
+        return $projects;
+    }
 }

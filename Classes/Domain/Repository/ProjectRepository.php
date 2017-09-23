@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use AlexGunkel\ProjectOrganizer\Management\EditableRepositoryInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
@@ -39,6 +40,12 @@ class ProjectRepository
         'wskelements' => WskelementRepository::class,
     ];
 
+    public function initializeObject() {
+        /** @var Typo3QuerySettings $querySettings */
+        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
+        $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
+    }
+
     /**
      * Find all accepted projects
      *
@@ -47,7 +54,6 @@ class ProjectRepository
     public function findAccepted() : QueryResultInterface
     {
         $query = $this->createQuery();
-        $query->getQuerySettings()->setRespectStoragePage(false);
         $query->matching($query->greaterThan('accepted', 0));
         return $query->execute();
     }
@@ -60,10 +66,25 @@ class ProjectRepository
     public function findOpenRequests() : QueryResultInterface
     {
         $query = $this->createQuery();
-        $query->getQuerySettings()->setRespectStoragePage(false);
 
         $query->matching(
-            $query->equals('accepted', null)
+            $query->logicalOr(
+                [
+                    $query->equals('accepted', null),
+                    $query->equals('accepted', 0),
+                ]
+            )
+        );
+
+        return $query->execute();
+    }
+
+    public function findDenied() : QueryResultInterface
+    {
+        $query = $this->createQuery();
+
+        $query->matching(
+            $query->equals('accepted', -1)
         );
 
         return $query->execute();

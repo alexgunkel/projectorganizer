@@ -38,8 +38,8 @@ trait RegionTrait
         $this->region = $region;
     }
 
-    public function getRegion() : Region
+    public function getRegion() : ?Region
     {
-        return clone $this->region;
+        return $this->region;
     }
 }

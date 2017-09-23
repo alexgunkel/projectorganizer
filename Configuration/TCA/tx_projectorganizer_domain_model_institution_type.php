@@ -27,7 +27,7 @@ return array(
         'label' => 'title',
         'tstamp' => 'tstamp',
         'hideTable' => false,
-        'rootLevel' => true,
+        'rootLevel' => false,
         'default_sortby' => 'ORDER BY title ASC',
         'security' => [
             'ignoreWebMountRestriction' => true,

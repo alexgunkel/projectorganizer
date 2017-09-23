@@ -3,7 +3,7 @@
      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
     <h2>Neues Projekt</h2>
 
-    <f:form action="submit" controller="Editor" object="{project}" name="project">
+    <f:form action="submit" controller="Editor" pluginName="{pluginName}" object="{project}" name="project">
         <table>
             <tr>
                 <td>Name:</td>
@@ -26,7 +26,7 @@
             <tr>
                 <td>Topics:</td>
                 <td>
-                    <v:form.select property="topics" multiple="true" >
+                    <v:form.select property="topics" multiple="false" >
                         <f:for each="{topics}" as="topic" >
                             <v:form.select.option selected="false"
                                                   value="{topic.uid}" >
@@ -69,7 +69,7 @@
                 <td>WSK:</td>
                 <td>
                     <v:form.select property="wskelements"
-                                   multiple="true" >
+                                   multiple="false" >
                         <f:for each="{wskelements}" as="wsk" >
                             <v:form.select.option value="{wsk.uid}" >
                                 {wsk.title}

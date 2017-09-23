@@ -26,13 +26,37 @@ namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\Management\ManagerControllerInterface;
+use TYPO3\CMS\Backend\View\BackendTemplateView;
+use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ManagerController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     implements ManagerControllerInterface
 {
+
+    /**
+     * Backend Template Container.
+     * Takes care of outer "docheader" and other stuff this module is embedded in.
+     *
+     * @var string
+     */
+    protected $defaultViewObjectName = BackendTemplateView::class;
+
+    /**
+     * BackendTemplateContainer
+     *
+     * @var BackendTemplateView
+     */
+    protected $view;
+
+    /**
+     * @var \TYPO3\CMS\Core\Imaging\IconRegistry
+     *
+     * @inject
+     */
+    protected $iconRegistry;
+
     /**
      * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
      *
@@ -61,9 +85,12 @@ class ManagerController
      */
     public function listOpenRequestsAction() : void
     {
-        $this->view->assign(
-            'projects',
-            $this->repository->findOpenRequests()
+        $this->view->assignMultiple(
+            [
+                'open'     => $this->repository->findOpenRequests(),
+                'accepted' => $this->repository->findAccepted(),
+                'denied'   => $this->repository->findDenied(),
+            ]
         );
     }
 
@@ -93,17 +120,7 @@ class ManagerController
      */
     public function validateAction() : void
     {
-        if (!$this->request->hasArgument('project')) {
-            throw new RequiredArgumentMissingException(
-                'Argument \'project\' is required for this action',
-                1496009921
-            );
-        }
-
-        /** @var Project $project */
-        $project = $this->repository->findByUid(
-            $this->request->getArgument('project')
-        );
+        $project = $this->fetchProject();
 
         $this->acceptanceManager->accept(
             $project
@@ -111,10 +128,36 @@ class ManagerController
 
         $this->repository->update($project);
 
-        $this->view->assign(
-            'acceptedProject',
+        $this->redirect('listOpenRequests');
+    }
+
+    /**
+     * Accept a single project
+     *
+     * @return void
+     * @throws RequiredArgumentMissingException
+     */
+    public function refuseAction() : void
+    {
+        $project = $this->fetchProject();
+
+        $this->acceptanceManager->refuse(
             $project
         );
+
+        $this->repository->update($project);
+
+        $this->redirect('listOpenRequests');
+    }
+
+    public function deleteAction() : void
+    {
+        $project = $this->fetchProject();
+
+        $project->setDeleted(true);
+        $this->repository->update($project);
+
+        $this->redirect('listOpenRequests');
     }
 
     public function validateByValidationCodeAction() : void
@@ -132,6 +175,24 @@ class ManagerController
         $this->repository->update($project);
 
         $this->view->assign('project', $project);
+    }
+
+    /**
+     * @return Project
+     * @throws RequiredArgumentMissingException
+     */
+    private function fetchProject() : Project
+    {
+        if (!$this->request->hasArgument('project')) {
+            throw new RequiredArgumentMissingException(
+                'Argument \'project\' is required for this action',
+                1496009921
+            );
+        }
+
+        return $this->repository->findByUid(
+            $this->request->getArgument('project')
+        );
     }
 }
 ?>

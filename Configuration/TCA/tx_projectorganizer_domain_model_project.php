@@ -27,6 +27,7 @@ return array(
         'label' => 'title',
         'tstamp' => 'tstamp',
         'hideTable' => false,
+        'rootLevel' => false,
         'default_sortby' => 'ORDER BY title ASC',
         'security' => [
             'ignoreWebMountRestriction' => true,
@@ -101,7 +102,7 @@ return array(
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
                 'size' => 20,
-                'eval' => 'date',
+                'eval' => 'date,required',
             ],
         ],
         'volume' => [
@@ -109,7 +110,8 @@ return array(
             'config' => [
                 'type' => 'input',
                 'size' => 20,
-                'eval' => 'integer',
+                'default' => 0,
+                'eval' => 'trim,int',
             ],
         ],
         'overall_volume' => [
@@ -117,7 +119,7 @@ return array(
             'config' => [
                 'type' => 'input',
                 'size' => 20,
-                'eval' => 'integer',
+                'eval' => 'trim,int',
             ],
         ],
         'link' => [
