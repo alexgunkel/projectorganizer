@@ -24,6 +24,8 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use AlexGunkel\ProjectOrganizer\Management\EditableRepositoryInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
@@ -44,6 +46,12 @@ class ProjectRepository
         /** @var Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
         $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
+    }
+
+    public function addToStorage(Project $project, int $pageId): void
+    {
+        $project->setPid($pageId);
+        $this->add($project);
     }
 
     /**

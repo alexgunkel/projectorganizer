@@ -34,6 +34,8 @@ use AlexGunkel\ProjectOrganizer\Traits\Repository\StatusRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\WskelementRepositoryTrait;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class EditorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -81,7 +83,7 @@ class EditorController
     public function submitAction(AcceptableInterface $project) : void
     {
         $this->acceptanceManager->initializeAsNotYetAccepted($project);
-        $this->projectRepository->add($project);
+        $this->projectRepository->addToStorage($project, $this->settings['pages']);
         /** @var PersistenceManager $persistenceManager */
         $this->objectManager->get(PersistenceManager::class)->persistAll();
 
