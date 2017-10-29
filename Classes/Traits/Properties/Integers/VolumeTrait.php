@@ -38,7 +38,7 @@ trait VolumeTrait
      *
      * @return self
      */
-    public function setVolume(integer $volume)
+    public function setVolume(int $volume)
     {
         $this->volume = new Volume($volume);
     }

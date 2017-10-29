@@ -24,9 +24,10 @@
 
 namespace AlexGunkel\ProjectOrganizerTest\AccessValidation;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+use PHPUnit\Framework\TestCase;
 
-abstract class AbstractAccessValidatorTest extends \TYPO3\TestingFramework\Core\BaseTestCase
+abstract class AbstractAccessValidatorTest extends TestCase
 {
     /**
      * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
@@ -45,7 +46,7 @@ abstract class AbstractAccessValidatorTest extends \TYPO3\TestingFramework\Core\
      */
     public function testCodeDiffersWithUid(int $nUid, string $title)
     {
-        $validatableMock = $this->getMockForAbstractClass(\AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatableInterface::class);
+        $validatableMock = $this->getMockForAbstractClass(AccessValidatableInterface::class);
         $validatableMock->method('getTitle')->willReturn($title);
         $validatableMock->method('getUid')->willReturn($nUid);
 

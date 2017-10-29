@@ -25,13 +25,14 @@
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Integers;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\ManagableInterface;
+use AlexGunkel\ProjectOrganizer\Value\AcceptanceState;
 
 trait AcceptedTrait
 {
     /**
-     * @var int
+     * @var AcceptanceState
      */
-    protected $accepted = null;
+    protected $accepted;
 
     /**
      * @var int

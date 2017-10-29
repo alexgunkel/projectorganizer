@@ -22,7 +22,7 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-class ProjectTest extends \TYPO3\TestingFramework\Core\BaseTestCase
+class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
@@ -73,6 +73,37 @@ class ProjectTest extends \TYPO3\TestingFramework\Core\BaseTestCase
             array('publications', \AlexGunkel\ProjectOrganizer\Domain\Model\Publication::class),
             array('wskelements', \AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement::class),
             array('researchprograms', \AlexGunkel\ProjectOrganizer\Domain\Model\Researchprogram::class),
+        );
+    }
+
+    public function testVolumeSetGet()
+    {
+        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+        $project->setVolume(25);
+        self::assertInstanceOf(
+            \AlexGunkel\ProjectOrganizer\Value\Volume::class,
+            $project->getVolume()
+        );
+
+        self::assertEquals(
+            '25',
+            $project->getVolume()
+        );
+    }
+
+    public function testRuntimeSetGet()
+    {
+        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+        $project->setRunTime(125);
+
+        self::assertInstanceOf(
+            \AlexGunkel\ProjectOrganizer\Value\Runtime::class,
+            $project->getRuntime()
+        );
+
+        self::assertEquals(
+            '125',
+            $project->getRuntime()
         );
     }
 }
