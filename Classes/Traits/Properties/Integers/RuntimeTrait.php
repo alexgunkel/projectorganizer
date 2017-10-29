@@ -24,10 +24,12 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Integers;
 
+use AlexGunkel\ProjectOrganizer\Value\Runtime;
+
 trait RuntimeTrait
 {
     /**
-     * @var integer
+     * @var Runtime
      *
      * @validate NotEmpty
      */
@@ -40,16 +42,11 @@ trait RuntimeTrait
      */
     public function setRunTime(int $runtime)
     {
-        $this->runtime = $runtime;
+        $this->runtime = new Runtime($runtime);
     }
 
-    public function getRuntime()
+    public function getRuntime(): Runtime
     {
         return $this->runtime;
-    }
-
-    public function getRunTimeAsString()
-    {
-        return date('F Y', $this->getRuntime());
     }
 }
