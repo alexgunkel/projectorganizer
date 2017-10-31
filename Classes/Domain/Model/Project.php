@@ -27,6 +27,7 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface;
 use AlexGunkel\ProjectOrganizer\Domain\Model\User\DummyManager;
 use AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
@@ -75,41 +76,16 @@ class Project
     use CrDateTrait;
     use TstampTrait;
 
-    /**
-     * timestamp of acceptance date, not accepted if zero
-     *
-     * @var int
-     */
-    protected $accepted = 0;
-
-    /**
-     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager
-     */
-    protected $acceptedBy;
-
-    public function getAccepted(): int
+    private $validationState;
+    public function setValidationState(State $accepted): AcceptableInterface
     {
-        return $this->accepted;
+        $this->validationState = $accepted;
+
+        return $this;
     }
-
-    public function setAccepted(int $accepted)
+    public function getValidationState(): State
     {
-        $this->accepted = $accepted;
-    }
-
-    public function getAcceptedBy() : Manager
-    {
-        return $this->acceptedBy ?: new DummyManager;
-    }
-
-    public function getAcceptingManagerUid(): int
-    {
-        return $this->getAcceptedBy()->getUid();
-    }
-
-    public function setAcceptingManagerUid(int $managerUid)
-    {
-        $this->acceptedBy = new Manager($managerUid);
+        return $this->validationState;
     }
 
     public function __construct()

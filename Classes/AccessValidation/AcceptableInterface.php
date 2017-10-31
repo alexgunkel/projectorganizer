@@ -9,10 +9,10 @@
 namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
+
 interface AcceptableInterface
 {
-    public function setAccepted(int $accepted);
-    public function getAccepted() : int ;
-    public function setAcceptingManagerUid(int $managerUid);
-    public function getAcceptingManagerUid() : int ;
+    public function setValidationState(State $accepted): AcceptableInterface ;
+    public function getValidationState() : State ;
 }

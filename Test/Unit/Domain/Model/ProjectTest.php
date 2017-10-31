@@ -24,8 +24,11 @@
 
 namespace AlexGunkel\ProjectOrganizerTest;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
 use AlexGunkel\ProjectOrganizer\Value\Denomination;
 use AlexGunkel\ProjectOrganizer\Value\Description;
+use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
 
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
@@ -112,16 +115,6 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function testEmptyManager()
-    {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-
-        $this->assertInstanceOf(
-            \AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager::class,
-            $project->getAcceptedBy()
-        );
-    }
-
     public function testDescription()
     {
         $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
@@ -154,10 +147,14 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function testAccepting()
+    public function testValidationState()
     {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+        $project = new Project;
+        $project->setValidationState(new State(new ValidationStatus));
 
-        $project->setAcceptingManagerUid(12);
+        $this->assertEquals(
+            false,
+            $project->getValidationState()->isAccepted()
+        );
     }
 }
