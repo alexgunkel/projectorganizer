@@ -57,15 +57,6 @@ return array(
                 'type' => 'check',
             ],
         ],
-        'accepted' => [
-            'label' => 'Akzeptiert am:',
-            'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
-                'readOnly' => true,
-            ],
-        ],
         'tstamp' => [
             'label' => 'letzte Änderung',
             'config' => [
@@ -74,18 +65,22 @@ return array(
                 'eval' => 'date',
             ],
         ],
-        'accepted_by' => [
-            'label' => 'Akzeptiert von:',
+        'validationState' => [
+            'label' => 'Status der Validierung',
             'config' => [
-                'type' => 'select',
-                'foreign_table' => 'be_users',
-                'item' => ['waiting', 0],
-                'readOnly' => true,
+                'type' => 'none',
+                'size' => 1,
+                'maxitems' => 1,
+                'foreign_table' => 'tx_projectorganizer_domain_model_validation_state',
             ],
         ],
-        'salt' => [
+        'contact_person' => [
+            'label' => 'Kontaktperson',
             'config' => [
                 'type' => 'passthrough',
+                'size' => 1,
+                'maxitems' => 1,
+                'foreign_table' => 'tx_projectorganizer_domain_model_person',
             ],
         ],
         'description' => [

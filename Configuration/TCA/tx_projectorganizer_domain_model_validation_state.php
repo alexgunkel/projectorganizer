@@ -21,35 +21,33 @@
  * @license  GPL
  * @link     http://www.gnu.org/licenses/
  */
+return array(
+    'ctrl' => [
+        'title' => 'Validation state',
+        'label' => 'title',
+        'tstamp' => 'tstamp',
+        'hideTable' => true,
+        'rootLevel' => true,
+        'security' => [
+            'ignoreWebMountRestriction' => true,
+            'ignoreRootLevelRestriction' => true,
+        ],
+    ],
+    'interfaces' => array(),
+    'columns' => array(
+        'status' => [
+            'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_region.title',
+            'config' => [
+                'type' => 'integer',
+                'size' => 30,
+                'eval' => 'trim, required',
+            ],
+        ],
+    ),
+    'types' => [
+        '1' => ['showitem' => 'title'],
+    ],
+    'palettes' => array(),
+);
 
-namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Strings;
-
-use AlexGunkel\ProjectOrganizer\Value\Description;
-
-trait DescriptionTrait
-{
-    /**
-     * @var string
-     */
-    protected $description = '';
-
-    /**
-     * @param string $title
-     *
-     * @return self
-     */
-    public function setDescription(string $description): self
-    {
-        $this->description = (string) $description;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription() : string
-    {
-        return $this->description;
-    }
-}
+?>

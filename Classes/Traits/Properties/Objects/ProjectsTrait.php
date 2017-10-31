@@ -60,4 +60,19 @@ trait ProjectsTrait
     {
         return clone $this->projects;
     }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Project>
+     */
+    public function getPublicProjects() : ObjectStorage
+    {
+        $projects = clone $this->projects;
+        /** @var Project $project */
+        foreach ($projects as $project) {
+            if ($project->getValidationState()->getStatus()->isValidated() !== true) {
+                $projects->offsetUnset($project);
+            }
+        }
+        return $projects;
+    }
 }

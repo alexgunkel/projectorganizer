@@ -34,13 +34,13 @@ trait TitleTrait
     protected $title;
 
     /**
-     * @param Denomination $title
+     * @param string $title
      *
      * @return void
      */
-    public function setTitle(Denomination $title): self
+    public function setTitle(string $title): self
     {
-        $this->title = (string) $title;
+        $this->title = $title;
 
         return $this;
     }
@@ -48,8 +48,8 @@ trait TitleTrait
     /**
      * @return string
      */
-    public function getTitle(): Denomination
+    public function getTitle(): string
     {
-        return new Denomination($this->title);
+        return $this->title;
     }
 }

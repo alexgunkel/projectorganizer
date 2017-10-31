@@ -17,6 +17,14 @@ CREATE TABLE tx_projectorganizer_domain_model_status (
   PRIMARY KEY (uid)
 );
 
+CREATE TABLE tx_projectorganizer_domain_model_validation_state (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  status INT(11) NOT NULL DEFAULT '0',
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+
+  PRIMARY KEY (uid)
+);
+
 CREATE TABLE tx_projectorganizer_domain_model_topic (
   uid INT(11) NOT NULL AUTO_INCREMENT,
   pid INT(11) NOT NULL DEFAULT '0',
@@ -150,9 +158,7 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   link VARCHAR(255),
   runtime INT(11),
   place VARCHAR(255),
-  salt INT(11),
-  accepted INT(11),
-  accepted_by VARCHAR(11),
+  validationState INT(11),
 
   status VARCHAR(255),
   wsk_element VARCHAR(255),

@@ -29,9 +29,9 @@ use AlexGunkel\ProjectOrganizer\Value\Volume;
 trait OverallVolumeTrait
 {
     /**
-     * @var Volume
+     * @var int
      */
-    protected $overallVolume = 0;
+    protected $overallVolume;
 
     /**
      * @param integer $overallVolume

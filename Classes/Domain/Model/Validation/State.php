@@ -26,12 +26,8 @@ class State
     private $date;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager
-     */
-    protected $acceptedBy;
-
-    /**
      * State constructor.
+     *
      * @param ValidationStatus|null $status
      */
     public function __construct(ValidationStatus $status = null)

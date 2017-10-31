@@ -16,6 +16,11 @@ class AcceptanceDate
      */
     private $acceptanceDate;
 
+    /**
+     * AcceptanceDate constructor.
+     *
+     * @param int $acceptanceDate timestamp
+     */
     public function __construct(int $acceptanceDate)
     {
         $this->acceptanceDate = $acceptanceDate;

@@ -29,7 +29,7 @@ use AlexGunkel\ProjectOrganizer\Value\Volume;
 trait VolumeTrait
 {
     /**
-     * @var Volume
+     * @var int
      */
     protected $volume ;
 

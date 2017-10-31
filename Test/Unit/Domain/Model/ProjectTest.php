@@ -73,6 +73,21 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    public function testNewProjectisNotValidated()
+    {
+        $project = new Project;
+
+        $this->assertsame(
+            false,
+            $project->getValidationState()->getStatus()->isValidated()
+        );
+    }
+
+    /**
+     * A dataprovider for tehe object storages
+     *
+     * @return array
+     */
     public function objectStorages()
     {
         return array(

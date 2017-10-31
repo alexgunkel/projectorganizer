@@ -29,7 +29,8 @@ use AlexGunkel\ProjectOrganizer\Value\Runtime;
 trait RuntimeTrait
 {
     /**
-     * @var Runtime
+     * @real_var \AlexGunkel\ProjectOrganizer\Value\Runtime
+     * @var int
      *
      * @validate NotEmpty
      */

@@ -25,12 +25,9 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
 use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface;
-use AlexGunkel\ProjectOrganizer\Domain\Model\User\DummyManager;
-use AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
-use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\DeletedTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\HiddenTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\CrDateTrait;
@@ -49,6 +46,7 @@ use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\DescriptionTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\LinkTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
+use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -76,18 +74,14 @@ class Project
     use CrDateTrait;
     use TstampTrait;
 
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State
+     */
     private $validationState;
-    public function setValidationState(State $accepted): AcceptableInterface
-    {
-        $this->validationState = $accepted;
 
-        return $this;
-    }
-    public function getValidationState(): State
-    {
-        return $this->validationState;
-    }
-
+    /**
+     * Project constructor.
+     */
     public function __construct()
     {
         $this->setTopics(new ObjectStorage());
@@ -95,6 +89,27 @@ class Project
         $this->setPublications(new ObjectStorage());
         $this->setWskelements(new ObjectStorage());
         $this->setResearchprograms(new ObjectStorage());
+        $this->setValidationState(new State(new ValidationStatus(ValidationStatus::OPEN)));
+    }
+
+    /**
+     * @param State $accepted
+     *
+     * @return AcceptableInterface
+     */
+    public function setValidationState(State $accepted): AcceptableInterface
+    {
+        $this->validationState = $accepted;
+
+        return $this;
+    }
+
+    /**
+     * @return State
+     */
+    public function getValidationState(): State
+    {
+        return $this->validationState ?: new State(new ValidationStatus(ValidationStatus::OPEN));
     }
 }
 ?>

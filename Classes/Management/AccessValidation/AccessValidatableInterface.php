@@ -24,10 +24,8 @@
 
 namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
 
-use AlexGunkel\ProjectOrganizer\Value\Denomination;
-
 interface AccessValidatableInterface
 {
-    public function getTitle(): Denomination ;
+    public function getTitle(): string ;
     public function getUid();
 }

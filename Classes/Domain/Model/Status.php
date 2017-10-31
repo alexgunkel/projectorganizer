@@ -24,32 +24,10 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
-use AlexGunkel\ProjectOrganizer\Value\Denomination;
+use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 
 class Status extends AbstractDomainObject
 {
-    /**
-     * @var Denomination
-     */
-    private $denomination;
-
-    /**
-     * @return Denomination
-     */
-    public function getDenomination(): Denomination
-    {
-        return $this->denomination;
-    }
-
-    /**
-     * @param string $denomination
-     *
-     * @return Status
-     */
-    public function setDenomination(string $denomination): Status
-    {
-        $this->denomination = new Denomination($denomination);
-        return $this;
-    }
+    use TitleTrait;
 }
