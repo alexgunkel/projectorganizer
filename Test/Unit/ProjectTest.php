@@ -22,6 +22,11 @@
  * @link     http://www.gnu.org/licenses/
  */
 
+namespace AlexGunkel\ProjectOrganizerTest;
+
+use AlexGunkel\ProjectOrganizer\Value\Denomination;
+use AlexGunkel\ProjectOrganizer\Value\Description;
+
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
     /**
@@ -30,7 +35,7 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
     public function anInstanceOfProjectCanBeConstructed()
     {
         $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project();
-        $project->setTitle('name');
+        $project->setTitle(new Denomination('name'));
         $this->assertEquals(
             'name',
             $project->getTitle()
@@ -105,5 +110,54 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
             '125',
             $project->getRuntime()
         );
+    }
+
+    public function testEmptyManager()
+    {
+        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+
+        $this->assertInstanceOf(
+            \AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager::class,
+            $project->getAcceptedBy()
+        );
+    }
+
+    public function testDescription()
+    {
+        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+        $project->setDescription(new Description('test'));
+
+        $this->assertInstanceOf(
+            Description::class,
+            $project->getDescription()
+        );
+
+        $this->assertEquals(
+            'test',
+            $project->getDescription()
+        );
+    }
+
+    public function testTitleReceivesDemoninationObjects()
+    {
+        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+        $project->setTitle(new Denomination('test'));
+
+        $this->assertInstanceOf(
+            Denomination::class,
+            $project->getTitle()
+        );
+
+        $this->assertEquals(
+            'test',
+            $project->getTitle()
+        );
+    }
+
+    public function testAccepting()
+    {
+        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+
+        $project->setAcceptingManagerUid(12);
     }
 }

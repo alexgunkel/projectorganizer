@@ -24,29 +24,32 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Strings;
 
+use AlexGunkel\ProjectOrganizer\Value\Denomination;
+
 trait TitleTrait
 {
     /**
      * @var string
-     * @validate NotEmpty
      */
-    protected $title = '';
+    protected $title;
 
     /**
-     * @param string $title
+     * @param Denomination $title
      *
      * @return void
      */
-    public function setTitle(string $title)
+    public function setTitle(Denomination $title): self
     {
-        $this->title = $title;
+        $this->title = (string) $title;
+
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getTitle() : string
+    public function getTitle(): Denomination
     {
-        return $this->title;
+        return new Denomination($this->title);
     }
 }

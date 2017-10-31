@@ -24,6 +24,8 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Strings;
 
+use AlexGunkel\ProjectOrganizer\Value\Description;
+
 trait DescriptionTrait
 {
     /**
@@ -32,20 +34,22 @@ trait DescriptionTrait
     protected $description = '';
 
     /**
-     * @param string $title
+     * @param Description $title
      *
      * @return self
      */
-    public function setDescription(string $description)
+    public function setDescription(Description $description): self
     {
-        $this->description = $description;
+        $this->description = (string) $description;
+
+        return $this;
     }
 
     /**
-     * @return string
+     * @return Description
      */
-    public function getDescription() : string
+    public function getDescription() : Description
     {
-        return $this->description;
+        return new Description($this->description);
     }
 }

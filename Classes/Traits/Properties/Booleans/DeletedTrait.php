@@ -22,29 +22,27 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\View;
+namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\LinkGeneratorInterface;
-
-class ValidationLinkGenerator implements LinkGeneratorInterface
+trait DeletedTrait
 {
     /**
-     * @var AccessValidatorInterface
+     * @var bool
      */
-    private $validator;
+    protected $deleted;
 
-    public function __construct(
-        AccessValidatorInterface $validator
-    ) {
-        $this->validator = $validator;
+    /**
+     * @param bool $deleted
+     *
+     * @return void
+     */
+    public function setDeleted(bool $deleted)
+    {
+        $this->deleted = $deleted;
     }
 
-    public function generateLink(
-        AccessValidatableInterface $object,
-        int $targetPageUid
-    ) : string {
-        return $_SERVER['HTTP_HOST'] . '/index.php?id=' . $targetPageUid . '&code=' . $this->validator->generateValidationCode($object);
+    public function isDeleted() : bool
+    {
+        return $this->deleted;
     }
 }

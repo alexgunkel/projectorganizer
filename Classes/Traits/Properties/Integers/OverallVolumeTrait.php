@@ -24,12 +24,12 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Integers;
 
+use AlexGunkel\ProjectOrganizer\Value\Volume;
+
 trait OverallVolumeTrait
 {
     /**
-     * @var int
-     *
-     * @validate NotEmpty
+     * @var Volume
      */
     protected $overallVolume = 0;
 
@@ -40,13 +40,13 @@ trait OverallVolumeTrait
      */
     public function setOverallVolume(int $overallVolume)
     {
-        $this->overallVolume = $overallVolume;
+        $this->overallVolume = new Volume($overallVolume);
     }
 
     /**
-     * @return integer
+     * @return Volume
      */
-    public function getOverallVolume() : int
+    public function getOverallVolume() : Volume
     {
         return $this->overallVolume;
     }

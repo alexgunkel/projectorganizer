@@ -24,6 +24,8 @@
 
 namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
+
 interface LinkGeneratorInterface
 {
     public function __construct(AccessValidatorInterface $validator);

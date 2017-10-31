@@ -26,16 +26,38 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\InstitutionsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\PersonsTrait;
-use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
+use AlexGunkel\ProjectOrganizer\Value\Denomination;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class Topic extends AbstractDomainObject
 {
-    use TitleTrait;
     use InstitutionsTrait;
     use PersonsTrait;
+
+    /**
+     * @var Denomination
+     */
+    private $denomination;
+
+    /**
+     * @return Denomination
+     */
+    public function getDenomination(): Denomination
+    {
+        return $this->denomination;
+    }
+
+    /**
+     * @param string $denomination
+     *
+     * @return Topic
+     */
+    public function setDenomination(string $denomination): Topic
+    {
+        $this->denomination = new Denomination($denomination);
+        return $this;
+    }
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Project>

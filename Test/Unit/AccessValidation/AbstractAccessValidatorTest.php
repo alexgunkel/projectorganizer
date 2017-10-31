@@ -25,6 +25,7 @@
 namespace AlexGunkel\ProjectOrganizerTest\AccessValidation;
 
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Value\Denomination;
 use PHPUnit\Framework\TestCase;
 
 abstract class AbstractAccessValidatorTest extends TestCase
@@ -47,7 +48,7 @@ abstract class AbstractAccessValidatorTest extends TestCase
     public function testCodeDiffersWithUid(int $nUid, string $title)
     {
         $validatableMock = $this->getMockForAbstractClass(AccessValidatableInterface::class);
-        $validatableMock->method('getTitle')->willReturn($title);
+        $validatableMock->method('getTitle')->willReturn(new Denomination($title));
         $validatableMock->method('getUid')->willReturn($nUid);
 
         $code = $this->sut->generateValidationCode($validatableMock);
@@ -70,7 +71,7 @@ abstract class AbstractAccessValidatorTest extends TestCase
     public function testValidatorValidatesGeneratedCode(int $uid, string $title)
     {
         $validatableMock = $this->getMockForAbstractClass(AccessValidatableInterface::class);
-        $validatableMock->method('getTitle')->willReturn($title);
+        $validatableMock->method('getTitle')->willReturn(new Denomination($title));
         $validatableMock->method('getUid')->willReturn($uid);
 
         $this->assertTrue(

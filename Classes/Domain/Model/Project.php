@@ -30,6 +30,7 @@ use AlexGunkel\ProjectOrganizer\Domain\Model\User\Manager;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
+use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\DeletedTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\HiddenTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\CrDateTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\OverallVolumeTrait;
@@ -68,15 +69,11 @@ class Project
     use ResearchprogramTrait;
     use LinkTrait;
     use InstitutionsTrait;
+
     use HiddenTrait;
+    use DeletedTrait;
     use CrDateTrait;
     use TstampTrait;
-
-    protected $deleted;
-    public function setDeleted(bool $deleted)
-    {
-        $this->deleted = $deleted;
-    }
 
     /**
      * timestamp of acceptance date, not accepted if zero
@@ -102,17 +99,17 @@ class Project
 
     public function getAcceptedBy() : Manager
     {
-        return $this->acceptedBy ?: new DummyManager();
+        return $this->acceptedBy ?: new DummyManager;
     }
 
     public function getAcceptingManagerUid(): int
     {
-        return $this->acceptedBy;
+        return $this->getAcceptedBy()->getUid();
     }
 
     public function setAcceptingManagerUid(int $managerUid)
     {
-        $this->acceptedBy = $managerUid;
+        $this->acceptedBy = new Manager($managerUid);
     }
 
     public function __construct()
