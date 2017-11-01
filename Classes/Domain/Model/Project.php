@@ -25,7 +25,6 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\DeletedTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\HiddenTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\CrDateTrait;
@@ -50,7 +49,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Project
     extends AbstractDomainObject
-    implements AccessValidatableInterface
 {
     use TitleTrait;
     use DescriptionTrait;

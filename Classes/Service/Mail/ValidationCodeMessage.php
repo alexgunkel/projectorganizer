@@ -2,10 +2,10 @@
 
 namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Management\AccessValidation\Project;
+use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 
 class ValidationCodeMessage
-    implements ValidationCodeMessageInterface
 {
     /**
      * @var \TYPO3\CMS\Core\Mail\MailMessage
@@ -29,30 +29,25 @@ class ValidationCodeMessage
     private $contentObjectRenderer;
 
     /**
-     * @var AccessValidatableInterface
+     * @var Project
      */
     private $object;
 
     /**
      * @var \TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder
+     *
+     * @inject
      */
     private $uriBuilder;
 
-    public function setObject(AccessValidatableInterface $object) : ValidationCodeMessageInterface
+    public function setObject(Project $object) : ValidationCodeMessage
     {
         $this->object = $object;
 
         return $this;
     }
 
-    public function setUriBuilder(\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder $uriBuilder) : ValidationCodeMessageInterface
-    {
-        $this->uriBuilder = $uriBuilder;
-
-        return $this;
-    }
-
-    public function setTo(array $recipients): ValidationCodeMessageInterface
+    public function setTo(array $recipients): ValidationCodeMessage
     {
         $this->messageObject->setTo($recipients);
 
@@ -98,6 +93,7 @@ class ValidationCodeMessage
     private function sendMessage() : bool
     {
         $this->messageObject->send();
+
         return $this->messageObject->isSent();
     }
 }

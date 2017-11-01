@@ -10,7 +10,7 @@
 namespace AlexGunkel\ProjectOrganizerTest\View;
 
 use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\View\ValidationLinkGenerator;
 use PHPUnit\Framework\TestCase;
 
@@ -36,7 +36,7 @@ class ValidationLinkGeneratorTest extends TestCase
     {
         $validatorMock = $this->getMockForAbstractClass(AccessValidatorInterface::class);
         $validatorMock->method('generateValidationCode')->willReturn($code);
-        $object = $this->getMockForAbstractClass(AccessValidatableInterface::class);
+        $object = new Project;
         $generator = new ValidationLinkGenerator($validatorMock);
 
         $this->assertSame(

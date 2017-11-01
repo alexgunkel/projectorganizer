@@ -22,10 +22,15 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
+namespace AlexGunkel\ProjectOrganizerTest\AccessValidation;
 
-interface AccessValidatableInterface
+use AlexGunkel\ProjectOrganizer\AccessValidation\PasswordHashValidator;
+
+class PasswordHashValidatorTest extends AbstractAccessValidatorTest
 {
-    public function getTitle(): string ;
-    public function getUid();
+    public function setUp()
+    {
+        parent::setUp();
+        $this->sut = new PasswordHashValidator;
+    }
 }

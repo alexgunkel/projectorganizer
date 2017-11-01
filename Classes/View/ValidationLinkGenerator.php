@@ -25,10 +25,9 @@
 namespace AlexGunkel\ProjectOrganizer\View;
 
 use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\LinkGeneratorInterface;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 
-class ValidationLinkGenerator implements LinkGeneratorInterface
+class ValidationLinkGenerator
 {
     /**
      * @var AccessValidatorInterface
@@ -42,7 +41,7 @@ class ValidationLinkGenerator implements LinkGeneratorInterface
     }
 
     public function generateLink(
-        AccessValidatableInterface $object,
+        Project $object,
         int $targetPageUid
     ) : string {
         return $_SERVER['HTTP_HOST'] . '/index.php?id=' . $targetPageUid . '&code=' . $this->validator->generateValidationCode($object);

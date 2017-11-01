@@ -22,20 +22,15 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\AccessValidation;
+namespace AlexGunkel\ProjectOrganizerTest\AccessValidation;
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidator;
 
-use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-
-class AccessValidator implements AccessValidatorInterface
+class AccessValidatorTest extends AbstractAccessValidatorTest
 {
-    public function generateValidationCode(Project $accessValidatable): string
+    public function setUp()
     {
-        return $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
-    }
-
-    public function validate(Project $accessValidatable, string $validationCode): bool
-    {
-        return $validationCode === $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
+        parent::setUp();
+        $this->sut = new AccessValidator;
     }
 }

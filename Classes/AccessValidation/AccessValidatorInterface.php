@@ -24,10 +24,11 @@
 
 namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 
 interface AccessValidatorInterface
 {
-    public function generateValidationCode(AccessValidatableInterface $accessValidatable) : string;
-    public function validate(AccessValidatableInterface $accessValidatable, string $validationCode): bool;
+    public function generateValidationCode(Project $accessValidatable) : string;
+    public function validate(Project $accessValidatable, string $validationCode): bool;
 }

@@ -8,23 +8,22 @@
 
 namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
-
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 
 class PasswordHashValidator implements AccessValidatorInterface
 {
-    public function generateValidationCode(AccessValidatableInterface $accessValidatable): string
+    public function generateValidationCode(Project $accessValidatable): string
     {
         return password_hash(
-            $accessValidatable->getTitle()
-            . $accessValidatable->getUid()
+            $accessValidatable->getUid(),
+            PASSWORD_DEFAULT
         );
     }
 
-    public function validate(AccessValidatableInterface $accessValidatable, string $validationCode): bool
+    public function validate(Project $accessValidatable, string $validationCode): bool
     {
         return password_verify(
-            $this->generateValidationCode($accessValidatable),
+            $accessValidatable->getUid(),
             $validationCode
         );
     }

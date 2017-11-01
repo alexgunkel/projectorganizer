@@ -24,18 +24,19 @@
 
 namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
+
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 
 class ConcatAccessValidator implements AccessValidatorInterface
 {
     public function generateValidationCode(
-        AccessValidatableInterface $accessValidatable
+        Project $accessValidatable
     ): string {
         return md5($accessValidatable->getTitle() . (string) $accessValidatable->getUid());
     }
 
     public function validate(
-        AccessValidatableInterface $accessValidatable,
+        Project $accessValidatable,
         string $validationCode
     ): bool {
         return $validationCode === $this->generateValidationCode($accessValidatable);

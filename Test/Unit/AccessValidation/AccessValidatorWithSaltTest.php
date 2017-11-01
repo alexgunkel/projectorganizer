@@ -22,13 +22,15 @@
  * @link     http://www.gnu.org/licenses/
  */
 
-namespace AlexGunkel\ProjectOrganizer\Management\AccessValidation;
+namespace AlexGunkel\ProjectOrganizerTest\AccessValidation;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
+use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorWithSalt;
 
-interface LinkGeneratorInterface
+class AccessValidatorWithSaltTest extends AbstractAccessValidatorTest
 {
-    public function __construct(AccessValidatorInterface $validator);
-
-    public function generateLink(AccessValidatableInterface $object,int $targetPageUid) : string;
+    public function setUp()
+    {
+        parent::setUp();
+        $this->sut = new AccessValidatorWithSalt;
+    }
 }
