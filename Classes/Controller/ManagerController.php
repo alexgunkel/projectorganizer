@@ -24,15 +24,14 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-use AlexGunkel\ProjectOrganizer\Management\ManagerControllerInterface;
+use AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
-use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
 
 class ManagerController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
-    implements ManagerControllerInterface
 {
 
     /**
@@ -58,7 +57,7 @@ class ManagerController
     protected $iconRegistry;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
      *
      * @inject
      */
@@ -72,7 +71,7 @@ class ManagerController
     protected $accessValidator;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManagerInterface
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
      *
      * @inject
      */

@@ -24,11 +24,14 @@
 
 namespace AlexGunkel\ProjectOrganizerTest;
 
+
+use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
-use AlexGunkel\ProjectOrganizer\Value\Denomination;
-use AlexGunkel\ProjectOrganizer\Value\Description;
-use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Publication;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Researchprogram;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Topic;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class ProjectTest extends \PHPUnit\Framework\TestCase
 {
@@ -37,8 +40,8 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
      */
     public function anInstanceOfProjectCanBeConstructed()
     {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project();
-        $project->setTitle(new Denomination('name'));
+        $project = new Project;
+        $project->setTitle('name');
         $this->assertEquals(
             'name',
             $project->getTitle()
@@ -50,9 +53,9 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
      * @dataProvider objectStorages
      */
     public function theTopicsAreInitializedAsEmptyObjectStorage($property, $className) {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project();
+        $project = new Project;
         $methodName = 'get' . ucfirst($property);
-        $this->assertEquals(\TYPO3\CMS\Extbase\Persistence\ObjectStorage::class,
+        $this->assertEquals(ObjectStorage::class,
             get_class($project->$methodName()));
         $this->assertEquals(0, count($project->$methodName()));
     }
@@ -63,23 +66,13 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
      */
     public function topicsCanBeStored($property, $className)
     {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project();
+        $project = new Project;
         $addMethod = 'add' . ucfirst(substr($property, 0, -1));
         $getMethod = 'get' . ucfirst($property);
         $project->$addMethod(new $className);
         $this->assertEquals(
             1,
             count($project->$getMethod())
-        );
-    }
-
-    public function testNewProjectisNotValidated()
-    {
-        $project = new Project;
-
-        $this->assertsame(
-            false,
-            $project->getValidationState()->getStatus()->isValidated()
         );
     }
 
@@ -91,85 +84,11 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
     public function objectStorages()
     {
         return array(
-            array('topics', \AlexGunkel\ProjectOrganizer\Domain\Model\Topic::class),
-            array('institutions', \AlexGunkel\ProjectOrganizer\Domain\Model\Institution::class),
-            array('publications', \AlexGunkel\ProjectOrganizer\Domain\Model\Publication::class),
-            array('wskelements', \AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement::class),
-            array('researchprograms', \AlexGunkel\ProjectOrganizer\Domain\Model\Researchprogram::class),
-        );
-    }
-
-    public function testVolumeSetGet()
-    {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-        $project->setVolume(25);
-        self::assertInstanceOf(
-            \AlexGunkel\ProjectOrganizer\Value\Volume::class,
-            $project->getVolume()
-        );
-
-        self::assertEquals(
-            '25',
-            $project->getVolume()
-        );
-    }
-
-    public function testRuntimeSetGet()
-    {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-        $project->setRunTime(125);
-
-        self::assertInstanceOf(
-            \AlexGunkel\ProjectOrganizer\Value\Runtime::class,
-            $project->getRuntime()
-        );
-
-        self::assertEquals(
-            '125',
-            $project->getRuntime()
-        );
-    }
-
-    public function testDescription()
-    {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-        $project->setDescription(new Description('test'));
-
-        $this->assertInstanceOf(
-            Description::class,
-            $project->getDescription()
-        );
-
-        $this->assertEquals(
-            'test',
-            $project->getDescription()
-        );
-    }
-
-    public function testTitleReceivesDemoninationObjects()
-    {
-        $project = new \AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-        $project->setTitle(new Denomination('test'));
-
-        $this->assertInstanceOf(
-            Denomination::class,
-            $project->getTitle()
-        );
-
-        $this->assertEquals(
-            'test',
-            $project->getTitle()
-        );
-    }
-
-    public function testValidationState()
-    {
-        $project = new Project;
-        $project->setValidationState(new State(new ValidationStatus));
-
-        $this->assertEquals(
-            false,
-            $project->getValidationState()->isAccepted()
+            array('topics', Topic::class),
+            array('institutions', Institution::class),
+            array('publications', Publication::class),
+            array('wskelements', Wskelement::class),
+            array('researchprograms', Researchprogram::class),
         );
     }
 }

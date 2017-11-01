@@ -33,7 +33,6 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 class ProjectRepository
     extends \TYPO3\CMS\Extbase\Persistence\Repository
-    implements ManagableRepository, EditableRepositoryInterface
 {
     private const propertyRepositories = [
         'topics' => TopicRepository::class,

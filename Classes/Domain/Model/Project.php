@@ -24,9 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptableInterface;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface;
 use AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatableInterface;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\DeletedTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\HiddenTrait;
@@ -52,7 +50,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Project
     extends AbstractDomainObject
-    implements AccessValidatableInterface, AcceptableInterface
+    implements AccessValidatableInterface
 {
     use TitleTrait;
     use DescriptionTrait;
@@ -95,9 +93,9 @@ class Project
     /**
      * @param State $accepted
      *
-     * @return AcceptableInterface
+     * @return Project
      */
-    public function setValidationState(State $accepted): AcceptableInterface
+    public function setValidationState(State $accepted): Project
     {
         $this->validationState = $accepted;
 

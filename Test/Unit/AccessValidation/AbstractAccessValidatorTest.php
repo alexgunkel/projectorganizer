@@ -48,7 +48,7 @@ abstract class AbstractAccessValidatorTest extends TestCase
     public function testCodeDiffersWithUid(int $nUid, string $title)
     {
         $validatableMock = $this->getMockForAbstractClass(AccessValidatableInterface::class);
-        $validatableMock->method('getTitle')->willReturn(new Denomination($title));
+        $validatableMock->method('getTitle')->willReturn($title);
         $validatableMock->method('getUid')->willReturn($nUid);
 
         $code = $this->sut->generateValidationCode($validatableMock);
@@ -71,7 +71,7 @@ abstract class AbstractAccessValidatorTest extends TestCase
     public function testValidatorValidatesGeneratedCode(int $uid, string $title)
     {
         $validatableMock = $this->getMockForAbstractClass(AccessValidatableInterface::class);
-        $validatableMock->method('getTitle')->willReturn(new Denomination($title));
+        $validatableMock->method('getTitle')->willReturn($title);
         $validatableMock->method('getUid')->willReturn($uid);
 
         $this->assertTrue(

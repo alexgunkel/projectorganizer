@@ -8,17 +8,18 @@
 
 namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
 use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
 
-class AcceptanceManager implements AcceptanceManagerInterface
+class AcceptanceManager
 {
     /**
-     * @param AcceptableInterface $acceptable
+     * @param Project $acceptable
      *
-     * @return AcceptanceManagerInterface
+     * @return AcceptanceManager
      */
-    public function accept(AcceptableInterface $acceptable) : AcceptanceManagerInterface
+    public function accept(Project $acceptable) : AcceptanceManager
     {
         $acceptable->setValidationState(
             new State(
@@ -30,11 +31,21 @@ class AcceptanceManager implements AcceptanceManagerInterface
     }
 
     /**
-     * @param AcceptableInterface $acceptable
+     * @param Project $acceptable
      *
-     * @return AcceptanceManagerInterface
+     * @return bool
      */
-    public function refuse(AcceptableInterface $acceptable): AcceptanceManagerInterface
+    public function validate(Project $acceptable): bool
+    {
+        return $acceptable->getValidationState()->isAccepted();
+    }
+
+    /**
+     * @param Project $acceptable
+     *
+     * @return AcceptanceManager
+     */
+    public function refuse(Project $acceptable): AcceptanceManager
     {
         $acceptable->setValidationState(
             new State(
@@ -46,11 +57,11 @@ class AcceptanceManager implements AcceptanceManagerInterface
     }
 
     /**
-     * @param AcceptableInterface $acceptable
+     * @param Project $acceptable
      *
-     * @return AcceptanceManagerInterface
+     * @return AcceptanceManager
      */
-    public function initializeAsNotYetAccepted(AcceptableInterface $acceptable) : AcceptanceManagerInterface
+    public function initializeAsNotYetAccepted(Project $acceptable) : AcceptanceManager
     {
         $acceptable->setValidationState(
             new State(
