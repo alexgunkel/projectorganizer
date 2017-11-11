@@ -2,8 +2,8 @@
 
 namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
-use AlexGunkel\ProjectOrganizer\Management\AccessValidation\Project;
-use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 
 class ValidationCodeMessage
 {
@@ -20,13 +20,6 @@ class ValidationCodeMessage
      * @inject
      */
     private $validator;
-
-    /**
-     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
-     *
-     * @inject
-     */
-    private $contentObjectRenderer;
 
     /**
      * @var Project
