@@ -61,7 +61,7 @@ class ProjectRepository
     public function findAccepted() : QueryResultInterface
     {
         $query = $this->createQuery();
-        $query->matching($query->greaterThan('accepted', 0));
+        $query->matching($query->greaterThan('is_validated', 0));
         return $query->execute();
     }
 
@@ -77,8 +77,8 @@ class ProjectRepository
         $query->matching(
             $query->logicalOr(
                 [
-                    $query->equals('accepted', null),
-                    $query->equals('accepted', 0),
+                    $query->equals('is_validated', null),
+                    $query->equals('is_validated', 0),
                 ]
             )
         );
@@ -91,7 +91,7 @@ class ProjectRepository
         $query = $this->createQuery();
 
         $query->matching(
-            $query->equals('accepted', -1)
+            $query->equals('is_validated', -1)
         );
 
         return $query->execute();

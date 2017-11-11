@@ -158,6 +158,7 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   link VARCHAR(255),
   runtime INT(11),
   place VARCHAR(255),
+  is_validated tinyint(4) unsigned DEFAULT '0' NOT NULL,
   validationState INT(11),
 
   status VARCHAR(255),

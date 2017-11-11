@@ -43,6 +43,7 @@ use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\DescriptionTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\LinkTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
+use AlexGunkel\ProjectOrganizer\Traits\ValidationStatusTrait;
 use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -51,6 +52,7 @@ class Project
     extends AbstractDomainObject
 {
     use TitleTrait;
+    use ValidationStatusTrait;
     use DescriptionTrait;
     use TopicsTrait;
     use RuntimeTrait;
@@ -71,11 +73,6 @@ class Project
     use TstampTrait;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State
-     */
-    private $validationState;
-
-    /**
      * Project constructor.
      */
     public function __construct()
@@ -86,26 +83,6 @@ class Project
         $this->setWskelements(new ObjectStorage());
         $this->setResearchprograms(new ObjectStorage());
         $this->setValidationState(new State(new ValidationStatus(ValidationStatus::OPEN)));
-    }
-
-    /**
-     * @param State $accepted
-     *
-     * @return Project
-     */
-    public function setValidationState(State $accepted): Project
-    {
-        $this->validationState = $accepted;
-
-        return $this;
-    }
-
-    /**
-     * @return State
-     */
-    public function getValidationState(): State
-    {
-        return $this->validationState ?: new State(new ValidationStatus(ValidationStatus::OPEN));
     }
 }
 ?>
