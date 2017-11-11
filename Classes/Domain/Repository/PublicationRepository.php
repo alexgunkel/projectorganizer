@@ -26,6 +26,12 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
+/**
+ * Class PublicationRepository
+ * @package AlexGunkel\ProjectOrganizer\Domain\Repository
+ *
+ * @codeCoverageIgnore
+ */
 class PublicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     public function initializeObject() {

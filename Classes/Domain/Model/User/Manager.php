@@ -30,7 +30,19 @@ class Manager extends AbstractDomainObject
         return $this->nBeUserUid;
     }
 
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
     public function getUsername() : string
+    {
+        return $this->username;
+    }
+
+    public function __toString(): string
     {
         return $this->username;
     }

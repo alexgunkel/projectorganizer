@@ -26,6 +26,12 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
+/**
+ * Class WskelementRepository
+ * @package AlexGunkel\ProjectOrganizer\Domain\Repository
+ *
+ * @codeCoverageIgnore
+ */
 class WskelementRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
     public function initializeObject() {

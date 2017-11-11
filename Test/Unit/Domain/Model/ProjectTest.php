@@ -91,4 +91,24 @@ class ProjectTest extends \PHPUnit\Framework\TestCase
             array('researchprograms', Researchprogram::class),
         );
     }
+
+    public function testEmptyDescription()
+    {
+        $project = new Project;
+
+        $this->assertEquals(
+            '',
+            $project->getDescription()
+        );
+    }
+
+    public function testEmptyLink()
+    {
+        $project = new Project;
+
+        $this->assertEquals(
+            '',
+            $project->getLink()
+        );
+    }
 }

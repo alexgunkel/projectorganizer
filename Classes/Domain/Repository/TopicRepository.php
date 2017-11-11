@@ -26,6 +26,12 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
+/**
+ * Class TopicRepository
+ * @package AlexGunkel\ProjectOrganizer\Domain\Repository
+ *
+ * @codeCoverageIgnore
+ */
 class TopicRepository
     extends \TYPO3\CMS\Extbase\Persistence\Repository
 {

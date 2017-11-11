@@ -25,12 +25,15 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
-use AlexGunkel\ProjectOrganizer\Management\EditableRepositoryInterface;
-use AlexGunkel\ProjectOrganizer\Management\ManagableRepository;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
+/**
+ * Class ProjectRepository
+ * @package AlexGunkel\ProjectOrganizer\Domain\Repository
+ *
+ * @codeCoverageIgnore
+ */
 class ProjectRepository
     extends \TYPO3\CMS\Extbase\Persistence\Repository
 {

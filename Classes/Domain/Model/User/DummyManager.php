@@ -25,8 +25,8 @@ class DummyManager extends Manager
         return 'unknown';
     }
 
-    public function __toString()
+    public function __toString(): string
     {
-        return parent::__toString();
+        return get_class($this) . ':0';
     }
 }
