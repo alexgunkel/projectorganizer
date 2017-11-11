@@ -31,7 +31,7 @@ trait TitleTrait
     /**
      * @var string
      */
-    protected $title;
+    protected $title = '';
 
     /**
      * @param string $title

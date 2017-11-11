@@ -3,21 +3,20 @@
 namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use TYPO3\CMS\Core\Mail\MailMessage;
+use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 
 class ValidationCodeMessage
 {
     /**
      * @var \TYPO3\CMS\Core\Mail\MailMessage
-     *
-     * @inject
      */
     private $messageObject;
 
     /**
      * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
-     *
-     * @inject
      */
     private $validator;
 
@@ -28,10 +27,18 @@ class ValidationCodeMessage
 
     /**
      * @var \TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder
-     *
-     * @inject
      */
     private $uriBuilder;
+
+    public function __construct(
+        MailMessage              $mailMessage,
+        AccessValidatorInterface $accessValidator,
+        UriBuilder               $uriBuilder
+    ) {
+        $this->messageObject = $mailMessage;
+        $this->validator     = $accessValidator;
+        $this->uriBuilder    = $uriBuilder;
+    }
 
     public function setObject(Project $object) : ValidationCodeMessage
     {
