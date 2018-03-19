@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
-    <file t3:id="1496687369" source-language="en" datatype="plaintext" original="messages" date="2017-06-05T20:29:34Z" product-name="project_organizer">
+    <file t3:id="1496687369" source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-06-05T20:29:34Z" product-name="project_organizer">
         <header/>
         <body>
             <trans-unit id="mlang_labels_tablabel">
-                <source>Project Organizer administration module</source>
+                <target>Project Organizer administration module</target>
             </trans-unit>
             <trans-unit id="mlang_labels_tabdescr">
-                <source>Here you can administrate open requests for the project organizer. Requests will be listed and you can accept them, so they are published in the frontend plugins</source>
+                <target>Here you can administrate open requests for the project organizer. Requests will be listed and you can accept them, so they are published in the frontend plugins</target>
             </trans-unit>
             <trans-unit id="mlang_tabs_tab">
-                <source>Project Organizer</source>
+                <target>Project Organizer</target>
             </trans-unit>
 
             <trans-unit id="addProject.legend">
-                <source>Add new Project</source>
+                <target>Projekt erstellen</target>
             </trans-unit>
             <trans-unit id="label.title">
-                <source>Project Title</source>
+                <target>Projekttiel</target>
             </trans-unit>
             <trans-unit id="label.description">
-                <source>Project Description</source>
+                <target>Beschreibung</target>
             </trans-unit>
             <trans-unit id="label.link">
-                <source>Project Link</source>
+                <target>Link</target>
             </trans-unit>
             <trans-unit id="label.topics">
-                <source>Topics</source>
+                <target>Themen</target>
             </trans-unit>
             <trans-unit id="label.status">
-                <source>Status</source>
+                <target>Status</target>
             </trans-unit>
             <trans-unit id="label.runtime">
-                <source>Runtime</source>
+                <target>Laufzeit</target>
             </trans-unit>
             <trans-unit id="label.region">
-                <source>Region</source>
+                <target>Region</target>
             </trans-unit>
             <trans-unit id="label.wskelements">
-                <source>WSK</source>
+                <target>WSK</target>
             </trans-unit>
             <trans-unit id="addProject.label.submit">
-                <source>Create</source>
+                <target>Erstellen</target>
             </trans-unit>
         </body>
     </file>
