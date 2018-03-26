@@ -29,7 +29,7 @@ trait ValidationStatusTrait
      *
      * @return Project
      */
-    public function setValidationState(State $accepted): self
+    public function setValidationState(ValidationStatus $accepted): self
     {
         $this->validationState = $accepted;
 

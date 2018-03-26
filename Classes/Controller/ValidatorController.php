@@ -9,7 +9,11 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
+use AlexGunkel\ProjectOrganizer\Service\ValidationServiceFactory;
+use AlexGunkel\ProjectOrganizer\Value\Password;
+use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
@@ -68,16 +72,21 @@ class ValidatorController
 
     public function validateByValidationCodeAction() : void
     {
-        $code = $this->request->getArgument('validationCode');
+        $code = new Password(
+            $this->request->getArgument('validationCode')
+        );
+
+        /** @var Project $project */
         $project = $this->repository->findByUid(
             $this->request->getArgument('projectUid')
         );
 
-        if (!$this->accessValidator->validate($project, $code)) {
-            throw new \Exception('Not validated');
+        $passwordService = ValidationServiceFactory::buildPasswordService();
+        if (!$passwordService->validateProject($project, $code)) {
+            throw new \Exception('Password is not valid', 1522081006);
         }
 
-        $this->acceptanceManager->accept($project);
+        $project->setValidationState(new ValidationStatus(ValidationStatus::ACCEPTED));
         $this->repository->update($project);
 
         $this->view->assign('project', $project);

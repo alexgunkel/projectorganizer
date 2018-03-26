@@ -51,10 +51,11 @@ class PasswordService implements SingletonInterface
     }
 
     /**
-     * @param string $password
+     * @param Password $password
+     *
      * @return PasswordHash
      */
-    public function getSaltedPassword(string $password) : PasswordHash
+    public function getSaltedPassword(Password $password) : PasswordHash
     {
         $this->logger->debug("Generate password hash for $password");
         return new PasswordHash($this->salting->getHashedPassword($password));
@@ -62,16 +63,16 @@ class PasswordService implements SingletonInterface
 
     /**
      * @param Project $project
-     * @param string $password
+     * @param Password $password
      *
      * @return bool
      */
-    public function validateUser(Project $project, string $password): bool
+    public function validateProject(Project $project, Password $password): bool
     {
         $this->logger->debug("Check password $password for project $project");
         return $this->salting->checkPassword(
             $password,
-            $project->getPassword()
+            $project->getPasswordHash()
         );
     }
 }
