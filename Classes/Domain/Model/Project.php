@@ -51,21 +51,21 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Project
     extends AbstractDomainObject
 {
-    use TitleTrait;
-    use ValidationStatusTrait;
+    use ContactPersonTrait;
     use DescriptionTrait;
-    use TopicsTrait;
+    use InstitutionsTrait;
+    use LinkTrait;
+    use OverallVolumeTrait;
+    use PublicationsTrait;
+    use RegionTrait;
+    use ResearchprogramTrait;
     use RuntimeTrait;
     use StatusTrait;
-    use RegionTrait;
-    use WskelementTrait;
-    use ContactPersonTrait;
-    use PublicationsTrait;
+    use TitleTrait;
+    use TopicsTrait;
+    use ValidationStatusTrait;
     use VolumeTrait;
-    use OverallVolumeTrait;
-    use ResearchprogramTrait;
-    use LinkTrait;
-    use InstitutionsTrait;
+    use WskelementTrait;
 
     use HiddenTrait;
     use DeletedTrait;
@@ -79,6 +79,7 @@ class Project
     {
         $this->setTopics(new ObjectStorage());
         $this->setInstitutions(new ObjectStorage());
+        $this->setContactPerson(new ObjectStorage());
         $this->setPublications(new ObjectStorage());
         $this->setWskelements(new ObjectStorage());
         $this->setResearchprograms(new ObjectStorage());
