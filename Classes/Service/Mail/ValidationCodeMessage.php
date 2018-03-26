@@ -3,6 +3,7 @@
 namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 
 
+use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidator;
 use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use TYPO3\CMS\Core\Mail\MailMessage;
@@ -31,12 +32,12 @@ class ValidationCodeMessage
     private $uriBuilder;
 
     public function __construct(
-        MailMessage              $mailMessage,
-        AccessValidatorInterface $accessValidator,
-        UriBuilder               $uriBuilder
+        UriBuilder               $uriBuilder,
+        AccessValidatorInterface $accessValidator = null,
+        MailMessage              $mailMessage = null
     ) {
-        $this->messageObject = $mailMessage;
-        $this->validator     = $accessValidator;
+        $this->messageObject = $mailMessage ?: new MailMessage;
+        $this->validator     = $accessValidator ?: new AccessValidator;
         $this->uriBuilder    = $uriBuilder;
     }
 

@@ -43,10 +43,10 @@ trait RuntimeTrait
      */
     public function setRunTime(int $runtime)
     {
-        $this->runtime = new Runtime($runtime);
+        $this->runtime = $runtime;
     }
 
-    public function getRuntime(): Runtime
+    public function getRuntime(): int
     {
         return $this->runtime;
     }

@@ -24,11 +24,9 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
-use AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-use AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository;
-use AlexGunkel\ProjectOrganizer\Service\Mail\DeliveryAgentInterface;
-use AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessageInterface;
+use AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessage;
+use AlexGunkel\ProjectOrganizer\Service\MailServiceFactory;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\RegionRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\StatusRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
@@ -80,23 +78,16 @@ class EditorController
     public function submitAction(Project $project) : void
     {
         $this->acceptanceManager->initializeAsNotYetAccepted($project);
-        $this->projectRepository->addToStorage($project, $this->settings['pages']);
+        $this->projectRepository->addToStorage($project, (int) $this->settings['pages']);
+
         /** @var PersistenceManager $persistenceManager */
         $this->objectManager->get(PersistenceManager::class)->persistAll();
 
-        /** @var ValidationCodeMessageInterface $message */
-        $message = $this->objectManager->get(ValidationCodeMessageInterface::class);
-        $message->setObject($project)
-            ->setUriBuilder($this->uriBuilder);
-
-        /** @var DeliveryAgentInterface $deliveryAgent */
-        $deliveryAgent = $this->objectManager->get(DeliveryAgentInterface::class);
-
-        $success = $deliveryAgent->addRecipient($this->settings['receiver'])
-            ->sendMessage($message);
+        $message = MailServiceFactory::buildValidationCodeMessage($project, $this->uriBuilder);
+        $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
 
         $this->view->assign('projectTitle', $project->getTitle());
-        $this->view->assign('success', $success);
+        $this->view->assign('success', $deliveryAgent->sendMessage($message));
         $this->view->assign('message', $message);
     }
 }
