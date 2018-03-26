@@ -160,6 +160,7 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   place VARCHAR(255),
   is_validated tinyint(4) unsigned DEFAULT '0' NOT NULL,
   validationState INT(11),
+  password_hash VARCHAR(255) NOT NULL DEFAULT '',
 
   status VARCHAR(255),
   wsk_element VARCHAR(255),

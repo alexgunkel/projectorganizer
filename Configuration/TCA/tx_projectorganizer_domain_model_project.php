@@ -148,6 +148,14 @@ return array(
                 'foreign_table' => 'tx_projectorganizer_domain_model_status',
             ],
         ],
+        'password_hash' => [
+            'label' => 'Details & Erfahrungen',
+            'config' => [
+                'type' => 'text',
+                'size' => 20,
+                'eval' => 'trim, required',
+            ],
+        ],
         'wsk_element' => [
             'label' => 'WSK-Elemente',
             'config' => [

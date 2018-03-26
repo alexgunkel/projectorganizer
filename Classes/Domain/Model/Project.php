@@ -44,6 +44,7 @@ use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\DescriptionTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\LinkTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use AlexGunkel\ProjectOrganizer\Traits\ValidationStatusTrait;
+use AlexGunkel\ProjectOrganizer\Value\Password;
 use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -73,6 +74,16 @@ class Project
     use TstampTrait;
 
     /**
+     * @var string
+     */
+    private $passwordHash;
+
+    /**
+     * @var Password
+     */
+    private $password;
+
+    /**
      * Project constructor.
      */
     public function __construct()
@@ -85,5 +96,36 @@ class Project
         $this->setResearchprograms(new ObjectStorage());
         $this->setValidationState(new State(new ValidationStatus(ValidationStatus::OPEN)));
     }
+
+    /**
+     * @return string
+     */
+    public function getPasswordHash(): string
+    {
+        return $this->passwordHash;
+    }
+
+    /**
+     * @param string $passwordHash
+     */
+    public function setPasswordHash(string $passwordHash)
+    {
+        $this->passwordHash = $passwordHash;
+    }
+
+    /**
+     * @return Password
+     */
+    public function getPassword(): Password
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param Password $password
+     */
+    public function setPassword(Password $password)
+    {
+        $this->password = $password;
+    }
 }
-?>
