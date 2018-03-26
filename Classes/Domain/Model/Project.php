@@ -76,7 +76,7 @@ class Project
     /**
      * @var string
      */
-    private $passwordHash;
+    protected $passwordHash;
 
     /**
      * @var Password

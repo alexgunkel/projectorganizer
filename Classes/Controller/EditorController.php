@@ -27,11 +27,13 @@ namespace AlexGunkel\ProjectOrganizer\Controller;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessage;
 use AlexGunkel\ProjectOrganizer\Service\MailServiceFactory;
+use AlexGunkel\ProjectOrganizer\Service\ValidationServiceFactory;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\RegionRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\StatusRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\WskelementRepositoryTrait;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class EditorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -78,6 +80,10 @@ class EditorController
     public function submitAction(Project $project) : void
     {
         $this->acceptanceManager->initializeAsNotYetAccepted($project);
+        $passwordService = ValidationServiceFactory::buildPasswordService();
+        $project->setPassword($passwordService->generateRandomPassword());
+        $project->setPasswordHash($passwordService->getSaltedPassword($project->getPassword()));
+
         $this->projectRepository->addToStorage($project, (int) $this->settings['pages']);
 
         /** @var PersistenceManager $persistenceManager */

@@ -6,19 +6,24 @@
  * Time: 22:23
  */
 
-namespace AlexGunkel\FeUseradd\Service;
+namespace AlexGunkel\ProjectOrganizer\Service;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use AlexGunkel\ProjectOrganizer\Value\Password;
 use AlexGunkel\ProjectOrganizer\Value\PasswordHash;
 use Psr\Log\LoggerInterface;
-use TYPO3\CMS\Core\Log\LogManager;
 use TYPO3\CMS\Core\SingletonInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Saltedpasswords\Salt\SaltFactory;
+use TYPO3\CMS\Saltedpasswords\Salt\SaltInterface;
 
+/**
+ * Class PasswordService
+ * @package AlexGunkel\ProjectOrganizer\Service
+ */
 class PasswordService implements SingletonInterface
 {
+    /**
+     * @var \TYPO3\CMS\Saltedpasswords\Salt\SaltInterface
+     */
     private $salting;
 
     /**
@@ -26,12 +31,20 @@ class PasswordService implements SingletonInterface
      */
     private $logger;
 
-    public function __construct()
+    /**
+     * PasswordService constructor.
+     * @param SaltInterface $salt
+     * @param LoggerInterface $logger
+     */
+    public function __construct(SaltInterface $salt, LoggerInterface $logger)
     {
-        $this->salting = SaltFactory::getSaltingInstance(null, 'FE');
-        $this->logger = GeneralUtility::makeInstance(LogManager::class)->getLogger(__CLASS__);
+        $this->salting = $salt;
+        $this->logger = $logger;
     }
 
+    /**
+     * @return Password
+     */
     public function generateRandomPassword(): Password
     {
         return new Password(bin2hex(openssl_random_pseudo_bytes(20)));
@@ -41,22 +54,21 @@ class PasswordService implements SingletonInterface
      * @param string $password
      * @return PasswordHash
      */
-    public function getSaltedPassword(string $password, string $prefix = '') : PasswordHash
+    public function getSaltedPassword(string $password) : PasswordHash
     {
-        $password = $prefix . $password;
         $this->logger->debug("Generate password hash for $password");
         return new PasswordHash($this->salting->getHashedPassword($password));
     }
 
     /**
-     * @param Project $user
+     * @param Project $project
      * @param string $password
+     *
      * @return bool
      */
     public function validateUser(Project $project, string $password): bool
     {
-        $password = $user->getRegistrationState() . $password;
-        $this->logger->debug("Check password $password for user $project");
+        $this->logger->debug("Check password $password for project $project");
         return $this->salting->checkPassword(
             $password,
             $project->getPassword()
