@@ -94,7 +94,7 @@ class Project
         $this->setPublications(new ObjectStorage());
         $this->setWskelements(new ObjectStorage());
         $this->setResearchprograms(new ObjectStorage());
-        $this->setValidationState(new State(new ValidationStatus(ValidationStatus::OPEN)));
+        $this->setValidationState(new ValidationStatus(ValidationStatus::OPEN));
     }
 
     /**

@@ -34,7 +34,7 @@ class MailServiceFactory
     ): ValidationCodeMessage {
         $message = new ValidationCodeMessage(
             $uriBuilder,
-            $accessValidator ?: new  AccessValidator,
+            $accessValidator ?: ValidationServiceFactory::buildPasswordService(),
             $mailMessage ?: new MailMessage
         );
 

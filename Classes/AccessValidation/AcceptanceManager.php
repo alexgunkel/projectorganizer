@@ -64,9 +64,7 @@ class AcceptanceManager
     public function initializeAsNotYetAccepted(Project $acceptable) : AcceptanceManager
     {
         $acceptable->setValidationState(
-            new State(
-                new ValidationStatus(ValidationStatus::OPEN)
-            )
+            new ValidationStatus(ValidationStatus::OPEN)
         );
 
         return $this;

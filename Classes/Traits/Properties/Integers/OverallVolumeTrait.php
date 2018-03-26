@@ -31,7 +31,7 @@ trait OverallVolumeTrait
     /**
      * @var int
      */
-    protected $overallVolume;
+    protected $overallVolume = 0;
 
     /**
      * @param integer $overallVolume
@@ -40,13 +40,13 @@ trait OverallVolumeTrait
      */
     public function setOverallVolume(int $overallVolume)
     {
-        $this->overallVolume = new Volume($overallVolume);
+        $this->overallVolume = $overallVolume;
     }
 
     /**
      * @return Volume
      */
-    public function getOverallVolume() : Volume
+    public function getOverallVolume() : int
     {
         return $this->overallVolume;
     }
