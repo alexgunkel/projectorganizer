@@ -2,11 +2,9 @@
      xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers">
     <f:form action="submit" controller="Editor" pluginName="{pluginName}" object="{project}" name="project">
-
         <f:if condition="{errorMessage}" >
             <p>{errorMessage}</p>
         </f:if>
-<h1>TEST 11</h1>
         <f:form.validationResults>
             <f:if condition="{validationResults.flattenedErrors}">
                 <ul class="errors">
@@ -37,7 +35,7 @@
         </f:if>
         <div class="form-group {error-title}">
             <label for="title">{f:translate(key: 'label.title', extensionName: 'project_organizer')}</label>
-            <f:form.textfield id="title" property="title" class="form-control" errorClass="has-error" />
+            <f:form.textfield size="30" id="title" property="title" class="form-control" errorClass="has-error" />
             <f:form.validationResults for="project.title">
                 <f:if condition="{validationResults.flattenedErrors}">
                     <ul class="errors">
