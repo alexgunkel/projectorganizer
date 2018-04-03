@@ -21,11 +21,7 @@ class AcceptanceManager
      */
     public function accept(Project $acceptable) : AcceptanceManager
     {
-        $acceptable->setValidationState(
-            new State(
-                new ValidationStatus(ValidationStatus::ACCEPTED)
-            )
-        );
+        $acceptable->setValidationState(Project::VALIDATION_STATE_ACCEPTED);
 
         return $this;
     }
@@ -37,7 +33,7 @@ class AcceptanceManager
      */
     public function validate(Project $acceptable): bool
     {
-        return $acceptable->getValidationState()->isAccepted();
+        return Project::VALIDATION_STATE_ACCEPTED === $acceptable->getValidationState();
     }
 
     /**
@@ -47,11 +43,7 @@ class AcceptanceManager
      */
     public function refuse(Project $acceptable): AcceptanceManager
     {
-        $acceptable->setValidationState(
-            new State(
-                new ValidationStatus(ValidationStatus::REJECTED)
-            )
-        );
+        $acceptable->setValidationState(Project::VALIDATION_STATE_REJECTED);
 
         return $this;
     }
@@ -63,9 +55,7 @@ class AcceptanceManager
      */
     public function initializeAsNotYetAccepted(Project $acceptable) : AcceptanceManager
     {
-        $acceptable->setValidationState(
-            new ValidationStatus(ValidationStatus::OPEN)
-        );
+        $acceptable->setValidationState(Project::VALIDATION_STATE_OPEN);
 
         return $this;
     }

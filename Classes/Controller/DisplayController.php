@@ -8,13 +8,13 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
-use AlexGunkel\ProjectOrganizer\Domain\Repository\TopicRepository;
+use AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository;
 
 class DisplayController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Management\ManagableRepository
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
      *
      * @inject
      */

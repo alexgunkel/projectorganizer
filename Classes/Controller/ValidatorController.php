@@ -8,14 +8,9 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
-
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
-use AlexGunkel\ProjectOrganizer\Management\ManagableInterface;
 use AlexGunkel\ProjectOrganizer\Service\ValidationServiceFactory;
 use AlexGunkel\ProjectOrganizer\Value\Password;
-use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
-use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class ValidatorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -28,48 +23,15 @@ class ValidatorController
     private $repository;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface
-     *
-     * @inject
-     */
-    protected $accessValidator;
-
-    /**
-     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManagerInterface
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
      *
      * @inject
      */
     private $acceptanceManager;
 
     /**
-     * Accept a single project
-     *
-     * @return void
-     * @throws RequiredArgumentMissingException
+     * @throws \Exception
      */
-    public function validateAction() : void
-    {
-        if (!$this->request->hasArgument('project')) {
-            throw new RequiredArgumentMissingException(
-                'Argument \'project\' is required for this action',
-                1496009921
-            );
-        }
-
-        /** @var ManagableInterface $project */
-        $project = $this->repository->findByUid(
-            $this->request->getArgument('project')
-        );
-
-        $this->acceptanceManager->accept($project);
-        $this->repository->update($project);
-
-        $this->view->assign(
-            'acceptedProject',
-            $project
-        );
-    }
-
     public function validateByValidationCodeAction() : void
     {
         $code = new Password(
@@ -86,7 +48,7 @@ class ValidatorController
             throw new \Exception('Password is not valid', 1522081006);
         }
 
-        $project->setValidationState(new ValidationStatus(ValidationStatus::ACCEPTED));
+        $this->acceptanceManager->accept($project);
         $this->repository->update($project);
 
         $this->view->assign('project', $project);

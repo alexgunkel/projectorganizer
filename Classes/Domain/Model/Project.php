@@ -73,6 +73,20 @@ class Project
     use CrDateTrait;
     use TstampTrait;
 
+    public const VALIDATION_STATE_OPEN     = 0;
+    public const VALIDATION_STATE_ACCEPTED = 1;
+    public const VALIDATION_STATE_REJECTED = -1;
+    private const VALIDATION_STATES = [
+        self::VALIDATION_STATE_ACCEPTED,
+        self::VALIDATION_STATE_OPEN,
+        self::VALIDATION_STATE_REJECTED,
+    ];
+
+    /**
+     * @var int
+     */
+    protected $validationState;
+
     /**
      * @var string
      */
@@ -82,6 +96,34 @@ class Project
      * @var Password
      */
     private $password;
+
+    /**
+     * @param int $accepted
+     *
+     * @throws \Exception if validation-state is not allowed
+     *
+     * @return void
+     */
+    public function setValidationState(int $accepted)
+    {
+        if (!in_array($accepted, self::VALIDATION_STATES)) {
+            throw new \Exception('Tried to set non-existing validation-state. Allowed: '
+                    . implode(', ', self::VALIDATION_STATES)
+                    . '; tried to set: ' . $accepted,
+                1522784874
+            );
+        }
+
+        $this->validationState = $accepted;
+    }
+
+    /**
+     * @return int
+     */
+    public function getValidationState(): int
+    {
+        return $this->validationState;
+    }
 
     /**
      * Project constructor.
@@ -94,7 +136,7 @@ class Project
         $this->setPublications(new ObjectStorage());
         $this->setWskelements(new ObjectStorage());
         $this->setResearchprograms(new ObjectStorage());
-        $this->setValidationState(new ValidationStatus(ValidationStatus::OPEN));
+        $this->setValidationState(self::VALIDATION_STATE_OPEN);
     }
 
     /**

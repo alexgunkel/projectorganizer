@@ -65,13 +65,11 @@ return array(
                 'eval' => 'date',
             ],
         ],
-        'validationState' => [
+        'validation_state' => [
             'label' => 'Status der Validierung',
             'config' => [
                 'type' => 'none',
                 'size' => 1,
-                'maxitems' => 1,
-                'foreign_table' => 'tx_projectorganizer_domain_model_validation_state',
             ],
         ],
         'contact_person' => [
@@ -195,21 +193,6 @@ return array(
                 'foreign_table' => 'tx_projectorganizer_domain_model_researchprogram',
             ],
         ],
-        'contact_person' => [
-            'label' => 'Kontaktperson',
-            'config' => [
-                'type' => 'select',
-                'size' => 1,
-                'maxitems' => 1,
-                'item' => [
-                    [
-                        '---- Bitte wählen ----',
-                        0
-                    ]
-                ],
-                'foreign_table' => 'tx_projectorganizer_domain_model_person',
-            ],
-        ],
         'topics' => [
             'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_topic',
             'config' => [
@@ -278,5 +261,3 @@ return array(
     ],
     'palettes' => array(),
 );
-
-?>

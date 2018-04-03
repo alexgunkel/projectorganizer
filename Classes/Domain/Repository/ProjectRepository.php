@@ -64,7 +64,7 @@ class ProjectRepository
     public function findAccepted() : QueryResultInterface
     {
         $query = $this->createQuery();
-        $query->matching($query->greaterThan('is_validated', 0));
+        $query->matching($query->greaterThanOrEqual('validation_state', Project::VALIDATION_STATE_ACCEPTED));
         return $query->execute();
     }
 
