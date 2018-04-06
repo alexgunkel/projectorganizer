@@ -1,35 +1,102 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     data-namespace-typo3-fluid="true">
 
-<h1>Detailansicht</h1>
+    <f:layout name="Default" />
 
-<h2>{project.title}</h2>
-<p>Themenfeld: {project.topic}</p>
-<h3>Adressierte Wertschöpfungskettenelemente:</h3>
-<ol>
-    <f:for each="{project.wskElement}" as="wsk" >
-        <li>{wsk.title}</li>
-    </f:for>
-</ol>
-<h3>Beteiligte Einrichtungen:</h3>
-<ol>
-    <f:for each="{project.institution}" as="institution">
-        <li>{institution.title}</li>
-    </f:for>
-</ol>
-<p>Status: {project.status.title}</p>
-<p>Fördervolumen: {project.volume}</p>
-<p>Gesamtvolumen: {project.overallVolume}</p>
-<p>Förderprogramm: {project.researchprogram.title}</p>
-<p><f:link.external uri="{project.link}" >Link zum Programm</f:link.external></p>
-<h3>Ansprechpartner:</h3>
-<p>{project.contactPerson.title}</p>
-<h3>Beschreibung:</h3>
-<p>{project.description}</p>
-<p>Region: {project.region.title}</p>
-<h3>Veröffentlichungen:</h3>
-<ol>
-    <f:for each="{project.publication}" as="publication" >
-        <li>{publication.title}</li>
-    </f:for>
-</ol>
+    <!--
+        =====================
+            Display/Detail.html
+    -->
 
-<f:link.action action="list" >Zurück zur Liste</f:link.action>
+    <f:section name="Content">
+<div class="project-detail">
+    <v:variable.set name="project" value="{entity}" />
+    <article>
+        <br>
+        <h1 class="brand">{project.title}</h1>
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.topic', extensionName: 'project_organizer')}</th>
+                <td>
+                    <f:for each="{project.topics}" as="topic">
+                        <f:link.action action="listByProperty" pluginName="{pluginName}">
+                            {topic.title}
+                        </f:link.action><br>
+                    </f:for>
+                </td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.wsk', extensionName: 'project_organizer')}</th>
+                <td>
+                    <ol>
+                        <f:for each="{project.wskElement}" as="wsk">
+                            <li>{wsk.title}</li>
+                        </f:for>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.institution', extensionName: 'project_organizer')}</th>
+                <td>
+                    <ol>
+                        <f:for each="{project.institution}" as="institution">
+                            <li>{institution.title}</li>
+                        </f:for>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.volume', extensionName: 'project_organizer')}</th>
+                <td>{project.volume}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.overallVolume', extensionName: 'project_organizer')}</th>
+                <td>{project.overallVolume}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.researchprogram', extensionName: 'project_organizer')}</th>
+                <td>
+                    <f:link.external uri="{project.link}">{f:translate(key: 'projectDetail.label.link', extensionName:
+                        'project_organizer')} - {project.researchprogram.title}
+                    </f:link.external>
+                </td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.contactPerson', extensionName: 'project_organizer')}</th>
+                <td>{project.contactPerson.title}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.description', extensionName: 'project_organizer')}</th>
+                <td>{project.description}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.region', extensionName: 'project_organizer')}</th>
+                <td>{project.region.title}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.publication', extensionName: 'project_organizer')}</th>
+                <td>
+                    <ol>
+                        <f:for each="{project.publication}" as="publication">
+                            <li>{publication.title}</li>
+                        </f:for>
+                    </ol>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p><f:link.action action="list">{f:translate(key: 'projectDetail.title.backToList', extensionName: 'project_organizer')}
+        </f:link.action></p>
+    </article>
+    (?) ToDo:
+    <ul>
+        <li>check "project.researchprogram.title"</li>
+        <li>add table css</li>
+        <li>fix list css</li>
+    </ul>
+</div>
+    </f:section>
+</div>

@@ -73,6 +73,7 @@ if (TYPO3_MODE === 'BE') {
         ),
         array(
             'access' => 'admin',
+            'icon' => 'EXT:project_organizer/Resources/Public/Icons/Backend/project-organizer.svg',
             'labels'  => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang.xlf',
         )
     );
