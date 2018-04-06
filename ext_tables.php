@@ -61,19 +61,23 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_edit_p
     'Themenfelder'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-    'AlexGunkel.' . $_EXTKEY,
-    'web',
-    'Projects',
-    '',
-    array(
-        'Manager' => 'listOpenRequests, detail, validate, refuse, delete',
-    ),
-    array(
-        'access' => 'admin',
-        'labels'  => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang.xlf',
-    )
-);
+if (TYPO3_MODE === 'BE') {
+
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
+        'AlexGunkel.' . $_EXTKEY,
+        'web',
+        'Projects',
+        '',
+        array(
+            'Manager' => 'listOpenRequests, detail, validate, refuse, delete',
+        ),
+        array(
+            'access' => 'admin',
+            'labels'  => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang.xlf',
+        )
+    );
+
+}
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     $_EXTKEY,
