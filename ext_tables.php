@@ -43,6 +43,13 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_edit_p
     'FILE:EXT:project_organizer/Configuration/FlexForms/project_organizer_edit_projects.xml'
 );
 
+$TCA['tt_content']['types']['list']['subtypes_excludelist']['projectorganizer_show_projects'] = 'layout,select_key,pages,recursive';
+$TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_show_projects'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    'projectorganizer_show_projects',
+    'FILE:EXT:project_organizer/Configuration/FlexForms/project_organizer_show_projects.xml'
+);
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'AlexGunkel.' . $_EXTKEY,
     'validate_project',

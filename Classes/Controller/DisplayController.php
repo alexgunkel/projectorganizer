@@ -8,11 +8,14 @@
 
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
-use AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository;
+use AlexGunkel\ProjectOrganizer\Traits\FlexformTrait;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class DisplayController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
+    use FlexformTrait;
+
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
      *
@@ -29,10 +32,12 @@ class DisplayController
 
     final public function listAction() : void
     {
+        DebuggerUtility::var_dump($this->settings);
         $this->view->assignMultiple(
             [
                 'entities' => $this->entityRepository->findAccepted(),
-                'pluginName' => $this->request->getPluginName()
+                'pluginName' => $this->request->getPluginName(),
+                'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
             ]
         );
     }
@@ -42,18 +47,18 @@ class DisplayController
         $this->view->assignMultiple(
             [
                 'entities' => $this->topicRepository->findAll(),
-                'pluginName' => $this->request->getPluginName()
+                'pluginName' => $this->request->getPluginName(),
             ]
         );
     }
 
     final public function detailAction() : void
     {
-        $this->view->assign(
-            'entity',
-            $this->entityRepository->findByUid(
-                $this->request->getArgument('uid')
-            )
+        $this->view->assignMultiple(
+            [
+                'project' => $this->entityRepository->findByUid($this->request->getArgument('uid')),
+                'listViewPage' => $this->readAsInteger('list_view_page') ?? $GLOBALS['TSFE']->id,
+            ]
         );
     }
 }
