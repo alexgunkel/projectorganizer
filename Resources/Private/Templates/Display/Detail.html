@@ -22,7 +22,7 @@
                 <th>{f:translate(key: 'projectDetail.label.topic', extensionName: 'project_organizer')}</th>
                 <td>
                     <f:for each="{project.topics}" as="topic">
-                        <f:link.action action="listByProperty" pluginName="{pluginName}">
+                        <f:link.action action="listByProperty" pluginName="{pluginName}" pageUid="{listViewPage}">
                             {topic.title}
                         </f:link.action><br>
                     </f:for>
@@ -88,7 +88,7 @@
             </tr>
             </tbody>
         </table>
-        <p><f:link.action action="list">{f:translate(key: 'projectDetail.title.backToList', extensionName: 'project_organizer')}
+        <p><f:link.action action="list" pageUid="{listViewPage}">{f:translate(key: 'projectDetail.title.backToList', extensionName: 'project_organizer')}
         </f:link.action></p>
     </article>
     (?) ToDo:

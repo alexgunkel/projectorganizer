@@ -32,7 +32,6 @@ class DisplayController
 
     final public function listAction() : void
     {
-        DebuggerUtility::var_dump($this->settings);
         $this->view->assignMultiple(
             [
                 'entities' => $this->entityRepository->findAccepted(),
