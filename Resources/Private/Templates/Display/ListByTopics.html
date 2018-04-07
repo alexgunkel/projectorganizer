@@ -1,4 +1,17 @@
-<div xmlns:f="http://www.w3.org/1999/html">
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default" />
+
+    <!--
+        =====================
+            Display/ListByTopics.html
+    -->
+
+    <f:section name="Content">
+<div class="projectTopicList">
     <f:for each="{entities}" as="topic">
         <h2>{topic.title}</h2>
         <f:for each="{topic.projects}" as="project">
@@ -9,5 +22,7 @@
             </p>
         </f:for>
     </f:for>
+</div>
+    </f:section>
 </div>
 

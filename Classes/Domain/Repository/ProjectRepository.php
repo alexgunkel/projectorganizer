@@ -80,8 +80,8 @@ class ProjectRepository
         $query->matching(
             $query->logicalOr(
                 [
-                    $query->equals('is_validated', null),
-                    $query->equals('is_validated', 0),
+                    $query->equals('validation_state', null),
+                    $query->equals('validation_state', 0),
                 ]
             )
         );
@@ -94,7 +94,7 @@ class ProjectRepository
         $query = $this->createQuery();
 
         $query->matching(
-            $query->equals('is_validated', -1)
+            $query->equals('validation_state', -1)
         );
 
         return $query->execute();

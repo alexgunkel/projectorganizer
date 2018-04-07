@@ -43,6 +43,63 @@
             <trans-unit id="addProject.label.submit">
                 <target>Erstellen</target>
             </trans-unit>
+
+
+            <trans-unit id="projectDetail.label.topic">
+                <target>Themenfeld</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.wsk">
+                <target>Adressierte Wertschöpfungskettenelemente</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.institution">
+                <target>Beteiligte Einrichtungen</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.status">
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.volume">
+                <target>Fördervolumen</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.overallVolume">
+                <target>Gesamtvolumen</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.researchprogram">
+                <target>Förderprogramm</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.link">
+                <target>Link zum Programm</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.contactPerson">
+                <target>Ansprechpartner</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.description">
+                <target>Beschreibung</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.region">
+                <target>Region</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.label.publication">
+                <target>Veröffentlichungen</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.title.backToList">
+                <target>Zurück zur Liste</target>
+            </trans-unit>
+
+            <trans-unit id="projectList.label.title">
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="projectList.label.topic">
+                <target>Themenfeld(er)</target>
+            </trans-unit>
+            <trans-unit id="projectList.label.runtime">
+                <target>Laufzeit bis</target>
+            </trans-unit>
+            <trans-unit id="projectList.label.status">
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="projectList.label.region">
+                <target>Region</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

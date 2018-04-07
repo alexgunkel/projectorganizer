@@ -68,14 +68,22 @@ plugin.tx_projectorganizer_edit_projects.objects {
     }
 }
 
-module.tx_projectorganizer.objects {
-    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface {
-        className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
+module.tx_projectorganizer {
+    view {
+        templateRootPaths.0 = EXT:project_organizer/Resources/Private/Backend/Templates/
+        partialRootPaths.0 = EXT:project_organizer/Resources/Private/Backend/Partials/
+        layoutRootPaths.0 = EXT:project_organizer/Resources/Private/Backend/Layouts/
     }
-    AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface {
-        className = AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
-    }
-    AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
-        className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
+
+    objects {
+        AlexGunkel\ProjectOrganizer\Management\AccessValidation\AccessValidatorInterface {
+            className = AlexGunkel\ProjectOrganizer\AccessValidation\ConcatAccessValidator
+        }
+        AlexGunkel\ProjectOrganizer\Management\AccessValidation\AcceptanceManagerInterface {
+            className = AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
+        }
+        AlexGunkel\ProjectOrganizer\Management\ManagableRepository {
+            className = AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
+        }
     }
 }
