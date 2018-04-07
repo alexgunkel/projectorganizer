@@ -25,8 +25,10 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use Doctrine\Common\Util\Debug;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * Class ProjectRepository
@@ -37,6 +39,9 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 class ProjectRepository
     extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    /**
+     *
+     */
     private const propertyRepositories = [
         'topics' => TopicRepository::class,
         'statusOptions' => StatusRepository::class,
@@ -44,16 +49,36 @@ class ProjectRepository
         'wskelements' => WskelementRepository::class,
     ];
 
-    public function initializeObject() {
-        /** @var Typo3QuerySettings $querySettings */
-        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
-        $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
-    }
-
+    /**
+     * @param Project $project
+     * @param int $pageId
+     */
     public function addToStorage(Project $project, int $pageId): void
     {
         $project->setPid($pageId);
         $this->add($project);
+    }
+
+    /**
+     * @param int $topicUid
+     * @return QueryResultInterface
+     */
+    public function findAcceptedByTopicUid(int $topicUid): QueryResultInterface
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->greaterThanOrEqual(
+                'validation_state',
+                Project::VALIDATION_STATE_ACCEPTED
+            )
+        )
+            ->logicalAnd(
+                $query->equals(
+                    'topic',
+                    $topicUid
+                )
+            );
+        return $query->execute();
     }
 
     /**
@@ -89,6 +114,9 @@ class ProjectRepository
         return $query->execute();
     }
 
+    /**
+     * @return QueryResultInterface
+     */
     public function findDenied() : QueryResultInterface
     {
         $query = $this->createQuery();

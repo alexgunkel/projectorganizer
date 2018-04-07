@@ -9,8 +9,11 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Traits\FlexformTrait;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
+/**
+ * Class DisplayController
+ * @package AlexGunkel\ProjectOrganizer\Controller
+ */
 class DisplayController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
@@ -21,41 +24,43 @@ class DisplayController
      *
      * @inject
      */
-    private $entityRepository;
+    private $projectRepository;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\TopicRepository
      *
-     * @inject
      */
-    private $topicRepository;
-
     final public function listAction() : void
     {
         $this->view->assignMultiple(
             [
-                'entities' => $this->entityRepository->findAccepted(),
+                'projects' => $this->projectRepository->findAccepted(),
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
             ]
         );
     }
 
-    final public function listByTopicsAction(): void
+    /**
+     *
+     */
+    final public function listByTopicAction(): void
     {
         $this->view->assignMultiple(
             [
-                'entities' => $this->topicRepository->findAll(),
+                'projects' => $this->projectRepository->findAcceptedByTopicUid($this->request->getArgument('topic')),
                 'pluginName' => $this->request->getPluginName(),
             ]
         );
     }
 
+    /**
+     *
+     */
     final public function detailAction() : void
     {
         $this->view->assignMultiple(
             [
-                'project' => $this->entityRepository->findByUid($this->request->getArgument('uid')),
+                'project' => $this->projectRepository->findByUid($this->request->getArgument('uid')),
                 'listViewPage' => $this->readAsInteger('list_view_page') ?? $GLOBALS['TSFE']->id,
             ]
         );
