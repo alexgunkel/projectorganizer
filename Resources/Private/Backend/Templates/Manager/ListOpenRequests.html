@@ -1,47 +1,58 @@
-<f:layout name="Default" />
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     data-namespace-typo3-fluid="true">
 
-<f:section name="content">
-    <h1>Manage Member Projects</h1>
-    <div role="tabpanel">
-        <ul class="nav nav-tabs t3js-tabs" role="tablist" id="tabs-tab" data-store-last-tab="1">
-            <li role="presentation" class="t3js-tabmenu-item  active">
-                <a href="#tab-1" title="" aria-controls="tab-1" role="tab" data-toggle="tab">
-                    Open Requests
-                </a>
-            </li>
-            <li role="presentation" class="t3js-tabmenu-item ">
-                <a href="#tab-2" title="" aria-controls="tab-2" role="tab" data-toggle="tab">
-                    Accepted
-                </a>
-            </li>
-            <li role="presentation" class="t3js-tabmenu-item ">
-                <a href="#tab-3" title="" aria-controls="tab-3" role="tab" data-toggle="tab">
-                    Denied
-                </a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="tab-1">
-                <div class="panel panel-tab">
-                    <div class="panel-body">
-                        <f:render partial="Manager/RequestList" arguments="{projects:open}" />
-                    </div>
+    <f:layout name="Default" />
+
+    <!--
+        =====================
+            Manager/ListOpenRequests.html
+    -->
+
+    <f:section name="Content">
+<h1>Manage Member Projects</h1>
+<div role="tabpanel">
+    <ul class="nav nav-tabs t3js-tabs" role="tablist" id="tabs-tab" data-store-last-tab="1">
+        <li role="presentation" class="t3js-tabmenu-item  active">
+            <a href="#tab-1" title="" aria-controls="tab-1" role="tab" data-toggle="tab">
+                Open Requests
+            </a>
+        </li>
+        <li role="presentation" class="t3js-tabmenu-item ">
+            <a href="#tab-2" title="" aria-controls="tab-2" role="tab" data-toggle="tab">
+                Accepted
+            </a>
+        </li>
+        <li role="presentation" class="t3js-tabmenu-item ">
+            <a href="#tab-3" title="" aria-controls="tab-3" role="tab" data-toggle="tab">
+                Denied
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tab-1">
+            <div class="panel panel-tab">
+                <div class="panel-body">
+                    <f:render partial="Manager/RequestList" arguments="{projects:open}" />
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="tab-2">
-                <div class="panel panel-tab">
-                    <div class="panel-body">
-                        <f:render partial="Manager/RequestList" arguments="{projects:accepted}" />
-                    </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab-2">
+            <div class="panel panel-tab">
+                <div class="panel-body">
+                    <f:render partial="Manager/RequestList" arguments="{projects:accepted}" />
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="tab-3">
-                <div class="panel panel-tab">
-                    <div class="panel-body">
-                        <f:render partial="Manager/RequestList" arguments="{projects:denied}" />
-                    </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab-3">
+            <div class="panel panel-tab">
+                <div class="panel-body">
+                    <f:render partial="Manager/RequestList" arguments="{projects:denied}" />
                 </div>
             </div>
         </div>
     </div>
-</f:section>
+</div>
+    </f:section>
+</div>

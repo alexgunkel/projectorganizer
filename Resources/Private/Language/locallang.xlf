@@ -101,6 +101,10 @@
                 <source>Region</source>
             </trans-unit>
 
+            <trans-unit id="projectSubmit.text.submitted">
+                <source>Thank you, your project request was submitted.</source>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

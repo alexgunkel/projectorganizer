@@ -1,38 +1,51 @@
-<div xmlns:f="http://www.w3.org/1999/html" >
-    <h1>Akzeptiertes Projekt:</h1>
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     data-namespace-typo3-fluid="true">
 
-    <h2>{project.title}</h2>
-    <p>Themenfeld: {project.topic}</p>
-    <h3>Adressierte Wertschöpfungskettenelemente:</h3>
-    <ol>
-        <f:for each="{project.wskElement}" as="wsk" >
-            <li>{wsk.title}</li>
-        </f:for>
-    </ol>
-    <h3>Beteiligte Einrichtungen:</h3>
-    <ol>
-        <f:for each="{project.institution}" as="institution">
-            <li>{institution.title}</li>
-        </f:for>
-    </ol>
-    <p>Status: {project.status.title}</p>
-    <p>Fördervolumen: {project.volume}</p>
-    <p>Gesamtvolumen: {project.overallVolume}</p>
-    <p>Förderprogramm: {project.researchprogram.title}</p>
-    <p><f:link.external uri="{project.link}" >Link zum Programm</f:link.external></p>
-    <h3>Ansprechpartner:</h3>
-    <p>{project.contactPerson.title}</p>
-    <h3>Beschreibung:</h3>
-    <p>{project.description}</p>
-    <p>Region: {project.region.title}</p>
-    <h3>Veröffentlichungen:</h3>
-    <ol>
-        <f:for each="{project.publication}" as="publication" >
-            <li>{publication.title}</li>
-        </f:for>
-    </ol>
+    <f:layout name="Default" />
 
-    <p>
-        <f:link.action action="listOpenRequests" >Zurück zur Liste</f:link.action>
-    </p>
+    <!--
+        =====================
+            Manager/Validate.html
+    -->
+
+    <f:section name="Content">
+<h1>Akzeptiertes Projekt:</h1>
+
+<h2>{project.title}</h2>
+<p>Themenfeld: {project.topic}</p>
+<h3>Adressierte Wertschöpfungskettenelemente:</h3>
+<ol>
+    <f:for each="{project.wskElement}" as="wsk" >
+        <li>{wsk.title}</li>
+    </f:for>
+</ol>
+<h3>Beteiligte Einrichtungen:</h3>
+<ol>
+    <f:for each="{project.institution}" as="institution">
+        <li>{institution.title}</li>
+    </f:for>
+</ol>
+<p>Status: {project.status.title}</p>
+<p>Fördervolumen: {project.volume}</p>
+<p>Gesamtvolumen: {project.overallVolume}</p>
+<p>Förderprogramm: {project.researchprogram.title}</p>
+<p><f:link.external uri="{project.link}" >Link zum Programm</f:link.external></p>
+<h3>Ansprechpartner:</h3>
+<p>{project.contactPerson.title}</p>
+<h3>Beschreibung:</h3>
+<p>{project.description}</p>
+<p>Region: {project.region.title}</p>
+<h3>Veröffentlichungen:</h3>
+<ol>
+    <f:for each="{project.publication}" as="publication" >
+        <li>{publication.title}</li>
+    </f:for>
+</ol>
+
+<p>
+    <f:link.action action="listOpenRequests" >Zurück zur Liste</f:link.action>
+</p>
+    </f:section>
 </div>
