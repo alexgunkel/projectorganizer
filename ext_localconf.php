@@ -51,25 +51,25 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'AlexGunkel.' . $_EXTKEY,
-    'experts',
+    'institutions_list',
     [
-        'Display' => 'list, detail',
+        'Institution' => 'list, detail, insertForm, add',
     ],
     [
-        'Display' => 'list',
+        'Institution' => 'insertForm, add',
     ]
-);
+    );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'AlexGunkel.' . $_EXTKEY,
-    'topics',
+    'institutions_insert',
     [
-        'Display' => 'list, detail',
+        'Institution' => 'insertForm, add',
     ],
     [
-        'Display' => '',
+        'Institution' => 'insertForm, add',
     ]
-);
+    );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'AlexGunkel.' . $_EXTKEY,

@@ -52,21 +52,15 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_show_p
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'AlexGunkel.' . $_EXTKEY,
-    'validate_project',
-    'Projekte validieren'
-);
+    'institutions_list',
+    'Institions-list'
+    );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'AlexGunkel.' . $_EXTKEY,
-    'experts',
-    'Expert list'
-);
-
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'AlexGunkel.' . $_EXTKEY,
-    'topics',
-    'Themenfelder'
-);
+    'institutions_insert',
+    'Institions-insert'
+    );
 
 if (TYPO3_MODE === 'BE') {
 
