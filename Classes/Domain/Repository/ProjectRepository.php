@@ -47,6 +47,7 @@ class ProjectRepository
         'statusOptions' => StatusRepository::class,
         'regions' => RegionRepository::class,
         'wskelements' => WskelementRepository::class,
+        'institutions' => InstitutionRepository::class,
     ];
 
     /**
@@ -71,7 +72,7 @@ class ProjectRepository
             ->logicalAnd(
                 $query->equals(
                     'institution',
-                    $topicUid
+                    $institution
                     )
                 );
             return $query->execute();

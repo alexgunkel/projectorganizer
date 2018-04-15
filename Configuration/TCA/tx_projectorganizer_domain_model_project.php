@@ -178,6 +178,21 @@ return array(
                 'foreign_table' => 'tx_projectorganizer_domain_model_region',
             ],
         ],
+        'institution' => [
+            'label' => 'Beteiligte Einrichtungen',
+            'config' => [
+                'type' => 'select',
+                'size' => 1,
+                'maxitems' => 1,
+                'item' => [
+                    [
+                        '---- Bitte wählen ----',
+                        0
+                    ]
+                ],
+                'foreign_table' => 'tx_projectorganizer_domain_model_institution',
+            ],
+        ],
         'researchprogram' => [
             'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_researchprogram',
             'config' => [
@@ -201,25 +216,6 @@ return array(
                 'foreign_table' => 'tx_projectorganizer_domain_model_topic',
                 'MM' => 'tx_projectorganizer_mm_project_topic',
                 'foreign_selecter' => 'projects',
-            ],
-        ],
-        'institutions' => [
-            'label' => 'Beteiligte Einrichtungen',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'fieldControl' => [
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'allowed' => 'tx_projectorganizer_domain_model_institution',
-                'foreign_table' => 'tx_projectorganizer_domain_model_institution',
-                'MM' => 'tx_projectorganizer_mm_project_institution',
-                'foreign_selecter' => 'projects',
-                'appearance' => [
-                    'useCombination' => '1',
-                ],
             ],
         ],
         'publications' => [

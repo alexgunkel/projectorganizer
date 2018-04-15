@@ -166,8 +166,8 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   region VARCHAR(255),
   researchprogram VARCHAR(255),
   contact_person VARCHAR(255),
-
-  institutions INT(11) NOT NULL DEFAULT '0',
+  institution INT(11) NOT NULL DEFAULT '0',
+  
   publications INT(11) NOT NULL DEFAULT '0',
   persons INT(11) NOT NULL DEFAULT '0',
   topics INT(11) NOT NULL DEFAULT '0',

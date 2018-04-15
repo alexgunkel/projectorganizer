@@ -55,6 +55,10 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             return $institutions;
         }
         
+        /**
+         * 
+         * @var ProjectRepository $projectRepository
+         */
         $projectRepository = $this->objectManager->get(ProjectRepository::class);
         
         foreach ($institutions as $institution) {
