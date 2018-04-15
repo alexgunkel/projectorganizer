@@ -10,8 +10,6 @@ namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
-use phpDocumentor\Reflection\Types\Null_;
 
 /**
  * Class InstitutionController
@@ -21,6 +19,8 @@ class InstitutionController extends ActionController
 {
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\InstitutionRepository
+     * 
+     * @inject
      */
     private $institutionRepository;
 
@@ -29,7 +29,10 @@ class InstitutionController extends ActionController
      */
     public function listAction(): void
     {
-        $this->view->assign('institutions', $this->institutionRepository->findAll());
+        $this->view->assign(
+            'institutions',
+            $this->institutionRepository->findAll()
+            );
     }
 
     /**
@@ -53,13 +56,10 @@ class InstitutionController extends ActionController
         );
     }
 
-    public function addInstitution(Institution $institution): void
+    public function addAction(Institution $institution): void
     {
-        $this->institutionRepository->add($institution);
-        
-        /** @var PersistenceManager $persistenceManager */
-        $persistenceManager = $this->objectManager->get(PersistenceManager::class);
-        $persistenceManager->persistAll();
+        $this->institutionRepository->insert($institution);
+        $this->view->assign('institution', $institution);
     }
 }
 

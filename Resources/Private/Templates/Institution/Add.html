@@ -11,15 +11,7 @@
 
     <f:section name="Content">
 		<div class="insertInstitutionForm">
-		    <f:form action="add"
-		    		controller="Institution"
-		    		object="institution"
-		    		name="institution">
-		    	
-	            <label for="title">Institution-Name</label>
-	            <f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>
-        		<f:form.button class="btn btn-default">Submit</f:form.button>
-    		</f:form>
+			New institution: {institution.title}
 		</div>
     </f:section>
     

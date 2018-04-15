@@ -242,16 +242,6 @@ CREATE TABLE tx_projectorganizer_domain_model_institution (
   access_group int(11) DEFAULT '0' NOT NULL,
 
   title VARCHAR(255) NOT NULL DEFAULT '',
-  type INT(11) UNSIGNED NOT NULL ,
-  place VARCHAR(255) NOT NULL DEFAULT '',
-  state VARCHAR(255) NOT NULL DEFAULT '',
-  country VARCHAR(255) NOT NULL DEFAULT '',
-
-  wsk_element VARCHAR(255),
-
-  projects INT(11) NOT NULL DEFAULT '0',
-  persons INT(11) NOT NULL DEFAULT '0',
-  topics INT(11) NOT NULL DEFAULT '0',
 
   PRIMARY KEY (uid)
 );

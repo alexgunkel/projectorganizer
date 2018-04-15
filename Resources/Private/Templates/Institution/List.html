@@ -16,22 +16,22 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
+                <th scope="col">Projects</th>
             </tr>
         </thead>
-            <tbody>
-            <f:for each="institutions" as="institution">
-                <tr>
-                    <td>
-                        <f:link.action
-                        	action="detail"
-                        	pluginName="{pluginName}"
-                        	arguments="{uid:institution.uid}"
-                        	pageUid="{detailViewPage}">
-                            {project.title}
-                        </f:link.action>
-                    </td>
-                </tr>
-            </f:for>
+        <tbody>
+        	<f:for each="{institutions}" as="institution">
+        		<tr>
+        			<td>{institution.title}</td>
+        			<td>
+        				<ul>
+        					<f:for each="{insitution.projects}" as="project">
+        						<li>{project.title}</li>
+        					</f:for>
+        				</ul>
+        			</td>
+        		</tr>
+        	</f:for>
         </tbody>
     </table>
 </div>

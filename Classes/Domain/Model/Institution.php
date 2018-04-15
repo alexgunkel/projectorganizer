@@ -24,13 +24,33 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
-
-use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
+use AlexGunkel\ProjectOrganizer\Domain\Model\ProjectList;
 
 class Institution extends AbstractDomainObject
 {
     use TitleTrait;
-    use TopicsTrait;
+    
+    /**
+     * 
+     * @var ProjectList
+     */
+    protected $projectList;
+    
+    public function __construct()
+    {
+        $this->projectList = new ProjectList;
+    }
+    
+    public function getProjects(): ProjectList
+    {
+        return $this->projectList;
+    }
+    
+    public function setProjectList(ProjectList $projects): void
+    {
+        $this->projectList = $projects;    
+    }
 }
+

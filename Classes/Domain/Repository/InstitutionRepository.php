@@ -25,6 +25,9 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use AlexGunkel\ProjectOrganizer\Domain\Model\ProjectList;
 
 /**
  * Class InstitutionRepository
@@ -38,5 +41,33 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         /** @var Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
         $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
+    }
+    
+    /**
+     * 
+     * {@inheritDoc}
+     * @see \TYPO3\CMS\Extbase\Persistence\Repository::findAll()
+     */
+    public function findAll(): QueryResultInterface
+    {
+        $institutions = parent::findAll();
+        if ($institutions->count() === 0) {
+            return $institutions;
+        }
+        
+        $projectRepository = $this->objectManager->get(ProjectRepository::class);
+        
+        foreach ($institutions as $institution) {
+            $projects = $projectRepository->findAcceptedByInstitution($institution->getUid());
+            $institution->setProjectList(new ProjectList($projects->toArray()));
+        }
+        
+        return $institutions;
+    }
+    
+    public function insert(Institution $institution): void
+    {
+        parent::add($institution);
+        $this->persistenceManager->persistAll();
     }
 }

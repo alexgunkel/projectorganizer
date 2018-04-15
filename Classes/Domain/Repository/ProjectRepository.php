@@ -58,6 +58,24 @@ class ProjectRepository
         $project->setPid($pageId);
         $this->add($project);
     }
+    
+    public function findAcceptedByInstitution(int $institution): QueryResultInterface
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->greaterThanOrEqual(
+                'validation_state',
+                Project::VALIDATION_STATE_ACCEPTED
+                )
+            )
+            ->logicalAnd(
+                $query->equals(
+                    'institution',
+                    $topicUid
+                    )
+                );
+            return $query->execute();
+    }
 
     /**
      * @param int $topicUid
