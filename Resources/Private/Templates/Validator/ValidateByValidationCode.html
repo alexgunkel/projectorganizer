@@ -21,12 +21,7 @@
         <li>{wsk.title}</li>
     </f:for>
 </ol>
-<h3>Beteiligte Einrichtungen:</h3>
-<ol>
-    <f:for each="{project.institution}" as="institution">
-        <li>{institution.title}</li>
-    </f:for>
-</ol>
+<p>Institution: {project.institution}</p>
 <p>Status: {project.status.title}</p>
 <p>Fördervolumen: {project.volume}</p>
 <p>Gesamtvolumen: {project.overallVolume}</p>

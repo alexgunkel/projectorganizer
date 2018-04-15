@@ -40,11 +40,7 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.institution', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
-                        <f:for each="{project.institution}" as="institution">
-                            <li>{institution.title}</li>
-                        </f:for>
-                    </ol>
+                    {project.institution.title}
                 </td>
             </tr>
             <tr>

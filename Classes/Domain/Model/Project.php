@@ -24,7 +24,6 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
-use AlexGunkel\ProjectOrganizer\Domain\Model\Validation\State;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\DeletedTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Booleans\HiddenTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\CrDateTrait;
@@ -33,7 +32,6 @@ use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\RuntimeTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\TstampTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\VolumeTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\ContactPersonTrait;
-use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\InstitutionsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\PublicationsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\RegionTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\ResearchprogramTrait;
@@ -45,7 +43,6 @@ use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\LinkTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use AlexGunkel\ProjectOrganizer\Traits\ValidationStatusTrait;
 use AlexGunkel\ProjectOrganizer\Value\Password;
-use AlexGunkel\ProjectOrganizer\Value\ValidationStatus;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -54,7 +51,6 @@ class Project
 {
     use ContactPersonTrait;
     use DescriptionTrait;
-    use InstitutionsTrait;
     use LinkTrait;
     use OverallVolumeTrait;
     use PublicationsTrait;
@@ -96,6 +92,12 @@ class Project
      * @var Password
      */
     private $password;
+    
+    /**
+     * 
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Institution
+     */
+    protected $institution;
 
     /**
      * @param int $accepted
@@ -124,6 +126,16 @@ class Project
     {
         return $this->validationState;
     }
+    
+    public function getInstitution():? Institution
+    {
+        return $this->institution;
+    }
+    
+    public function setInstitution(Institution $institution): void
+    {
+        $this->institution = $institution;
+    }
 
     /**
      * Project constructor.
@@ -131,7 +143,6 @@ class Project
     public function __construct()
     {
         $this->setTopics(new ObjectStorage());
-        $this->setInstitutions(new ObjectStorage());
         $this->setContactPerson(new ObjectStorage());
         $this->setPublications(new ObjectStorage());
         $this->setWskelements(new ObjectStorage());

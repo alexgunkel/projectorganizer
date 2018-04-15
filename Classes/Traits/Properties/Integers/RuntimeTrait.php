@@ -41,12 +41,12 @@ trait RuntimeTrait
      *
      * @return void
      */
-    public function setRunTime(int $runtime)
+    public function setRunTime(?int $runtime)
     {
         $this->runtime = $runtime;
     }
 
-    public function getRuntime(): int
+    public function getRuntime():? int
     {
         return $this->runtime;
     }

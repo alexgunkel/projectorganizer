@@ -52,5 +52,10 @@ class Institution extends AbstractDomainObject
     {
         $this->projectList = $projects;    
     }
+    
+    public function __toString(): string
+    {
+        return $this->title;
+    }
 }
 

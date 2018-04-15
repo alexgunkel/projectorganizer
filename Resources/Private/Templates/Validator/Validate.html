@@ -15,18 +15,7 @@
 
 <h2>{project.title}</h2>
 <p>Themenfeld: {project.topic}</p>
-<h3>Adressierte Wertschöpfungskettenelemente:</h3>
-<ol>
-    <f:for each="{project.wskElement}" as="wsk" >
-        <li>{wsk.title}</li>
-    </f:for>
-</ol>
-<h3>Beteiligte Einrichtungen:</h3>
-<ol>
-    <f:for each="{project.institution}" as="institution">
-        <li>{institution.title}</li>
-    </f:for>
-</ol>
+<p>Institution: {project.institution}</p>
 <p>Status: {project.status.title}</p>
 <p>Fördervolumen: {project.volume}</p>
 <p>Gesamtvolumen: {project.overallVolume}</p>
@@ -38,11 +27,6 @@
 <p>{project.description}</p>
 <p>Region: {project.region.title}</p>
 <h3>Veröffentlichungen:</h3>
-<ol>
-    <f:for each="{project.publication}" as="publication" >
-        <li>{publication.title}</li>
-    </f:for>
-</ol>
 
 <p>
     <f:link.action action="listOpenRequests" >Zurück zur Liste</f:link.action>
