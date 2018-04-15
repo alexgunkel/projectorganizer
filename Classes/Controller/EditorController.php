@@ -34,6 +34,7 @@ use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\WskelementRepositoryTrait;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
+use AlexGunkel\ProjectOrganizer\Traits\FlexformTrait;
 
 class EditorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -41,7 +42,8 @@ class EditorController
     use StatusRepositoryTrait,
         TopicRepositoryTrait,
         RegionRepositoryTrait,
-        WskelementRepositoryTrait;
+        WskelementRepositoryTrait,
+        FlexformTrait;
 
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
@@ -62,11 +64,15 @@ class EditorController
      */
     public function createAction(Project $project = null) : void
     {
-        $this->view
-            ->assign('project', $project)
-            ->assign('pluginName', $this->request->getPluginName())
-            ->assignMultiple(
-                $this->projectRepository->getPropertyOptions()
+        $this->view->assignMultiple(
+                array_merge(
+                    $this->projectRepository->getPropertyOptions(),
+                    [
+                        'insertInstitutionPage' => $this->readAsInteger('insert_institution_page') ?? $GLOBALS['TSFE']->id,
+                        'pluginName' => $this->request->getPluginName(),
+                        'project' => $project,
+                    ]
+                    )
             );
     }
 
