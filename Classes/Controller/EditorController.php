@@ -90,7 +90,7 @@ class EditorController
         $project->setPassword($passwordService->generateRandomPassword());
         $project->setPasswordHash($passwordService->getSaltedPassword($project->getPassword()));
 
-        $this->projectRepository->addToStorage($project, (int) $this->settings['pages']);
+        $this->projectRepository->add($project);
 
         /** @var PersistenceManager $persistenceManager */
         $this->objectManager->get(PersistenceManager::class)->persistAll();
