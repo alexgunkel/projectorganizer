@@ -9,7 +9,7 @@
                 <el>
                     <settings.receiver>
                         <TCEforms>
-                            <label>E-Mail Empfänger</label>
+                            <label>E-Mail Empfänger (mehrere Empfänger durch Kommata getrennt)</label>
                             <config>
                                 <type>input</type>
                                 <size>20</size>
