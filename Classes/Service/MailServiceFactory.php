@@ -16,6 +16,7 @@ use AlexGunkel\ProjectOrganizer\Service\Mail\DeliveryAgent;
 use AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessage;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class MailServiceFactory
 {
@@ -42,12 +43,21 @@ class MailServiceFactory
     }
 
     /**
-     * @param string $receiver
+     * @param string $receivers
      *
      * @return DeliveryAgent
      */
-    public static function buildDeliveryAgent(string $receiver = null): DeliveryAgent
+    public static function buildDeliveryAgent(string $receivers = null): DeliveryAgent
     {
-        return (new DeliveryAgent)->addRecipient($receiver);
+        $agent = new DeliveryAgent;
+        $receiverList = explode(',', $receivers);
+        array_walk($receiverList, function(&$value, $key) {
+            $value = trim($value);
+        });
+        foreach ($receiverList as $receiver) {
+            $agent->addRecipient($receiver);
+        }
+        
+        return $agent;
     }
 }
