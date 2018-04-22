@@ -105,11 +105,16 @@ class ProjectRepository
      *
      * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findAccepted() : QueryResultInterface
+    public function findAccepted(bool $ignoreStoragePid = false) : QueryResultInterface
     {
+        $ignoreStoragePid && $this->setStoragePidIgnore(true);
+
         $query = $this->createQuery();
         $query->matching($query->greaterThanOrEqual('validation_state', Project::VALIDATION_STATE_ACCEPTED));
-        return $query->execute();
+        $result = $query->execute();
+        
+        $ignoreStoragePid && $this->setStoragePidIgnore(false);
+        return $result;
     }
 
     /**
@@ -117,8 +122,9 @@ class ProjectRepository
      *
      * @return QueryResultInterface
      */
-    public function findOpenRequests() : QueryResultInterface
+    public function findOpenRequests(bool $ignoreStoragePid = false) : QueryResultInterface
     {
+        $ignoreStoragePid && $this->setStoragePidIgnore(true);
         $query = $this->createQuery();
 
         $query->matching(
@@ -130,21 +136,26 @@ class ProjectRepository
             )
         );
 
-        return $query->execute();
+        $result = $query->execute();
+        $ignoreStoragePid && $this->setStoragePidIgnore(false);
+        return $result;
     }
 
     /**
      * @return QueryResultInterface
      */
-    public function findDenied() : QueryResultInterface
+    public function findDenied(bool $ignoreStoragePid = false) : QueryResultInterface
     {
+        $ignoreStoragePid && $this->setStoragePidIgnore(true);
         $query = $this->createQuery();
 
         $query->matching(
             $query->equals('validation_state', -1)
         );
 
-        return $query->execute();
+        $result = $query->execute();
+        $ignoreStoragePid && $this->setStoragePidIgnore(false);
+        return $result;
     }
 
     /**
@@ -158,6 +169,17 @@ class ProjectRepository
             },
             self::propertyRepositories
         );
+    }
+    
+    /**
+     * 
+     * @param bool $ignore
+     */
+    private function setStoragePidIgnore(bool $ignore): void
+    {
+        /** @var Typo3QuerySettings $querySettings */
+        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
+        $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(!$ignore));
     }
 }
 

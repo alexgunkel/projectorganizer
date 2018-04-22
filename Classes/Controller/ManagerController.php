@@ -86,9 +86,9 @@ class ManagerController
     {
         $this->view->assignMultiple(
             [
-                'open'     => $this->repository->findOpenRequests(),
-                'accepted' => $this->repository->findAccepted(),
-                'denied'   => $this->repository->findDenied(),
+                'open'     => $this->repository->findOpenRequests(true),
+                'accepted' => $this->repository->findAccepted(true),
+                'denied'   => $this->repository->findDenied(true),
             ]
         );
     }
