@@ -23,10 +23,10 @@
                 <target>Beschreibung</target>
             </trans-unit>
             <trans-unit id="label.link">
-                <target>Link</target>
+                <target>Link zu Projektseite</target>
             </trans-unit>
             <trans-unit id="label.topics">
-                <target>Themen</target>
+                <target>Themenfeld(er)</target>
             </trans-unit>
             <trans-unit id="label.status">
                 <target>Status</target>
@@ -35,7 +35,7 @@
                 <target>Laufzeit</target>
             </trans-unit>
             <trans-unit id="label.region">
-                <target>Region</target>
+                <target>Gefördert als</target>
             </trans-unit>
             <trans-unit id="label.wskelements">
                 <target>WSK</target>
@@ -43,7 +43,15 @@
             <trans-unit id="addProject.label.submit">
                 <target>Erstellen</target>
             </trans-unit>
-
+            <trans-unit id="label.volume">
+                <target>Fördervolumen</target>
+            </trans-unit>
+            <trans-unit id="label.overallVolume">
+                <target>Gesamtvolumen</target>
+            </trans-unit>
+            <trans-unit id="label.location">
+                <target>Ort</target>
+            </trans-unit>
 
             <trans-unit id="projectDetail.label.topic">
                 <target>Themenfeld</target>
@@ -103,6 +111,14 @@
 
             <trans-unit id="projectSubmit.text.submitted">
                 <target>Vielen Dank, Ihre Projektanfrage wurde versendet.</target>
+            </trans-unit>
+
+
+            <trans-unit id="addInstitution.label.title">
+                <target>Institution</target>
+            </trans-unit>
+            <trans-unit id="addInstitution.submit">
+                <target>Institution Anlegen</target>
             </trans-unit>
 
         </body>
