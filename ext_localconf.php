@@ -56,7 +56,7 @@ if (!defined('TYPO3_MODE')) {
         'Institution' => 'list, detail, insertForm, add',
     ],
     [
-        'Institution' => 'insertForm, add',
+        'Institution' => 'insertForm, add, list',
     ]
     );
 

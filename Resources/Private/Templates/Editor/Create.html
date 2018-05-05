@@ -166,6 +166,9 @@
                            id="region"
                            class="form-control"
                            errorClass="has-error">
+                <v:form.select.option value="NULL" >
+                    -- keine Förderung --
+                </v:form.select.option>
                 <f:for each="{regions}" as="region" >
                     <v:form.select.option value="{region.uid}" >
                         {region.title}
