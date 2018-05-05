@@ -26,7 +26,7 @@
                 <source>Project Link</source>
             </trans-unit>
             <trans-unit id="label.topics">
-                <source>Topics</source>
+                <source>Topic(s)</source>
             </trans-unit>
             <trans-unit id="label.status">
                 <source>Status</source>
@@ -43,7 +43,15 @@
             <trans-unit id="addProject.label.submit">
                 <source>Create</source>
             </trans-unit>
-
+            <trans-unit id="label.volume">
+                <source>Fördervolumen</source>
+            </trans-unit>
+            <trans-unit id="label.overallVolume">
+                <source>Gesamtvolumen</source>
+            </trans-unit>
+            <trans-unit id="label.location">
+                <source>Ort</source>
+            </trans-unit>
 
             <trans-unit id="projectDetail.label.topic">
                 <source>Themenfeld</source>
@@ -76,7 +84,7 @@
                 <source>Beschreibung</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.region">
-                <source>Region</source>
+                <source>Gefördert als</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.publication">
                 <source>Veröffentlichungen</source>
@@ -103,6 +111,13 @@
 
             <trans-unit id="projectSubmit.text.submitted">
                 <source>Thank you, your project request was submitted.</source>
+            </trans-unit>
+
+            <trans-unit id="addInstitution.label.title">
+                <source>Institution</source>
+            </trans-unit>
+            <trans-unit id="addInstitution.submit">
+                <source>Add Institution</source>
             </trans-unit>
 
         </body>

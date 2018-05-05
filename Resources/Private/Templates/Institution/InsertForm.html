@@ -1,24 +1,26 @@
 <div xmlns="http://www.w3.org/1999/xhtml" lang="en"
-     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
-     data-namespace-typo3-fluid="true">
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 data-namespace-typo3-fluid="true">
 
-    <f:layout name="Default" />
+	<f:layout name="Default" />
 
-    <!--
+	<!--
         =====================
-            Display/ListByTopic.html
+            Institution/InsertForm.html
     -->
 
     <f:section name="Content">
-		<div class="insertInstitutionForm">
+		<div class="institution-create">
 		    <f:form action="add"
 		    		controller="Institution"
 		    		object="institution"
 		    		name="institution">
-		    	
-	            <label for="title">Institution-Name</label>
-	            <f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>
-        		<f:form.button class="btn btn-default">Submit</f:form.button>
+				<div class="form-group {error-title}">
+	            	<label for="title">{f:translate(key: 'addInstitution.label.title', extensionName: 'project_organizer')}</label>
+	            	<f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>
+				</div>
+				<f:form.button class="btn btn-default">{f:translate(key: 'addInstitution.submit', extensionName: 'project_organizer')}</f:form.button>
     		</f:form>
 		</div>
     </f:section>
