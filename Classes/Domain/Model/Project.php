@@ -105,6 +105,27 @@ class Project
     protected $location;
 
     /**
+     * @var string
+     */
+    protected $contactEmail;
+
+    /**
+     * @return string
+     */
+    public function getContactEmail(): string
+    {
+        return $this->contactEmail;
+    }
+
+    /**
+     * @param string $contactEmail
+     */
+    public function setContactEmail(string $contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
+    }
+
+    /**
      * @return string
      */
     public function getLocation(): string

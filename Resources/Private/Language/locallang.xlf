@@ -37,6 +37,9 @@
             <trans-unit id="label.region">
                 <source>Region</source>
             </trans-unit>
+            <trans-unit id="label.contactEmail">
+                <target>E-Mail-Adresse</target>
+            </trans-unit>
             <trans-unit id="label.wskelements">
                 <source>WSK</source>
             </trans-unit>

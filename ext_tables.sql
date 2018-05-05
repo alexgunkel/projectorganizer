@@ -159,6 +159,7 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   link VARCHAR(255),
   runtime INT(11),
   place VARCHAR(255),
+  contact_email VARCHAR(255),
   validation_state INT(1) DEFAULT '0',
   password_hash VARCHAR(255) NOT NULL DEFAULT '',
 

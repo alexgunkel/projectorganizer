@@ -118,7 +118,8 @@ class ValidationCodeMessage
             'Uid: ' . $this->object->getUid() . "\n"
             . 'Title: ' . $this->object->getTitle() . "\n"
             . 'Code: ' . $this->object->getPassword() . "\n"
-            . 'Link: ' . $link
+            . 'Link: ' . $link . "\n"
+            . 'E-Mail: ' . $this->object->getContactEmail()
         );
 
         return $this;

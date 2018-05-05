@@ -128,6 +128,19 @@
 
 <!-- End - Dummy fields - ToDo: Remove -->
 
+        <div class="form-group {error-location}">
+            <label for="contactEmail">{f:translate(key: 'label.contactEmail', extensionName: 'project_organizer')}</label>
+            <f:form.textfield property="contactEmail" id="contactEmail" class="form-control" errorClass="has-error"/>
+            <f:form.validationResults for="project.contactEmail">
+                <f:if condition="{validationResults.flattenedErrors}">
+                    <ul class="errors">
+                        <f:for each="{validationResults.errors}" as="error">
+                            <li>{error}</li>
+                        </f:for>
+                    </ul>
+                </f:if>
+            </f:form.validationResults>
+        </div>
 
 
         <div class="form-group {error-topics}">

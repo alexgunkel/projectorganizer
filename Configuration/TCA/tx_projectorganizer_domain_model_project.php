@@ -122,6 +122,14 @@ return array(
                 'size' => 40,
             ],
         ],
+        'contact_email' => [
+            'label' => 'E-Mail',
+            'config' => [
+                'type' => 'input',
+                'eval' => 'email',
+                'size' => 40,
+            ],
+        ],
         'location' => [
             'label' => 'Ort',
             'config' => [

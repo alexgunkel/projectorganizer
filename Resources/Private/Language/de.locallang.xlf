@@ -34,6 +34,9 @@
             <trans-unit id="label.runtime">
                 <target>Laufzeit</target>
             </trans-unit>
+            <trans-unit id="label.contactEmail">
+                <target>E-Mail-Adresse</target>
+            </trans-unit>
             <trans-unit id="label.region">
                 <target>Gefördert als</target>
             </trans-unit>
