@@ -154,7 +154,7 @@ class ManagerController
         $project = $this->fetchProject();
 
         $project->setDeleted(true);
-        $this->repository->update($project);
+        $this->repository->remove($project);
 
         $this->redirect('listOpenRequests');
     }
