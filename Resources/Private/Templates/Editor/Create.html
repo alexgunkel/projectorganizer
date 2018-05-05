@@ -112,7 +112,7 @@
             </f:form.validationResults>
         </div>
         <div class="form-group {error-location}">
-            <label for="volume">{f:translate(key: 'label.location', extensionName: 'project_organizer')}</label>
+            <label for="location">{f:translate(key: 'label.location', extensionName: 'project_organizer')}</label>
             <f:form.textfield property="location" id="location" class="form-control" errorClass="has-error"/>
             <f:form.validationResults for="project.location">
                 <f:if condition="{validationResults.flattenedErrors}">
@@ -213,7 +213,7 @@
                            id="region"
                            class="form-control"
                            errorClass="has-error">
-                <v:form.select.option value="NULL" >
+                <v:form.select.option value="" >
                     -- keine Förderung --
                 </v:form.select.option>
                 <f:for each="{regions}" as="region" >

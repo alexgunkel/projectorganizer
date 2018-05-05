@@ -29,24 +29,24 @@ use AlexGunkel\ProjectOrganizer\Value\Volume;
 trait OverallVolumeTrait
 {
     /**
-     * @var int
+     * @var string
      */
-    protected $overallVolume = 0;
+    protected $overallVolume = '';
 
     /**
-     * @param integer $overallVolume
+     * @param string $overallVolume
      *
      * @return self
      */
-    public function setOverallVolume(int $overallVolume)
+    public function setOverallVolume(string $overallVolume)
     {
         $this->overallVolume = $overallVolume;
     }
 
     /**
-     * @return Volume
+     * @return string
      */
-    public function getOverallVolume() : int
+    public function getOverallVolume() : string
     {
         return $this->overallVolume;
     }

@@ -103,8 +103,7 @@ return array(
             'config' => [
                 'type' => 'input',
                 'size' => 20,
-                'default' => 0,
-                'eval' => 'trim,int',
+                'eval' => 'trim',
             ],
         ],
         'overall_volume' => [
@@ -112,7 +111,7 @@ return array(
             'config' => [
                 'type' => 'input',
                 'size' => 20,
-                'eval' => 'trim,int',
+                'eval' => 'trim',
             ],
         ],
         'link' => [
@@ -123,7 +122,7 @@ return array(
                 'size' => 40,
             ],
         ],
-        'place' => [
+        'location' => [
             'label' => 'Ort',
             'config' => [
                 'type' => 'input',

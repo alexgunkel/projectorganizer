@@ -153,8 +153,9 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
 
   title VARCHAR(255) NOT NULL DEFAULT '',
   description TEXT,
-  volume INT(11),
-  overall_volume INT(11),
+  volume VARCHAR(255),
+  overall_volume VARCHAR(255),
+  location VARCHAR(255),
   link VARCHAR(255),
   runtime INT(11),
   place VARCHAR(255),

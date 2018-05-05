@@ -27,24 +27,24 @@ namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Integers;
 trait VolumeTrait
 {
     /**
-     * @var int
+     * @var string
      */
-    protected $volume = 0;
+    protected $volume = '';
 
     /**
-     * @param integer $volume
+     * @param string $volume
      *
      * @return self
      */
-    public function setVolume(int $volume)
+    public function setVolume(string $volume)
     {
         $this->volume = $volume;
     }
 
     /**
-     * @return integer
+     * @return string
      */
-    public function getVolume() : int
+    public function getVolume() : string
     {
         return $this->volume;
     }

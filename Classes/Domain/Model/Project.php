@@ -100,6 +100,27 @@ class Project
     protected $institution;
 
     /**
+     * @var string
+     */
+    protected $location;
+
+    /**
+     * @return string
+     */
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param string $location
+     */
+    public function setLocation(string $location)
+    {
+        $this->location = $location;
+    }
+
+    /**
      * @param int $accepted
      *
      * @throws \Exception if validation-state is not allowed

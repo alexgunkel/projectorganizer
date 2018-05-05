@@ -33,7 +33,7 @@ trait RegionTrait
      */
     protected $region;
 
-    public function setRegion(Region $region)
+    public function setRegion(?Region $region)
     {
         $this->region = $region;
     }
