@@ -56,6 +56,6 @@ trait WskelementTrait
      */
     public function getWskelements()
     {
-        return clone $this->wskelements;
+        return $this->wskelements ?? new ObjectStorage;
     }
 }

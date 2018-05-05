@@ -58,6 +58,6 @@ trait PublicationsTrait
      */
     public function getPublications() : ObjectStorage
     {
-        return clone $this->publications;
+        return $this->publications ?? new ObjectStorage;
     }
 }

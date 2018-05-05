@@ -29,10 +29,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'show_projects',
     [
-        'Display' => 'list, detail, listByTopic',
+        'Editor' => 'list, detail, listByTopic, edit, persist',
     ],
     [
-        'Display' => 'list, listByTopic',
+        'Editor' => 'list, listByTopic, edit, persist',
     ]
 );
 

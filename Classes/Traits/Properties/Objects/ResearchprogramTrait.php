@@ -51,6 +51,6 @@ trait ResearchprogramTrait
 
     public function getResearchprograms() : ObjectStorage
     {
-        return clone $this->researchprograms;
+        return $this->researchprograms ?? new ObjectStorage;
     }
 }

@@ -53,13 +53,13 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_show_p
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'AlexGunkel.' . $_EXTKEY,
     'institutions_list',
-    'Institions-list'
+    'List institutions'
     );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'AlexGunkel.' . $_EXTKEY,
     'institutions_insert',
-    'Institions-insert'
+    'Add institution'
     );
 
 if (TYPO3_MODE === 'BE') {

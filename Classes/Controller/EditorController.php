@@ -60,6 +60,33 @@ class EditorController
     private $acceptanceManager;
 
     /**
+     *
+     */
+    final public function listAction() : void
+    {
+        $this->view->assignMultiple(
+            [
+                'projects' => $this->projectRepository->findAccepted(),
+                'pluginName' => $this->request->getPluginName(),
+                'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
+            ]
+        );
+    }
+
+    /**
+     *
+     */
+    final public function listByTopicAction(): void
+    {
+        $this->view->assignMultiple(
+            [
+                'projects' => $this->projectRepository->findAcceptedByTopicUid($this->request->getArgument('topic')),
+                'pluginName' => $this->request->getPluginName(),
+            ]
+        );
+    }
+
+    /**
      * @param ManagableInterface|null $project
      */
     public function createAction(Project $project = null) : void
@@ -74,6 +101,48 @@ class EditorController
                     ]
                     )
             );
+    }
+
+    /**
+     * @param ManagableInterface|null $project
+     */
+    public function editAction(Project $project = null) : void
+    {
+        if (null == $project) {
+            $project = $this->projectRepository->findByIdentifier(
+                $this->request->getArgument('uid')
+            );
+        }
+
+        $this->view->assignMultiple(
+            array_merge(
+                $this->projectRepository->getPropertyOptions(),
+                [
+                    'insertInstitutionPage' => $this->readAsInteger('insert_institution_page') ?? $GLOBALS['TSFE']->id,
+                    'pluginName' => $this->request->getPluginName(),
+                    'project' => $project,
+                ]
+            )
+        );
+    }
+
+    public function persistAction(Project $project): void
+    {
+        $this->projectRepository->update($project);
+        $this->forward('detail', null, null, ['uid' => $project->getUid()]);
+    }
+
+    /**
+     *
+     */
+    final public function detailAction() : void
+    {
+        $this->view->assignMultiple(
+            [
+                'project' => $this->projectRepository->findByUid($this->request->getArgument('uid')),
+                'listViewPage' => $this->readAsInteger('list_view_page') ?? $GLOBALS['TSFE']->id,
+            ]
+        );
     }
 
     /**

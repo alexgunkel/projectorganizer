@@ -30,6 +30,10 @@ use AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository;
 use TYPO3\CMS\Backend\View\BackendTemplateView;
 use TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException;
 
+/**
+ * Class ManagerController
+ * @package AlexGunkel\ProjectOrganizer\Controller
+ */
 class ManagerController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
@@ -149,6 +153,9 @@ class ManagerController
         $this->redirect('listOpenRequests');
     }
 
+    /**
+     *
+     */
     public function deleteAction() : void
     {
         $project = $this->fetchProject();
@@ -159,6 +166,9 @@ class ManagerController
         $this->redirect('listOpenRequests');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function validateByValidationCodeAction() : void
     {
         $code = $this->request->getArgument('validationCode');
