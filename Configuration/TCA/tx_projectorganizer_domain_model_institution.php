@@ -46,9 +46,63 @@ return array(
                 'eval' => 'trim, required',
             ],
         ],
+        'institution_type' => [
+            'label' => 'Typ',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+            ],
+        ],
+        'location' => [
+            'label' => 'Hauptsitz',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+            ],
+        ],
+        'country' => [
+            'label' => 'Land',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+            ],
+        ],
+        'wsk_element' => [
+            'label' => 'WSK-Element',
+            'config' => [
+                'type' => 'select',
+                'foreign_table' => 'tx_projectorganizer_domain_model_wskelement',
+                'size' => 6,
+                'item' => [
+                    [
+                        '---- Bitte wählen ----',
+                        0
+                    ]
+                ],
+                'maxitems' =>1,
+            ],
+        ],
+        'topic' => [
+            'label' => 'Thema',
+            'config' => [
+                'type' => 'select',
+                'foreign_table' => 'tx_projectorganizer_domain_model_topic',
+                'size' => 6,
+                'item' => [
+                    [
+                        '---- Bitte wählen ----',
+                        0
+                    ]
+                ],
+                'maxitems' =>1,
+            ],
+        ],
     ),
     'types' => [
-        '1' => ['showitem' => 'title'],
+        '1' => ['showitem' => 'title, type, location, country, wsk_element, topic'],
     ],
     'palettes' => array(),
 );

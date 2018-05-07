@@ -97,6 +97,11 @@ CREATE TABLE tx_projectorganizer_domain_model_institution_type (
   access_group int(11) DEFAULT '0' NOT NULL,
 
   title VARCHAR(255) NOT NULL DEFAULT '',
+  institution_type VARCHAR(255) NOT NULL DEFAULT '',
+  location VARCHAR(255) NOT NULL DEFAULT '',
+  country VARCHAR(255) NOT NULL DEFAULT '',
+  wsk_element VARCHAR(255),
+  topic VARCHAR(255),
 
   PRIMARY KEY (uid)
 );
@@ -244,6 +249,11 @@ CREATE TABLE tx_projectorganizer_domain_model_institution (
   access_group int(11) DEFAULT '0' NOT NULL,
 
   title VARCHAR(255) NOT NULL DEFAULT '',
+  institution_type VARCHAR(255) NOT NULL DEFAULT '',
+  location VARCHAR(255) NOT NULL DEFAULT '',
+  country VARCHAR(255) NOT NULL DEFAULT '',
+  wsk_element VARCHAR(255),
+  topic VARCHAR(255),
 
   PRIMARY KEY (uid)
 );

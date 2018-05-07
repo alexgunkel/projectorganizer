@@ -64,18 +64,20 @@ class ProjectRepository
     {
         $query = $this->createQuery();
         $query->matching(
-            $query->greaterThanOrEqual(
-                'validation_state',
-                Project::VALIDATION_STATE_ACCEPTED
-                )
-            )
-            ->logicalAnd(
+            $query->logicalAnd(
                 $query->equals(
                     'institution',
                     $institution
-                    )
-                );
-            return $query->execute();
+                    ),
+                $query->greaterThanOrEqual(
+                    'validation_state',
+                    Project::VALIDATION_STATE_ACCEPTED
+                )
+            )
+        );
+        $result = $query->execute();
+
+        return $result;
     }
 
     /**
@@ -175,7 +177,7 @@ class ProjectRepository
      * 
      * @param bool $ignore
      */
-    private function setStoragePidIgnore(bool $ignore): void
+    public function setStoragePidIgnore(bool $ignore): void
     {
         /** @var Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);

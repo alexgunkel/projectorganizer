@@ -18,10 +18,10 @@ final class ProjectList implements \IteratorAggregate
      */
     public function __construct(?array $projectArray = [])
     {
-        $this->list = $projectArray;
+        $this->list = new \ArrayIterator($projectArray ?? []);
     }
     
-    public function getIterator(): array
+    public function getIterator(): \ArrayIterator
     {
         return $this->list;
     }

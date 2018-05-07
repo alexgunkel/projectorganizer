@@ -26,7 +26,6 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
-use AlexGunkel\ProjectOrganizer\Domain\Model\ProjectList;
 
 class Institution extends AbstractDomainObject
 {
@@ -37,10 +36,115 @@ class Institution extends AbstractDomainObject
      * @var ProjectList
      */
     protected $projectList;
+
+    /**
+     * @var string
+     */
+    protected $institutionType;
+
+    /**
+     * @var string
+     */
+    protected $location;
+
+    /**
+     * @var string
+     */
+    protected $country;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Topic
+     */
+    protected $topic;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement
+     */
+    protected $wskelement;
     
     public function __construct()
     {
         $this->projectList = new ProjectList;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInstitutionType(): string
+    {
+        return $this->institutionType;
+    }
+
+    /**
+     * @param string $institutionType
+     */
+    public function setInstitutionType(string $institutionType)
+    {
+        $this->institutionType = $institutionType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param string $location
+     */
+    public function setLocation(string $location)
+    {
+        $this->location = $location;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCountry(): string
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param string $country
+     */
+    public function setCountry(string $country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return Topic
+     */
+    public function getTopic(): ?Topic
+    {
+        return $this->topic;
+    }
+
+    /**
+     * @param Topic $topic
+     */
+    public function setTopic(Topic $topic)
+    {
+        $this->topic = $topic;
+    }
+
+    /**
+     * @return Wskelement
+     */
+    public function getWskelement(): ?Wskelement
+    {
+        return $this->wskelement;
+    }
+
+    /**
+     * @param Wskelement $wskelement
+     */
+    public function setWskelement(Wskelement $wskelement)
+    {
+        $this->wskelement = $wskelement;
     }
     
     public function getProjects(): ProjectList

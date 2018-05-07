@@ -20,6 +20,92 @@
 	            	<label for="title">{f:translate(key: 'addInstitution.label.title', extensionName: 'project_organizer')}</label>
 	            	<f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>
 				</div>
+
+				<div class="form-group {error-location}">
+					<label for="institutionType">Typ</label>
+					<f:form.textfield property="institutionType" id="institutionType" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="project.institutionType">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
+				<div class="form-group {error-location}">
+					<label for="location">Hauptsitz</label>
+					<f:form.textfield property="location" id="location" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="project.location">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+				<div class="form-group {error-location}">
+					<label for="country">Land</label>
+					<f:form.textfield property="country" id="country" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="project.country">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
+				<div class="form-group {error-topics}">
+					<label for="topic">{f:translate(key: 'label.topics', extensionName: 'project_organizer')}</label>
+					<v:form.select property="topic" id="topic" multiple="false" class="form-control" errorClass="has-error" >
+						<f:for each="{topics}" as="topic" >
+							<v:form.select.option selected="false"
+												  value="{topic.uid}" >
+								{topic.title}
+							</v:form.select.option>
+						</f:for>
+					</v:form.select>
+					<f:form.validationResults for="institution.topics">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+				<div class="form-group {error-wskelements}">
+					<label for="wskelement">WSK-Element</label>
+					<v:form.select property="wskelement"
+								   id="wskelement"
+								   class="form-control"
+								   errorClass="has-error"
+								   multiple="false" >
+						<f:for each="{wskelements}" as="wsk" >
+							<v:form.select.option value="{wsk.uid}" >
+								{wsk.title}
+							</v:form.select.option>
+						</f:for>
+					</v:form.select>
+					<f:form.validationResults for="institution.wskelement">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
 				<f:form.button class="btn btn-default">{f:translate(key: 'addInstitution.submit', extensionName: 'project_organizer')}</f:form.button>
     		</f:form>
 		</div>

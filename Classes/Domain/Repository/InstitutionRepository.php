@@ -37,6 +37,14 @@ use AlexGunkel\ProjectOrganizer\Domain\Model\ProjectList;
  */
 class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    /**
+     *
+     */
+    private const propertyRepositories = [
+        'topics' => TopicRepository::class,
+        'wskelements' => WskelementRepository::class,
+    ];
+
     public function initializeObject() {
         /** @var Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
@@ -60,12 +68,14 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
          * @var ProjectRepository $projectRepository
          */
         $projectRepository = $this->objectManager->get(ProjectRepository::class);
+        $projectRepository->setStoragePidIgnore(true);
         
         foreach ($institutions as $institution) {
             $projects = $projectRepository->findAcceptedByInstitution($institution->getUid());
             $institution->setProjectList(new ProjectList($projects->toArray()));
         }
-        
+
+        $projectRepository->setStoragePidIgnore(false);
         return $institutions;
     }
     
@@ -73,5 +83,18 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     {
         parent::add($institution);
         $this->persistenceManager->persistAll();
+    }
+
+    /**
+     * @return array
+     */
+    public function getPropertyOptions(): array
+    {
+        return array_map(
+            function ($var) {
+                return $this->objectManager->get($var)->findAll();
+            },
+            self::propertyRepositories
+        );
     }
 }

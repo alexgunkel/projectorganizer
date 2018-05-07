@@ -54,6 +54,8 @@ class InstitutionController extends ActionController
             'institution',
             $institution ?? new Institution
         );
+
+        $this->view->assignMultiple($this->institutionRepository->getPropertyOptions());
     }
 
     public function addAction(Institution $institution): void
