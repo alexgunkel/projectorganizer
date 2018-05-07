@@ -1,0 +1,58 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+	 xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+	 data-namespace-typo3-fluid="true">
+
+	<f:layout name="Default" />
+
+	<!--
+        =====================
+            Publication/InsertForm.html
+    -->
+
+    <f:section name="Content">
+		<div class="publication-create">
+		    <f:form action="add"
+		    		controller="Publication"
+		    		object="publication"
+		    		name="publication">
+				<div class="form-group {error-title}">
+	            	<label for="title">Titel</label>
+	            	<f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>
+				</div>
+
+				<div class="form-group {error-location}">
+					<label for="author">Autor</label>
+					<f:form.textfield property="author" id="author" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="publication.author">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
+				<div class="form-group {error-published}">
+					<label for="published">Veröffentlicht</label>
+					<f:form.textfield property="published" id="published" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="publication.published">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
+				<f:form.button class="btn btn-default">
+					Hinzufügen</f:form.button>
+    		</f:form>
+		</div>
+    </f:section>
+    
+</div>

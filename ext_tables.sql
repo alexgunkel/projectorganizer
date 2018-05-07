@@ -224,14 +224,8 @@ CREATE TABLE tx_projectorganizer_domain_model_publication (
   access_group int(11) DEFAULT '0' NOT NULL,
 
   title VARCHAR(255) NOT NULL DEFAULT '',
-  type INT(11) NOT NULL DEFAULT '0',
-  year INT(4) UNSIGNED,
-  link VARCHAR(255),
-
-  institutions VARCHAR(255),
-  projects VARCHAR(255),
-
-  persons INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  author VARCHAR(255) NOT NULL DEFAULT '',
+  published VARCHAR(255) NOT NULL DEFAULT '',
 
   PRIMARY KEY (uid)
 );

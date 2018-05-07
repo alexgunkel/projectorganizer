@@ -95,6 +95,28 @@ if (!defined('TYPO3_MODE')) {
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'AlexGunkel.' . $_EXTKEY,
+    'publications_list',
+    [
+        'Publication' => 'list, detail, insertForm, add',
+    ],
+    [
+        'Publication' => 'insertForm, add, list',
+    ]
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'AlexGunkel.' . $_EXTKEY,
+    'publications_insert',
+    [
+        'Publication' => 'insertForm, add',
+    ],
+    [
+        'Publication' => 'insertForm, add',
+    ]
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'AlexGunkel.' . $_EXTKEY,
     'validate_project',
     [
         'Validator' => 'validateByValidationCode',

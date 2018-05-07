@@ -1,0 +1,30 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     data-namespace-typo3-fluid="true">
+
+    <f:layout name="Default" />
+
+    <!--
+        =====================
+            Display/List.html
+    -->
+
+    <f:section name="Content">
+<div class="publicationList">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Projects</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<f:for each="{publications}" as="publication">
+        		<p>{publication.author}: <em>{publication.title}</em>, {publication.published}</p>
+        	</f:for>
+        </tbody>
+    </table>
+</div>
+    </f:section>
+</div>

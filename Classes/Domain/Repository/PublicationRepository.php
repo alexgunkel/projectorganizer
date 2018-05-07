@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Publication;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
 /**
@@ -38,5 +39,11 @@ class PublicationRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         /** @var Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
         $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
+    }
+
+    public function insert(Publication $publication): void
+    {
+        parent::add($publication);
+        $this->persistenceManager->persistAll();
     }
 }

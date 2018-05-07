@@ -30,4 +30,46 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 class Publication extends AbstractDomainObject
 {
     use TitleTrait;
+
+    /**
+     * @var string
+     */
+    protected $author;
+
+    /**
+     * @var string
+     */
+    protected $published;
+
+    /**
+     * @return string
+     */
+    public function getAuthor(): string
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param string $author
+     */
+    public function setAuthor(string $author)
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPublished(): string
+    {
+        return $this->published;
+    }
+
+    /**
+     * @param string $published
+     */
+    public function setPublished(string $published)
+    {
+        $this->published = $published;
+    }
 }

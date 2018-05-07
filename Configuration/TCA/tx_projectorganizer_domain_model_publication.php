@@ -46,60 +46,20 @@ return array(
                 'eval' => 'trim, required',
             ],
         ],
-        'type' => [
-            'label' => 'Art der Publikation',
-            'config' => [
-                'type' => 'select',
-                'items' => [['', 0]],
-                'foreign_table' => 'tx_projectorganizer_domain_model_publication_type',
-            ],
-        ],
-        'year' => [
-            'label' => 'Jahr',
+        'author' => [
+            'label' => 'Autor',
             'config' => [
                 'type' => 'input',
-                'size' => 6,
-                'eval' => 'trim, integer',
+                'size' => 30,
+                'eval' => 'trim, required',
             ],
         ],
-        'link' => [
-            'label' => 'Link',
+        'published' => [
+            'label' => 'Veröffentlicht',
             'config' => [
                 'type' => 'input',
-                'renderType' => 'inputLink',
-            ],
-        ],
-        'institutions' => [
-            'label' => 'Einrichtung',
-            'config' => [
-                'type' => 'select',
-                'items' => [['', 0]],
-                'foreign_table' => 'tx_projectorganizer_domain_model_institution',
-            ],
-        ],
-        'projects' => [
-            'label' => 'Project',
-            'config' => [
-                'type' => 'select',
-                'items' => [['', 0]],
-                'foreign_table' => 'tx_projectorganizer_domain_model_project',
-            ],
-        ],
-        'persons' => [
-            'label' => 'Autoren',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'fieldControl' => [
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
-                ],
-                'MM' => 'tx_projectorganizer_mm_person_publication',
-                'MM_opposite_field' => 'publication',
-                'foreign_table' => 'tx_projectorganizer_domain_model_person',
-                'allowed' => 'tx_projectorganizer_domain_model_person',
-                'multiple' => '1',
+                'size' => 30,
+                'eval' => 'trim, required',
             ],
         ],
     ),

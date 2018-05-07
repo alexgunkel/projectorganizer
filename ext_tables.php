@@ -74,6 +74,18 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_show_p
     'Add expert'
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'AlexGunkel.' . $_EXTKEY,
+    'publications_list',
+    'List publications'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'AlexGunkel.' . $_EXTKEY,
+    'publications_insert',
+    'Add publication'
+);
+
 if (TYPO3_MODE === 'BE') {
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
