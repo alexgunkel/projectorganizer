@@ -196,7 +196,7 @@ CREATE TABLE tx_projectorganizer_domain_model_person (
 
   title VARCHAR(255) NOT NULL DEFAULT '',
   specialist_field VARCHAR(255),
-  entry_date INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  entry_date VARCHAR(255) NOT NULL DEFAULT '',
   place VARCHAR(255),
   e_mail VARCHAR(255),
   description TEXT,

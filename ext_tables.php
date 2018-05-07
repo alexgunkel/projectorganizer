@@ -62,6 +62,18 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_show_p
     'Add institution'
     );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'AlexGunkel.' . $_EXTKEY,
+    'experts_list',
+    'List experts'
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    'AlexGunkel.' . $_EXTKEY,
+    'experts_insert',
+    'Add expert'
+);
+
 if (TYPO3_MODE === 'BE') {
 
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(

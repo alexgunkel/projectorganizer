@@ -40,7 +40,7 @@ trait InstitutionsTrait
      *
      * @return void
      */
-    public function addInstitution(Institution $institution)
+    public function addInstitution(?Institution $institution)
     {
         $this->institutions->attach($institution);
     }
@@ -56,7 +56,7 @@ trait InstitutionsTrait
     /**
      * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Institution>
      */
-    public function setInstitutions(ObjectStorage $institutions)
+    public function setInstitutions(?ObjectStorage $institutions)
     {
         $this->institutions = $institutions;
     }

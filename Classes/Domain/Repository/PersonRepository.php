@@ -24,7 +24,9 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
  * Class PersonRepository
@@ -35,10 +37,37 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 class PersonRepository
     extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
+    /**
+     *
+     */
+    private const propertyRepositories = [
+        'topics' => TopicRepository::class,
+        'wskelements' => WskelementRepository::class,
+        'institutions' => InstitutionRepository::class,
+    ];
+
     public function initializeObject() {
         /** @var Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
         $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
     }
 
+    public function insert(Person $institution): void
+    {
+        parent::add($institution);
+        $this->persistenceManager->persistAll();
+    }
+
+    /**
+     * @return array
+     */
+    public function getPropertyOptions(): array
+    {
+        return array_map(
+            function ($var) {
+                return $this->objectManager->get($var)->findAll();
+            },
+            self::propertyRepositories
+        );
+    }
 }

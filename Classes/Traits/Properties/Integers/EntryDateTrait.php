@@ -24,12 +24,10 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Integers;
 
-use AlexGunkel\ProjectOrganizer\Value\Date;
-
 trait EntryDateTrait
 {
     /**
-     * @var Date
+     * @var string
      */
     protected $entryDate;
 
@@ -38,12 +36,12 @@ trait EntryDateTrait
      *
      * @return void
      */
-    public function setEntryDate(int $entryDate)
+    public function setEntryDate(string $entryDate)
     {
-        $this->entryDate = new Date($entryDate);
+        $this->entryDate = $entryDate;
     }
 
-    public function getEntryDate(): Date
+    public function getEntryDate(): ?string
     {
         return $this->entryDate;
     }

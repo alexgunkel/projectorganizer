@@ -28,6 +28,7 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\EntryDateTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\InstitutionsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait;
+use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\DescriptionTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\SpecialistFieldTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
@@ -41,4 +42,26 @@ class Person extends AbstractDomainObject
     use InstitutionsTrait;
     use SpecialistFieldTrait;
     use EntryDateTrait;
+    use WskelementTrait;
+
+    /**
+     * @var string
+     */
+    protected $email;
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+    }
 }
