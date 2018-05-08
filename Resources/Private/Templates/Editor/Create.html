@@ -145,7 +145,7 @@
 
         <div class="form-group {error-topics}">
             <label for="topics">{f:translate(key: 'label.topics', extensionName: 'project_organizer')}</label>
-            <v:form.select property="topics" id="topics" multiple="false" class="form-control" errorClass="has-error" >
+            <v:form.select property="topics" id="topics" multiple="true" class="form-control" errorClass="has-error" >
                 <f:for each="{topics}" as="topic" >
                     <v:form.select.option selected="false"
                                           value="{topic.uid}" >
@@ -201,6 +201,7 @@
             <label for="institution">Institution</label>
             <v:form.select property="institution"
                            id="institution"
+                           multiple="true"
                            class="form-control"
                            errorClass="has-error">
                 <f:for each="{institutions}" as="institution" >
