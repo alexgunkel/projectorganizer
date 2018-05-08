@@ -95,9 +95,9 @@ class Project
     
     /**
      * 
-     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Institution
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Institution>
      */
-    protected $institution;
+    protected $institutions;
 
     /**
      * @var string
@@ -168,15 +168,32 @@ class Project
     {
         return $this->validationState;
     }
-    
-    public function getInstitution():? Institution
+
+    /**
+     * @param \AlexGunkel\ProjectOrganizer\Domain\Model\Institution $institution
+     *
+     * @return void
+     */
+    public function addInstitution(Institution $institution)
     {
-        return $this->institution;
+        $this->institutions->attach($institution);
     }
-    
-    public function setInstitution(Institution $institution): void
+
+    /**
+     *
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Institution>
+     */
+    public function setInstitutions(ObjectStorage $institutions)
     {
-        $this->institution = $institution;
+        $this->institutions = $institutions;
+    }
+
+    /**
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Institution>
+     */
+    public function getInstitutions() : ObjectStorage
+    {
+        return clone $this->institutions;
     }
 
     /**

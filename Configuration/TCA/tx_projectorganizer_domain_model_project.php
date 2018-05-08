@@ -188,16 +188,10 @@ return array(
         'institution' => [
             'label' => 'Beteiligte Einrichtungen',
             'config' => [
-                'type' => 'select',
-                'size' => 1,
-                'maxitems' => 1,
-                'item' => [
-                    [
-                        '---- Bitte wählen ----',
-                        0
-                    ]
-                ],
                 'foreign_table' => 'tx_projectorganizer_domain_model_institution',
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'MM' => 'tx_projectorganizer_mm_project_institution',
             ],
         ],
         'researchprogram' => [
