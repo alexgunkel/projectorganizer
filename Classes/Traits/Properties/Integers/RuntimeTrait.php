@@ -24,30 +24,51 @@
 
 namespace AlexGunkel\ProjectOrganizer\Traits\Properties\Integers;
 
-use AlexGunkel\ProjectOrganizer\Value\Runtime;
-
 trait RuntimeTrait
 {
     /**
-     * @real_var \AlexGunkel\ProjectOrganizer\Value\Runtime
-     * @var int
+     * @var string
      *
      * @validate NotEmpty
      */
-    protected $runtime;
+    protected $runtimeStart;
 
     /**
-     * @param int $runtime
+     * @var string
      *
-     * @return void
+     * @validate NotEmpty
      */
-    public function setRunTime(?int $runtime)
+    protected $runtimeEnd;
+
+    /**
+     * @return mixed
+     */
+    public function getRuntimeStart()
     {
-        $this->runtime = $runtime;
+        return $this->runtimeStart;
     }
 
-    public function getRuntime():? int
+    /**
+     * @param mixed $runtime_start
+     */
+    public function setRuntimeStart($runtime_start)
     {
-        return $this->runtime;
+        $this->runtimeStart = $runtime_start;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRuntimeEnd()
+    {
+        return $this->runtimeEnd;
+    }
+
+    /**
+     * @param mixed $runtime_end
+     */
+    public function setRuntimeEnd($runtime_end)
+    {
+        $this->runtimeEnd = $runtime_end;
     }
 }

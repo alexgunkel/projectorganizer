@@ -110,6 +110,48 @@ class Project
     protected $contactEmail;
 
     /**
+     * @var bool
+     */
+    protected $showInMap;
+
+    /**
+     * @var bool
+     */
+    protected $hypos;
+
+    /**
+     * @return bool
+     */
+    public function isHypos(): bool
+    {
+        return $this->hypos;
+    }
+
+    /**
+     * @param bool $hypos
+     */
+    public function setHypos(bool $hypos)
+    {
+        $this->hypos = $hypos;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isShowInMap(): bool
+    {
+        return $this->showInMap;
+    }
+
+    /**
+     * @param bool $showInMap
+     */
+    public function setShowInMap(bool $showInMap)
+    {
+        $this->showInMap = $showInMap;
+    }
+
+    /**
      * @return string
      */
     public function getContactEmail(): string

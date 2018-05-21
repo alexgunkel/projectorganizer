@@ -65,6 +65,18 @@ return array(
                 'eval' => 'date',
             ],
         ],
+        'show_in_map' => [
+            'label' => 'Show in map:',
+            'config' => [
+                'type' => 'check',
+            ],
+        ],
+        'hypos' => [
+            'label' => 'Show in map:',
+            'config' => [
+                'type' => 'check',
+            ],
+        ],
         'validation_state' => [
             'label' => 'Status der Validierung',
             'config' => [
@@ -89,8 +101,17 @@ return array(
                 'rows' => 30,
             ],
         ],
-        'runtime' => [
-            'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:label.runtime',
+        'runtime_start' => [
+            'label' => 'Laufzeit von',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
+                'size' => 20,
+                'eval' => 'date,required',
+            ],
+        ],
+        'runtime_end' => [
+            'label' => 'Laufzeit bis',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -251,7 +272,7 @@ return array(
         ],
     ),
     'types' => [
-        '1' => ['showitem' => 'title, accepted, accepted_by, topics, runtime, region, status,
+        '1' => ['showitem' => 'title, accepted, accepted_by, show_in_map, hypos, topics, runtime_start, runtime_end, region, status,
         --div--;Projektdetails, description, volume, overall_volume, link, place, wsk_element, researchprogram,
         --div--;Kontakte, institutions, persons, contact_person,
         --div--;Publikationen, publications'],
