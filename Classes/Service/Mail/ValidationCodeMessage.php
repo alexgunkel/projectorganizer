@@ -103,8 +103,7 @@ class ValidationCodeMessage
                     'projectUid' => (string) $this->object->getUid(),
                 ],
                 'Validator',
-                null,
-                'edit_projects'
+                null
             );
     }
 

@@ -56,8 +56,8 @@ trait ContactPersonTrait
     /**
      * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Person>
      */
-    public function getContactPerson(): ObjectStorage
+    public function getContactPerson(): ?ObjectStorage
     {
-        return clone $this->contactPerson;
+        return $this->contactPerson ? clone $this->contactPerson : null;
     }
 }

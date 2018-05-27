@@ -120,11 +120,32 @@ class Project
     protected $hypos;
 
     /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Project
+     */
+    protected $orig;
+
+    /**
+     * @return Project
+     */
+    public function getOrig(): ?Project
+    {
+        return $this->orig;
+    }
+
+    /**
+     * @param Project $orig
+     */
+    public function setOrig(Project $orig)
+    {
+        $this->orig = $orig;
+    }
+
+    /**
      * @return bool
      */
     public function isHypos(): bool
     {
-        return $this->hypos;
+        return $this->hypos ?? false;
     }
 
     /**
@@ -140,7 +161,7 @@ class Project
      */
     public function isShowInMap(): bool
     {
-        return $this->showInMap;
+        return $this->showInMap ?? false;
     }
 
     /**
@@ -154,7 +175,7 @@ class Project
     /**
      * @return string
      */
-    public function getContactEmail(): string
+    public function getContactEmail(): ?string
     {
         return $this->contactEmail;
     }
@@ -170,7 +191,7 @@ class Project
     /**
      * @return string
      */
-    public function getLocation(): string
+    public function getLocation(): ?string
     {
         return $this->location;
     }
@@ -181,6 +202,21 @@ class Project
     public function setLocation(string $location)
     {
         $this->location = $location;
+    }
+
+    public function copy(): Project
+    {
+        $clone = new Project;
+        $listOfProperties = get_object_vars($this);
+
+        foreach ($listOfProperties as $property => $value) {
+            $name = 'set' . ucfirst($property);
+            if (method_exists($clone, $name) && null !== $value) {
+                $clone->{$name}($value);
+            }
+        }
+
+        return $clone;
     }
 
     /**
@@ -235,7 +271,7 @@ class Project
      */
     public function getInstitutions() : ObjectStorage
     {
-        return clone $this->institutions;
+        return $this->institutions ?? new ObjectStorage;
     }
 
     /**
@@ -247,6 +283,7 @@ class Project
         $this->setContactPerson(new ObjectStorage());
         $this->setPublications(new ObjectStorage());
         $this->setWskelements(new ObjectStorage());
+        $this->institutions = new ObjectStorage;
         $this->setResearchprograms(new ObjectStorage());
         $this->setValidationState(self::VALIDATION_STATE_OPEN);
     }

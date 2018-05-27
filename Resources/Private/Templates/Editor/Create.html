@@ -26,7 +26,8 @@
                             <f:case value="project.link"><v:variable.set name="error-link" value="has-error" /></f:case>
                             <f:case value="project.topics"><v:variable.set name="error-topics" value="has-error" /></f:case>
                             <f:case value="project.status"><v:variable.set name="error-status" value="has-error" /></f:case>
-                            <f:case value="project.runtime"><v:variable.set name="error-runtime" value="has-error" /></f:case>
+                            <f:case value="project.runtimeStart"><v:variable.set name="error-runtimeStart" value="has-error" /></f:case>
+                            <f:case value="project.runtimeStart"><v:variable.set name="error-runtimeStart" value="has-error" /></f:case>
                             <f:case value="project.region"><v:variable.set name="error-region" value="has-error" /></f:case>
                             <f:case value="project.wskelements"><v:variable.set name="error-wskelements" value="has-error" /></f:case>
                         </f:switch>
@@ -184,10 +185,23 @@
                 </f:if>
             </f:form.validationResults>
         </div>
-        <div class="form-group {error-runtime}">
-            <label for="runtime">{f:translate(key: 'label.runtime', extensionName: 'project_organizer')}</label>
-            <f:form.textfield id="runtime" property="runtime" class="form-control" errorClass="has-error"/>
-            <f:form.validationResults for="project.runtime">
+        <div class="form-group {error-runtimeStart}">
+            <label for="runtimeStart">{f:translate(key: 'label.runtime', extensionName: 'project_organizer')} Start</label>
+            <f:form.textfield id="runtimeStart" property="runtimeStart" class="form-control" errorClass="has-error"/>
+            <f:form.validationResults for="project.runtimeStart">
+                <f:if condition="{validationResults.flattenedErrors}">
+                    <ul class="errors">
+                        <f:for each="{validationResults.errors}" as="error">
+                            <li>{error}</li>
+                        </f:for>
+                    </ul>
+                </f:if>
+            </f:form.validationResults>
+        </div>
+        <div class="form-group {error-runtimeEnd}">
+            <label for="runtimeEnd">{f:translate(key: 'label.runtime', extensionName: 'project_organizer')} Ende</label>
+            <f:form.textfield id="runtimeEnd" property="runtimeEnd" class="form-control" errorClass="has-error"/>
+            <f:form.validationResults for="project.runtimeEnd">
                 <f:if condition="{validationResults.flattenedErrors}">
                     <ul class="errors">
                         <f:for each="{validationResults.errors}" as="error">

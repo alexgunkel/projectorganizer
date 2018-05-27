@@ -191,6 +191,15 @@ return array(
                 'maxitems' =>5,
             ],
         ],
+        'orig' => [
+            'label' => 'Original',
+            'config' => [
+                'type' => 'select',
+                'foreign_table' => 'tx_projectorganizer_domain_model_project',
+                'size' => 1,
+                'maxitems' =>1,
+            ],
+        ],
         'region' => [
             'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_region',
             'config' => [

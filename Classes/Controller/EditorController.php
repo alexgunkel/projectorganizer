@@ -126,12 +126,6 @@ class EditorController
         );
     }
 
-    public function persistAction(Project $project): void
-    {
-        $this->projectRepository->update($project);
-        $this->forward('detail', null, null, ['uid' => $project->getUid()]);
-    }
-
     /**
      *
      */
@@ -146,6 +140,18 @@ class EditorController
     }
 
     /**
+     * @param Project $project
+     */
+    public function persistAction(Project $project): void
+    {
+        $newProject = $project->copy();
+        $newProject->setOrig($project);
+        $this->registerNewProject($newProject);
+
+        $this->forward('detail', null, null, ['uid' => $project->getUid()]);
+    }
+
+    /**
      * Add the given project and return project to view
      *
      * @param Project $project
@@ -153,6 +159,19 @@ class EditorController
      * @return void
      */
     public function submitAction(Project $project) : void
+    {
+        list($message, $response) = $this->registerNewProject($project);
+
+        $this->view->assign('projectTitle', $project->getTitle());
+        $this->view->assign('success', $response);
+        $this->view->assign('message', $message);
+    }
+
+    /**
+     * @param Project $project
+     * @return array
+     */
+    private function registerNewProject(Project $project): array
     {
         $this->acceptanceManager->initializeAsNotYetAccepted($project);
         $passwordService = ValidationServiceFactory::buildPasswordService();
@@ -166,9 +185,7 @@ class EditorController
 
         $message = MailServiceFactory::buildValidationCodeMessage($project, $this->uriBuilder);
         $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
-
-        $this->view->assign('projectTitle', $project->getTitle());
-        $this->view->assign('success', $deliveryAgent->sendMessage($message));
-        $this->view->assign('message', $message);
+        $response = $deliveryAgent->sendMessage($message);
+        return array($message, $response);
     }
 }

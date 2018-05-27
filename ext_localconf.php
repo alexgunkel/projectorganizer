@@ -30,9 +30,11 @@ if (!defined('TYPO3_MODE')) {
     'show_projects',
     [
         'Editor' => 'list, detail, listByTopic, edit, persist',
+        'Validator' => 'validateByValidationCode',
     ],
     [
         'Editor' => 'list, listByTopic, edit, persist',
+        'Validator' => 'validateByValidationCode',
     ]
 );
 

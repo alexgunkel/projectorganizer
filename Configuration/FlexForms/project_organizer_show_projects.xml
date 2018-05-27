@@ -7,6 +7,16 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
+                    <settings.receiver>
+                        <TCEforms>
+                            <label>E-Mail Empfänger (mehrere Empfänger durch Kommata getrennt)</label>
+                            <config>
+                                <type>input</type>
+                                <size>20</size>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.receiver>
                     <settings.list_view_page>
                         <TCEforms>
                             <label>Seite für Listenansicht</label>

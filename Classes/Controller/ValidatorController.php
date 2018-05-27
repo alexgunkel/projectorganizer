@@ -51,6 +51,10 @@ class ValidatorController
         $this->acceptanceManager->accept($project);
         $this->repository->update($project);
 
+        if (null !== $project->getOrig()) {
+            $this->repository->remove($project->getOrig());
+        }
+
         $this->view->assign('project', $project);
     }
 }

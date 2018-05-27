@@ -161,6 +161,32 @@ class ProjectRepository
     }
 
     /**
+     * Replaces an existing object with the same identifier by the given object
+     *
+     * @param object $modifiedObject
+     */
+    public function findLatestParent(Project $lastPublished)
+    {
+        for ($i = 0; $i < 10; $i++) {
+            $uid = $lastPublished->getUid();
+            $query = $this->createQuery();
+            $query->matching(
+                $query->equals('orig', $uid)
+            );
+
+            $result = $query->execute()->getFirst();
+
+            if (empty($result)) {
+                break;
+            }
+
+            $lastPublished = $result;
+        }
+
+        return $lastPublished;
+    }
+
+    /**
      * @return array
      */
     public function getPropertyOptions(): array
