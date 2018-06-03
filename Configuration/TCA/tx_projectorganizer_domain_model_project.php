@@ -78,7 +78,7 @@ return array(
             ],
         ],
         'hypos' => [
-            'label' => 'Show in map:',
+            'label' => 'Is Hypos project:',
             'config' => [
                 'type' => 'check',
             ],
