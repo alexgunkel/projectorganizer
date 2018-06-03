@@ -188,15 +188,6 @@ return array(
                 'eval' => 'trim, required',
             ],
         ],
-        'wsk_element' => [
-            'label' => 'WSK-Elemente',
-            'config' => [
-                'type' => 'select',
-                'foreign_table' => 'tx_projectorganizer_domain_model_wskelement',
-                'size' => 6,
-                'maxitems' =>5,
-            ],
-        ],
         'orig' => [
             'label' => 'Original',
             'config' => [
@@ -221,7 +212,7 @@ return array(
                 'foreign_table' => 'tx_projectorganizer_domain_model_region',
             ],
         ],
-        'institution' => [
+        'institutions' => [
             'label' => 'Beteiligte Einrichtungen',
             'config' => [
                 'foreign_table' => 'tx_projectorganizer_domain_model_institution',
@@ -252,6 +243,16 @@ return array(
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_projectorganizer_domain_model_topic',
                 'MM' => 'tx_projectorganizer_mm_project_topic',
+                'foreign_selecter' => 'projects',
+            ],
+        ],
+        'wskelements' => [
+            'label' => 'WSK-Elemente',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_projectorganizer_domain_model_wskelement',
+                'MM' => 'tx_projectorganizer_mm_project_wskelement',
                 'foreign_selecter' => 'projects',
             ],
         ],
@@ -288,7 +289,7 @@ return array(
     ),
     'types' => [
         '1' => ['showitem' => 'title, accepted, accepted_by, show_in_map, demo_project, hypos, topics, runtime_start, runtime_end, region, status,
-        --div--;Projektdetails, description, volume, overall_volume, link, place, wsk_element, researchprogram,
+        --div--;Projektdetails, description, volume, overall_volume, link, place, wsk_elements, researchprogram,
         --div--;Kontakte, institutions, persons, contact_person,
         --div--;Publikationen, publications'],
     ],

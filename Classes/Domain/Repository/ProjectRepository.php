@@ -66,7 +66,7 @@ class ProjectRepository
         $query->matching(
             $query->logicalAnd(
                 $query->equals(
-                    'institution',
+                    'institutions',
                     $institution
                     ),
                 $query->greaterThanOrEqual(
