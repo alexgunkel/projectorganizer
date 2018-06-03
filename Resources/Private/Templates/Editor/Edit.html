@@ -222,7 +222,7 @@
                 </div>
                 <div class="form-group {error-runtimeStart}">
                     <label for="runtimeStart">{f:translate(key: 'label.runtime', extensionName: 'project_organizer')} Start</label>
-                    <f:form.textfield id="runtimeStart" property="runtimeStart" class="form-control" errorClass="has-error"/>
+                    <f:form.textfield id="runtimeStart" property="runtimeStart" class="form-control datepicker" errorClass="has-error"/>
                     <f:form.validationResults for="project.runtimeStart">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
@@ -235,7 +235,7 @@
                 </div>
                 <div class="form-group {error-runtimeEnd}">
                     <label for="runtimeEnd">{f:translate(key: 'label.runtime', extensionName: 'project_organizer')} Ende</label>
-                    <f:form.textfield id="runtimeEnd" property="runtimeEnd" class="form-control" errorClass="has-error"/>
+                    <f:form.textfield id="runtimeEnd" property="runtimeEnd" class="form-control datepicker" errorClass="has-error"/>
                     <f:form.validationResults for="project.runtimeEnd">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
@@ -329,7 +329,14 @@
             */
             /* Hypos GMap Key: AIzaSyDkwfV7xf17mFfKxwJdM_vfL7IsfEstPwU */
         </f:comment>
+        <v:asset.style path="/typo3conf/ext/project_organizer/Resources/Public/Css/bootstrap.min.css" standalone="true" external="true" />
+        <v:asset.style path="/typo3conf/ext/project_organizer/Resources/Public/Css/bootstrap-datepicker.min.css" standalone="true" external="true" />
+        <v:asset.script path="/typo3conf/ext/custom_template/Resources/Public/js/script.js" standalone="true" external="true" />
+        <v:asset.script path="/typo3conf/ext/project_organizer/Resources/Public/Js/bootstrap-datepicker.min.js"  standalone="true" external="true" />
         <v:asset.script path="http://maps.google.com/maps/api/js?key=AIzaSyDkwfV7xf17mFfKxwJdM_vfL7IsfEstPwU&sensor=false&libraries=places" external="true" />
-        <v:asset.script path="/typo3conf/ext/project_organizer/Resources/Public/Js/locationpicker.jquery.js" external="true" />
+        <v:asset.script path="/typo3conf/ext/project_organizer/Resources/Public/Js/locationpicker.jquery.js"  />
+        <v:asset.script>
+            $('.datepicker').datepicker();
+        </v:asset.script>
     </f:section>
 </div>
