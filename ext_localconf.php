@@ -42,7 +42,7 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'edit_projects',
     [
-        'Editor' => 'create, submit',
+        'Editor' => 'create, submit, listByTopic',
         'Validator' => 'validateByValidationCode',
     ],
     [

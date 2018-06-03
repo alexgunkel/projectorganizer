@@ -156,7 +156,7 @@ class Project
      */
     public function getResearchprogram(): string
     {
-        return $this->researchprogram;
+        return $this->researchprogram ?? '';
     }
 
     /**
@@ -222,9 +222,9 @@ class Project
     /**
      * @return string
      */
-    public function getContactEmail(): ?string
+    public function getContactEmail(): string
     {
-        return $this->contactEmail;
+        return $this->contactEmail ?? '';
     }
 
     /**
@@ -240,7 +240,7 @@ class Project
      */
     public function getLocation(): ?string
     {
-        return $this->location;
+        return $this->location ?? '';
     }
 
     /**
@@ -339,7 +339,7 @@ class Project
      */
     public function getPasswordHash(): string
     {
-        return $this->passwordHash;
+        return $this->passwordHash ?? '';
     }
 
     /**
@@ -353,7 +353,7 @@ class Project
     /**
      * @return Password
      */
-    public function getPassword(): Password
+    public function getPassword(): ?Password
     {
         return $this->password;
     }

@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         <f:for each="{project.topics}" as="topic" >
-                            <f:link.action action="listByProperty" pluginName="{pluginName}" pageUid="{listViewPage}">
+                            <f:link.action action="listByTopic" arguments="{topic:topic.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
                                 {topic.title}
                             </f:link.action>
                         </f:for>

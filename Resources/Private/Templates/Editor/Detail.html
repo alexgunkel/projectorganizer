@@ -32,7 +32,7 @@
                 <th>{f:translate(key: 'projectDetail.label.wsk', extensionName: 'project_organizer')}</th>
                 <td>
                     <ol>
-                        <f:for each="{project.wskElement}" as="wsk">
+                        <f:for each="{project.wskElements}" as="wsk">
                             <li>{wsk.title}</li>
                         </f:for>
                     </ol>
@@ -41,8 +41,17 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.institution', extensionName: 'project_organizer')}</th>
                 <td>
-                    {project.institution.title}
+                    <ol>
+                        <f:for each="{project.institutions}" as="item">
+                            <li>{item.title}</li>
+                        </f:for>
+                    </ol>
                 </td>
+                <ol>
+                    <f:for each="{project.institutions}" as="item">
+                        <li>{item.title}</li>
+                    </f:for>
+                </ol>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.status', extensionName: 'project_organizer')}</th>

@@ -100,7 +100,7 @@ CREATE TABLE tx_projectorganizer_domain_model_institution_type (
   institution_type VARCHAR(255) NOT NULL DEFAULT '',
   location VARCHAR(255) NOT NULL DEFAULT '',
   country VARCHAR(255) NOT NULL DEFAULT '',
-  wsk_element VARCHAR(255),
+  wskelement VARCHAR(255),
   topic VARCHAR(255),
 
   PRIMARY KEY (uid)
@@ -175,12 +175,12 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   publication VARCHAR(1000) NULL,
 
   status VARCHAR(255),
-  wsk_element VARCHAR(255),
   region VARCHAR(255),
   researchprogram VARCHAR(255),
   contact_person VARCHAR(255),
-  institution INT(11) NOT NULL DEFAULT '0',
-  
+
+  institutions INT(11) NOT NULL DEFAULT '0',
+  wskelements INT(11) NOT NULL DEFAULT '0',
   publications INT(11) NOT NULL DEFAULT '0',
   persons INT(11) NOT NULL DEFAULT '0',
   topics INT(11) NOT NULL DEFAULT '0',
@@ -207,7 +207,7 @@ CREATE TABLE tx_projectorganizer_domain_model_person (
   e_mail VARCHAR(255),
   description TEXT,
 
-  wsk_element VARCHAR(255),
+  wskelement VARCHAR(255),
 
   projects INT(11) UNSIGNED NOT NULL DEFAULT '0',
   institutions INT(11) UNSIGNED NOT NULL DEFAULT '0',
@@ -252,7 +252,7 @@ CREATE TABLE tx_projectorganizer_domain_model_institution (
   institution_type VARCHAR(255) NOT NULL DEFAULT '',
   location VARCHAR(255) NOT NULL DEFAULT '',
   country VARCHAR(255) NOT NULL DEFAULT '',
-  wsk_element VARCHAR(255),
+  wskelement VARCHAR(255),
   topic VARCHAR(255),
 
   PRIMARY KEY (uid)
@@ -284,6 +284,26 @@ CREATE TABLE tx_projectorganizer_domain_model_engagement (
 
 # n:m relations
 CREATE TABLE tx_projectorganizer_mm_project_institution (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  sorting INT(11) DEFAULT '0' NOT NULL,
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_local INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  uid_foreign INT(11) UNSIGNED NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
+CREATE TABLE tx_projectorganizer_mm_project_wskelement (
   uid INT(11) NOT NULL AUTO_INCREMENT,
   pid INT(11) NOT NULL DEFAULT '0',
 
