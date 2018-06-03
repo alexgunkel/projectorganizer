@@ -71,6 +71,12 @@ return array(
                 'type' => 'check',
             ],
         ],
+        'demo_project' => [
+            'label' => 'Demo-Projekt:',
+            'config' => [
+                'type' => 'check',
+            ],
+        ],
         'hypos' => [
             'label' => 'Show in map:',
             'config' => [
@@ -281,7 +287,7 @@ return array(
         ],
     ),
     'types' => [
-        '1' => ['showitem' => 'title, accepted, accepted_by, show_in_map, hypos, topics, runtime_start, runtime_end, region, status,
+        '1' => ['showitem' => 'title, accepted, accepted_by, show_in_map, demo_project, hypos, topics, runtime_start, runtime_end, region, status,
         --div--;Projektdetails, description, volume, overall_volume, link, place, wsk_element, researchprogram,
         --div--;Kontakte, institutions, persons, contact_person,
         --div--;Publikationen, publications'],

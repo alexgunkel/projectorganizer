@@ -126,6 +126,48 @@ class Project
     protected $orig;
 
     /**
+     * @var string
+     */
+    protected $researchprogram;
+
+    /**
+     * @var bool
+     */
+    protected $demoProject;
+
+    /**
+     * @return bool
+     */
+    public function isDemoProject(): bool
+    {
+        return $this->demoProject ?? false;
+    }
+
+    /**
+     * @param bool $demoProject
+     */
+    public function setDemoProject(bool $demoProject)
+    {
+        $this->demoProject = $demoProject;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResearchprogram(): string
+    {
+        return $this->researchprogram;
+    }
+
+    /**
+     * @param string $researchprogram
+     */
+    public function setResearchprogram(string $researchprogram)
+    {
+        $this->researchprogram = $researchprogram;
+    }
+
+    /**
      * @return Project
      */
     public function getOrig(): ?Project
@@ -285,7 +327,6 @@ class Project
     public function __construct()
     {
         $this->setTopics(new ObjectStorage());
-        $this->setContactPerson(new ObjectStorage());
         $this->setPublications(new ObjectStorage());
         $this->setWskelements(new ObjectStorage());
         $this->institutions = new ObjectStorage;
