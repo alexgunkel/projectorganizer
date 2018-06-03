@@ -92,7 +92,7 @@ class Project
     /**
      * @var Password
      */
-    private $password;
+    protected $password;
     
     /**
      * 
