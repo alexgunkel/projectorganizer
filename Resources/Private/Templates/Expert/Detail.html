@@ -15,6 +15,63 @@
     <article>
         <br>
         <h1 class="brand">{expert.title}</h1>
+        <table class="table table-striped">
+            <tbody>
+                <f:if condition="{expert.title}">
+                    <tr>
+                        <th>{f:translate(key: 'expertDetail.label.email', extensionName: 'project_organizer')} ToDo: add email to Detail View</th>
+                        <td>
+                            my email
+                        </td>
+                    </tr>
+                </f:if>
+
+                <tr>
+                    <th>{f:translate(key: 'expertDetail.label.description', extensionName: 'project_organizer')}</th>
+                    <td>{expert.description}</td>
+                </tr>
+                <tr>
+                    <th>{f:translate(key: 'expertDetail.label.specialistField', extensionName: 'project_organizer')}</th>
+                    <td>{expert.specialistField}</td>
+                </tr>
+                <tr>
+                    <th>{f:translate(key: 'expertDetail.label.entryDate', extensionName: 'project_organizer')}</th>
+                    <td>{expert.entryDate}</td>
+                </tr>
+                <tr>
+                    <th>{f:translate(key: 'expertDetail.label.topics', extensionName: 'project_organizer')}</th>
+                    <td>
+                        <ol>
+                            <f:for each="{expert.topics}" as="topic">
+                                <li>{topic.title}</li>
+                            </f:for>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{f:translate(key: 'expertDetail.label.institutions', extensionName: 'project_organizer')}</th>
+                    <td>
+                        <ol>
+                            <f:for each="{expert.institutions}" as="institution">
+                                <li>{institution.title}</li>
+                            </f:for>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{f:translate(key: 'expertDetail.label.wskelements', extensionName: 'project_organizer')}</th>
+                    <td>
+                        <ol>
+                            <f:for each="{expert.wskelements}" as="wskelement">
+                                <li>{wskelement.title}</li>
+                            </f:for>
+                        </ol>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        
         <p><f:link.action action="list">
         	Zurück zur Liste
         </f:link.action></p>

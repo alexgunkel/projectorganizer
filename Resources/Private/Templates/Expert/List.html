@@ -20,14 +20,21 @@
             </tr>
         </thead>
         <tbody>
-        <f:debug>{_all}</f:debug>
         	<f:for each="{experts}" as="expert">
         		<tr>
-        			<td>{expert.title}</td>
+        			<td>{expert.title}
+                        <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:expert.uid}" pageUid="{detailViewPage}">
+                            {expert.title}
+                        </f:link.action>
+                    </td>
         			<td>
         				<ul>
         					<f:for each="{expert.projects}" as="project">
-        						<li>{project.title}</li>
+        						<li>{project.title}
+                                    <f:link.action action="detail" pluginName="tx_projectorganizer_show_projects" arguments="{uid:project.uid}" pageUid="250">
+                                        {project.title}
+                                    </f:link.action>
+                                </li>
         					</f:for>
         				</ul>
         			</td>

@@ -35,7 +35,7 @@
                 <source>Runtime</source>
             </trans-unit>
             <trans-unit id="label.region">
-                <source>Region</source>
+                <source>Gefördert als</source>
             </trans-unit>
             <trans-unit id="label.contactEmail">
                 <target>E-Mail-Adresse</target>
@@ -109,7 +109,7 @@
                 <source>Status</source>
             </trans-unit>
             <trans-unit id="projectList.label.region">
-                <source>Region</source>
+                <source>Gefördert als</source>
             </trans-unit>
 
             <trans-unit id="projectSubmit.text.submitted">
@@ -121,6 +121,29 @@
             </trans-unit>
             <trans-unit id="addInstitution.submit">
                 <source>Add Institution</source>
+            </trans-unit>
+
+
+            <trans-unit id="expertDetail.label.email">
+                <source>E-Mail</source>
+            </trans-unit>
+            <trans-unit id="expertDetail.label.description">
+                <source>Beschreibung</source>
+            </trans-unit>
+            <trans-unit id="expertDetail.label.specialistField">
+                <source>Fachbereich</source>
+            </trans-unit>
+            <trans-unit id="expertDetail.label.entryDate">
+                <source>Tätig im Wasserstoffsektor seit</source>
+            </trans-unit>
+            <trans-unit id="expertDetail.label.topics">
+                <source>Themenfelder</source>
+            </trans-unit>
+            <trans-unit id="expertDetail.label.institutions">
+                <source>Institutions</source>
+            </trans-unit>
+            <trans-unit id="expertDetail.label.wskelements">
+                <source>WSK-Element</source>
             </trans-unit>
 
         </body>
