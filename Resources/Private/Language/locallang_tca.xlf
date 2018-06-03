@@ -10,7 +10,7 @@
                 <source>Bezeichnung</source>
             </trans-unit>
             <trans-unit id="tx_projectorganizer_domain_model_region">
-                <source>Gefördert als</source>
+                <source>Gefördert durch</source>
             </trans-unit>
             <trans-unit id="tx_projectorganizer_domain_model_region.title">
                 <source>Bezeichnung</source>

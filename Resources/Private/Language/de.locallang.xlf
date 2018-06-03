@@ -38,7 +38,7 @@
                 <target>E-Mail-Adresse</target>
             </trans-unit>
             <trans-unit id="label.region">
-                <target>Gefördert als</target>
+                <target>Gefördert durch</target>
             </trans-unit>
             <trans-unit id="label.wskelements">
                 <target>WSK</target>
@@ -87,7 +87,7 @@
                 <target>Beschreibung</target>
             </trans-unit>
             <trans-unit id="projectDetail.label.region">
-                <target>Gefördert als</target>
+                <target>Gefördert durch</target>
             </trans-unit>
             <trans-unit id="projectDetail.label.publication">
                 <target>Veröffentlichungen</target>
@@ -109,7 +109,7 @@
                 <target>Status</target>
             </trans-unit>
             <trans-unit id="projectList.label.region">
-                <target>Gefördert als</target>
+                <target>Gefördert durch</target>
             </trans-unit>
 
             <trans-unit id="projectSubmit.text.submitted">

@@ -15,7 +15,6 @@
     <article>
         <br>
         <h1 class="brand">{project.title}</h1>
-        <f:debug>{project}</f:debug>
         <p>{project.description}</p>
         <table class="table table-striped">
             <tbody>
@@ -32,6 +31,8 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.wsk', extensionName: 'project_organizer')}</th>
                 <td>
+
+                    <f:debug>{project.wskElement}</f:debug>
                     <ol>
                         <f:for each="{project.wskElement}" as="wsk">
                             <li>{wsk.title}</li>

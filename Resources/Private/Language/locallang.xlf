@@ -35,7 +35,7 @@
                 <source>Runtime</source>
             </trans-unit>
             <trans-unit id="label.region">
-                <source>Gefördert als</source>
+                <source>Gefördert durch</source>
             </trans-unit>
             <trans-unit id="label.contactEmail">
                 <target>E-Mail-Adresse</target>
@@ -87,7 +87,7 @@
                 <source>Beschreibung</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.region">
-                <source>Gefördert als</source>
+                <source>Gefördert durch</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.publication">
                 <source>Veröffentlichungen</source>
@@ -109,7 +109,7 @@
                 <source>Status</source>
             </trans-unit>
             <trans-unit id="projectList.label.region">
-                <source>Gefördert als</source>
+                <source>Gefördert durch</source>
             </trans-unit>
 
             <trans-unit id="projectSubmit.text.submitted">
