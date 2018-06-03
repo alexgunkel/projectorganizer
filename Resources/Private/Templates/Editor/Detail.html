@@ -45,6 +45,14 @@
                 </td>
             </tr>
             <tr>
+                <th>{f:translate(key: 'projectDetail.label.status', extensionName: 'project_organizer')}</th>
+                <td>{project.status.title}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'label.runtime', extensionName: 'project_organizer')}</th>
+                <td>{project.runtimeStart} - {project.runtimeEnd}</td>
+            </tr>
+            <tr>
                 <th>{f:translate(key: 'projectDetail.label.volume', extensionName: 'project_organizer')}</th>
                 <td>{project.volume}</td>
             </tr>
@@ -53,8 +61,16 @@
                 <td>{project.overallVolume}</td>
             </tr>
             <tr>
+                <th>{f:translate(key: 'projectDetail.label.link', extensionName: 'project_organizer')}</th>
+                <td>{project.link}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'label.contactEmail', extensionName: 'project_organizer')}</th>
+                <td>{project.contactEmail}</td>
+            </tr>
+            <tr>
                 <th>{f:translate(key: 'projectDetail.label.contactPerson', extensionName: 'project_organizer')}</th>
-                <td>{project.contactPerson.title}</td>
+                <td>{project.contactPerson}</td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.region', extensionName: 'project_organizer')}</th>
@@ -64,7 +80,7 @@
                 <th>{f:translate(key: 'projectDetail.label.publication', extensionName: 'project_organizer')}</th>
                 <td>
                     <ol>
-                        <f:for each="{project.publication}" as="publication">
+                        <f:for each="{project.publications}" as="publication">
                             <li>{publication.title}</li>
                         </f:for>
                     </ol>
@@ -72,6 +88,11 @@
             </tr>
             </tbody>
         </table>
+        <p>Show in Map: {project.showInMap}<br>
+        Is hypos Project: {project.hypos}<br>
+        Is demonstration Project: {project.demoProject}<br>
+        ResearchProgram: {project.researchprogram}<br>
+        Location: {project.location}<br></p>
         <p><f:link.action action="edit" arguments="{uid:project.uid}">bearbeiten</f:link.action></p>
 
 
