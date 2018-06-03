@@ -12,6 +12,7 @@
 
     <f:section name="Content">
 <div class="project-detail">
+    <f:debug>{project}</f:debug>
     <article>
         <br>
         <h1 class="brand">{project.title}</h1>
@@ -71,7 +72,7 @@
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.link', extensionName: 'project_organizer')}</th>
-                <td>{project.link}</td>
+                <td><f:link.external uri="{project.link}" >{project.link}</f:link.external></td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'label.contactEmail', extensionName: 'project_organizer')}</th>
