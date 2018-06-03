@@ -60,7 +60,7 @@
                 <source>Themenfeld</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.wsk">
-                <source>Adressierte Wertschöpfungskettenelemente</source>
+                <source>Wertschöpfungskettenelemente</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.institution">
                 <source>Beteiligte Einrichtungen</source>
