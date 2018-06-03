@@ -15,6 +15,8 @@
     <article>
         <br>
         <h1 class="brand">{project.title}</h1>
+        <f:debug>{project}</f:debug>
+        <p>{project.description}</p>
         <table class="table table-striped">
             <tbody>
             <tr>
@@ -52,20 +54,8 @@
                 <td>{project.overallVolume}</td>
             </tr>
             <tr>
-                <th>{f:translate(key: 'projectDetail.label.researchprogram', extensionName: 'project_organizer')}</th>
-                <td>
-                    <f:link.external uri="{project.link}">{f:translate(key: 'projectDetail.label.link', extensionName:
-                        'project_organizer')} - {project.researchprogram.title}
-                    </f:link.external>
-                </td>
-            </tr>
-            <tr>
                 <th>{f:translate(key: 'projectDetail.label.contactPerson', extensionName: 'project_organizer')}</th>
                 <td>{project.contactPerson.title}</td>
-            </tr>
-            <tr>
-                <th>{f:translate(key: 'projectDetail.label.description', extensionName: 'project_organizer')}</th>
-                <td>{project.description}</td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.region', extensionName: 'project_organizer')}</th>
