@@ -14,6 +14,7 @@
         <div class="project-edit">
             <h1>Edit Project (/Templates/Editor/Edit.html:14)</h1>
             <f:form action="persist" controller="Editor" pluginName="{pluginName}" object="{project}" name="project">
+                <f:form.hidden name="oldProject" value="{oldProject}" />
                 <f:if condition="{errorMessage}" >
                     <p>{errorMessage}</p>
                 </f:if>
@@ -141,6 +142,39 @@
                             </ul>
                         </f:if>
                     </f:form.validationResults>
+                </div>
+
+                <div class="form-group {error-location}">
+                    <label for="contactPerson">Ansprechpartner</label>
+                    <f:form.textfield property="contactPerson" id="contactPerson" class="form-control" errorClass="has-error"/>
+                    <f:form.validationResults for="project.contactPerson">
+                        <f:if condition="{validationResults.flattenedErrors}">
+                            <ul class="errors">
+                                <f:for each="{validationResults.errors}" as="error">
+                                    <li>{error}</li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </f:form.validationResults>
+                </div>
+
+                <div class="form-group {error-location}">
+                    <label for="researchprogram">Forschungsprogramm</label>
+                    <f:form.textfield property="researchprogram" id="researchprogram" class="form-control" errorClass="has-error"/>
+                    <f:form.validationResults for="project.researchprogram">
+                        <f:if condition="{validationResults.flattenedErrors}">
+                            <ul class="errors">
+                                <f:for each="{validationResults.errors}" as="error">
+                                    <li>{error}</li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </f:form.validationResults>
+                </div>
+
+                <div class="form-group {error-location}">
+                    <label for="demoProject">Demonstrationsanlage</label>
+                    <f:form.checkbox property="demoProject" id="demoProject" value="demoProject" class="form-control" />
                 </div>
 
 

@@ -30,34 +30,23 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 trait ContactPersonTrait
 {
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Person>
-     * @lazy
+     * @var string
      */
     protected $contactPerson;
 
     /**
-     * @param \AlexGunkel\ProjectOrganizer\Domain\Model\Person $contactPerson
-     *
-     * @return void
+     * @param string $wsk
      */
-    public function addContactPerson(\AlexGunkel\ProjectOrganizer\Domain\Model\Person $contactPerson)
-    {
-        $this->contactPerson->attach($contactPerson);
-    }
-
-    /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Person>
-     */
-    public function setContactPerson(ObjectStorage $wsk)
+    public function setContactPerson(string $wsk)
     {
         $this->contactPerson = $wsk;
     }
 
     /**
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Person>
+     * @return string
      */
-    public function getContactPerson(): ?ObjectStorage
+    public function getContactPerson(): ?string
     {
-        return $this->contactPerson ? clone $this->contactPerson : null;
+        return $this->contactPerson;
     }
 }

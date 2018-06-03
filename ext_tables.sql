@@ -154,6 +154,7 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
   hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
   show_in_map tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  demo_project tinyint(4) unsigned DEFAULT '0' NOT NULL,
   hypos tinyint(4) unsigned DEFAULT '0' NOT NULL,
   sys_language_uid int(11) DEFAULT '0' NOT NULL,
   l18n_parent int(11) DEFAULT '0' NOT NULL,
@@ -171,6 +172,7 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
   contact_email VARCHAR(255),
   validation_state INT(1) DEFAULT '0',
   password_hash VARCHAR(255) NOT NULL DEFAULT '',
+  publication VARCHAR(1000) NULL,
 
   status VARCHAR(255),
   wsk_element VARCHAR(255),
