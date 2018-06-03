@@ -120,7 +120,8 @@ class EditorController
                 [
                     'insertInstitutionPage' => $this->readAsInteger('insert_institution_page') ?? $GLOBALS['TSFE']->id,
                     'pluginName' => $this->request->getPluginName(),
-                    'project' => $project,
+                    'oldProject' => $project->getUid(),
+                    'project' => $project->copy()->setOrig($project),
                 ]
             )
         );
@@ -144,11 +145,11 @@ class EditorController
      */
     public function persistAction(Project $project): void
     {
-        $newProject = $project->copy();
-        $newProject->setOrig($project);
-        $this->registerNewProject($newProject);
+        $oldProject = $this->request->getArgument('oldProject');
+        $parent = $this->projectRepository->findByIdentifier($oldProject);
+        $this->registerNewProject($project->setOrig($parent));
 
-        $this->forward('detail', null, null, ['uid' => $project->getUid()]);
+        $this->forward('detail', null, null, ['uid' => $oldProject]);
     }
 
     /**
@@ -181,7 +182,8 @@ class EditorController
         $this->projectRepository->add($project);
 
         /** @var PersistenceManager $persistenceManager */
-        $this->objectManager->get(PersistenceManager::class)->persistAll();
+        $persistenceManager = $this->objectManager->get(PersistenceManager::class);
+        $persistenceManager->persistAll();
 
         $message = MailServiceFactory::buildValidationCodeMessage($project, $this->uriBuilder);
         $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);

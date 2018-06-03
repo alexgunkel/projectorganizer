@@ -45,6 +45,7 @@ use AlexGunkel\ProjectOrganizer\Traits\ValidationStatusTrait;
 use AlexGunkel\ProjectOrganizer\Value\Password;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class Project
     extends AbstractDomainObject
@@ -134,10 +135,14 @@ class Project
 
     /**
      * @param Project $orig
+     *
+     * @return self
      */
     public function setOrig(Project $orig)
     {
         $this->orig = $orig;
+
+        return $this;
     }
 
     /**
