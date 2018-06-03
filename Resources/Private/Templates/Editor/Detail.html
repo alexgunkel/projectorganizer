@@ -12,11 +12,10 @@
 
     <f:section name="Content">
 <div class="project-detail">
-    <f:debug>{project}</f:debug>
     <article>
         <br>
         <h1 class="brand">{project.title}</h1>
-        <p>{project.description}</p>
+        <p><f:format.nl2br>{project.description}</f:format.nl2br></p>
         <table class="table table-striped">
             <tbody>
             <tr>
@@ -32,27 +31,22 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.wsk', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.wskElements}" as="wsk">
                             <li>{wsk.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.institution', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.institutions}" as="item">
                             <li>{item.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
-                <ol>
-                    <f:for each="{project.institutions}" as="item">
-                        <li>{item.title}</li>
-                    </f:for>
-                </ol>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.status', extensionName: 'project_organizer')}</th>
@@ -89,11 +83,11 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.publication', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.publications}" as="publication">
                             <li>{publication.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
             </tr>
             </tbody>
