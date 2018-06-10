@@ -234,6 +234,8 @@ CREATE TABLE tx_projectorganizer_domain_model_publication (
   access_group int(11) DEFAULT '0' NOT NULL,
 
   title VARCHAR(255) NOT NULL DEFAULT '',
+  type VARCHAR(255) NOT NULL DEFAULT '',
+  link VARCHAR(255) NOT NULL DEFAULT '',
   author VARCHAR(255) NOT NULL DEFAULT '',
   published VARCHAR(255) NOT NULL DEFAULT '',
 

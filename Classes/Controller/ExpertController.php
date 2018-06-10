@@ -110,12 +110,15 @@ class ExpertController extends ActionController
         $arguments = $this->request->getArguments();
 
         for ($i = 0; $i < 10; $i++) {
-            if (!isset($arguments['publication' . $i])) {
+            if (!isset($arguments['publication' . $i]) || empty($arguments['publication' . $i])) {
                 break;
             }
 
             $publication = new Publication;
             $publication->setTitle($arguments['publication' . $i]);
+            $publication->setAuthor($arguments['publication' . $i] ?? '');
+            $publication->setType($arguments['type' . $i] ?? '');
+            $publication->setPublished($arguments['year' . $i] ?? '');
             $this->publicationRepository->insert($publication);
             $person->addPublication($publication);
         }

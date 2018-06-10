@@ -54,6 +54,22 @@ return array(
                 'eval' => 'trim, required',
             ],
         ],
+        'type' => [
+            'label' => 'Typ',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim, required',
+            ],
+        ],
+        'link' => [
+            'label' => 'Link',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim, required',
+            ],
+        ],
         'published' => [
             'label' => 'Veröffentlicht',
             'config' => [
@@ -68,5 +84,3 @@ return array(
     ],
     'palettes' => array(),
 );
-
-?>
