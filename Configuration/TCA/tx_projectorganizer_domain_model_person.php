@@ -154,6 +154,21 @@ return array(
                 'foreign_field' => 'persons',
             ],
         ],
+        'password_hash' => [
+            'label' => 'Details & Erfahrungen',
+            'config' => [
+                'type' => 'text',
+                'size' => 20,
+                'eval' => 'trim, required',
+            ],
+        ],
+        'validation_state' => [
+            'label' => 'Status der Validierung',
+            'config' => [
+                'type' => 'none',
+                'size' => 1,
+            ],
+        ],
     ),
     'types' => [
         '1' => ['showitem' => 'title, specialist_field, entry_date, place, topics, wsk_element,

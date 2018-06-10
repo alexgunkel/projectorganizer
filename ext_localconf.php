@@ -77,10 +77,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'experts_list',
     [
-        'Expert' => 'list, detail, insertForm, add',
+        'Expert' => 'list, detail, insertForm, submit, validateByValidationCode',
     ],
     [
-        'Expert' => 'insertForm, add, list',
+        'Expert' => 'insertForm, list, submit, validateByValidationCode',
     ]
 );
 
@@ -88,10 +88,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'experts_insert',
     [
-        'Expert' => 'insertForm, add',
+        'Expert' => 'insertForm, submit, validateByValidationCode',
     ],
     [
-        'Expert' => 'insertForm, add',
+        'Expert' => 'insertForm, submit, validateByValidationCode',
     ]
 );
 

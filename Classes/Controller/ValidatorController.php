@@ -40,7 +40,7 @@ class ValidatorController
 
         /** @var Project $project */
         $project = $this->repository->findByUid(
-            $this->request->getArgument('projectUid')
+            $this->request->getArgument('itemUid')
         );
 
         $passwordService = ValidationServiceFactory::buildPasswordService();

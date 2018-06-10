@@ -25,6 +25,7 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
@@ -59,6 +60,23 @@ class PersonRepository
     }
 
     /**
+     * Find all accepted projects
+     *
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findAccepted(bool $ignoreStoragePid = false) : QueryResultInterface
+    {
+        $ignoreStoragePid && $this->setStoragePidIgnore(true);
+
+        $query = $this->createQuery();
+        $query->matching($query->greaterThanOrEqual('validation_state', Project::VALIDATION_STATE_ACCEPTED));
+        $result = $query->execute();
+
+        $ignoreStoragePid && $this->setStoragePidIgnore(false);
+        return $result;
+    }
+
+    /**
      * @return array
      */
     public function getPropertyOptions(): array
@@ -69,5 +87,16 @@ class PersonRepository
             },
             self::propertyRepositories
         );
+    }
+
+    /**
+     *
+     * @param bool $ignore
+     */
+    public function setStoragePidIgnore(bool $ignore): void
+    {
+        /** @var Typo3QuerySettings $querySettings */
+        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
+        $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(!$ignore));
     }
 }

@@ -172,15 +172,16 @@ class ManagerController
     public function validateByValidationCodeAction() : void
     {
         $code = $this->request->getArgument('validationCode');
+        /** @var Project $project */
         $project = $this->repository->findByIdentifier(
-            $this->request->getArgument('projectUid')
+            $this->request->getArgument('itemUid')
         );
 
         if (!$this->accessValidator->validate($project, $code)) {
             throw new \Exception('Not validated');
         }
 
-        $this->acceptanceManager->setAccepted($project, new \DateTime());
+        $project->setValidationState(Project::VALIDATION_STATE_ACCEPTED);
         $this->repository->update($project);
 
         $this->view->assign('project', $project);

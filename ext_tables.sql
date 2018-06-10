@@ -206,6 +206,8 @@ CREATE TABLE tx_projectorganizer_domain_model_person (
   place VARCHAR(255),
   e_mail VARCHAR(255),
   description TEXT,
+  validation_state INT(1) DEFAULT '0',
+  password_hash VARCHAR(255) NOT NULL DEFAULT '',
 
   wskelement VARCHAR(255),
 
