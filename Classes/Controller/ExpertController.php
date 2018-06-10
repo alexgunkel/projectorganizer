@@ -55,11 +55,20 @@ class ExpertController extends ActionController
      */
     public function detailAction(): void
     {
+        /** @var Person $expert */
+        $expert = $this->expertRepository->findByIdentifier(
+            $this->request->getArgument('uid')
+        );
+
+        if ($expert->getInstitution()) {
+            $this->view->assign(
+                'otherExperts', $this->expertRepository->findByInstitution($expert->getInstitution() )
+            );
+        }
+
         $this->view->assign(
             'expert',
-            $this->expertRepository->findByIdentifier(
-                $this->request->getArgument('uid')
-            )
+            $expert
         );
     }
 

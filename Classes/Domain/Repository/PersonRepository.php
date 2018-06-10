@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
@@ -74,6 +75,16 @@ class PersonRepository
 
         $ignoreStoragePid && $this->setStoragePidIgnore(false);
         return $result;
+    }
+
+    public function findByInstitution(?Institution $institution)
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->equals('insitution', $institution->getUid())
+        );
+
+        return $query->execute();
     }
 
     /**

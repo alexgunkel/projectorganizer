@@ -40,7 +40,6 @@ class Person extends AbstractDomainObject implements Validatable
     use TitleTrait;
     use DescriptionTrait;
     use TopicsTrait;
-    use InstitutionsTrait;
     use SpecialistFieldTrait;
     use EntryDateTrait;
     use WskelementTrait;
@@ -53,6 +52,11 @@ class Person extends AbstractDomainObject implements Validatable
      * @var string
      */
     protected $email;
+
+    /**
+     * @var bool
+     */
+    protected $emailpublic;
 
     /**
      * @var int
@@ -68,6 +72,85 @@ class Person extends AbstractDomainObject implements Validatable
      * @var Password
      */
     protected $password;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Institution
+     */
+    protected $institution;
+
+    /**
+     * @return Institution
+     */
+    public function getInstitution(): Institution
+    {
+        return $this->institution;
+    }
+
+    /**
+     * @param Institution $institution
+     */
+    public function setInstitution(Institution $institution)
+    {
+        $this->institution = $institution;
+    }
+
+    /**
+     * @var string
+     */
+    protected $location;
+
+    /**
+     * @return string
+     */
+    public function getPosition(): string
+    {
+        return $this->position;
+    }
+
+    /**
+     * @param string $position
+     */
+    public function setPosition(string $position)
+    {
+        $this->position = $position;
+    }
+
+    /**
+     * @var string
+     */
+    protected $position;
+
+    /**
+     * @return string
+     */
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param string $location
+     */
+    public function setLocation(string $location)
+    {
+        $this->location = $location;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isEmailpublic(): bool
+    {
+        return $this->emailpublic;
+    }
+
+    /**
+     * @param bool $emailpublic
+     */
+    public function setEmailpublic(bool $emailpublic)
+    {
+        $this->emailpublic = $emailpublic;
+    }
 
     /**
      * @return int

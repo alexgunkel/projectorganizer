@@ -21,10 +21,38 @@
 	            	<f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>
 				</div>
 
+				<div class="form-group {error-location}">
+					<label for="location">Sitz</label>
+					<f:form.textfield property="location" id="location" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="person.email">
+						<f:if condition="{location.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{location.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
+				<div class="form-group {error-position}">
+					<label for="position">Position</label>
+					<f:form.textfield property="position" id="position" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="person.position">
+						<f:if condition="{position.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{position.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
 				<div class="form-group {error-email}">
 					<label for="email">E-Mail</label>
 					<f:form.textfield property="email" id="email" class="form-control" errorClass="has-error"/>
-					<f:form.validationResults for="project.email">
+					<f:form.validationResults for="person.email">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">
@@ -35,9 +63,15 @@
 					</f:form.validationResults>
 				</div>
 
-				<div class="form-group {error-institutions}">
-					<label for="institutions">Institutions</label>
-					<v:form.select property="institutions"
+				<div class="form-group {error-location}">
+					<label for="emailpublic">E-Mail-Adresse anzeigen?
+						<f:form.checkbox property="emailpublic" id="emailpublic" value="emailpublic" class="form-control" />
+					</label>
+				</div>
+
+				<div class="form-group {error-institution}">
+					<label for="institution">Institution</label>
+					<v:form.select property="institution"
 								   id="institutions"
 								   class="form-control"
 								   errorClass="has-error"
@@ -48,7 +82,7 @@
 							</v:form.select.option>
 						</f:for>
 					</v:form.select>
-					<f:form.validationResults for="person.institutions">
+					<f:form.validationResults for="person.institution">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">
@@ -60,8 +94,8 @@
 				</div>
 
 				<div class="form-group {error-topics}">
-					<label for="topics">Themenfelder</label>
-					<v:form.select property="topics" id="topics" multiple="false" class="form-control" errorClass="has-error" >
+					<label for="topics">{f:translate(key: 'label.topics', extensionName: 'project_organizer')}</label>
+					<v:form.select property="topics" id="topics" multiple="true" class="form-control" errorClass="has-error" >
 						<f:for each="{topics}" as="topic" >
 							<v:form.select.option selected="false"
 												  value="{topic.uid}" >
@@ -69,7 +103,7 @@
 							</v:form.select.option>
 						</f:for>
 					</v:form.select>
-					<f:form.validationResults for="person.topics">
+					<f:form.validationResults for="project.topics">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">
@@ -81,12 +115,12 @@
 				</div>
 
 				<div class="form-group {error-wskelements}">
-					<label for="wskelements">WSK-Element</label>
+					<label for="wskelements">WSKs</label>
 					<v:form.select property="wskelements"
 								   id="wskelements"
 								   class="form-control"
 								   errorClass="has-error"
-								   multiple="false" >
+								   multiple="true" >
 						<f:for each="{wskelements}" as="wsk" >
 							<v:form.select.option value="{wsk.uid}" >
 								{wsk.title}
@@ -104,10 +138,24 @@
 					</f:form.validationResults>
 				</div>
 
-				<div class="form-group {error-specialistField}">
+				<div class="form-group {error-entryDate}">
 					<label for="entryDate">Tätig im Wasserstoffsektor seit</label>
 					<f:form.textfield property="entryDate" id="entryDate" class="form-control" errorClass="has-error"/>
-					<f:form.validationResults for="project.entryDate">
+					<f:form.validationResults for="person.entryDate">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
+				<div class="form-group {error-description}">
+					<label for="description">Details & Erfahrungen (freier Text zur Expertenbeschreibung)</label>
+					<f:form.textarea property="description" id="description" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="person.description">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">
@@ -121,7 +169,7 @@
 				<div class="form-group {error-specialistField}">
 					<label for="specialistField">Fachbereich</label>
 					<f:form.textfield property="specialistField" id="specialistField" class="form-control" errorClass="has-error"/>
-					<f:form.validationResults for="project.specialistField">
+					<f:form.validationResults for="person.specialistField">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">
@@ -131,11 +179,6 @@
 						</f:if>
 					</f:form.validationResults>
 				</div>
-
-
-
-
-
 
 				<f:form.button class="btn btn-default">Hinzufügen</f:form.button>
     		</f:form>
