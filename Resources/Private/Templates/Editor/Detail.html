@@ -15,7 +15,7 @@
     <article>
         <br>
         <h1 class="brand">{project.title}</h1>
-        <p>{project.description}</p>
+        <p><f:format.nl2br>{project.description}</f:format.nl2br></p>
         <table class="table table-striped">
             <tbody>
             <tr>
@@ -31,27 +31,30 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.wsk', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.wskElements}" as="wsk">
                             <li>{wsk.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.institution', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.institutions}" as="item">
                             <li>{item.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
-                <ol>
-                    <f:for each="{project.institutions}" as="item">
-                        <li>{item.title}</li>
-                    </f:for>
-                </ol>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.status', extensionName: 'project_organizer')}</th>
+                <td>{project.status.title}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'label.runtime', extensionName: 'project_organizer')}</th>
+                <td>{project.runtimeStart} - {project.runtimeEnd}</td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.volume', extensionName: 'project_organizer')}</th>
@@ -60,6 +63,14 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.overallVolume', extensionName: 'project_organizer')}</th>
                 <td>{project.overallVolume}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'projectDetail.label.link', extensionName: 'project_organizer')}</th>
+                <td><f:link.external uri="{project.link}" >{project.link}</f:link.external></td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'label.contactEmail', extensionName: 'project_organizer')}</th>
+                <td>{project.contactEmail}</td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.contactPerson', extensionName: 'project_organizer')}</th>
@@ -72,15 +83,20 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.publication', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
-                        <f:for each="{project.publication}" as="publication">
+                    <ul>
+                        <f:for each="{project.publications}" as="publication">
                             <li>{publication.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
             </tr>
             </tbody>
         </table>
+        <p>Show in Map: {project.showInMap}<br>
+        Is hypos Project: {project.hypos}<br>
+        Is demonstration Project: {project.demoProject}<br>
+        ResearchProgram: {project.researchprogram}<br>
+        Location: {project.location}<br></p>
         <p><f:link.action action="edit" arguments="{uid:project.uid}">bearbeiten</f:link.action></p>
 
 
