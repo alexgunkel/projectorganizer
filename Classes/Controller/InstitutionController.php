@@ -33,6 +33,11 @@ class InstitutionController extends ActionController
             'institutions',
             $this->institutionRepository->findAll()
             );
+
+        $this->view->assign(
+            'pluginName',
+            $this->request->getPluginName()
+        );
     }
 
     /**

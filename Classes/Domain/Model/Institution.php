@@ -24,18 +24,27 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
+use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait;
+use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
+/**
+ * Class Institution
+ * @package AlexGunkel\ProjectOrganizer\Domain\Model
+ */
 class Institution extends AbstractDomainObject
 {
-    use TitleTrait;
+    use TitleTrait,
+        TopicsTrait,
+        WskelementTrait;
     
     /**
      * 
-     * @var ProjectList
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Project>
      */
-    protected $projectList;
+    protected $projects;
 
     /**
      * @var string
@@ -53,24 +62,40 @@ class Institution extends AbstractDomainObject
     protected $country;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Topic
+     * @var string
      */
-    protected $topic;
+    protected $state;
 
     /**
-     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement
+     * @return string
      */
-    protected $wskelement;
-    
+    public function getState(): string
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param string $state
+     */
+    public function setState(string $state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * Institution constructor.
+     */
     public function __construct()
     {
-        $this->projectList = new ProjectList;
+        $this->projects = new ObjectStorage;
+        $this->topics = new ObjectStorage;
+        $this->wskelements = new ObjectStorage;
     }
 
     /**
      * @return string
      */
-    public function getInstitutionType(): string
+    public function getInstitutionType(): ?string
     {
         return $this->institutionType;
     }
@@ -86,7 +111,7 @@ class Institution extends AbstractDomainObject
     /**
      * @return string
      */
-    public function getLocation(): string
+    public function getLocation(): ?string
     {
         return $this->location;
     }
@@ -102,7 +127,7 @@ class Institution extends AbstractDomainObject
     /**
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->country;
     }
@@ -116,47 +141,37 @@ class Institution extends AbstractDomainObject
     }
 
     /**
-     * @return Topic
+     * @return null|ObjectStorage
      */
-    public function getTopic(): ?Topic
+    public function getProjects(): ?ObjectStorage
     {
-        return $this->topic;
+        return $this->projects;
     }
 
     /**
-     * @param Topic $topic
+     * @param ObjectStorage $projects
      */
-    public function setTopic(Topic $topic)
+    public function setProjects(ObjectStorage $projects): void
     {
-        $this->topic = $topic;
+        $this->projects = $projects;
     }
 
     /**
-     * @return Wskelement
+     * @param \AlexGunkel\ProjectOrganizer\Domain\Model\Project $topic
+     *
+     * @return void
      */
-    public function getWskelement(): ?Wskelement
+    public function addProject(Project $topic)
     {
-        return $this->wskelement;
+        if (null === $this->projects) {
+            $this->projects = new ObjectStorage;
+        }
+        $this->projects->attach($topic);
     }
 
     /**
-     * @param Wskelement $wskelement
+     * @return string
      */
-    public function setWskelement(Wskelement $wskelement)
-    {
-        $this->wskelement = $wskelement;
-    }
-    
-    public function getProjects(): ProjectList
-    {
-        return $this->projectList;
-    }
-    
-    public function setProjectList(ProjectList $projects): void
-    {
-        $this->projectList = $projects;    
-    }
-    
     public function __toString(): string
     {
         return $this->title;

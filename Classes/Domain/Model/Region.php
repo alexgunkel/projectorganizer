@@ -30,4 +30,9 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 class Region extends AbstractDomainObject
 {
     use TitleTrait;
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

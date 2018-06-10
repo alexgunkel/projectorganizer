@@ -61,18 +61,10 @@
 						</f:if>
 					</f:form.validationResults>
 				</div>
-
-				<div class="form-group {error-topics}">
-					<label for="topic">{f:translate(key: 'label.topics', extensionName: 'project_organizer')}</label>
-					<v:form.select property="topic" id="topic" multiple="false" class="form-control" errorClass="has-error" >
-						<f:for each="{topics}" as="topic" >
-							<v:form.select.option selected="false"
-												  value="{topic.uid}" >
-								{topic.title}
-							</v:form.select.option>
-						</f:for>
-					</v:form.select>
-					<f:form.validationResults for="institution.topics">
+				<div class="form-group {error-state}">
+					<label for="state">Bundesland</label>
+					<f:form.textfield property="state" id="state" class="form-control" errorClass="has-error"/>
+					<f:form.validationResults for="project.state">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">
@@ -82,20 +74,42 @@
 						</f:if>
 					</f:form.validationResults>
 				</div>
+
+				<div class="form-group {error-topics}">
+					<label for="topics">{f:translate(key: 'label.topics', extensionName: 'project_organizer')}</label>
+					<v:form.select property="topics" id="topics" multiple="true" class="form-control" errorClass="has-error" >
+						<f:for each="{topics}" as="topic" >
+							<v:form.select.option selected="false"
+												  value="{topic.uid}" >
+								{topic.title}
+							</v:form.select.option>
+						</f:for>
+					</v:form.select>
+					<f:form.validationResults for="project.topics">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
 				<div class="form-group {error-wskelements}">
-					<label for="wskelement">WSK-Element</label>
-					<v:form.select property="wskelement"
-								   id="wskelement"
+					<label for="wskelements">WSKs</label>
+					<v:form.select property="wskelements"
+								   id="wskelements"
 								   class="form-control"
 								   errorClass="has-error"
-								   multiple="false" >
+								   multiple="true" >
 						<f:for each="{wskelements}" as="wsk" >
 							<v:form.select.option value="{wsk.uid}" >
 								{wsk.title}
 							</v:form.select.option>
 						</f:for>
 					</v:form.select>
-					<f:form.validationResults for="institution.wskelement">
+					<f:form.validationResults for="person.wskelements">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">
