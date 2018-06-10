@@ -10,6 +10,7 @@ namespace AlexGunkel\ProjectOrganizer\Controller;
 
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement;
 use AlexGunkel\ProjectOrganizer\Service\MailServiceFactory;
 use AlexGunkel\ProjectOrganizer\Service\ValidationServiceFactory;
 use AlexGunkel\ProjectOrganizer\Value\Password;
@@ -62,9 +63,17 @@ class ExpertController extends ActionController
 
         if ($expert->getInstitution()) {
             $this->view->assign(
-                'otherExperts', $this->expertRepository->findByInstitution($expert->getInstitution() )
+                'otherExperts', $this->expertRepository->findOthersByInstitution($expert->getInstitution(), $expert)
             );
         }
+
+        $otherWsk = [];
+        /** @var Wskelement $wskelement */
+        foreach ($expert->getWskelements() as $wskelement) {
+            $otherWsk[$wskelement->getTitle()] = $this->expertRepository->findOthersByWsk($wskelement, $expert);
+        }
+
+        $this->view->assign('otherWsk', $otherWsk);
 
         $this->view->assign(
             'expert',

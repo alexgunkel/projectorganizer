@@ -27,6 +27,8 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement;
+use TYPO3\CMS\Core\Database\DatabaseConnection;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
@@ -77,11 +79,27 @@ class PersonRepository
         return $result;
     }
 
-    public function findByInstitution(?Institution $institution)
+    public function findOthersByInstitution(?Institution $institution, Person $person)
     {
         $query = $this->createQuery();
         $query->matching(
-            $query->equals('insitution', $institution->getUid())
+            $query->logicalAnd(
+                $query->logicalNot($query->equals('uid', $person->getUid())),
+                $query->equals('institution', $institution->getUid())
+            )
+        );
+
+        return $query->execute();
+    }
+
+    public function findOthersByWsk(?Wskelement $institution, Person $person)
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd(
+                $query->logicalNot($query->equals('uid', $person->getUid())),
+                $query->equals('wskelements.uid', $institution->getUid())
+            )
         );
 
         return $query->execute();

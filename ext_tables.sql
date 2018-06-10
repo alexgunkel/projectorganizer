@@ -303,6 +303,26 @@ CREATE TABLE tx_projectorganizer_mm_project_wskelement (
   PRIMARY KEY (uid)
 );
 
+CREATE TABLE tx_projectorganizer_mm_person_wskelement (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  sorting INT(11) DEFAULT '0' NOT NULL,
+  sorting_foreign INT(11) UNSIGNED DEFAULT '0' NOT NULL,
+  uid_local INT(11) UNSIGNED NOT NULL DEFAULT '0',
+  uid_foreign INT(11) UNSIGNED NOT NULL DEFAULT '0',
+
+  PRIMARY KEY (uid)
+);
+
 CREATE TABLE tx_projectorganizer_mm_project_publication (
   uid INT(11) NOT NULL AUTO_INCREMENT,
   pid INT(11) NOT NULL DEFAULT '0',

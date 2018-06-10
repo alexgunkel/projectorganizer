@@ -107,8 +107,8 @@ return array(
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_projectorganizer_domain_model_wskelement',
-                'MM' => 'tx_projectorganizer_mm_project_wskelement',
-                'foreign_selecter' => 'projects',
+                'MM' => 'tx_projectorganizer_mm_person_wskelement',
+                'foreign_selecter' => 'persons',
             ],
         ],
         'topics' => [

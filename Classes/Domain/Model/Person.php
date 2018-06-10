@@ -26,7 +26,6 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
 
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\EntryDateTrait;
-use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\InstitutionsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\DescriptionTrait;
@@ -34,6 +33,7 @@ use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\SpecialistFieldTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
 use AlexGunkel\ProjectOrganizer\Value\Password;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Person extends AbstractDomainObject implements Validatable
 {
@@ -79,9 +79,35 @@ class Person extends AbstractDomainObject implements Validatable
     protected $institution;
 
     /**
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\AlexGunkel\ProjectOrganizer\Domain\Model\Project>
+     */
+    protected $projects;
+
+    public function __construct()
+    {
+        $this->projects = new ObjectStorage;
+    }
+
+    /**
+     * @return ObjectStorage
+     */
+    public function getProjects(): ObjectStorage
+    {
+        return $this->projects;
+    }
+
+    /**
+     * @param ObjectStorage $projects
+     */
+    public function setProjects(ObjectStorage $projects)
+    {
+        $this->projects = $projects;
+    }
+
+    /**
      * @return Institution
      */
-    public function getInstitution(): Institution
+    public function getInstitution(): ?Institution
     {
         return $this->institution;
     }
