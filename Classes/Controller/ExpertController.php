@@ -10,7 +10,9 @@ namespace AlexGunkel\ProjectOrganizer\Controller;
 
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Publication;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement;
+use AlexGunkel\ProjectOrganizer\Domain\Repository\PublicationRepository;
 use AlexGunkel\ProjectOrganizer\Service\MailServiceFactory;
 use AlexGunkel\ProjectOrganizer\Service\ValidationServiceFactory;
 use AlexGunkel\ProjectOrganizer\Value\Password;
@@ -39,6 +41,13 @@ class ExpertController extends ActionController
      * @inject
      */
     private $acceptanceManager;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\PublicationRepository
+     *
+     * @inject
+     */
+    private $publicationRepository;
 
     /**
      * List all experts
@@ -98,6 +107,19 @@ class ExpertController extends ActionController
      */
     public function submitAction(Person $person) : void
     {
+        $arguments = $this->request->getArguments();
+
+        for ($i = 0; $i < 10; $i++) {
+            if (!isset($arguments['publication' . $i])) {
+                break;
+            }
+
+            $publication = new Publication;
+            $publication->setTitle($arguments['publication' . $i]);
+            $this->publicationRepository->insert($publication);
+            $person->addPublication($publication);
+        }
+
         list($message, $response) = $this->registerNewPerson($person);
 
         $this->view->assign('personTitle', $person->getTitle());

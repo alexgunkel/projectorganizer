@@ -26,6 +26,7 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
 
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Integers\EntryDateTrait;
+use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\PublicationsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\DescriptionTrait;
@@ -43,6 +44,7 @@ class Person extends AbstractDomainObject implements Validatable
     use SpecialistFieldTrait;
     use EntryDateTrait;
     use WskelementTrait;
+    use PublicationsTrait;
 
     public const VALIDATION_STATE_OPEN     = 0;
     public const VALIDATION_STATE_ACCEPTED = 1;
@@ -86,6 +88,7 @@ class Person extends AbstractDomainObject implements Validatable
     public function __construct()
     {
         $this->projects = new ObjectStorage;
+        $this->publications = new ObjectStorage;
     }
 
     /**
