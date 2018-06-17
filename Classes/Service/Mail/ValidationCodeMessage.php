@@ -6,6 +6,7 @@ namespace AlexGunkel\ProjectOrganizer\Service\Mail;
 use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidator;
 use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Validatable;
 use AlexGunkel\ProjectOrganizer\Service\PasswordService;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
@@ -24,7 +25,7 @@ class ValidationCodeMessage
     private $messageObject;
 
     /**
-     * @var Project
+     * @var Validatable
      */
     private $object;
 
@@ -38,6 +39,8 @@ class ValidationCodeMessage
      */
     private $uriBuilder;
 
+    private $controller;
+
     /**
      * ValidationCodeMessage constructor.
      * @param UriBuilder $uriBuilder
@@ -49,19 +52,21 @@ class ValidationCodeMessage
         UriBuilder      $uriBuilder,
         PasswordService $passwordService = null,
         MailMessage     $mailMessage = null,
-        LoggerInterface $logger = null
+        LoggerInterface $logger = null,
+        ?string $controllerName
     ) {
         $this->messageObject = $mailMessage ?: new MailMessage;
         $this->passwordService     = $passwordService ?: new AccessValidator;
         $this->uriBuilder    = $uriBuilder;
         $this->logger        = $logger ?: new NullLogger;
+        $this->controller = $controllerName;
     }
 
     /**
-     * @param Project $object
+     * @param Validatable $object
      * @return ValidationCodeMessage
      */
-    public function setObject(Project $object) : ValidationCodeMessage
+    public function setObject(Validatable $object) : ValidationCodeMessage
     {
         $this->object = $object;
 
@@ -100,9 +105,9 @@ class ValidationCodeMessage
                 'validateByValidationCode',
                 [
                     'validationCode' => $this->object->getPassword(),
-                    'projectUid' => (string) $this->object->getUid(),
+                    'itemUid' => (string) $this->object->getUid(),
                 ],
-                'Validator',
+                $this->controller ?? 'Validator',
                 null
             );
     }
@@ -113,12 +118,23 @@ class ValidationCodeMessage
      */
     private function generateMessageBody(string $link) : ValidationCodeMessage
     {
+        $properties = get_class_methods($this->object);
+        $body = '';
+        foreach ($properties as $property) {
+            if (substr($property, 0, 3) === 'get'
+                && !empty($this->object->{$property}())
+                && (is_string($this->object->{$property}())
+                    || is_numeric($this->object->{$property}())
+                    || is_object( $this->object->{$property}() ) && method_exists( $this->object->{$property}(), '__toString' ))
+            ) {
+                $body .= substr($property, 3) . ': ' . $this->object->{$property}() . PHP_EOL;
+            }
+        }
         $this->messageObject->setBody(
             'Uid: ' . $this->object->getUid() . "\n"
             . 'Title: ' . $this->object->getTitle() . "\n"
             . 'Code: ' . $this->object->getPassword() . "\n"
-            . 'Link: ' . $link . "\n"
-            . 'E-Mail: ' . $this->object->getContactEmail()
+            . 'Link: ' . $link . "\n" . $body
         );
 
         return $this;

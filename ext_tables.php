@@ -50,6 +50,13 @@ $TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_show_p
     'FILE:EXT:project_organizer/Configuration/FlexForms/project_organizer_show_projects.xml'
 );
 
+$TCA['tt_content']['types']['list']['subtypes_excludelist']['projectorganizer_experts_insert'] = 'layout,select_key,pages,recursive';
+$TCA['tt_content']['types']['list']['subtypes_addlist']['projectorganizer_experts_insert'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    'projectorganizer_experts_insert',
+    'FILE:EXT:project_organizer/Configuration/FlexForms/project_organizer_experts_insert.xml'
+);
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     'AlexGunkel.' . $_EXTKEY,
     'institutions_list',

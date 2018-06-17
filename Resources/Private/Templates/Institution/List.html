@@ -22,7 +22,11 @@
         <tbody>
         	<f:for each="{institutions}" as="institution">
         		<tr>
-        			<td>{institution.title}</td>
+        			<td>
+                        <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:institution.uid}">
+                            {institution.title}
+                        </f:link.action>
+                    </td>
         			<td>
         				<ul>
         					<f:for each="{institution.projects}" as="project">

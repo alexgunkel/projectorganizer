@@ -9,6 +9,7 @@
 namespace AlexGunkel\ProjectOrganizer\Service;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Validatable;
 use AlexGunkel\ProjectOrganizer\Value\Password;
 use AlexGunkel\ProjectOrganizer\Value\PasswordHash;
 use Psr\Log\LoggerInterface;
@@ -67,7 +68,7 @@ class PasswordService implements SingletonInterface
      *
      * @return bool
      */
-    public function validateProject(Project $project, Password $password): bool
+    public function validateProject(Validatable $project, Password $password): bool
     {
         $this->logger->debug("Check password $password for project $project");
         return $this->salting->checkPassword(

@@ -24,17 +24,16 @@
 
 namespace AlexGunkel\ProjectOrganizer\AccessValidation;
 
-
-use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Validatable;
 
 class AccessValidator implements AccessValidatorInterface
 {
-    public function generateValidationCode(Project $accessValidatable): string
+    public function generateValidationCode(Validatable $accessValidatable): string
     {
         return $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
     }
 
-    public function validate(Project $accessValidatable, string $validationCode): bool
+    public function validate(Validatable $accessValidatable, string $validationCode): bool
     {
         return $validationCode === $accessValidatable->getTitle() . (string) $accessValidatable->getUid();
     }

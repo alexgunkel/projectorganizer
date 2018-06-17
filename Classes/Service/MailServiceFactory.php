@@ -8,15 +8,13 @@
 
 namespace AlexGunkel\ProjectOrganizer\Service;
 
-
-use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidator;
 use AlexGunkel\ProjectOrganizer\AccessValidation\AccessValidatorInterface;
-use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Validatable;
 use AlexGunkel\ProjectOrganizer\Service\Mail\DeliveryAgent;
 use AlexGunkel\ProjectOrganizer\Service\Mail\ValidationCodeMessage;
+use Psr\Log\NullLogger;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class MailServiceFactory
 {
@@ -28,15 +26,19 @@ class MailServiceFactory
      * @return ValidationCodeMessage
      */
     public static function buildValidationCodeMessage(
-        Project $project,
+        Validatable $project,
         UriBuilder $uriBuilder,
         AccessValidatorInterface $accessValidator = null,
-        MailMessage $mailMessage = null
+        MailMessage $mailMessage = null,
+        string $controllerName = null
     ): ValidationCodeMessage {
         $message = new ValidationCodeMessage(
             $uriBuilder,
             $accessValidator ?: ValidationServiceFactory::buildPasswordService(),
-            $mailMessage ?: new MailMessage
+            $mailMessage ?: new MailMessage,
+            new NullLogger(),
+            $controllerName
+
         );
 
         return $message->setObject($project);

@@ -24,7 +24,11 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Person;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Model\Wskelement;
+use TYPO3\CMS\Core\Database\DatabaseConnection;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
@@ -59,6 +63,49 @@ class PersonRepository
     }
 
     /**
+     * Find all accepted projects
+     *
+     * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     */
+    public function findAccepted(bool $ignoreStoragePid = false) : QueryResultInterface
+    {
+        $ignoreStoragePid && $this->setStoragePidIgnore(true);
+
+        $query = $this->createQuery();
+        $query->matching($query->greaterThanOrEqual('validation_state', Project::VALIDATION_STATE_ACCEPTED));
+        $result = $query->execute();
+
+        $ignoreStoragePid && $this->setStoragePidIgnore(false);
+        return $result;
+    }
+
+    public function findOthersByInstitution(?Institution $institution, Person $person)
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd(
+                $query->logicalNot($query->equals('uid', $person->getUid())),
+                $query->equals('institution', $institution->getUid())
+            )
+        );
+
+        return $query->execute();
+    }
+
+    public function findOthersByWsk(?Wskelement $institution, Person $person)
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd(
+                $query->logicalNot($query->equals('uid', $person->getUid())),
+                $query->equals('wskelements.uid', $institution->getUid())
+            )
+        );
+
+        return $query->execute();
+    }
+
+    /**
      * @return array
      */
     public function getPropertyOptions(): array
@@ -69,5 +116,16 @@ class PersonRepository
             },
             self::propertyRepositories
         );
+    }
+
+    /**
+     *
+     * @param bool $ignore
+     */
+    public function setStoragePidIgnore(bool $ignore): void
+    {
+        /** @var Typo3QuerySettings $querySettings */
+        $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
+        $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(!$ignore));
     }
 }

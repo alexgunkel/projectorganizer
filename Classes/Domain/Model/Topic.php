@@ -38,4 +38,9 @@ class Topic extends AbstractDomainObject
     use PersonsTrait;
     use TitleTrait;
     use ProjectsTrait;
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
 }

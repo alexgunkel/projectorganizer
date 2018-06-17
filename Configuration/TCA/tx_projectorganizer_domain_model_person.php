@@ -63,20 +63,34 @@ return array(
                 'eval' => 'date',
             ],
         ],
-        'place' => [
-            'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:label.place',
+        'location' => [
+            'label' => 'Sitz',
             'config' => [
                 'type' => 'input',
                 'size' => 20,
                 'eval' => 'trim, required',
             ],
         ],
-        'e_mail' => [
+        'position' => [
+            'label' => 'Position',
+            'config' => [
+                'type' => 'input',
+                'size' => 20,
+                'eval' => 'trim, required',
+            ],
+        ],
+        'email' => [
             'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:label.email',
             'config' => [
                 'type' => 'input',
                 'size' => 20,
                 'eval' => 'email, required',
+            ],
+        ],
+        'emailpublic' => [
+            'label' => 'E-Mail-Adresse öffentlich',
+            'config' => [
+                'type' => 'check',
             ],
         ],
         'description' => [
@@ -87,13 +101,14 @@ return array(
                 'rows' => 15,
             ],
         ],
-        'wsk_element' => [
-            'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_wsk',
+        'wskelements' => [
+            'label' => 'WSK-Elemente',
             'config' => [
                 'type' => 'select',
-                'renderType' => 'selectCheckBox',
+                'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_projectorganizer_domain_model_wskelement',
-                'multiple' => '1',
+                'MM' => 'tx_projectorganizer_mm_person_wskelement',
+                'foreign_selecter' => 'persons',
             ],
         ],
         'topics' => [
@@ -122,20 +137,19 @@ return array(
                 'foreign_field' => 'persons',
             ],
         ],
-        'institutions' => [
-            'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_institution',
+        'institution' => [
+            'label' => 'Institution',
             'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'allowed' => 'tx_projectorganizer_domain_model_institution',
-                'fieldControl' => [
-                    'addRecord' => [
-                        'disabled' => false,
-                    ],
+                'type' => 'select',
+                'size' => 1,
+                'maxitems' => 1,
+                'item' => [
+                    [
+                        '---- Bitte wählen ----',
+                        0
+                    ]
                 ],
-                'MM' => 'tx_projectorganizer_mm_person_institution',
                 'foreign_table' => 'tx_projectorganizer_domain_model_institution',
-                'foreign_field' => 'persons',
             ],
         ],
         'publications' => [
@@ -154,10 +168,25 @@ return array(
                 'foreign_field' => 'persons',
             ],
         ],
+        'password_hash' => [
+            'label' => 'Details & Erfahrungen',
+            'config' => [
+                'type' => 'text',
+                'size' => 20,
+                'eval' => 'trim, required',
+            ],
+        ],
+        'validation_state' => [
+            'label' => 'Status der Validierung',
+            'config' => [
+                'type' => 'none',
+                'size' => 1,
+            ],
+        ],
     ),
     'types' => [
-        '1' => ['showitem' => 'title, specialist_field, entry_date, place, topics, wsk_element,
-         --div--;Details, description, projects, institutions, e_mail,
+        '1' => ['showitem' => 'title, specialist_field, entry_date, location, topics, wsk_element,
+         --div--;Details, description, projects, institutions, position, e_mail, e_mail_public
          --div--;Publikationen, publications'],
     ],
     'palettes' => array(

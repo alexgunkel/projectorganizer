@@ -48,7 +48,7 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 class Project
-    extends AbstractDomainObject
+    extends AbstractDomainObject implements Validatable
 {
     use ContactPersonTrait;
     use DescriptionTrait;
@@ -61,7 +61,6 @@ class Project
     use StatusTrait;
     use TitleTrait;
     use TopicsTrait;
-    use ValidationStatusTrait;
     use VolumeTrait;
     use WskelementTrait;
 

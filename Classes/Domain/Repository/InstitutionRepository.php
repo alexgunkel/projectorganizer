@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
@@ -69,16 +70,47 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
          */
         $projectRepository = $this->objectManager->get(ProjectRepository::class);
         $projectRepository->setStoragePidIgnore(true);
-        
+
+        /** @var Institution $institution */
         foreach ($institutions as $institution) {
             $projects = $projectRepository->findAcceptedByInstitution($institution->getUid());
-            $institution->setProjectList(new ProjectList($projects->toArray()));
+
+            /** @var Project $project */
+            foreach ($projects->toArray() as $project) {
+                $institution->addProject($project);
+            }
         }
 
         $projectRepository->setStoragePidIgnore(false);
         return $institutions;
     }
-    
+
+    /**
+     * @param mixed $identifier
+     * @return object
+     */
+    public function findByIdentifier($identifier)
+    {
+        /** @var Institution $result */
+        $result = parent::findByIdentifier($identifier);
+
+        /**
+         *
+         * @var ProjectRepository $projectRepository
+         */
+        $projectRepository = $this->objectManager->get(ProjectRepository::class);
+        $projectRepository->setStoragePidIgnore(true);
+
+        $projects = $projectRepository->findAcceptedByInstitution($result->getUid());
+
+        /** @var Project $project */
+        foreach ($projects->toArray() as $project) {
+            $result->addProject($project);
+        }
+
+        return $result;
+    }
+
     public function insert(Institution $institution): void
     {
         parent::add($institution);

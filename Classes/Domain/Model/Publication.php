@@ -42,6 +42,46 @@ class Publication extends AbstractDomainObject
     protected $published;
 
     /**
+     * @var string
+     */
+    protected $type;
+
+    /** @var  string */
+    protected $link;
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLink(): string
+    {
+        return $this->link;
+    }
+
+    /**
+     * @param string $link
+     */
+    public function setLink(string $link)
+    {
+        $this->link = $link;
+    }
+
+    /**
      * @return string
      */
     public function getAuthor(): string

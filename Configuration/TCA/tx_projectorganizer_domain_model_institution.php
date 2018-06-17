@@ -70,34 +70,48 @@ return array(
                 'eval' => 'trim',
             ],
         ],
-        'wsk_element' => [
-            'label' => 'WSK-Element',
+        'state' => [
+            'label' => 'Bundesland',
             'config' => [
-                'type' => 'select',
-                'foreign_table' => 'tx_projectorganizer_domain_model_wskelement',
-                'size' => 6,
-                'item' => [
-                    [
-                        '---- Bitte wählen ----',
-                        0
-                    ]
-                ],
-                'maxitems' =>1,
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
             ],
         ],
-        'topic' => [
-            'label' => 'Thema',
+        'wskelements' => [
+            'label' => 'WSK-Elemente',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
+                'foreign_table' => 'tx_projectorganizer_domain_model_wskelement',
+                'MM' => 'tx_projectorganizer_mm_institution_wskelement',
+                'foreign_selecter' => 'persons',
+            ],
+        ],
+        'topics' => [
+            'label' => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang_tca.xlf:tx_projectorganizer_domain_model_topic',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectMultipleSideBySide',
                 'foreign_table' => 'tx_projectorganizer_domain_model_topic',
-                'size' => 6,
-                'item' => [
-                    [
-                        '---- Bitte wählen ----',
-                        0
-                    ]
+                'MM' => 'tx_projectorganizer_mm_institution_topic',
+                'foreign_selecter' => 'persons',
+            ],
+        ],
+        'projects' => [
+            'label' => 'Projektbteiligungen',
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_projectorganizer_domain_model_project',
+                'fieldControl' => [
+                    'addRecord' => [
+                        'disabled' => false,
+                    ],
                 ],
-                'maxitems' =>1,
+                'MM' => 'tx_projectorganizer_mm_project_institution',
+                'foreign_table' => 'tx_projectorganizer_domain_model_project',
+                'foreign_field' => 'persons',
             ],
         ],
     ),
