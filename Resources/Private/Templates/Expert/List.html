@@ -15,24 +15,29 @@
     <table class="table table-style1 table-striped">
         <thead>
             <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Projects</th>
+                <th scope="col">{f:translate(key: 'addExpert.label.name', extensionName: 'project_organizer')}</th>
+                <th scope="col">{f:translate(key: 'addExpert.label.projects', extensionName: 'project_organizer')}</th>
             </tr>
         </thead>
         <tbody>
         	<f:for each="{experts}" as="expert">
         		<tr>
-        			<td>{expert.title}
-                        <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:expert.uid}" pageUid="{detailViewPage}">
-                            {expert.title}
-                        </f:link.action>
+        			<td>
+                        <f:if condition="{expert.title}">
+                            <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:expert.uid}" pageUid="{detailViewPage}">
+                                {expert.title}
+                            </f:link.action>
+                        </f:if>
                     </td>
         			<td>
         				<ul>
         					<f:for each="{expert.projects}" as="project">
-        						<li><f:link.action action="detail" pluginName="tx_projectorganizer_show_projects" arguments="{uid:project.uid}" pageUid="250">
-                                        {project.title}
-                                    </f:link.action>
+        						<li>
+                                    <f:if condition="{project.title}">
+                                        <f:link.action action="detail" pluginName="tx_projectorganizer_show_projects" arguments="{uid:project.uid}" pageUid="250">
+                                            {project.title}
+                                        </f:link.action>
+                                    </f:if>
                                 </li>
         					</f:for>
         				</ul>
@@ -41,6 +46,10 @@
         	</f:for>
         </tbody>
     </table>
+    <p class="btn-spacy">
+        <a class="btn btn-primary" href="/intern/examples/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
+        <a class="btn btn-primary" href="/intern/examples/projects/add-expert/">{f:translate(key: 'addExpert.label.addNewExpert', extensionName: 'project_organizer')}</a>
+    </p>
 </div>
     </f:section>
 </div>

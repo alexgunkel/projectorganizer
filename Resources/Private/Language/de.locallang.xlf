@@ -133,6 +133,25 @@
                 <target>Institution Anlegen</target>
             </trans-unit>
 
+            <trans-unit id="addInstitution.label.name">
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="addInstitution.label.projects">
+                <target>Projekte</target>
+            </trans-unit>
+            <trans-unit id="addInstitution.label.addNewInstitution">
+                <target>Institution hinzufügen</target>
+            </trans-unit>
+
+            <trans-unit id="addExpert.label.name">
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="addExpert.label.projects">
+                <target>Projekte</target>
+            </trans-unit>
+            <trans-unit id="addExpert.label.addNewExpert">
+                <target>Experten hinzufügen</target>
+            </trans-unit>
 
             <trans-unit id="expertDetail.label.email">
                 <target>E-Mail</target>

@@ -132,6 +132,29 @@
                 <source>Add Institution</source>
             </trans-unit>
 
+            <trans-unit id="addInstitution.label.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="addInstitution.label.projects">
+                <source>Projects</source>
+            </trans-unit>
+            <trans-unit id="addInstitution.label.addNewInstitution">
+                <source>Add Institution</source>
+            </trans-unit>
+
+            <trans-unit id="addExpert.label.addNewExpert">
+                <source>Experte hinzufügen</source>
+            </trans-unit>
+
+            <trans-unit id="addExpert.label.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="addExpert.label.projects">
+                <source>Projects</source>
+            </trans-unit>
+            <trans-unit id="addExpert.label.addNewExpert">
+                <source>Add expert</source>
+            </trans-unit>
 
             <trans-unit id="expertDetail.label.email">
                 <source>E-Mail</source>
