@@ -14,7 +14,7 @@
 <div class="projectTopicList">
     <f:for each="{projects}" as="project">
         <div class="projectList">
-            <table class="table table-striped">
+            <table class="table table-style1 table-striped">
                 <thead>
                 <tr>
                     <th scope="col">{f:translate(key: 'projectList.label.title', extensionName: 'project_organizer')}</th>
@@ -39,13 +39,17 @@
                                 </f:link.action>
                             </f:for>
                         </td>
-                        <td>{project.runtimeAsString}</td>
+                        <td><f:format.date format="d.m.Y">{project.runtimeEnd}</f:format.date></td>
                         <td>{project.status.title}</td>
                         <td>{project.region.title}</td>
                     </tr>
                 </f:for>
                 </tbody>
             </table>
+            <p class="btn-spacy">
+                <a class="btn btn-primary" href="http://test.hypos-eastgermany.de/intern/examples/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
+                <a class="btn btn-primary"  href="http://test.hypos-eastgermany.de/intern/examples/projects/add-project/">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</a>
+            </p>
         </div>
     </f:for>
 </div>

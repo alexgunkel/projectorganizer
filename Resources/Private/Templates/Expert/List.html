@@ -12,7 +12,7 @@
 
     <f:section name="Content">
 <div class="expertList">
-    <table class="table table-striped">
+    <table class="table table-style1 table-striped">
         <thead>
             <tr>
                 <th scope="col">Name</th>
@@ -30,8 +30,7 @@
         			<td>
         				<ul>
         					<f:for each="{expert.projects}" as="project">
-        						<li>{project.title}
-                                    <f:link.action action="detail" pluginName="tx_projectorganizer_show_projects" arguments="{uid:project.uid}" pageUid="250">
+        						<li><f:link.action action="detail" pluginName="tx_projectorganizer_show_projects" arguments="{uid:project.uid}" pageUid="250">
                                         {project.title}
                                     </f:link.action>
                                 </li>

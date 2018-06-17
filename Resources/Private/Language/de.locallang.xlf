@@ -95,6 +95,15 @@
             <trans-unit id="projectDetail.title.backToList">
                 <target>Zurück zur Liste</target>
             </trans-unit>
+            <trans-unit id="projectDetail.title.edit">
+                <target>Bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.title.addNewProject">
+                <target>Projekt hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.title.overview">
+                <target>Zur Übersicht</target>
+            </trans-unit>
 
             <trans-unit id="projectList.label.title">
                 <target>Titel</target>
