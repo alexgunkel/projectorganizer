@@ -88,17 +88,19 @@ class ProjectRepository
     {
         $query = $this->createQuery();
         $query->matching(
-            $query->greaterThanOrEqual(
-                'validation_state',
-                Project::VALIDATION_STATE_ACCEPTED
-            )
-        )
-            ->logicalAnd(
+            $query->logicalAnd(
+                $query->greaterThanOrEqual(
+                    'validation_state',
+                    Project::VALIDATION_STATE_ACCEPTED
+                ),
                 $query->equals(
-                    'topic',
+                    'topics.uid',
                     $topicUid
                 )
-            );
+            )
+        );
+
+        var_dump($query->getStatement());
         return $query->execute();
     }
 
