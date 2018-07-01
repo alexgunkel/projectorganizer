@@ -89,6 +89,7 @@ class Person extends AbstractDomainObject implements Validatable
     {
         $this->projects = new ObjectStorage;
         $this->publications = new ObjectStorage;
+        $this->topics = new ObjectStorage;
     }
 
     /**
