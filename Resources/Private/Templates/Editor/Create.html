@@ -27,7 +27,7 @@
                             <f:case value="project.topics"><v:variable.set name="error-topics" value="has-error" /></f:case>
                             <f:case value="project.status"><v:variable.set name="error-status" value="has-error" /></f:case>
                             <f:case value="project.runtimeStart"><v:variable.set name="error-runtimeStart" value="has-error" /></f:case>
-                            <f:case value="project.runtimeStart"><v:variable.set name="error-runtimeStart" value="has-error" /></f:case>
+                            <f:case value="project.runtimeEnd"><v:variable.set name="error-runtimeEnd" value="has-error" /></f:case>
                             <f:case value="project.region"><v:variable.set name="error-region" value="has-error" /></f:case>
                             <f:case value="project.wskelements"><v:variable.set name="error-wskelements" value="has-error" /></f:case>
                         </f:switch>
@@ -179,13 +179,10 @@
             </f:form.validationResults>
         </div>
 
-        <div class="form-group {error-location}">
-            <label for="demoProject">Demonstrationsanlage
-                <f:form.checkbox property="demoProject" id="demoProject" value="demoProject" class="form-control" />
-            </label>
+        <div class="form-group checkbox {error-location}">
+            <label for="demoProject">
+                <f:form.checkbox property="demoProject" id="demoProject" value="demoProject" class="form-check-input" />{f:translate(key: 'label.demonstrationsanlage', extensionName: 'project_organizer')}</label>
         </div>
-
-
         <div class="form-group {error-topics}">
             <label for="topics">{f:translate(key: 'label.topics', extensionName: 'project_organizer')}</label>
             <v:form.select property="topics" id="topics" multiple="true" class="form-control" errorClass="has-error" >
@@ -266,7 +263,11 @@
                     </v:form.select.option>
                 </f:for>
             </v:form.select>
-            <f:link.action controller="Institution" action="insertForm" pluginName="institutions_insert" pageUid="{insertInstitutionPage}">nicht dabei?</f:link.action>
+            <p class="help-block">
+                <f:link.action controller="Institution" action="insertForm" pluginName="institutions_insert" pageUid="{insertInstitutionPage}">
+                {f:translate(key: 'label.insertInstitution', extensionName: 'project_organizer')}
+                </f:link.action>
+            </p>
             <f:form.validationResults for="project.institutions">
                 <f:if condition="{validationResults.flattenedErrors}">
                     <ul class="errors">
@@ -362,6 +363,7 @@
 
 <f:comment>
         Working Version:
+</f:comment>
 
         <v:asset.style path="/typo3conf/ext/project_organizer/Resources/Public/Css/bootstrap.min.css" standalone="true" external="true" />
         <v:asset.style path="/typo3conf/ext/project_organizer/Resources/Public/Css/bootstrap-datepicker.min.css" standalone="true" external="true" />
@@ -372,7 +374,7 @@
         <v:asset.script>
             $('.datepicker').datepicker();
         </v:asset.script>
-</f:comment>
+
 
 
     </f:section>

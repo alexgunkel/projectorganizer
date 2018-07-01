@@ -28,6 +28,12 @@
             <trans-unit id="label.topics">
                 <target>Themenfeld(er)</target>
             </trans-unit>
+            <trans-unit id="label.demonstrationsanlage">
+                <target>Demonstrationsanlage</target>
+            </trans-unit>
+            <trans-unit id="label.insertInstitution">
+                <target>Neue Institution anlegen?</target>
+            </trans-unit>
             <trans-unit id="label.status">
                 <target>Status</target>
             </trans-unit>
