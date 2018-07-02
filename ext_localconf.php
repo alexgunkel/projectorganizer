@@ -66,10 +66,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'institutions_insert',
     [
-        'Institution' => 'insertForm, add',
+        'Institution' => 'insertForm, add, validateByValidationCode',
     ],
     [
-        'Institution' => 'insertForm, add',
+        'Institution' => 'insertForm, add, validateByValidationCode',
     ]
     );
 

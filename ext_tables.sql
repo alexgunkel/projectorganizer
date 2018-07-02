@@ -263,6 +263,8 @@ CREATE TABLE tx_projectorganizer_domain_model_institution (
   projects INT(11) UNSIGNED NOT NULL DEFAULT '0',
   wskelements INT(11) NOT NULL DEFAULT '0',
   topics INT(11) NOT NULL DEFAULT '0',
+  validation_state INT(1) DEFAULT '0',
+  password_hash VARCHAR(255) NOT NULL DEFAULT '',
 
   PRIMARY KEY (uid)
 );

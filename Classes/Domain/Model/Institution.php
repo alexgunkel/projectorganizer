@@ -27,6 +27,7 @@ namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
+use AlexGunkel\ProjectOrganizer\Value\Password;
 use TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -34,11 +35,30 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  * Class Institution
  * @package AlexGunkel\ProjectOrganizer\Domain\Model
  */
-class Institution extends AbstractDomainObject
+class Institution extends AbstractDomainObject implements Validatable
 {
     use TitleTrait,
         TopicsTrait,
         WskelementTrait;
+
+    public const VALIDATION_STATE_OPEN     = 0;
+    public const VALIDATION_STATE_ACCEPTED = 1;
+    public const VALIDATION_STATE_REJECTED = -1;
+
+    /**
+     * @var int
+     */
+    protected $validationState;
+
+    /**
+     * @var string
+     */
+    protected $passwordHash;
+
+    /**
+     * @var Password
+     */
+    protected $password;
     
     /**
      * 
@@ -80,6 +100,54 @@ class Institution extends AbstractDomainObject
     public function setState(string $state)
     {
         $this->state = $state;
+    }
+
+    /**
+     * @return int
+     */
+    public function getValidationState(): int
+    {
+        return $this->validationState;
+    }
+
+    /**
+     * @param int $validationState
+     */
+    public function setValidationState(int $validationState)
+    {
+        $this->validationState = $validationState;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPasswordHash(): string
+    {
+        return $this->passwordHash;
+    }
+
+    /**
+     * @param string $passwordHash
+     */
+    public function setPasswordHash(string $passwordHash)
+    {
+        $this->passwordHash = $passwordHash;
+    }
+
+    /**
+     * @return Password
+     */
+    public function getPassword(): Password
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param Password $password
+     */
+    public function setPassword(Password $password)
+    {
+        $this->password = $password;
     }
 
     /**

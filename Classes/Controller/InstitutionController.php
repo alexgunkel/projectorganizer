@@ -9,7 +9,11 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
+use AlexGunkel\ProjectOrganizer\Service\MailServiceFactory;
+use AlexGunkel\ProjectOrganizer\Service\ValidationServiceFactory;
+use AlexGunkel\ProjectOrganizer\Value\Password;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 /**
  * Class InstitutionController
@@ -23,6 +27,13 @@ class InstitutionController extends ActionController
      * @inject
      */
     private $institutionRepository;
+
+    /**
+     * @var \AlexGunkel\ProjectOrganizer\AccessValidation\AcceptanceManager
+     *
+     * @inject
+     */
+    private $acceptanceManager;
 
     /**
      * List all Organisations
@@ -66,7 +77,65 @@ class InstitutionController extends ActionController
     public function addAction(Institution $institution): void
     {
         $this->institutionRepository->insert($institution);
+        list($message, $response) = $this->registerNew($institution);
+
         $this->view->assign('institution', $institution);
+        $this->view->assign('success', $response);
+        $this->view->assign('message', $message);
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function validateByValidationCodeAction() : void
+    {
+        $code = new Password(
+            $this->request->getArgument('validationCode')
+        );
+
+        /** @var Institution $institution */
+        $institution = $this->institutionRepository->findByUid(
+            $this->request->getArgument('itemUid')
+        );
+
+        $passwordService = ValidationServiceFactory::buildPasswordService();
+        if (!$passwordService->validateProject($institution, $code)) {
+            throw new \Exception('Password is not valid', 1522081006);
+        }
+
+        $this->acceptanceManager->accept($institution);
+        $this->institutionRepository->update($institution);
+
+        $this->view->assign('institution', $institution);
+    }
+
+    /**
+     * @param Person $institution
+     * @return array
+     */
+    private function registerNew(Institution $institution): array
+    {
+        $institution->setValidationState(Institution::VALIDATION_STATE_OPEN);
+        $passwordService = ValidationServiceFactory::buildPasswordService();
+        $institution->setPassword($passwordService->generateRandomPassword());
+        $institution->setPasswordHash($passwordService->getSaltedPassword($institution->getPassword()));
+
+        $this->institutionRepository->add($institution);
+
+        /** @var PersistenceManager $persistenceManager */
+        $persistenceManager = $this->objectManager->get(PersistenceManager::class);
+        $persistenceManager->persistAll();
+
+        $message = MailServiceFactory::buildValidationCodeMessage(
+            $institution,
+            $this->uriBuilder,
+            null,
+            null,
+            'Institution'
+        );
+        $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
+        $response = $deliveryAgent->sendMessage($message);
+        return array($message, $response);
     }
 }
 
