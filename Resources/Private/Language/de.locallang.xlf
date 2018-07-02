@@ -148,7 +148,9 @@
             <trans-unit id="addInstitution.label.addNewInstitution">
                 <target>Institution hinzufügen</target>
             </trans-unit>
-
+            <trans-unit id="addInstitution.institutionWasAdded">
+                <target>Institution wurde hinzugefügt.</target>
+            </trans-unit>
             <trans-unit id="addExpert.label.name">
                 <target>Name</target>
             </trans-unit>
@@ -157,6 +159,9 @@
             </trans-unit>
             <trans-unit id="addExpert.label.addNewExpert">
                 <target>Experten hinzufügen</target>
+            </trans-unit>
+            <trans-unit id="addExpert.expertWasAdded">
+                <target>Experte wurde hinzugefügt.</target>
             </trans-unit>
 
             <trans-unit id="expertDetail.label.email">
@@ -179,6 +184,10 @@
             </trans-unit>
             <trans-unit id="expertDetail.label.wskelements">
                 <target>WSK-Element</target>
+            </trans-unit>
+
+            <trans-unit id="addPublication.publicationWasAdded">
+                <target>Publikation wurde hinzugefügt.</target>
             </trans-unit>
 
         </body>

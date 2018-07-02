@@ -54,7 +54,9 @@
             </tr>
             <tr>
                 <th>{f:translate(key: 'label.runtime', extensionName: 'project_organizer')}</th>
-                <td>{project.runtimeStart} - {project.runtimeEnd}</td>
+                <td>
+                    <f:format.date format="d.m.Y">{project.runtimeStart}</f:format.date>
+                    - <f:format.date format="d.m.Y">{project.runtimeEnd}</f:format.date>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.volume', extensionName: 'project_organizer')}</th>

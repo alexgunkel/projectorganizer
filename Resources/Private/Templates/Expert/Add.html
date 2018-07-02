@@ -5,8 +5,11 @@
     <f:layout name="Default" />
     <f:section name="Content">
         <div class="insertExpertForm">
-            <p>Experte wurde hinzugefügt:</p>
-            {expert.title}
+            <p>{f:translate(key: 'addExpert.expertWasAdded', extensionName: 'project_organizer')}</p>
+            <p>{expert.title}</p>
+            <p>
+                <a class="btn btn-primary" href="intern/examples/projects/expert-list/">Zur Liste</a>
+            </p>
         </div>
     </f:section>
     

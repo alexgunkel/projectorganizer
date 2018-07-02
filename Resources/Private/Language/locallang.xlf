@@ -147,9 +147,8 @@
             <trans-unit id="addInstitution.label.addNewInstitution">
                 <source>Add Institution</source>
             </trans-unit>
-
-            <trans-unit id="addExpert.label.addNewExpert">
-                <source>Experte hinzufügen</source>
+            <trans-unit id="addInstitution.institutionWasAdded">
+                <source>Institution was added.</source>
             </trans-unit>
 
             <trans-unit id="addExpert.label.name">
@@ -160,6 +159,9 @@
             </trans-unit>
             <trans-unit id="addExpert.label.addNewExpert">
                 <source>Add expert</source>
+            </trans-unit>
+            <trans-unit id="addExpert.expertWasAdded">
+                <source>Expert was added.</source>
             </trans-unit>
 
             <trans-unit id="expertDetail.label.email">
@@ -184,6 +186,9 @@
                 <source>WSK-Element</source>
             </trans-unit>
 
+            <trans-unit id="addPublication.publicationWasAdded">
+                <source>Publication was added.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

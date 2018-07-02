@@ -11,8 +11,10 @@
 
     <f:section name="Content">
 		<div class="insertPublicationForm">
-			New publication: {publication.title}
-		</div>
+            <p>{f:translate(key: 'addPublication.publicationWasAdded', extensionName: 'project_organizer')}</p>
+            <p>{publication.title}</p>
+            <p><a class="btn btn-primary" href="intern/examples/projects/publication-list/">Zur Liste</a></p>
+        </div>
     </f:section>
     
 </div>
