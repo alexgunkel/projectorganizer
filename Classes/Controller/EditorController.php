@@ -185,7 +185,9 @@ class EditorController
         $persistenceManager = $this->objectManager->get(PersistenceManager::class);
         $persistenceManager->persistAll();
 
-        $message = MailServiceFactory::buildValidationCodeMessage($project, $this->uriBuilder);
+        $message = MailServiceFactory::buildValidationCodeMessage(
+            $project, $this->uriBuilder, null, null, 'Editor'
+        );
         $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
         $response = $deliveryAgent->sendMessage($message);
         return array($message, $response);
