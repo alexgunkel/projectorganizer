@@ -58,6 +58,6 @@ trait TopicsTrait
      */
     public function getTopics() : ObjectStorage
     {
-        return $this->topics ? clone $this->topics : new ObjectStorage;
+        return $this->topics instanceof ObjectStorage ? clone $this->topics : new ObjectStorage;
     }
 }
