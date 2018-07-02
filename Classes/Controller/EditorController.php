@@ -32,6 +32,7 @@ use AlexGunkel\ProjectOrganizer\Traits\Repository\RegionRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\StatusRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\TopicRepositoryTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Repository\WskelementRepositoryTrait;
+use AlexGunkel\ProjectOrganizer\Value\Password;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use AlexGunkel\ProjectOrganizer\Traits\FlexformTrait;
@@ -166,6 +167,40 @@ class EditorController
         $this->view->assign('projectTitle', $project->getTitle());
         $this->view->assign('success', $response);
         $this->view->assign('message', $message);
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function validateByValidationCodeAction() : void
+    {
+        $code = new Password(
+            $this->request->getArgument('validationCode')
+        );
+
+        /** @var Project $project */
+        $project = $this->projectRepository->findByUid(
+            $this->request->getArgument('itemUid')
+        );
+
+        if ($this->request->hasArgument('do_it')) {
+            $passwordService = ValidationServiceFactory::buildPasswordService();
+            if (!$passwordService->validateProject($project, $code)) {
+                throw new \Exception('Password is not valid', 1522081006);
+            }
+
+            $this->acceptanceManager->accept($project);
+            $this->projectRepository->update($project);
+
+            if (null !== $project->getOrig()) {
+                $this->projectRepository->remove($project->getOrig());
+            }
+        } else {
+            $this->view->assign('validationCode', $code);
+            $this->view->assign('itemUid', $project->getUid());
+        }
+
+        $this->view->assign('project', $project);
     }
 
     /**

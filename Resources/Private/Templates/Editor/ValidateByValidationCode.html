@@ -103,8 +103,7 @@
 
         <f:if condition="{validationCode}">
                 <f:form action="validateByValidationCode"
-                        controller="Expert"
-                        name="person">
+                        controller="Editor">
                     <f:form.hidden name="validationCode" value="{validationCode}" />
                     <f:form.hidden name="itemUid" value="{itemUid}" />
                     <f:form.hidden name="do_it" value="yes" />

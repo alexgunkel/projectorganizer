@@ -106,11 +106,12 @@ class InstitutionController extends ActionController
 
             $this->acceptanceManager->accept($institution);
             $this->institutionRepository->update($institution);
+        } else {
+            $this->view->assign('validationCode', $code);
+            $this->view->assign('itemUid', $project->getUid());
         }
 
         $this->view->assign('institution', $institution);
-        $this->view->assign('validationCode', $code);
-        $this->view->assign('itemUid', $institution->getUid());
     }
 
     /**
