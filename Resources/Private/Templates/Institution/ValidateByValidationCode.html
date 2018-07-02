@@ -67,6 +67,23 @@
 
                     </tbody>
                 </table>
+
+                <f:if condition="{do_it}">
+                    <f:then>
+
+                    </f:then>
+                    <f:else>
+                        <f:form action="validateByValidationCode"
+                                controller="Expert"
+                                name="person">
+                            <f:form.hidden name="validationCode" value="{validationCode}" />
+                            <f:form.hidden name="itemUid" value="{itemUid}" />
+                            <f:form.hidden name="do_it" value="yes" />
+                            <f:form.button class="btn btn-primary">Freischalten</f:form.button>
+                        </f:form>
+                    </f:else>
+                </f:if>
+
                 <p><f:link.action class="btn btn-primary" action="list">{f:translate(key: 'title.backToList', extensionName: 'project_organizer')}</f:link.action></p>
             </article>
         </div>

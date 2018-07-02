@@ -12,5 +12,76 @@
     <f:section name="Content">
 
 <h2>{project.title}</h2>
+        <h1 class="brand">{expert.title}</h1>
+        <table class="table table-style1 table-striped">
+            <tbody>
+            <f:if condition="{expert.title}">
+                <tr>
+                    <th>{f:translate(key: 'expertDetail.label.email', extensionName: 'project_organizer')} ToDo: add email to Detail View</th>
+                    <td>
+                        my email
+                    </td>
+                </tr>
+            </f:if>
+
+            <tr>
+                <th>{f:translate(key: 'expertDetail.label.description', extensionName: 'project_organizer')}</th>
+                <td>{expert.description}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'expertDetail.label.specialistField', extensionName: 'project_organizer')}</th>
+                <td>{expert.specialistField}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'expertDetail.label.entryDate', extensionName: 'project_organizer')}</th>
+                <td>{expert.entryDate}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'expertDetail.label.topics', extensionName: 'project_organizer')}</th>
+                <td>
+                    <ol>
+                        <f:for each="{expert.topics}" as="topic">
+                            <li>{topic.title}</li>
+                        </f:for>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'expertDetail.label.institutions', extensionName: 'project_organizer')}</th>
+                <td>
+                    <ol>
+                        <f:for each="{expert.institutions}" as="institution">
+                            <li>{institution.title}</li>
+                        </f:for>
+                    </ol>
+                </td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'expertDetail.label.wskelements', extensionName: 'project_organizer')}</th>
+                <td>
+                    <ol>
+                        <f:for each="{expert.wskelements}" as="wskelement">
+                            <li>{wskelement.title}</li>
+                        </f:for>
+                    </ol>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <f:if condition="{do_it}">
+            <f:then>
+
+            </f:then>
+            <f:else>
+                <f:form action="validateByValidationCode"
+                        controller="Expert"
+                        name="person">
+                    <f:form.hidden name="validationCode" value="{validationCode}" />
+                    <f:form.hidden name="itemUid" value="{itemUid}" />
+                    <f:form.hidden name="do_it" value="yes" />
+                    <f:form.button class="btn btn-primary">Freischalten</f:form.button>
+                </f:form>
+            </f:else>
+        </f:if>
     </f:section>
 </div>

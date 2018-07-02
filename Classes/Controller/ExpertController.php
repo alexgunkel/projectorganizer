@@ -144,15 +144,19 @@ class ExpertController extends ActionController
             $this->request->getArgument('itemUid')
         );
 
-        $passwordService = ValidationServiceFactory::buildPasswordService();
-        if (!$passwordService->validateProject($expert, $code)) {
-            throw new \Exception('Password is not valid', 1522081006);
+        if ($this->request->hasArgument('do_it')) {
+            $passwordService = ValidationServiceFactory::buildPasswordService();
+            if (!$passwordService->validateProject($expert, $code)) {
+                throw new \Exception('Password is not valid', 1522081006);
+            }
+
+            $this->acceptanceManager->accept($expert);
+            $this->expertRepository->update($expert);
         }
 
-        $this->acceptanceManager->accept($expert);
-        $this->expertRepository->update($expert);
-
         $this->view->assign('expert', $expert);
+        $this->view->assign('validationCode', $code);
+        $this->view->assign('itemUid', $expert->getUid());
     }
 
     /**

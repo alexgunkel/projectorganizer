@@ -43,18 +43,22 @@ class ValidatorController
             $this->request->getArgument('itemUid')
         );
 
-        $passwordService = ValidationServiceFactory::buildPasswordService();
-        if (!$passwordService->validateProject($project, $code)) {
-            throw new \Exception('Password is not valid', 1522081006);
-        }
+        if ($this->request->hasArgument('do_it')) {
+            $passwordService = ValidationServiceFactory::buildPasswordService();
+            if (!$passwordService->validateProject($project, $code)) {
+                throw new \Exception('Password is not valid', 1522081006);
+            }
 
-        $this->acceptanceManager->accept($project);
-        $this->repository->update($project);
+            $this->acceptanceManager->accept($project);
+            $this->repository->update($project);
 
-        if (null !== $project->getOrig()) {
-            $this->repository->remove($project->getOrig());
+            if (null !== $project->getOrig()) {
+                $this->repository->remove($project->getOrig());
+            }
         }
 
         $this->view->assign('project', $project);
+        $this->view->assign('validationCode', $code);
+        $this->view->assign('itemUid', $project->getUid());
     }
 }
