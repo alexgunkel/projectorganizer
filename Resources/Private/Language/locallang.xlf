@@ -3,6 +3,10 @@
     <file t3:id="1496687369" source-language="en" datatype="plaintext" original="messages" date="2017-06-05T20:29:34Z" product-name="project_organizer">
         <header/>
         <body>
+            <trans-unit id="title.backToList">
+                <source>Back to list</source>
+            </trans-unit>
+
             <trans-unit id="mlang_labels_tablabel">
                 <source>Project Organizer administration module</source>
             </trans-unit>
@@ -15,6 +19,9 @@
 
             <trans-unit id="addProject.legend">
                 <source>Add new Project</source>
+            </trans-unit>
+            <trans-unit id="editProject.legend">
+                <source>Edit Project</source>
             </trans-unit>
             <trans-unit id="label.title">
                 <source>Project Title</source>
@@ -51,6 +58,9 @@
             </trans-unit>
             <trans-unit id="addProject.label.submit">
                 <source>Create</source>
+            </trans-unit>
+            <trans-unit id="addProject.label.editSubmit">
+                <source>Submit</source>
             </trans-unit>
             <trans-unit id="label.volume">
                 <source>Fördervolumen</source>
@@ -129,6 +139,31 @@
 
             <trans-unit id="projectSubmit.text.submitted">
                 <source>Thank you, your project request was submitted.</source>
+            </trans-unit>
+
+            <trans-unit id="listInstitution.heading">
+                <source>Institution list</source>
+            </trans-unit>
+            <trans-unit id="institution.label.projects">
+                <source>Projekte</source>
+            </trans-unit>
+            <trans-unit id="institution.label.type">
+                <source>Typ</source>
+            </trans-unit>
+            <trans-unit id="institution.label.location">
+                <source>Hauptsitz</source>
+            </trans-unit>
+            <trans-unit id="institution.label.state">
+                <source>Bundesland</source>
+            </trans-unit>
+            <trans-unit id="institution.label.country">
+                <source>Land</source>
+            </trans-unit>
+            <trans-unit id="institution.label.topics">
+                <source>Themen</source>
+            </trans-unit>
+            <trans-unit id="institution.label.wskelements">
+                <source>WSK-Element</source>
             </trans-unit>
 
             <trans-unit id="addInstitution.label.title">

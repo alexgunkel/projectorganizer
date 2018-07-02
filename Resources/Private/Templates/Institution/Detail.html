@@ -14,11 +14,11 @@
 <div class="institution-detail">
     <article>
         <br>
-        <h1 class="brand">Name: {institution.title}</h1>
-            <table class="table table-style1 table-striped">
+        <h1 class="brand">{institution.title}</h1>
+        <table class="table table-style1 table-side table-striped">
             <tbody>
             <tr>
-                <th>Name</th>
+                <th>{f:translate(key: 'institution.label.projects', extensionName: 'project_organizer')}</th>
                 <td>
                     <f:for each="{institution.projects}" as="project">
                         <f:link.action
@@ -31,17 +31,44 @@
                     </f:for>
                 </td>
             </tr>
+            <tr>
+                <th>{f:translate(key: 'institution.label.type', extensionName: 'project_organizer')}</th>
+                <td>{institution.institutionType}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'institution.label.location', extensionName: 'project_organizer')}</th>
+                <td>{institution.location}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'institution.label.state', extensionName: 'project_organizer')}</th>
+                <td>{institution.state}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'institution.label.country', extensionName: 'project_organizer')}</th>
+                <td>{institution.country}</td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'institution.label.topics', extensionName: 'project_organizer')}</th>
+                <td>
+                    <f:for each="{institution.topics}" as="topic">
+                        {topic.title},
+                    </f:for>
+                </td>
+            </tr>
+            <tr>
+                <th>{f:translate(key: 'institution.label.wskelements', extensionName: 'project_organizer')}</th>
+                <td>
+                    <f:for each="{institution.wskelements}" as="wskelement">
+                            {wskelement.title},
+                    </f:for>
+                </td>
+            </tr>
+
+
             </tbody>
         </table>
-        <p><f:link.action class="btn btn-primary" action="list">Zurück zur Liste</f:link.action></p>
+        <p><f:link.action class="btn btn-primary" action="list">{f:translate(key: 'title.backToList', extensionName: 'project_organizer')}</f:link.action></p>
     </article>
 </div>
     </f:section>
 </div>
-• Name der Institution
-• Typ (Forschung, Großunternehmen, KMU)
-• Hauptsitz der Institution (Stadt)
-• Bundesland
-• Land
-• Themenfeld (Optionen: Strombereitstellung, Chemische Umwandlung, Transport & Speicherung, Verwertung & Vertrieb – Mehrauswahl möglich)
-• WSK-Elemente (Liste wird nachgereicht)
