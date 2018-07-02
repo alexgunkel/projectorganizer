@@ -258,7 +258,7 @@
                             </v:form.select.option>
                         </f:for>
                     </v:form.select>
-                    <f:link.action controller="Institution" action="insertForm" pluginName="institutions_insert" pageUid="{insertInstitutionPage}">nicht dabei?</f:link.action>
+                    <f:link.action controller="Institution" action="insertForm" target="_blank" pluginName="institutions_insert" pageUid="{insertInstitutionPage}">{f:translate(key: 'label.insertInstitution', extensionName: 'project_organizer')}</f:link.action>
                     <f:form.validationResults for="project.region">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
