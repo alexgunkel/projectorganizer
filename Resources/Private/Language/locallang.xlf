@@ -224,6 +224,15 @@
             <trans-unit id="addPublication.publicationWasAdded">
                 <source>Publication was added.</source>
             </trans-unit>
+            <trans-unit id="addPublication.label.title">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="addPublication.label.author">
+                <source>Author</source>
+            </trans-unit>
+            <trans-unit id="addPublication.label.date">
+                <source>Publishing Date</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

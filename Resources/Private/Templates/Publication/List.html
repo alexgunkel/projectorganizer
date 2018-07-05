@@ -11,18 +11,32 @@
     -->
 
     <f:section name="Content">
-<div class="publicationList">
-    <table class="table table-style1 table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Projects</th>
-            </tr>
-        </thead>
-        <tbody>
-        	<f:for each="{publications}" as="publication">
-        		<p>{publication.author}: <em>{publication.title}</em>, {publication.published}</p>
-        	</f:for>
+        <div class="publicationList">
+            <table class="table table-style1 table-striped table-sortable">
+                <thead>
+                <tr>
+                    <th scope="col">{f:translate(key: 'addPublication.label.title', extensionName: 'project_organizer')}</th>
+                    <th scope="col">{f:translate(key: 'addPublication.label.author', extensionName: 'project_organizer')}</th>
+                    <th scope="col">{f:translate(key: 'addPublication.label.type', extensionName: 'project_organizer')}/{f:translate(key: 'addPublication.label.date', extensionName: 'project_organizer')}/</th>
+                </tr>
+                </thead>
+                <tbody>
+                <f:for each="{publications}" as="publication">
+                    <tr>
+                        <td>
+                            <f:if condition="{publication.title}">
+                                <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:publication.uid}" pageUid="{detailViewPage}">
+                                {publication.title}
+                                </f:link.action>
+                            </f:if>
+                            <f:if condition="{publication.link}">
+                                <br>{publication.link}
+                            </f:if>
+                        </td>
+                        <td>{publication.author}</td>
+                        <td><f:if condition="{publication.link}">{publication.type}<br></f:if>{publication.published}</td>
+                    </tr>
+                </f:for>
         </tbody>
     </table>
 </div>

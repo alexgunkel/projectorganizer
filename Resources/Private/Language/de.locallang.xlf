@@ -224,7 +224,18 @@
             <trans-unit id="addPublication.publicationWasAdded">
                 <target>Publikation wurde hinzugefügt.</target>
             </trans-unit>
-
+            <trans-unit id="addPublication.label.title">
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="addPublication.label.author">
+                <target>Autor</target>
+            </trans-unit>
+            <trans-unit id="addPublication.label.date">
+                <target>Veröffentlichung</target>
+            </trans-unit>
+            <trans-unit id="addPublication.label.type">
+                <target>Typ</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
