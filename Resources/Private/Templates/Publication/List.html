@@ -17,7 +17,6 @@
                 <tr>
                     <th scope="col">{f:translate(key: 'addPublication.label.title', extensionName: 'project_organizer')}</th>
                     <th scope="col">{f:translate(key: 'addPublication.label.author', extensionName: 'project_organizer')}</th>
-                    <th scope="col">{f:translate(key: 'addPublication.label.type', extensionName: 'project_organizer')}/{f:translate(key: 'addPublication.label.date', extensionName: 'project_organizer')}/</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,7 +33,6 @@
                             </f:if>
                         </td>
                         <td>{publication.author}</td>
-                        <td><f:if condition="{publication.link}">{publication.type}<br></f:if>{publication.published}</td>
                     </tr>
                 </f:for>
         </tbody>

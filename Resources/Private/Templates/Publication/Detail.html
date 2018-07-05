@@ -15,9 +15,15 @@
     <article>
         <br>
         <h1 class="brand">{publication.title}</h1>
-        <p><f:link.action action="list">
-        	Zurück zur Liste
-        </f:link.action></p>
+        <f:if condition="{publication.type}"><p>{f:translate(key: 'addPublication.label.type', extensionName: 'project_organizer')}: {publication.type}</p></f:if>
+        <f:if condition="{publication.type}"><p>{f:translate(key: 'addPublication.label.link', extensionName: 'project_organizer')}: {publication.link}</p></f:if>
+        <p>{f:translate(key: 'addPublication.label.date', extensionName: 'project_organizer')}: {publication.published}</p>
+        <br>
+        <p>
+            <f:link.action action="list" class="btn btn-primary">
+                {f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}
+            </f:link.action>
+        </p>
     </article>
 </div>
     </f:section>

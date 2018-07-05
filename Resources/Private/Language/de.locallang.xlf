@@ -236,6 +236,9 @@
             <trans-unit id="addPublication.label.type">
                 <target>Typ</target>
             </trans-unit>
+            <trans-unit id="addPublication.label.link">
+                <target>Link</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

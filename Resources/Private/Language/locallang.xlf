@@ -233,6 +233,9 @@
             <trans-unit id="addPublication.label.date">
                 <source>Publishing Date</source>
             </trans-unit>
+            <trans-unit id="addPublication.label.link">
+                <source>Link</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>
