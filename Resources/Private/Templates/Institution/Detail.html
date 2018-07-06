@@ -20,15 +20,21 @@
             <tr>
                 <th>{f:translate(key: 'institution.label.projects', extensionName: 'project_organizer')}</th>
                 <td>
-                    <f:for each="{institution.projects}" as="project">
-                        <f:link.action
-                        	action="listByTopic"
-                        	arguments="{topic: topic.uid}"
-                        	pluginName="{pluginName}"
-                        	pageUid="{listViewPage}">
-                            {project.title}
-                        </f:link.action><br>
-                    </f:for>
+                    <ul>
+                        <f:for each="{institution.projects}" as="project">
+                            <f:if condition="{project.title}">
+                                <li>
+                                    <f:link.action
+                                            action="listByTopic"
+                                            arguments="{topic: topic.uid}"
+                                            pluginName="{pluginName}"
+                                            pageUid="{listViewPage}">
+                                        {project.title}
+                                    </f:link.action>
+                                </li>
+                            </f:if>
+                        </f:for>
+                    </ul>
                 </td>
             </tr>
             <tr>
@@ -50,16 +56,16 @@
             <tr>
                 <th>{f:translate(key: 'institution.label.topics', extensionName: 'project_organizer')}</th>
                 <td>
-                    <f:for each="{institution.topics}" as="topic">
-                        {topic.title},
+                    <f:for each="{institution.topics}" as="topic" iteration="iterator">
+                        {topic.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
                     </f:for>
                 </td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'institution.label.wskelements', extensionName: 'project_organizer')}</th>
                 <td>
-                    <f:for each="{institution.wskelements}" as="wskelement">
-                            {wskelement.title},
+                    <f:for each="{institution.wskelements}" as="wskelement" iteration="iterator">
+                            {wskelement.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
                     </f:for>
                 </td>
             </tr>

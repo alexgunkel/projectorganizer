@@ -11,14 +11,15 @@
     -->
 
     <f:section name="Content">
-<f:debug>{_all}</f:debug>
 <div class="institutionList">
     <h2>{f:translate(key: 'listInstitution.heading', extensionName: 'project_organizer')}</h2>
     <table class="table table-style1 table-striped table-sortable">
         <thead>
             <tr>
                 <th scope="col">{f:translate(key: 'addInstitution.label.name', extensionName: 'project_organizer')}</th>
-                <th scope="col">{f:translate(key: 'addInstitution.label.projects', extensionName: 'project_organizer')}</th>
+                <th scope="col">{f:translate(key: 'institution.label.type', extensionName: 'project_organizer')}</th>
+                <th scope="col">{f:translate(key: 'institution.label.topics', extensionName: 'project_organizer')}</th>
+                <th scope="col">{f:translate(key: 'institution.label.projects', extensionName: 'project_organizer')}</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,16 @@
                         <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:institution.uid}">
                             {institution.title}
                         </f:link.action>
+                    </td>
+        			<td>
+                        {institution.type}
+                    </td>
+        			<td>
+                        <f:for each="{institution.topics}" as="topic" iteration="iterator">
+                            <f:link.action action="listByTopic" arguments="{topic:topic.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                                {topic.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
+                            </f:link.action>
+                        </f:for>
                     </td>
         			<td>
         				<ul>
