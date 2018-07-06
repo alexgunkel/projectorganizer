@@ -37,7 +37,7 @@
 
 				<div class="form-group {error-published}">
 					<label for="published">Veröffentlicht</label>
-					<f:form.textfield property="published" id="published" class="form-control" errorClass="has-error"/>
+					<f:form.textfield property="published" id="published" class="form-control datepicker" errorClass="has-error"/>
 					<f:form.validationResults for="publication.published">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">

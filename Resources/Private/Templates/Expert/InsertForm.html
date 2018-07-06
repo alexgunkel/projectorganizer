@@ -16,6 +16,10 @@
 		    		controller="Expert"
 		    		object="person"
 		    		name="person">
+				<f:if condition="{errorMessage}" >
+					<p>{errorMessage}</p>
+				</f:if>
+
 				<div class="form-group {error-title}">
 	            	<label for="title">Name</label>
 	            	<f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>

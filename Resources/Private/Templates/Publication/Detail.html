@@ -16,6 +16,7 @@
         <br>
         <h1 class="brand">{publication.title}</h1>
         <f:if condition="{publication.type}"><p>{f:translate(key: 'addPublication.label.type', extensionName: 'project_organizer')}: {publication.type}</p></f:if>
+        <f:if condition="{publication.author}"><p>{f:translate(key: 'addPublication.label.author', extensionName: 'project_organizer')}: {publication.author}</p></f:if>
         <f:if condition="{publication.type}"><p>{f:translate(key: 'addPublication.label.link', extensionName: 'project_organizer')}: {publication.link}</p></f:if>
         <p>{f:translate(key: 'addPublication.label.date', extensionName: 'project_organizer')}: {publication.published}</p>
         <br>

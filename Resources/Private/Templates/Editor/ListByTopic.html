@@ -33,9 +33,9 @@
                             </f:link.action>
                         </td>
                         <td>
-                            <f:for each="{project.topics}" as="topic" >
+                            <f:for each="{project.topics}" as="topic" iteration="iterator">
                                 <f:link.action action="listByTopic" arguments="{topic:topic.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
-                                    {topic.title}
+                                    {topic.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
                                 </f:link.action>
                             </f:for>
                         </td>
