@@ -21,6 +21,8 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 
 class ExpertController extends ActionController
 {
+    use CsvTrait;
+
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\PersonRepository
      *
@@ -56,8 +58,12 @@ class ExpertController extends ActionController
     {
         $this->view->assign(
             'experts',
-            $this->expertRepository->findAccepted(true)
+            $experts = $this->expertRepository->findAccepted(true)
         );
+
+        if (isset($_GET['csv'])) {
+            $this->sendCsv($experts->toArray());
+        }
     }
 
     /**

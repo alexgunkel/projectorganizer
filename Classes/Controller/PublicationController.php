@@ -17,6 +17,8 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class PublicationController extends ActionController
 {
+    use CsvTrait;
+
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\PublicationRepository
      *
@@ -31,8 +33,12 @@ class PublicationController extends ActionController
     {
         $this->view->assign(
             'publications',
-            $this->publicationRepository->findAll()
+            $publications = $this->publicationRepository->findAll()
         );
+
+        if (isset($_GET['csv'])) {
+            $this->sendCsv($publications->toArray());
+        }
     }
 
     /**

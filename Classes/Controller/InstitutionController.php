@@ -21,6 +21,8 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
  */
 class InstitutionController extends ActionController
 {
+    use CsvTrait;
+
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\InstitutionRepository
      * 
@@ -42,8 +44,12 @@ class InstitutionController extends ActionController
     {
         $this->view->assign(
             'institutions',
-            $this->institutionRepository->findAll()
+            $institutions = $this->institutionRepository->findAll()
             );
+
+        if (isset($_GET['csv'])) {
+            $this->sendCsv($institutions->toArray());
+        }
 
         $this->view->assign(
             'pluginName',
