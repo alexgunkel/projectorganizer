@@ -9,6 +9,9 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 
+use TYPO3\CMS\Extbase\Mvc\View\EmptyView;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 trait CsvTrait
 {
     /**
@@ -17,7 +20,7 @@ trait CsvTrait
     private function sendCsv($projects): void
     {
         $methods = array_filter(get_class_methods(reset($projects)), function ($name) {
-            return 'get' === substr($name, 0, 3);
+            return 'get' === substr($name, 0, 3) ||  'is' === substr($name, 0, 2);
         });
         $list = [implode(',', $methods)];
         foreach ($projects as $project) {

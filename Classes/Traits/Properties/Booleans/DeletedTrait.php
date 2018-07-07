@@ -36,12 +36,12 @@ trait DeletedTrait
      *
      * @return void
      */
-    public function setDeleted(bool $deleted)
+    public function setDeleted(?bool $deleted)
     {
         $this->deleted = $deleted;
     }
 
-    public function isDeleted() : bool
+    public function isDeleted() : ?bool
     {
         return $this->deleted;
     }
