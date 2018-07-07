@@ -75,6 +75,7 @@ class EditorController
         $this->view->assignMultiple(
             [
                 'user' => $this->getUserAuthentication()->user,
+                'be_user' => $this->getBeUserAuthentication(),
                 'projects' => $projects,
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
@@ -94,6 +95,7 @@ class EditorController
         $this->view->assignMultiple(
             [
                 'user' => $this->getUserAuthentication()->user,
+                'be_user' => $this->getBeUserAuthentication(),
                 'projects' => $projects = $this->projectRepository->findAcceptedByTopicUid($this->request->getArgument('topic')),
                 'pluginName' => $this->request->getPluginName(),
             ]

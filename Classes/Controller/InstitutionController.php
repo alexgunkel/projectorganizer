@@ -60,6 +60,10 @@ class InstitutionController extends ActionController
             'user',
             $this->getUserAuthentication()->user
         );
+        $this->view->assign(
+            'be_user',
+            $this->getBeUserAuthentication()
+        );
     }
 
     /**
@@ -76,6 +80,10 @@ class InstitutionController extends ActionController
         $this->view->assign(
             'user',
             $this->getUserAuthentication()->user
+        );
+        $this->view->assign(
+            'be_user',
+            $this->getBeUserAuthentication()
         );
     }
 

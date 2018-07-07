@@ -65,6 +65,10 @@ class ExpertController extends ActionController
             'user',
             $this->getUserAuthentication()->user
         );
+        $this->view->assign(
+            'be_user',
+            $this->getBeUserAuthentication()
+        );
 
         if (isset($_GET['csv'])) {
             $this->sendCsv($experts->toArray());
@@ -102,6 +106,10 @@ class ExpertController extends ActionController
         $this->view->assign(
             'user',
             $this->getUserAuthentication()->user
+        );
+        $this->view->assign(
+            'be_user',
+            $this->getBeUserAuthentication()
         );
     }
 

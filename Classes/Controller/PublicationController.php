@@ -40,6 +40,10 @@ class PublicationController extends ActionController
             'user',
             $this->getUserAuthentication()->user
         );
+        $this->view->assign(
+            'be_user',
+            $this->getBeUserAuthentication()
+        );
 
         if (isset($_GET['csv'])) {
             $this->sendCsv($publications->toArray());
@@ -60,6 +64,10 @@ class PublicationController extends ActionController
         $this->view->assign(
             'user',
             $this->getUserAuthentication()->user
+        );
+        $this->view->assign(
+            'be_user',
+            $this->getBeUserAuthentication()
         );
     }
 

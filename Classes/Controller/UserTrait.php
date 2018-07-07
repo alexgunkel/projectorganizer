@@ -9,6 +9,7 @@
 namespace AlexGunkel\ProjectOrganizer\Controller;
 
 
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 
 trait UserTrait
@@ -21,5 +22,15 @@ trait UserTrait
     private function getUserAuthentication(): FrontendUserAuthentication
     {
         return $GLOBALS['TSFE']->fe_user;
+    }
+
+
+    /**
+     * @return BackendUserAuthentication
+     */
+    private function getBeUserAuthentication(): BackendUserAuthentication
+    {
+        global $BE_USER;
+        return $BE_USER;
     }
 }
