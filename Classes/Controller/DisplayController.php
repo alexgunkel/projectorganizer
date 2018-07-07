@@ -31,13 +31,31 @@ class DisplayController
      */
     final public function listAction() : void
     {
+        $projects = $this->projectRepository->findAccepted();
         $this->view->assignMultiple(
             [
-                'projects' => $this->projectRepository->findAccepted(),
+                'projects' => $projects,
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
             ]
         );
+
+        if ($this->request->hasArgument('csv')) {
+            die;
+            $list = [];
+            foreach ($projects as $project) {
+                $array = [];
+                $methods = get_class_methods($projects);
+                foreach ($methods as $method) {
+                    if ('get' === substr($method, 0, 3)) {
+                        $array[] = $project->$method();
+                    }
+                }
+                $list[] = implode(',', $array);
+            }
+
+            return implode(PHP_EOL, implode($list));
+        }
     }
 
     /**

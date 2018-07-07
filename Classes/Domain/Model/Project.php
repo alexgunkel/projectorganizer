@@ -364,4 +364,8 @@ class Project
     {
         $this->password = $password;
     }
+
+    public function toArray(): array
+    {
+    }
 }
