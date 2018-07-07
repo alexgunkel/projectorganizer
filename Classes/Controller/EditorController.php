@@ -39,6 +39,7 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use AlexGunkel\ProjectOrganizer\Traits\FlexformTrait;
+use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 
 class EditorController
     extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
@@ -48,7 +49,8 @@ class EditorController
         RegionRepositoryTrait,
         WskelementRepositoryTrait,
         FlexformTrait,
-        CsvTrait;
+        CsvTrait,
+        UserTrait;
 
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\ProjectRepository
@@ -72,6 +74,7 @@ class EditorController
         $projects = $this->projectRepository->findAccepted();
         $this->view->assignMultiple(
             [
+                'user' => $this->getUserAuthentication()->user,
                 'projects' => $projects,
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
@@ -90,6 +93,7 @@ class EditorController
     {
         $this->view->assignMultiple(
             [
+                'user' => $this->getUserAuthentication()->user,
                 'projects' => $projects = $this->projectRepository->findAcceptedByTopicUid($this->request->getArgument('topic')),
                 'pluginName' => $this->request->getPluginName(),
             ]
@@ -148,6 +152,7 @@ class EditorController
     {
         $this->view->assignMultiple(
             [
+                'user' => $this->getUserAuthentication()->user,
                 'project' => $project = $this->projectRepository->findByUid($this->request->getArgument('uid')),
                 'listViewPage' => $this->readAsInteger('list_view_page') ?? $GLOBALS['TSFE']->id,
             ]

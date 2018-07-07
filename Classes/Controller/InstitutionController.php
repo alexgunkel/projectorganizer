@@ -21,7 +21,8 @@ use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
  */
 class InstitutionController extends ActionController
 {
-    use CsvTrait;
+    use CsvTrait,
+        UserTrait;
 
     /**
      * @var \AlexGunkel\ProjectOrganizer\Domain\Repository\InstitutionRepository
@@ -55,6 +56,10 @@ class InstitutionController extends ActionController
             'pluginName',
             $this->request->getPluginName()
         );
+        $this->view->assign(
+            'user',
+            $this->getUserAuthentication()->user
+        );
     }
 
     /**
@@ -67,6 +72,10 @@ class InstitutionController extends ActionController
             $this->institutionRepository->findByIdentifier(
                 $this->request->getArgument('uid')
             )
+        );
+        $this->view->assign(
+            'user',
+            $this->getUserAuthentication()->user
         );
     }
 
