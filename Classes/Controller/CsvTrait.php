@@ -22,19 +22,55 @@ trait CsvTrait
         $methods = array_filter(get_class_methods(reset($projects)), function ($name) {
             return 'get' === substr($name, 0, 3) ||  'is' === substr($name, 0, 2);
         });
+
+        // available values:
+        // isDemoProject, getResearchprogram, getOrig, isHypos, isShowInMap, getContactEmail, getLocation,
+        // getValidationState, getInstitutions, getPasswordHash, getPassword, getUid, getPid, getContactPerson,
+        // getDescription, getLink, getOverallVolume, getPublications, getRegion, getResearchprograms,
+        // getRuntimeStart, getRuntimeEnd, getStatus, getTitle, getTopics, getVolume, getWskelements, isHidden,
+        // isDeleted, getCrDate, getTstamp
+        $displayValues = array(
+            "isDemoProject",
+            "getResearchprogram",
+            "getContactEmail",
+            "getLocation",
+            "getLocation",
+            "getInstitutions",
+            "getContactPerson",
+            "getDescription",
+            "getLink",
+            "getOverallVolume",
+            "getPublications",
+            "getRegion",
+            "getResearchprograms",
+            "getRuntimeStart",
+            "getRuntimeEnd",
+            "getTitle",
+            "getTopics",
+            "getVolume",
+            "getWskelements",
+            "getWskelements"
+        );
+        $methods = array_intersect($methods, $displayValues);
+
         $list = [implode(',', $methods)];
+
         foreach ($projects as $project) {
             $array = [];
             foreach ($methods as $method) {
-                $item = $project->$method();
-                if ($item instanceof ObjectStorage) {
-                    $item = implode(', ', $item->toArray());
-                }
 
-                if (is_object($item)) {
-                    $item = $item->getUid();
+                if (in_array($method, $displayValues)) {
+                    $item = $project->$method();
+
+                    if ($item instanceof ObjectStorage) {
+                        $item = implode(', ', $item->toArray());
+                    }
+
+                    if (is_object($item)) {
+                        $item = $item->getUid();
+                    }
+                    $array[] = '"' . str_replace('"', '\'', $item) . '"';
                 }
-                $array[] = '"' . str_replace('"', '\'', $item) . '"';
             }
             $list[] = implode(',', $array);
         }

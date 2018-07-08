@@ -161,10 +161,10 @@ class ValidationCodeMessage
             }
         }
         $this->messageObject->setBody(
-            'Uid: ' . $this->object->getUid() . "\n"
-            . 'Title: ' . $this->object->getTitle() . "\n"
-            . 'Code: ' . $this->object->getPassword() . "\n"
-            . 'Link: ' . $link . "\n" . $body
+            'Uid: ' . $this->object->getUid()
+            . 'Title: ' . $this->object->getTitle()
+            . 'Code: ' . $this->object->getPassword()
+            . 'Link: ' . $link . $body
         );
 
         return $this;
