@@ -155,6 +155,7 @@ class EditorController
     {
         $this->view->assignMultiple(
             [
+                'be_user' => $this->getBeUserAuthentication(),
                 'user' => $this->getUserAuthentication()->user,
                 'project' => $project = $this->projectRepository->findByUid($this->request->getArgument('uid')),
                 'listViewPage' => $this->readAsInteger('list_view_page') ?? $GLOBALS['TSFE']->id,
@@ -164,6 +165,20 @@ class EditorController
         if ($this->request->hasArgument('csv')) {
             $this->sendCsv([$project]);
         }
+    }
+
+    /**
+     *
+     */
+    final public function deleteAction() : void
+    {
+        $this->view->assignMultiple(
+            [
+                'project' => $project = $this->projectRepository->findByUid($this->request->getArgument('uid')),
+            ]
+        );
+
+        $this->projectRepository->remove($project);
     }
 
     /**

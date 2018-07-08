@@ -19,7 +19,7 @@ trait UserTrait
     /**
      * @return FrontendUserAuthentication
      */
-    private function getUserAuthentication(): FrontendUserAuthentication
+    private function getUserAuthentication(): ?FrontendUserAuthentication
     {
         global $GLOBALS;
         return $GLOBALS['TSFE']->fe_user;
@@ -29,7 +29,7 @@ trait UserTrait
     /**
      * @return BackendUserAuthentication
      */
-    private function getBeUserAuthentication(): BackendUserAuthentication
+    private function getBeUserAuthentication(): ?BackendUserAuthentication
     {
         global $BE_USER;
         return $BE_USER;

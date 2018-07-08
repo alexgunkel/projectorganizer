@@ -50,6 +50,15 @@ class PublicationController extends ActionController
         }
     }
 
+    public function deleteAction(): void
+    {
+        $object = $this->publicationRepository->findByIdentifier(
+            $this->request->getArgument('uid')
+        );
+
+        $this->publicationRepository->remove($object);
+    }
+
     /**
      *
      */

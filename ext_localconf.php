@@ -29,11 +29,11 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'show_projects',
     [
-        'Editor' => 'list, detail, listByTopic, edit, persist',
+        'Editor' => 'list, detail, listByTopic, edit, persist, delete',
         'Validator' => 'validateByValidationCode',
     ],
     [
-        'Editor' => 'list, listByTopic, edit, persist',
+        'Editor' => 'list, listByTopic, edit, persist, delete, detail',
         'Validator' => 'validateByValidationCode',
     ]
 );
@@ -55,10 +55,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'institutions_list',
     [
-        'Institution' => 'list, detail, insertForm, add',
+        'Institution' => 'list, detail, insertForm, add, delete',
     ],
     [
-        'Institution' => 'insertForm, add, list',
+        'Institution' => 'insertForm, add, list, delete',
     ]
     );
 
@@ -66,10 +66,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'institutions_insert',
     [
-        'Institution' => 'insertForm, add, validateByValidationCode',
+        'Institution' => 'insertForm, add, validateByValidationCode, delete',
     ],
     [
-        'Institution' => 'insertForm, add, validateByValidationCode',
+        'Institution' => 'insertForm, add, validateByValidationCode, delete',
     ]
     );
 
@@ -77,10 +77,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'experts_list',
     [
-        'Expert' => 'list, detail, insertForm, submit, validateByValidationCode',
+        'Expert' => 'list, detail, insertForm, submit, validateByValidationCode, delete',
     ],
     [
-        'Expert' => 'insertForm, list, submit, validateByValidationCode',
+        'Expert' => 'insertForm, list, submit, validateByValidationCode, delete',
     ]
 );
 
@@ -88,10 +88,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'experts_insert',
     [
-        'Expert' => 'insertForm, submit, validateByValidationCode',
+        'Expert' => 'insertForm, submit, validateByValidationCode, delete',
     ],
     [
-        'Expert' => 'insertForm, submit, validateByValidationCode',
+        'Expert' => 'insertForm, submit, validateByValidationCode, delete',
     ]
 );
 
@@ -99,10 +99,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'publications_list',
     [
-        'Publication' => 'list, detail, insertForm, add',
+        'Publication' => 'list, detail, insertForm, add, delete',
     ],
     [
-        'Publication' => 'insertForm, add, list',
+        'Publication' => 'insertForm, add, list, delete',
     ]
 );
 
@@ -110,10 +110,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'publications_insert',
     [
-        'Publication' => 'insertForm, add',
+        'Publication' => 'insertForm, add, delete',
     ],
     [
-        'Publication' => 'insertForm, add',
+        'Publication' => 'insertForm, add, delete',
     ]
 );
 

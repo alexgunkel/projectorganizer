@@ -66,6 +66,15 @@ class InstitutionController extends ActionController
         );
     }
 
+    public function deleteAction(): void
+    {
+        $object = $this->institutionRepository->findByIdentifier(
+            $this->request->getArgument('uid')
+        );
+
+        $this->institutionRepository->remove($object);
+    }
+
     /**
      *
      */

@@ -70,7 +70,10 @@
                 </tr>
             </tbody>
         </table>
-        
+
+        <f:if condition="{be_user.admin}" >
+            <f:link.action action="delete" class="btn btn-primary" arguments="{uid:expert.uid}">löschen</f:link.action>
+        </f:if>
         
         <p><f:link.action action="list">
         	Zurück zur Liste

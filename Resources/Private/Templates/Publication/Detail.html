@@ -25,6 +25,10 @@
                 {f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}
             </f:link.action>
         </p>
+
+        <f:if condition="{be_user.admin}" >
+            <f:link.action action="delete" class="btn btn-primary" arguments="{uid:publication.uid}">löschen</f:link.action>
+        </f:if>
     </article>
 </div>
     </f:section>

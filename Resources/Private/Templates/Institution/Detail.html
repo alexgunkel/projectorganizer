@@ -73,6 +73,10 @@
 
             </tbody>
         </table>
+
+        <f:if condition="{be_user.admin}" >
+            <f:link.action action="delete" class="btn btn-primary" arguments="{uid:institution.uid}">löschen</f:link.action>
+        </f:if>
         <p><f:link.action class="btn btn-primary" action="list">{f:translate(key: 'title.backToList', extensionName: 'project_organizer')}</f:link.action></p>
     </article>
 </div>

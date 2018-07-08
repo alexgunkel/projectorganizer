@@ -113,6 +113,16 @@ class ExpertController extends ActionController
         );
     }
 
+    public function deleteAction(): void
+    {
+        $object = $this->expertRepository->findByIdentifier(
+            $this->request->getArgument('uid')
+        );
+
+        $this->expertRepository->remove($object);
+    }
+
+
     public function insertFormAction(Person $person = null): void
     {
         $this->view->assign(
