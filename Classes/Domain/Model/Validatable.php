@@ -16,6 +16,6 @@ interface Validatable
     public function getUid();
     public function getPassword(): ?Password;
     public function getTitle(): string;
-    public function getValidationState(): int;
+    public function getValidationState(): ?int;
     public function setValidationState(int $state);
 }

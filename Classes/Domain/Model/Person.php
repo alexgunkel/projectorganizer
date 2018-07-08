@@ -132,7 +132,7 @@ class Person extends AbstractDomainObject implements Validatable
     /**
      * @return string
      */
-    public function getPosition(): string
+    public function getPosition(): ?string
     {
         return $this->position;
     }
@@ -153,7 +153,7 @@ class Person extends AbstractDomainObject implements Validatable
     /**
      * @return string
      */
-    public function getLocation(): string
+    public function getLocation(): ?string
     {
         return $this->location;
     }
@@ -169,7 +169,7 @@ class Person extends AbstractDomainObject implements Validatable
     /**
      * @return bool
      */
-    public function isEmailpublic(): bool
+    public function isEmailpublic(): ?bool
     {
         return $this->emailpublic;
     }
@@ -185,7 +185,7 @@ class Person extends AbstractDomainObject implements Validatable
     /**
      * @return int
      */
-    public function getValidationState(): int
+    public function getValidationState(): ?int
     {
         return $this->validationState;
     }
@@ -201,7 +201,7 @@ class Person extends AbstractDomainObject implements Validatable
     /**
      * @return string
      */
-    public function getPasswordHash(): string
+    public function getPasswordHash(): ?string
     {
         return $this->passwordHash;
     }
@@ -217,7 +217,7 @@ class Person extends AbstractDomainObject implements Validatable
     /**
      * @return Password
      */
-    public function getPassword(): Password
+    public function getPassword(): ?Password
     {
         return $this->password;
     }
@@ -233,7 +233,7 @@ class Person extends AbstractDomainObject implements Validatable
     /**
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->email;
     }

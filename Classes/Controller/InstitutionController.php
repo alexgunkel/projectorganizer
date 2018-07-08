@@ -48,7 +48,7 @@ class InstitutionController extends ActionController
             $institutions = $this->institutionRepository->findAll()
             );
 
-        if (isset($_GET['csv'])) {
+        if ($this->request->hasArgument('csv')) {
             $this->sendCsv($institutions->toArray());
         }
 

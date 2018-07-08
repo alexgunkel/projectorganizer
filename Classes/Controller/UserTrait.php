@@ -21,6 +21,7 @@ trait UserTrait
      */
     private function getUserAuthentication(): FrontendUserAuthentication
     {
+        global $GLOBALS;
         return $GLOBALS['TSFE']->fe_user;
     }
 

@@ -121,7 +121,7 @@ class Institution extends AbstractDomainObject implements Validatable
     /**
      * @return string
      */
-    public function getPasswordHash(): string
+    public function getPasswordHash(): ?string
     {
         return $this->passwordHash;
     }
@@ -137,7 +137,7 @@ class Institution extends AbstractDomainObject implements Validatable
     /**
      * @return Password
      */
-    public function getPassword(): Password
+    public function getPassword(): ?Password
     {
         return $this->password;
     }

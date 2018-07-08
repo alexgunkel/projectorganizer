@@ -82,7 +82,7 @@ class EditorController
             ]
         );
 
-        if (isset($_GET['csv'])) {
+        if ($this->request->hasArgument('csv')) {
             $this->sendCsv($projects->toArray());
         }
     }
@@ -96,12 +96,13 @@ class EditorController
             [
                 'user' => $this->getUserAuthentication()->user,
                 'be_user' => $this->getBeUserAuthentication(),
+                'topic_id' => $this->request->getArgument('topic'),
                 'projects' => $projects = $this->projectRepository->findAcceptedByTopicUid($this->request->getArgument('topic')),
                 'pluginName' => $this->request->getPluginName(),
             ]
         );
 
-        if (isset($_GET['csv'])) {
+        if ($this->request->hasArgument('csv')) {
             $this->sendCsv($projects->toArray());
         }
     }
@@ -160,7 +161,7 @@ class EditorController
             ]
         );
 
-        if (isset($_GET['csv'])) {
+        if ($this->request->hasArgument('csv')) {
             $this->sendCsv([$project]);
         }
     }

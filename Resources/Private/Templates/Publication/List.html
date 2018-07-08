@@ -37,6 +37,9 @@
                 </f:for>
         </tbody>
     </table>
+            <f:if condition="{user} || {be_user}">
+                <f:link.action action="list" arguments="{csv:'true'}" pluginName="{pluginName}" >download csv</f:link.action>
+            </f:if>
 </div>
     </f:section>
 </div>

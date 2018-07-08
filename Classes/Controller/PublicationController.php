@@ -45,7 +45,7 @@ class PublicationController extends ActionController
             $this->getBeUserAuthentication()
         );
 
-        if (isset($_GET['csv'])) {
+        if ($this->request->hasArgument('csv')) {
             $this->sendCsv($publications->toArray());
         }
     }

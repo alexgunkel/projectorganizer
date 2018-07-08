@@ -28,13 +28,13 @@ trait CsvTrait
             foreach ($methods as $method) {
                 $item = $project->$method();
                 if ($item instanceof ObjectStorage) {
-                    continue;
+                    $item = implode(', ', $item->toArray());
                 }
 
                 if (is_object($item)) {
                     $item = $item->getUid();
                 }
-                $array[] = $item;
+                $array[] = '"' . str_replace('"', '\'', $item) . '"';
             }
             $list[] = implode(',', $array);
         }
