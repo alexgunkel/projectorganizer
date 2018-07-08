@@ -11,6 +11,7 @@
     -->
 
     <f:section name="Content">
+		<f:debug>{_all}</f:debug>
 		<div class="institution-create">
 		    <f:form action="add"
 		    		controller="Institution"
@@ -110,6 +111,30 @@
 						</f:for>
 					</v:form.select>
 					<f:form.validationResults for="person.wskelements">
+						<f:if condition="{validationResults.flattenedErrors}">
+							<ul class="errors">
+								<f:for each="{validationResults.errors}" as="error">
+									<li>{error}</li>
+								</f:for>
+							</ul>
+						</f:if>
+					</f:form.validationResults>
+				</div>
+
+				<div class="form-group {error-institutionType}">
+					<label for="types">Typ</label>
+					<v:form.select property="institutionType"
+								   id="institutionType"
+								   class="form-control"
+								   errorClass="has-error"
+								   multiple="false" >
+						<f:for each="{types}" as="type" >
+							<v:form.select.option value="{type.uid}" >
+								{type.title}
+							</v:form.select.option>
+						</f:for>
+					</v:form.select>
+					<f:form.validationResults for="person.institutionType">
 						<f:if condition="{validationResults.flattenedErrors}">
 							<ul class="errors">
 								<f:for each="{validationResults.errors}" as="error">

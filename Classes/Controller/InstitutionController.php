@@ -140,7 +140,7 @@ class InstitutionController extends ActionController
             $this->institutionRepository->update($institution);
         } else {
             $this->view->assign('validationCode', $code);
-            $this->view->assign('itemUid', $project->getUid());
+            $this->view->assign('itemUid', $institution->getUid());
         }
 
         $this->view->assign('institution', $institution);

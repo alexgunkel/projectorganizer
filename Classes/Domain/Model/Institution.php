@@ -24,6 +24,7 @@
 
 namespace AlexGunkel\ProjectOrganizer\Domain\Model;
 
+use AlexGunkel\ProjectOrganizer\Domain\Model\Institution\Type;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\TopicsTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Objects\WskelementTrait;
 use AlexGunkel\ProjectOrganizer\Traits\Properties\Strings\TitleTrait;
@@ -67,7 +68,7 @@ class Institution extends AbstractDomainObject implements Validatable
     protected $projects;
 
     /**
-     * @var string
+     * @var \AlexGunkel\ProjectOrganizer\Domain\Model\Institution\Type
      */
     protected $institutionType;
 
@@ -161,17 +162,17 @@ class Institution extends AbstractDomainObject implements Validatable
     }
 
     /**
-     * @return string
+     * @return \AlexGunkel\ProjectOrganizer\Domain\Model\Institution\Type
      */
-    public function getInstitutionType(): ?string
+    public function getInstitutionType(): ?Type
     {
         return $this->institutionType;
     }
 
     /**
-     * @param string $institutionType
+     * @param \AlexGunkel\ProjectOrganizer\Domain\Model\Institution\Type $institutionType
      */
-    public function setInstitutionType(string $institutionType)
+    public function setInstitutionType(Type $institutionType)
     {
         $this->institutionType = $institutionType;
     }

@@ -25,10 +25,10 @@
 namespace AlexGunkel\ProjectOrganizer\Domain\Repository;
 
 use AlexGunkel\ProjectOrganizer\Domain\Model\Project;
+use AlexGunkel\ProjectOrganizer\Domain\Repository\Institution\TypeRepository;
 use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use AlexGunkel\ProjectOrganizer\Domain\Model\Institution;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
-use AlexGunkel\ProjectOrganizer\Domain\Model\ProjectList;
 
 /**
  * Class InstitutionRepository
@@ -44,6 +44,7 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
     private const propertyRepositories = [
         'topics' => TopicRepository::class,
         'wskelements' => WskelementRepository::class,
+        'types' => TypeRepository::class,
     ];
 
     public function initializeObject() {

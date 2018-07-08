@@ -49,9 +49,10 @@ return array(
         'institution_type' => [
             'label' => 'Typ',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim',
+                'type' => 'select',
+                'size' => 1,
+                'maxitems' => 1,
+                'foreign_table' => 'tx_projectorganizer_domain_model_institution_type',
             ],
         ],
         'location' => [
@@ -131,7 +132,7 @@ return array(
         ],
     ),
     'types' => [
-        '1' => ['showitem' => 'title, type, location, country, wsk_element, topic'],
+        '1' => ['showitem' => 'title, institution_type, location, country, wsk_element, topic'],
     ],
     'palettes' => array(),
 );
