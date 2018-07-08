@@ -215,8 +215,9 @@ class ExpertController extends ActionController
             $this->uriBuilder,
             null,
             null,
-            'Expert'
-        );
+            'Expert',
+            \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:project_organizer/Resources/Private/Email/Expert.phtml')
+);
         $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
         $response = $deliveryAgent->sendMessage($message);
         return array($message, $response);

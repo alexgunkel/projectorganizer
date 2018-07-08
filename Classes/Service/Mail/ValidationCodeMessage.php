@@ -39,6 +39,11 @@ class ValidationCodeMessage
      */
     private $uriBuilder;
 
+    /**
+     * @var string
+     */
+    private $template;
+
     private $controller;
 
     /**
@@ -60,6 +65,22 @@ class ValidationCodeMessage
         $this->uriBuilder    = $uriBuilder;
         $this->logger        = $logger ?: new NullLogger;
         $this->controller = $controllerName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTemplate(): ?string
+    {
+        return $this->template;
+    }
+
+    /**
+     * @param string $template
+     */
+    public function setTemplate(string $template)
+    {
+        $this->template = $template;
     }
 
     /**
@@ -118,6 +139,15 @@ class ValidationCodeMessage
      */
     private function generateMessageBody(string $link) : ValidationCodeMessage
     {
+        if (null !== $this->template && file_exists($this->template)) {
+            ob_start();
+            require $this->template;
+            $result = ob_get_clean();
+
+            $this->messageObject->setBody($result);
+            return $this;
+        }
+
         $properties = get_class_methods($this->object);
         $body = '';
         foreach ($properties as $property) {

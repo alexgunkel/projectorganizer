@@ -30,7 +30,8 @@ class MailServiceFactory
         UriBuilder $uriBuilder,
         AccessValidatorInterface $accessValidator = null,
         MailMessage $mailMessage = null,
-        string $controllerName = null
+        string $controllerName = null,
+        string $template = null
     ): ValidationCodeMessage {
         $message = new ValidationCodeMessage(
             $uriBuilder,
@@ -40,6 +41,10 @@ class MailServiceFactory
             $controllerName
 
         );
+
+        if (null !== $template) {
+            $message->setTemplate($template);
+        }
 
         return $message->setObject($project);
     }

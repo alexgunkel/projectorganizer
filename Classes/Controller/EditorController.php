@@ -261,7 +261,12 @@ class EditorController
         $persistenceManager->persistAll();
 
         $message = MailServiceFactory::buildValidationCodeMessage(
-            $project, $this->uriBuilder, null, null, 'Editor'
+            $project,
+            $this->uriBuilder,
+            null,
+            null,
+            'Editor',
+            \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:project_organizer/Resources/Private/Email/Project.phtml')
         );
         $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
         $response = $deliveryAgent->sendMessage($message);

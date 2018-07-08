@@ -168,7 +168,9 @@ class InstitutionController extends ActionController
             $this->uriBuilder,
             null,
             null,
-            'Institution'
+            'Institution',
+            \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:project_organizer/Resources/Private/Email/Institution.phtml')
+
         );
         $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
         $response = $deliveryAgent->sendMessage($message);
