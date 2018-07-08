@@ -52,6 +52,8 @@ class Person extends AbstractDomainObject implements Validatable
 
     /**
      * @var string
+     *
+     * @validate NotEmpty
      */
     protected $email;
 

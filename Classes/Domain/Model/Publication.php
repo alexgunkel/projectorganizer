@@ -33,6 +33,8 @@ class Publication extends AbstractDomainObject
 
     /**
      * @var string
+     *
+     * @validate NotEmpty
      */
     protected $author;
 

@@ -106,6 +106,8 @@ class Project
 
     /**
      * @var string
+     *
+     * @validate NotEmpty
      */
     protected $contactEmail;
 
