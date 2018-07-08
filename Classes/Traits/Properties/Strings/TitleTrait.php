@@ -30,11 +30,15 @@ trait TitleTrait
 {
     /**
      * @var string
+     *
+     * @validate NotEmpty
      */
     protected $title = '';
 
     /**
      * @param string $title
+     *
+     * @validate NotEmpty
      *
      * @return void
      */
