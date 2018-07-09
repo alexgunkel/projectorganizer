@@ -31,15 +31,16 @@ class MailServiceFactory
         AccessValidatorInterface $accessValidator = null,
         MailMessage $mailMessage = null,
         string $controllerName = null,
-        string $template = null
+        string $template = null,
+        ?string $pluginName = null
     ): ValidationCodeMessage {
         $message = new ValidationCodeMessage(
             $uriBuilder,
             $accessValidator ?: ValidationServiceFactory::buildPasswordService(),
             $mailMessage ?: new MailMessage,
             new NullLogger(),
-            $controllerName
-
+            $controllerName,
+            $pluginName
         );
 
         if (null !== $template) {
