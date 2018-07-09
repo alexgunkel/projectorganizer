@@ -47,9 +47,8 @@ trait CsvTrait
             "getRuntimeEnd",
             "getTitle",
             "getTopics",
-            "getVolume",
-            "getWskelements",
-            "getWskelements"
+            "getVolume"
+            //"getWskelements"
         );
         $methods = array_intersect($methods, $displayValues);
 

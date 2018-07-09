@@ -71,8 +71,14 @@
             <trans-unit id="label.overallVolume">
                 <source>Gesamtvolumen</source>
             </trans-unit>
+            <trans-unit id="label.locationLabel">
+                <source>Location (Label)</source>
+            </trans-unit>
             <trans-unit id="label.location">
-                <source>Ort</source>
+                <source>Location</source>
+            </trans-unit>
+            <trans-unit id="label.address">
+                <source>Address</source>
             </trans-unit>
 
             <trans-unit id="projectDetail.label.topic">

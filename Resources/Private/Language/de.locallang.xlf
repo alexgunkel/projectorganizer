@@ -74,6 +74,12 @@
             <trans-unit id="label.location">
                 <target>Ort</target>
             </trans-unit>
+            <trans-unit id="label.locationLabel">
+                <target>Adresse (Bezeichnung)</target>
+            </trans-unit>
+            <trans-unit id="label.address">
+                <target>Adresse</target>
+            </trans-unit>
 
             <trans-unit id="projectDetail.label.topic">
                 <target>Themenfeld</target>
