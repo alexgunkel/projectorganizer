@@ -47,8 +47,8 @@
         </tbody>
     </table>
     <p class="btn-spacy">
-        <a class="btn btn-primary" href="/intern/examples/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
-        <a class="btn btn-primary" href="/intern/examples/projects/add-expert/">{f:translate(key: 'addExpert.label.addNewExpert', extensionName: 'project_organizer')}</a>
+        <a class="btn btn-primary" href="/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
+        <a class="btn btn-primary" href="/projects/add-expert/">{f:translate(key: 'addExpert.label.addNewExpert', extensionName: 'project_organizer')}</a>
         <f:if condition="{user} || {be_user}">
             <f:link.action action="list" arguments="{csv:'true'}" pluginName="{pluginName}" class="btn btn-defaut f-right" >Download CSV</f:link.action>
         </f:if>

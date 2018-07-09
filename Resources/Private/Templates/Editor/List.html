@@ -46,8 +46,8 @@
     </table>
     <div class="container-fluid">
         <p class="btn-spacy">
-            <a class="btn btn-primary" href="http://test.hypos-eastgermany.de/intern/examples/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
-            <a class="btn btn-primary"  href="http://test.hypos-eastgermany.de/intern/examples/projects/add-project/">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</a>
+            <a class="btn btn-primary" href="/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
+            <a class="btn btn-primary"  href="/projects/add-project/">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</a>
             <f:if condition="{user} || {be_user}">
                 <f:link.action action="list" arguments="{csv: true}" pluginName="{pluginName}" class="btn btn-defaut f-right">Download CSV</f:link.action>
             </f:if>
