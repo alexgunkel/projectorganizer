@@ -45,6 +45,7 @@ class ValidationCodeMessage
     private $template;
 
     private $controller;
+    private $pluginName;
 
     /**
      * ValidationCodeMessage constructor.
@@ -58,13 +59,15 @@ class ValidationCodeMessage
         PasswordService $passwordService = null,
         MailMessage     $mailMessage = null,
         LoggerInterface $logger = null,
-        ?string $controllerName
+        ?string $controllerName,
+        ?string $pluginName = null
     ) {
         $this->messageObject = $mailMessage ?: new MailMessage;
         $this->passwordService     = $passwordService ?: new AccessValidator;
         $this->uriBuilder    = $uriBuilder;
         $this->logger        = $logger ?: new NullLogger;
         $this->controller = $controllerName;
+        $this->pluginName = $pluginName;
     }
 
     /**
@@ -129,7 +132,8 @@ class ValidationCodeMessage
                     'itemUid' => (string) $this->object->getUid(),
                 ],
                 $this->controller ?? 'Validator',
-                null
+                null,
+                $this->pluginName
             );
     }
 

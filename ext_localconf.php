@@ -29,12 +29,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'show_projects',
     [
-        'Editor' => 'list, detail, listByTopic, edit, persist, delete',
-        'Validator' => 'validateByValidationCode',
+        'Editor' => 'list, detail, listByTopic, edit, persist, delete, validateByValidationCode',
     ],
     [
-        'Editor' => 'list, listByTopic, edit, persist, delete, detail',
-        'Validator' => 'validateByValidationCode',
+        'Editor' => 'list, listByTopic, edit, persist, delete, detail, validateByValidationCode',
     ]
 );
 
@@ -43,11 +41,9 @@ if (!defined('TYPO3_MODE')) {
     'edit_projects',
     [
         'Editor' => 'create, submit, listByTopic, validateByValidationCode',
-        'Validator' => 'validateByValidationCode',
     ],
     [
         'Editor' => 'create, submit, validateByValidationCode',
-        'Validator' => 'validateByValidationCode',
     ]
 );
 

@@ -266,7 +266,8 @@ class EditorController
             null,
             null,
             'Editor',
-            \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:project_organizer/Resources/Private/Email/Project.phtml')
+            \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName('EXT:project_organizer/Resources/Private/Email/Project.phtml'),
+            $this->request->getPluginName()
         );
         $deliveryAgent = MailServiceFactory::buildDeliveryAgent($this->settings['receiver']);
         $response = $deliveryAgent->sendMessage($message);
