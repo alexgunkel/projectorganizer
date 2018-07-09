@@ -190,6 +190,12 @@
                                 // ToDo: fill location fields
                             }
                         });
+                        $('form[name="project"]').on('submit', function(e) {
+                            var $locationField = $('#location'),
+                                $curLocation = $locationField.val().replace(/\s*\[.*?\]\s*/g, ''),
+                                $newLocation = $curLocation + ' [' + $('#location-lat').val() + '/' + $('#location-lon').val() + ']';
+                            $locationField.val($newLocation);
+                        });
                     });
                 </v:asset.script>
                 <!-- End - Dummy fields - ToDo: Remove -->
