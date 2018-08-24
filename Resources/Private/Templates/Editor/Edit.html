@@ -113,28 +113,8 @@
                         </f:if>
                     </f:form.validationResults>
                 </div>
-                <div class="form-group {error-location}">
-                    <label for="location">{f:translate(key: 'label.location', extensionName: 'project_organizer')}</label>
-                    <f:form.textfield property="location" id="location" class="form-control" errorClass="has-error"/>
-                    <f:form.validationResults for="project.location">
-                        <f:if condition="{validationResults.flattenedErrors}">
-                            <ul class="errors">
-                                <f:for each="{validationResults.errors}" as="error">
-                                    <li>{error}</li>
-                                </f:for>
-                            </ul>
-                        </f:if>
-                    </f:form.validationResults>
-                    <div class="location-picker">
-                        <input type="text" id="txtAddress" placeholder="Enter address here" data-type="address">
-                        <input type="hidden" id="txtLocation" data-type="location-store">
-                        <div class="map-container">
-                            <div id="locationPicker" style="width: 500px; height: 400px;"></div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- End - Dummy fields - ToDo: Remove -->
+                <f:render partial="LocationPicker" section="Main" />
 
                 <div class="form-group {error-location}">
                     <label for="contactEmail">{f:translate(key: 'label.contactEmail', extensionName: 'project_organizer')}</label>
@@ -371,5 +351,7 @@
             </v:asset.script>
         </f:comment>
 
+
+        <v:asset.script path="/typo3conf/ext/project_organizer/Resources/Public/Js/bootstrap-datepicker.min.js"  standalone="true" external="true" />
     </f:section>
 </div>
