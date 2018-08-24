@@ -139,7 +139,7 @@
 
     // ToDo -> Split location values via php/fluid add as two array values; rebuild script - see original
 </f:comment>
-<v:asset.script external="true">
+<v:asset.script external="false" movable="true" name="extra-script">
             var mapLocations = [<f:for each="{projects}" as="project" iteration="i"><f:if condition="{project.location}">
                     ['{project.title}',
                     '<strong>{project.title}</strong><br>\ {project.description}<br>\
@@ -176,6 +176,5 @@
                 }
             }
         </v:asset.script>
-
     </f:section>
 </div>

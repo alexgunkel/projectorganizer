@@ -47,30 +47,30 @@
             path="https://test.hypos-eastgermany.de/typo3conf/ext/custom_template/Resources/Public/js/vendor/locationpicker.jquery.js"
             external="true"/>
     <v:asset.script path="/typo3conf/ext/project_organizer/Resources/Public/Js/bootstrap-datepicker.min.js"  standalone="true" external="true" />
-    <v:asset.script
-            external="true">
+    <v:asset.script external="true">
         $(document).ready(function() {
         // https://github.com/Logicify/jquery-locationpicker-plugin
         $('#locationPicker').locationpicker({
-        location: {
-        latitude: 51.34547249999999,
-        longitude: 12.381575500000054
-        },
-        inputBinding: {
-        latitudeInput: $('#location-lat'),
-        longitudeInput: $('#location-lon'),
-        locationNameInput: $('#location-address')
-        },
-        enableAutocomplete: true,
-        onchanged: function (currentLocation, radius, isMarkerDropped) {
-        // ToDo: fill location fields
-        }
+            location: {
+                latitude: 52.51878788597465,
+                longitude: 13.402531539428765
+            },
+            inputBinding: {
+                latitudeInput: $('#location-lat'),
+                longitudeInput: $('#location-lon'),
+                locationNameInput: $('#location-address')
+            },
+            enableAutocomplete: true,
+            zoom: 7,
+            onchanged: function (currentLocation, radius, isMarkerDropped) {
+                // ToDo: fill location fields
+            }
         });
         $('form[name="project"]').on('submit', function(e) {
-        var $locationField = $('#location'),
-        $curLocation = $locationField.val().replace(/\s*\[.*?\]\s*/g, ''),
-        $newLocation = $curLocation + ' [' + $('#location-lat').val() + '/' + $('#location-lon').val() + ']';
-        $locationField.val($newLocation);
+            var $locationField = $('#location'),
+            $curLocation = $locationField.val().replace(/\s*\[.*?\]\s*/g, ''),
+            $newLocation = $curLocation + ' [' + $('#location-lat').val() + '/' + $('#location-lon').val() + ']';
+            $locationField.val($newLocation);
         });
         $('.datepicker').datepicker();
         });
