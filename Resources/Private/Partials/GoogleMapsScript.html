@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      v:schemaLocation="https://fluidtypo3.org/schemas/vhs-master.xsd">
+<head>
+    <title>Partials: MyPartial</title>
+</head>
+<body>
+<f:section name="Main">
+    <f:comment>
+        // GOOGLE MAPS
+        // https://medium.com/@limichelle21/integrating-google-maps-api-for-multiple-locations-a4329517977a
+        // https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
+
+        // ToDo -> Split location values via php/fluid add as two array values; rebuild script - see original
+    </f:comment>
+    <v:variable.set name="googleKey">{f:cObject(typoscriptObjectPath: 'lib.config.googleKey')}</v:variable.set>
+    <v:asset external="1" movable="1" name="gmap01">
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key={googleKey}&callback=initMap">
+        </script>
+    </v:asset>
+    <v:asset.script external="0" movable="1" name="gmap02">
+    var mapLocations =  [
+                        <f:for each="{projects}" as="project" iteration="i"><f:if condition="{project.location}">
+                            [
+                                '{project.title}',
+                                '<strong>{project.title}</strong><br>\ {project.description}<br>\
+                                <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:project.uid}" pageUid="{detailViewPage}">Projekt ansehen</f:link.action>',
+                                '{project.location}'
+                            ],
+                        </f:if></f:for>
+                    ];
+    function initMap() {
+        var center = {lat: 51.49, lng: 11.93},
+            marker,
+            //markers = [], // additional array with all markers
+            count,
+            locations = mapLocations,
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: center,
+                zoom: 7
+            }),
+            bounds = new google.maps.LatLngBounds(),
+            infowindow = new google.maps.InfoWindow({});
+
+        for (count = 0; count < locations.length; count++) {
+            // as locations are no array values, they must be reduced to the geo values and splitted
+            locationPos = locations[count][2].replace(/.*\[|\]/gi,'').split('/');
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locationPos[0], locationPos[1]),
+                map: map,
+                title: locations[count][0]
+            });
+            // markers.push(marker); // additional array with all markers
+            // center all markers #1
+            if (locationPos[0] && locationPos[1] && locationPos[0].length && locationPos[1].length && !isNaN(locationPos[0]) && !isNaN(locationPos[1])) {
+                var loc = new google.maps.LatLng(locationPos[0], locationPos[1]);
+                bounds.extend(loc);
+            }
+            google.maps.event.addListener(marker, 'click', (function (marker, count) {
+                return function () {
+                    infowindow.setContent(locations[count][1]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, count));
+        }
+        // center all markers #2
+        map.fitBounds(bounds);
+    }
+    </v:asset.script>
+</f:section>
+</body>
+</html>

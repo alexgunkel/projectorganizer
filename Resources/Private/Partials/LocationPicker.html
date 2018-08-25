@@ -7,8 +7,7 @@
 </head>
 <body>
 <f:section name="Main">
-
-
+    <v:variable.set name="googleKey">{f:cObject(typoscriptObjectPath: 'lib.config.googleKey')}</v:variable.set>
     <div class="form-group {error-location}">
         <label for="location">{f:translate(key: 'label.locationLabel', extensionName:
             'project_organizer')}</label>
@@ -40,42 +39,47 @@
     <v:asset.script
             path="https://code.jquery.com/jquery-1.10.2.min.js"
             external="true"/>
-    <v:asset.script
-            path="https://maps.google.com/maps/api/js?key=AIzaSyDkwfV7xf17mFfKxwJdM_vfL7IsfEstPwU&libraries=places"
-            external="true"/>
-    <v:asset.script
-            path="https://test.hypos-eastgermany.de/typo3conf/ext/custom_template/Resources/Public/js/vendor/locationpicker.jquery.js"
-            external="true"/>
-    <v:asset.script path="/typo3conf/ext/project_organizer/Resources/Public/Js/bootstrap-datepicker.min.js"  standalone="true" external="true" />
-    <v:asset.script external="true">
+    <v:asset external="1" movable="1" name="gplaces">
+        <script
+                src="https://maps.google.com/maps/api/js?key={googleKey}&libraries=places">
+        </script>
+    </v:asset>
+    <v:asset external="1" movable="1" name="datepicker">
+        <script
+                src="/typo3conf/ext/custom_template/Resources/Public/js/vendor/locationpicker.jquery.js">
+        </script>
+        <script
+                src="/typo3conf/ext/project_organizer/Resources/Public/Js/bootstrap-datepicker.min.js">
+        </script>
+    </v:asset>
+    <v:asset.script external="1" movable="1" dependencies="gplaces, datepicker" name="script01">
         $(document).ready(function() {
-        // https://github.com/Logicify/jquery-locationpicker-plugin
-        $('#locationPicker').locationpicker({
-            location: {
-                latitude: 52.51878788597465,
-                longitude: 13.402531539428765
-            },
-            inputBinding: {
-                latitudeInput: $('#location-lat'),
-                longitudeInput: $('#location-lon'),
-                locationNameInput: $('#location-address')
-            },
-            enableAutocomplete: true,
-            zoom: 7,
-            onchanged: function (currentLocation, radius, isMarkerDropped) {
-                // ToDo: fill location fields
-            }
-        });
-        $('form[name="project"]').on('submit', function(e) {
-            var $locationField = $('#location'),
-            $curLocation = $locationField.val().replace(/\s*\[.*?\]\s*/g, ''),
-            $newLocation = $curLocation + ' [' + $('#location-lat').val() + '/' + $('#location-lon').val() + ']';
-            $locationField.val($newLocation);
-        });
-        $('.datepicker').datepicker();
+            // https://github.com/Logicify/jquery-locationpicker-plugin
+            $('#locationPicker').locationpicker({
+                location: {
+                    latitude: 52.51878788597465,
+                    longitude: 13.402531539428765
+                },
+                inputBinding: {
+                    latitudeInput: $('#location-lat'),
+                    longitudeInput: $('#location-lon'),
+                    locationNameInput: $('#location-address')
+                },
+                enableAutocomplete: true,
+                zoom: 7,
+                onchanged: function (currentLocation, radius, isMarkerDropped) {
+                    // ToDo: fill location fields
+                }
+            });
+            $('form[name="project"]').on('submit', function(e) {
+                var $locationField = $('#location'),
+                $curLocation = $locationField.val().replace(/\s*\[.*?\]\s*/g, ''),
+                $newLocation = $curLocation + ' [' + $('#location-lat').val() + '/' + $('#location-lon').val() + ']';
+                $locationField.val($newLocation);
+            });
+            $('.datepicker').datepicker();
         });
     </v:asset.script>
-
 </f:section>
 </body>
 </html>
