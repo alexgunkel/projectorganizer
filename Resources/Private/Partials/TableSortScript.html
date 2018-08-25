@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      v:schemaLocation="https://fluidtypo3.org/schemas/vhs-master.xsd">
+<head>
+    <title>Partials: MyPartial</title>
+</head>
+<body>
+<f:section name="Main">
+
+    <v:asset external="1" movable="1" name="dataTables01">
+        <script
+                src="/typo3conf/ext/custom_template/Resources/Public/js/vendor/jquery.dataTables.min.js">
+        </script>
+        <script
+                src="/typo3conf/ext/custom_template/Resources/Public/js/vendor/dataTables.bootstrap4.min.js">
+        </script>
+    </v:asset>
+    <v:asset.script external="0" movable="1" dependencies="dataTables" name="dataTables02">
+$(document).ready(function() {
+    var $tableSortable = $('.table-sortable');
+    if ($tableSortable.length) {
+        var $usePagination = $tableSortable.find('tbody tr').length > 10;
+        // https://datatables.net/examples/basic_init/filter_only.html
+        $tableSortable.DataTable({
+            "paging": $usePagination,
+            "info": $usePagination,
+            "language": {
+                "lengthMenu": "Zeige _MENU_ Einträge pro Seite",
+                "zeroRecords": "Nichts gefunden",
+                "info": "Seite _PAGE_ von _PAGES_",
+                "infoEmpty": "Nichts gefunden",
+                "infoFiltered": "(von _MAX_ Einträgen)",
+                "Next": "weiter",
+                "First": "start",
+                "Previous": "zurück",
+                "Last": "ende",
+                "next": "weiter",
+                "first": "Start",
+                "previous": "zurück",
+                "last": "Ende",
+                "search": "Suche"
+            }
+        });
+    }
+});
+    </v:asset.script>
+</f:section>
+</body>
+</html>
