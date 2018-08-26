@@ -162,6 +162,8 @@ CREATE TABLE tx_projectorganizer_domain_model_project (
 
   title VARCHAR(255) NOT NULL DEFAULT '',
   description TEXT,
+  geo_location_x VARCHAR(255),
+  geo_location_y VARCHAR(255),
   volume VARCHAR(255),
   overall_volume VARCHAR(255),
   location VARCHAR(255),

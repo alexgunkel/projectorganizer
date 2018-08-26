@@ -137,6 +137,52 @@ class Project
     protected $demoProject;
 
     /**
+     * @var string|null
+     */
+    protected $geoLocationX;
+
+    /**
+     * @var string|null
+     */
+    protected $geoLocationY;
+
+    /**
+     * @return null|string
+     */
+    public function getGeoLocationX()
+    {
+        return $this->geoLocationX;
+    }
+
+    /**
+     * @param null|string $geoLocationX
+     * @return Project
+     */
+    public function setGeoLocationX($geoLocationX)
+    {
+        $this->geoLocationX = $geoLocationX;
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getGeoLocationY()
+    {
+        return $this->geoLocationY;
+    }
+
+    /**
+     * @param null|string $geoLocationY
+     * @return Project
+     */
+    public function setGeoLocationY($geoLocationY)
+    {
+        $this->geoLocationY = $geoLocationY;
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function isDemoProject(): bool

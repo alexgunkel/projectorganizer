@@ -51,6 +51,22 @@ return array(
                 'eval' => 'trim, required',
             ],
         ],
+        'geo_location_x' => [
+            'label' => 'Breitengrad',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+            ],
+        ],
+        'geo_location_y' => [
+            'label' => 'Längengrad',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim',
+            ],
+        ],
         'hidden' => [
             'label' => 'Hide:',
             'config' => [
@@ -291,6 +307,7 @@ return array(
         '1' => ['showitem' => 'title, accepted, accepted_by, show_in_map, demo_project, hypos, topics, runtime_start, runtime_end, region, status,
         --div--;Projektdetails, description, volume, overall_volume, link, place, wsk_elements, researchprogram,
         --div--;Kontakte, institutions, persons, contact_person,
+        --div--;Geo-Koordination, geo_location_x, geo_location_y,
         --div--;Publikationen, publications'],
     ],
     'palettes' => array(),
