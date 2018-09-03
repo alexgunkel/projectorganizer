@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      v:schemaLocation="https://fluidtypo3.org/schemas/vhs-master.xsd">
+<head>
+    <title>Partials: MyPartial</title>
+</head>
+<body>
+<f:section name="Main">
+    <f:comment>
+        // GOOGLE MAPS
+        // https://medium.com/@limichelle21/integrating-google-maps-api-for-multiple-locations-a4329517977a
+        // https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
+    </f:comment>
+    <v:variable.set name="googleKey">{f:cObject(typoscriptObjectPath: 'lib.config.googleKey')}</v:variable.set>
+    <div id="map" style="width:100%;max-width:500px;height:400px;margin:20px 0; background-color:grey;"></div>
+    <v:asset external="1" movable="1" name="gmap01">
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key={googleKey}&callback=initMap">
+        </script>
+    </v:asset>
+    <v:asset.script external="0" movable="1" name="gmap03">
+        var loc = []
+        loc['lat'] = {project.geoLocationX};
+        loc['lng'] = {project.geoLocationY};
+        function initMap() {
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 10, center: loc}
+            );
+            var marker = new google.maps.Marker({position: loc, map: map});
+        }
+    </v:asset.script>
+</f:section>
+</body>
+</html>

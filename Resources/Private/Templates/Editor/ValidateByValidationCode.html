@@ -11,15 +11,18 @@
     -->
 
     <f:section name="Content">
-        <h1>Akzeptiertes Projekt:</h1>
-        <h1 class="brand">{project.title}</h1>
-        <p>{project.description}</p>
-        <p>Link to original version:
+<div class="project-detail">
+    <article>
+        <h1>Projekt wurde angelget/geändert:</h1>
+        <p>Bisherige Version:
             <f:link.action action="detail" target="_blank" pluginName="{pluginName}" arguments="{uid:project.orig.uid}" pageUid="{detailViewPage}">
                 {project.orig.title}
             </f:link.action>
         </p>
-        <table class="table table-style1 table-striped">
+        <p><strong>Neue Version:</strong></p>
+        <h1 class="brand">{project.title}</h1>
+        <p><f:format.nl2br>{project.description}</f:format.nl2br></p>
+        <table class="table table-style1 table-side table-striped">
             <tbody>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.topic', extensionName: 'project_organizer')}</th>
@@ -34,27 +37,22 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.wsk', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.wskElements}" as="wsk">
                             <li>{wsk.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.institution', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.institutions}" as="item">
                             <li>{item.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
-                <ol>
-                    <f:for each="{project.institutions}" as="item">
-                        <li>{item.title}</li>
-                    </f:for>
-                </ol>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.status', extensionName: 'project_organizer')}</th>
@@ -62,7 +60,9 @@
             </tr>
             <tr>
                 <th>{f:translate(key: 'label.runtime', extensionName: 'project_organizer')}</th>
-                <td>{project.runtimeStart} - {project.runtimeEnd}</td>
+                <td>
+                    <f:format.date format="d.m.Y">{project.runtimeStart}</f:format.date>
+                    - <f:format.date format="d.m.Y">{project.runtimeEnd}</f:format.date>
             </tr>
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.volume', extensionName: 'project_organizer')}</th>
@@ -91,11 +91,11 @@
             <tr>
                 <th>{f:translate(key: 'projectDetail.label.publication', extensionName: 'project_organizer')}</th>
                 <td>
-                    <ol>
+                    <ul>
                         <f:for each="{project.publications}" as="publication">
                             <li>{publication.title}</li>
                         </f:for>
-                    </ol>
+                    </ul>
                 </td>
             </tr>
             </tbody>
@@ -104,7 +104,8 @@
             Is hypos Project: {project.hypos}<br>
             Is demonstration Project: {project.demoProject}<br>
             ResearchProgram: {project.researchprogram}<br>
-            Location: {project.location}<br></p>
+            Location: {project.location}<br>
+        </p>
 
         <f:if condition="{validationCode}">
                 <f:form action="validateByValidationCode"
@@ -124,5 +125,8 @@
                 <f:link.action action="delete" target="_blank" class="btn btn-danger" arguments="{uid:project.uid}">{f:translate(key: 'title.delete', extensionName: 'project_organizer')}</f:link.action>
             </f:if>
         </p>
+
+        <f:render partial="GoogleMapsSingle" section="Main" arguments="{_all}" />
+
     </f:section>
 </div>
