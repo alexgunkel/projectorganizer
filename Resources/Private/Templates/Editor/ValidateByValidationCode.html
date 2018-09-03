@@ -14,6 +14,11 @@
         <h1>Akzeptiertes Projekt:</h1>
         <h1 class="brand">{project.title}</h1>
         <p>{project.description}</p>
+        <p>Link to original version:
+            <f:link.action action="detail" target="_blank" pluginName="{pluginName}" arguments="{uid:project.orig.uid}" pageUid="{detailViewPage}">
+                {project.orig.title}
+            </f:link.action>
+        </p>
         <table class="table table-style1 table-striped">
             <tbody>
             <tr>
@@ -110,5 +115,14 @@
                     <f:form.button class="btn btn-primary">Freischalten</f:form.button>
                 </f:form>
         </f:if>
+
+
+        <p class="btn-spacy">
+            <f:link.action action="list" target="_blank" class="btn btn-primary" pageUid="{listViewPage}">{f:translate(key: 'projectDetail.title.backToList', extensionName: 'project_organizer')}</f:link.action>
+            <f:link.action action="edit" class="btn btn-primary" target="_blank" arguments="{uid:project.uid}">{f:translate(key: 'projectDetail.title.edit', extensionName: 'project_organizer')}</f:link.action>
+            <f:if condition="{be_user.admin}" >
+                <f:link.action action="delete" target="_blank" class="btn btn-danger" arguments="{uid:project.uid}">{f:translate(key: 'title.delete', extensionName: 'project_organizer')}</f:link.action>
+            </f:if>
+        </p>
     </f:section>
 </div>

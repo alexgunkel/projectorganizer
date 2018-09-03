@@ -72,13 +72,16 @@
                 <source>Gesamtvolumen</source>
             </trans-unit>
             <trans-unit id="label.locationLabel">
-                <source>Location (Label)</source>
+                <source>Visible Address</source>
             </trans-unit>
             <trans-unit id="label.location">
                 <source>Location</source>
             </trans-unit>
             <trans-unit id="label.address">
                 <source>Address</source>
+            </trans-unit>
+            <trans-unit id="label.addressSearch">
+                <source>Search address</source>
             </trans-unit>
 
             <trans-unit id="projectDetail.label.topic">
@@ -130,6 +133,9 @@
                 <target>To overview</target>
             </trans-unit>
 
+            <trans-unit id="projectList.goToDetailView">
+                <source>Show project</source>
+            </trans-unit>
             <trans-unit id="projectList.label.title">
                 <source>Titel</source>
             </trans-unit>

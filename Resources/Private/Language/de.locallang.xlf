@@ -75,10 +75,13 @@
                 <target>Ort</target>
             </trans-unit>
             <trans-unit id="label.locationLabel">
-                <target>Adresse (Bezeichnung)</target>
+                <target>Angezeigte Adresse</target>
             </trans-unit>
             <trans-unit id="label.address">
                 <target>Adresse</target>
+            </trans-unit>
+            <trans-unit id="label.addressSearch">
+                <target>Adresse suchen</target>
             </trans-unit>
 
             <trans-unit id="projectDetail.label.topic">
@@ -130,6 +133,9 @@
                 <target>Zur Übersicht</target>
             </trans-unit>
 
+            <trans-unit id="projectList.goToDetailView">
+                <target>Projekt ansehen</target>
+            </trans-unit>
             <trans-unit id="projectList.label.title">
                 <target>Titel</target>
             </trans-unit>

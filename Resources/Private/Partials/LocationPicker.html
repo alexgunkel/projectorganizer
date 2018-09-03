@@ -12,6 +12,22 @@
         <label for="location">{f:translate(key: 'label.locationLabel', extensionName:
             'project_organizer')}</label>
         <f:form.textfield property="location" id="location" class="form-control" errorClass="has-error"/>
+    </div>
+    <div class="form-group">
+        <label for="location-address">{f:translate(key: 'label.addressSearch', extensionName:
+            'project_organizer')}</label>
+        <input type="text" id="location-address" class="form-control"/>
+    </div>
+    <div id="locationBox" style="margin: 2em 0;">
+        <div class="map-container">
+            <div id="locationPicker" style="width: 500px; height: 400px; margin: 1em;"></div>
+        </div>
+        <div class="hidden">
+            <f:form.textfield property="geoLocationX" id="geoLocationX" name="geoLocationX" class="form-control" errorClass="has-error"/>
+            <f:form.textfield property="geoLocationY" id="geoLocationY" name="geoLocationY" class="form-control" errorClass="has-error"/>
+        </div>
+    </div>
+    <div>
         <f:form.validationResults for="project.location">
             <f:if condition="{validationResults.flattenedErrors}">
                 <ul class="errors">
@@ -21,18 +37,6 @@
                 </ul>
             </f:if>
         </f:form.validationResults>
-
-        <div class="location-picker" style="margin: 2em 0;">
-            <input type="hidden" id="txtLocation" data-type="location-store">
-            <div class="map-container">
-                <label for="location-address">{f:translate(key: 'label.address', extensionName:
-                    'project_organizer')}</label>
-                <input type="text" id="location-address" class="form-control"/>
-                <input type="hidden" id="location-lat"/>
-                <input type="hidden" id="location-lon"/>
-                <div id="locationPicker" style="width: 500px; height: 400px; margin: 1em;"></div>
-            </div>
-        </div>
     </div>
     <v:asset.style path="/typo3conf/ext/project_organizer/Resources/Public/Css/bootstrap-datepicker.min.css"
                    standalone="true" external="true"/>
@@ -54,28 +58,27 @@
     </v:asset>
     <v:asset.script external="1" movable="1" dependencies="gplaces, datepicker" name="script01">
         $(document).ready(function() {
+            var $geoBox = $('#locationBox'),
+                $formLatitude = $geoBox.find('#geoLocationX'),
+                $formLongitude = $geoBox.find('#geoLocationY');
+
             // https://github.com/Logicify/jquery-locationpicker-plugin
             $('#locationPicker').locationpicker({
                 location: {
-                    latitude: 52.51878788597465,
-                    longitude: 13.402531539428765
+                    latitude: $formLatitude.val(),
+                    longitude: $formLongitude.val(),
                 },
                 inputBinding: {
-                    latitudeInput: $('#location-lat'),
-                    longitudeInput: $('#location-lon'),
+                    latitudeInput: $formLatitude,
+                    longitudeInput: $formLongitude,
                     locationNameInput: $('#location-address')
                 },
                 enableAutocomplete: true,
                 zoom: 7,
                 onchanged: function (currentLocation, radius, isMarkerDropped) {
-                    // ToDo: fill location fields
+                    $formLatitude.val(currentLocation.latitude);
+                    $formLongitude.val(currentLocation.longitude);
                 }
-            });
-            $('form[name="project"]').on('submit', function(e) {
-                var $locationField = $('#location'),
-                $curLocation = $locationField.val().replace(/\s*\[.*?\]\s*/g, ''),
-                $newLocation = $curLocation + ' [' + $('#location-lat').val() + '/' + $('#location-lon').val() + ']';
-                $locationField.val($newLocation);
             });
             $('.datepicker').datepicker();
         });
