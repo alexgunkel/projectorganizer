@@ -13,13 +13,20 @@
     <f:section name="Content">
 <div class="project-detail">
     <article>
-        <h1>Projekt wurde angelget/geändert:</h1>
-        <p>Bisherige Version:
-            <f:link.action action="detail" target="_blank" pluginName="{pluginName}" arguments="{uid:project.orig.uid}" pageUid="{detailViewPage}">
-                {project.orig.title}
-            </f:link.action>
-        </p>
-        <p><strong>Neue Version:</strong></p>
+        <f:if condition="{project.orig.uid}">
+            <f:then>
+                <h1>Projekt wurde geändert:</h1>
+                <p>Bisherige Version:
+                    <f:link.action action="detail" target="_blank" pluginName="{pluginName}" arguments="{uid:project.orig.uid}" pageUid="{detailViewPage}">
+                        {project.orig.title}
+                    </f:link.action>
+                </p>
+                <p><strong>Neue Version:</strong></p>
+            </f:then>
+            <f:else>
+                <h1>Projekt wurde angelget:</h1>
+            </f:else>
+        </f:if>
         <h1 class="brand">{project.title}</h1>
         <p><f:format.nl2br>{project.description}</f:format.nl2br></p>
         <table class="table table-style1 table-side table-striped">
