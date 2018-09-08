@@ -65,8 +65,8 @@
             // https://github.com/Logicify/jquery-locationpicker-plugin
             $('#locationPicker').locationpicker({
                 location: {
-                    latitude: $formLatitude.val(),
-                    longitude: $formLongitude.val(),
+                    latitude: $formLatitude.val() || 51.49,
+                    longitude: $formLongitude.val() || 11.93
                 },
                 inputBinding: {
                     latitudeInput: $formLatitude,
@@ -74,10 +74,11 @@
                     locationNameInput: $('#location-address')
                 },
                 enableAutocomplete: true,
-                zoom: 7,
+                zoom: 8,
+                addressFormat: 'route', //'street_address',
                 onchanged: function (currentLocation, radius, isMarkerDropped) {
-                    $formLatitude.val(currentLocation.latitude);
-                    $formLongitude.val(currentLocation.longitude);
+//                    $formLatitude.val(currentLocation.latitude);
+//                    $formLongitude.val(currentLocation.longitude);
                 }
             });
             $('.datepicker').datepicker();

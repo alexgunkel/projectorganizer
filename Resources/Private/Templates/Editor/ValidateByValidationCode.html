@@ -126,7 +126,7 @@
 
 
         <p class="btn-spacy">
-            <f:link.action action="list" target="_blank" class="btn btn-primary" pageUid="{listViewPage}">{f:translate(key: 'projectDetail.title.backToList', extensionName: 'project_organizer')}</f:link.action>
+            <f:link.page target="_blank" class="btn btn-primary" pageUid="246">{f:translate(key: 'projectDetail.title.backToList', extensionName: 'project_organizer')}</f:link.page>
             <f:link.action action="edit" class="btn btn-primary" target="_blank" arguments="{uid:project.uid}">{f:translate(key: 'projectDetail.title.edit', extensionName: 'project_organizer')}</f:link.action>
             <f:if condition="{be_user.admin}" >
                 <f:link.action action="delete" target="_blank" class="btn btn-danger" arguments="{uid:project.uid}">{f:translate(key: 'title.delete', extensionName: 'project_organizer')}</f:link.action>
@@ -134,6 +134,7 @@
         </p>
 
         <f:render partial="GoogleMapsSingle" section="Main" arguments="{_all}" />
-
+    </article>
+</div>
     </f:section>
 </div>
