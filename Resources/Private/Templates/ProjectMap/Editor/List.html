@@ -8,31 +8,85 @@
     <!--
         =====================
             Display/List.html
+
+            object projects:
+                  validationState => protected1 (integer)
+                  passwordHash => protected'$pbkdf2-sha256$25000$Ks0B2069nvdnq2sbTD/b3g$rEj2ET8sI0nl76rgpKKnHXXLxhBXizBL
+                     RHdn0JcxJEk' (87 chars)
+                  password => protectedNULL
+                  institutions => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (3 items)
+                  location => protected'Ort01' (5 chars)
+                  contactEmail => protected'test01@klickdienst.de' (21 chars)
+                  showInMap => protectedFALSE
+                  hypos => protectedFALSE
+                  orig => protectedNULL
+                  researchprogram => protected'' (0 chars)
+                  demoProject => protectedTRUE
+                  uid => protected40 (integer)
+                  _localizedUid => protected40 (integer)modified
+                  _languageUid => protectedNULL
+                  _versionedUid => protected40 (integer)modified
+                  pid => protected245 (integer)
+                  contactPerson => protected'Anpsprech01' (11 chars)
+                  description => protected'Beschreibung 01' (15 chars)
+                  link => protected'www.link-01.de' (14 chars)
+                  overallVolume => protected'Gesamt01' (8 chars)
+                  publications => protectedTYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorageprototypeobject (empty)
+                  region => protectedAlexGunkel\ProjectOrganizer\Domain\Model\Regionprototypepersistent object (uid=1, pid=245)
+                  researchprograms => protectedNULL
+                  runtimeStart => protected'1529884800' (10 chars)
+                  runtimeEnd => protected'1533340800' (10 chars)
+                  status => protectedAlexGunkel\ProjectOrganizer\Domain\Model\Statusprototypepersistent object (uid=2, pid=245)
+                  title => protected'Testprojekt 01' (14 chars)
+                  topics => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (2 items)
+                  volume => protected'Volume01' (8 chars)
+                  wskelements => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (1 items)
+                  hidden => protectedFALSE
+                  deleted => protectedNULL
+                  crDate => protected0 (integer)
+                  tstamp => protected
+
+
+
+
+                  #########################
+
+
+                  HYPOS HALLE POSITION:
+
+                  HYPOS Hydrogen Power Storage &amp; Solutions East Germany e.V.
+                  Blücherstraße 26, 06120 Halle (Saale)
+                  51.491311, 11.934074
+
+
     -->
 
     <f:section name="Content">
-<div class="projectList">
-    <h1>Project Map</h1>
-    <ul>
-        <f:for each="{projects}" as="project">
-        <li>
-            <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:project.uid}" pageUid="{detailViewPage}">
-                {project.title}
-            </f:link.action>
-            <br>
-            <f:for each="{project.topics}" as="topic" >
-                <f:if condition="{topic.title}">
-                    <f:link.action action="listByProperty" pluginName="{pluginName}" pageUid="{listViewPage}">
-                        {topic.title}<br>
-                    </f:link.action>
-                </f:if>
-            </f:for>
-            {project.runtimeAsString}<br>
-            {project.status.title}<br>
-            {project.region.title}<br><br>
-        </li>
-        </f:for>
-    </ul>
-</div>
+        <div class="projectList">
+            <div id="map" style="height:600px;width:100%;margin: 20px 0; background-color:grey;"></div>
+            <ul id="projectMapList">
+                <f:for each="{projects}" as="project">
+                    <f:if condition="{project.showInMap} && {project.location}">
+                        <v:variable.set name="project-location-data">
+                            data-map-location="{project.location}" data-map-name="{project.title}
+                            data-map-link="{project.link}" "
+                        </v:variable.set>
+                        <li {project-location-data}>
+                            <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:project.uid}"
+                                           pageUid="{detailViewPage}">{project.title}
+                            </f:link.action>
+                            <br><br>
+                            title: {project.title}<br>
+                            location: {project.location}<br>
+                            showInMap: {project.showInMap}<br>
+                            demoProject: {project.demoProject}<br>
+                        </li>
+                    </f:if>
+                </f:for>
+
+            </ul>
+        </div>
+        <f:render partial="TableSortScript" section="Main" />
+        <f:render partial="GoogleMapsScript" section="Main" arguments="{_all}" />
     </f:section>
 </div>

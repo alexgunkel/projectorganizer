@@ -106,33 +106,6 @@
     </div>
 
 </div>
-
-<hr>
-<div id="map" style="height:600px;width:100%;margin: 20px 0; background-color:grey;"></div>
-<div class="projectList">
-    <ul id="projectMapList">
-        <f:for each="{projects}" as="project">
-            <f:if condition="{project.showInMap} && {project.location}">
-                <v:variable.set name="project-location-data">
-                    data-map-location="{project.location}" data-map-name="{project.title}
-                    data-map-link="{project.link}" "
-                </v:variable.set>
-                <li {project-location-data}>
-                    <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:project.uid}"
-                                   pageUid="{detailViewPage}">{project.title}
-                    </f:link.action>
-                    <br><br>
-                    title: {project.title}<br>
-                    location: {project.location}<br>
-                    showInMap: {project.showInMap}<br>
-                    demoProject: {project.demoProject}<br>
-                </li>
-            </f:if>
-        </f:for>
-
-    </ul>
-</div>
 <f:render partial="TableSortScript" section="Main" />
-<f:render partial="GoogleMapsScript" section="Main" arguments="{_all}" />
     </f:section>
 </div>
