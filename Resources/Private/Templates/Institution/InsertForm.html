@@ -20,14 +20,9 @@
 	            	<label for="title">{f:translate(key: 'addInstitution.label.title', extensionName: 'project_organizer')}</label>
 	            	<f:form.textfield property="title" id="title" class="form-control" errorClass="has-error"/>
 				</div>
-				<div class="form-group {error-geoLocationX}">
-	            	<f:form.hidden property="geoLocationX" id="geoLocationX" class="form-control" errorClass="has-error"/>
-				</div>
-				<div class="form-group {error-geoLocationY}">
-	            	<f:form.hidden property="geoLocationY" id="geoLocationY" class="form-control" errorClass="has-error"/>
-				</div>
 
-				<div class="form-group {error-location}">
+
+				<div class="form-group {error-type}">
 					<label for="institutionType">Typ</label>
 					<f:form.textfield property="institutionType" id="institutionType" class="form-control" errorClass="has-error"/>
 					<f:form.validationResults for="project.institutionType">
