@@ -8,10 +8,42 @@
     <!--
         =====================
             Display/List.html
+
+
+            ####################
+            DEBUG:
+            ####################
+
+               0 => AlexGunkel\ProjectOrganizer\Domain\Model\Institutionprototypepersistent object (uid=17, pid=245)
+      validationState => protected1 (integer)
+      passwordHash => protected'$pbkdf2-sha256$25000$yizVT97drUNvQ5WjiNITyQ$dYJuLMtkBsJZeaazzd61U9nYMTjgabta
+         JuB9S3znrjg' (87 chars)
+      password => protectedNULL
+      projects => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (empty)
+      institutionType => protectedAlexGunkel\ProjectOrganizer\Domain\Model\Institution\Typeprototypepersistent object (uid=3, pid=245)
+         uid => protected3 (integer)
+         _localizedUid => protected3 (integer)modified
+         _languageUid => protectedNULL
+         _versionedUid => protected3 (integer)modified
+         pid => protected245 (integer)
+         title => protected'Industrie' (9 chars)
+      location => protected'Inst Sitz' (9 chars)
+      country => protected'Inst Land' (9 chars)
+      state => protected'Inst Bundesland' (15 chars)
+      uid => protected17 (integer)
+      _localizedUid => protected17 (integer)modified
+      _languageUid => protectedNULL
+      _versionedUid => protected17 (integer)modified
+      pid => protected245 (integer)
+      title => protected'Test Institution 01' (19 chars)
+      topics => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (2 items)
+      wskelements => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (1 items)
     -->
 
     <f:section name="Content">
-<div class="institutionList">
+<f:debug>{institutions}</f:debug>
+
+        <div class="institutionList">
     <h2>{f:translate(key: 'listInstitution.heading', extensionName: 'project_organizer')}</h2>
     <table class="table table-style1 table-striped table-sortable">
         <thead>
@@ -31,7 +63,7 @@
                         </f:link.action>
                     </td>
         			<td>
-                        {institution.type}
+                        {institution.institutionType.title}
                     </td>
         			<td>
                         <f:for each="{institution.topics}" as="topic" iteration="iterator">

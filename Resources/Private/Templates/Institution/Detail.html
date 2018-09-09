@@ -18,7 +18,7 @@
         <table class="table table-style1 table-side table-striped">
             <tbody>
             <tr>
-                <th>{f:translate(key: 'institution.label.projects', extensionName: 'project_organizer')}</th>
+                <td>{f:translate(key: 'institution.label.projects', extensionName: 'project_organizer')}</td>
                 <td>
                     <ul>
                         <f:for each="{institution.projects}" as="project">
@@ -38,23 +38,23 @@
                 </td>
             </tr>
             <tr>
-                <th>{f:translate(key: 'institution.label.type', extensionName: 'project_organizer')}</th>
+                <td>{f:translate(key: 'institution.label.type', extensionName: 'project_organizer')}</td>
                 <td>{institution.institutionType.title}</td>
             </tr>
             <tr>
-                <th>{f:translate(key: 'institution.label.location', extensionName: 'project_organizer')}</th>
+                <td>{f:translate(key: 'institution.label.location', extensionName: 'project_organizer')}</td>
                 <td>{institution.location}</td>
             </tr>
             <tr>
-                <th>{f:translate(key: 'institution.label.state', extensionName: 'project_organizer')}</th>
+                <td>{f:translate(key: 'institution.label.state', extensionName: 'project_organizer')}</td>
                 <td>{institution.state}</td>
             </tr>
             <tr>
-                <th>{f:translate(key: 'institution.label.country', extensionName: 'project_organizer')}</th>
+                <td>{f:translate(key: 'institution.label.country', extensionName: 'project_organizer')}</td>
                 <td>{institution.country}</td>
             </tr>
             <tr>
-                <th>{f:translate(key: 'institution.label.topics', extensionName: 'project_organizer')}</th>
+                <td>{f:translate(key: 'institution.label.topics', extensionName: 'project_organizer')}</td>
                 <td>
                     <f:for each="{institution.topics}" as="topic" iteration="iterator">
                         {topic.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
@@ -62,7 +62,7 @@
                 </td>
             </tr>
             <tr>
-                <th>{f:translate(key: 'institution.label.wskelements', extensionName: 'project_organizer')}</th>
+                <td>{f:translate(key: 'institution.label.wskelements', extensionName: 'project_organizer')}</td>
                 <td>
                     <f:for each="{institution.wskelements}" as="wskelement" iteration="iterator">
                             {wskelement.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
