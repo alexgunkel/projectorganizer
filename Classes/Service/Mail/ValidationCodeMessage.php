@@ -153,7 +153,7 @@ class ValidationCodeMessage
         }
 
         $properties = get_class_methods($this->object);
-        $body = '';
+        $body = "\r\n\r";
         foreach ($properties as $property) {
             if (substr($property, 0, 3) === 'get'
                 && !empty($this->object->{$property}())
@@ -165,10 +165,11 @@ class ValidationCodeMessage
             }
         }
         $this->messageObject->setBody(
-            'Uid: ' . $this->object->getUid()
-            . 'Title: ' . $this->object->getTitle()
-            . 'Code: ' . $this->object->getPassword()
-            . 'Link: ' . $link . $body
+            "\n Title: " . $this->object->getTitle()
+            . "\n Uid: " . $this->object->getUid()
+            . "\n Code: " . $this->object->getPassword()
+            . "\n\n Link: " . $link
+            . "\n" . $body
         );
 
         return $this;
