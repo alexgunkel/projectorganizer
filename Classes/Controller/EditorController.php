@@ -79,6 +79,7 @@ class EditorController
                 'projects' => $projects,
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
+                'listView' => $this->readAsString('list_view') ?? 'list',
             ]
         );
 
@@ -99,6 +100,7 @@ class EditorController
                 'topic_id' => $this->request->getArgument('topic'),
                 'projects' => $projects = $this->projectRepository->findAcceptedByTopicUid($this->request->getArgument('topic')),
                 'pluginName' => $this->request->getPluginName(),
+                'listView' => $this->readAsString('list_view') ?? 'list',
             ]
         );
 
