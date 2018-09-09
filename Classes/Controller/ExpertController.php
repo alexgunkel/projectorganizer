@@ -187,7 +187,7 @@ class ExpertController extends ActionController
             $this->expertRepository->update($expert);
         } else {
             $this->view->assign('validationCode', $code);
-            $this->view->assign('itemUid', $project->getUid());
+            $this->view->assign('itemUid', $expert->getUid());
         }
 
         $this->view->assign('expert', $expert);
