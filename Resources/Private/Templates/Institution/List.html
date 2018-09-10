@@ -42,7 +42,6 @@
 
     <f:section name="Content">
         <div class="institutionList">
-    <h2>{f:translate(key: 'listInstitution.heading', extensionName: 'project_organizer')}</h2>
     <table class="table table-style1 table-striped table-sortable">
         <thead>
             <tr>
@@ -87,6 +86,8 @@
         	</f:for>
         </tbody>
     </table>
+</div>
+<div class="container-fluid">
     <p class="btn-spacy">
         <a class="btn btn-primary" href="/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
         <a class="btn btn-primary" href="/projects/add-institution/">{f:translate(key: 'addInstitution.label.addNewInstitution', extensionName: 'project_organizer')}</a>
@@ -94,6 +95,7 @@
             <f:link.action action="list" arguments="{csv:'true'}" pluginName="{pluginName}" class="btn btn-defaut f-right">Download CSV</f:link.action>
         </f:if>
     </p>
+    <f:render partial="TableSortScript" section="Main" />
 </div>
     </f:section>
 </div>

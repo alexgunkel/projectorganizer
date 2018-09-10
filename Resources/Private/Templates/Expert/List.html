@@ -46,6 +46,8 @@
         	</f:for>
         </tbody>
     </table>
+</div>
+<div class="container-fluid">
     <p class="btn-spacy">
         <a class="btn btn-primary" href="/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
         <a class="btn btn-primary" href="/projects/add-expert/">{f:translate(key: 'addExpert.label.addNewExpert', extensionName: 'project_organizer')}</a>
@@ -54,5 +56,6 @@
         </f:if>
     </p>
 </div>
+        <f:render partial="TableSortScript" section="Main" />
     </f:section>
 </div>
