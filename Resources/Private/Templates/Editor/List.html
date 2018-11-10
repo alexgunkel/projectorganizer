@@ -102,6 +102,10 @@
             <f:if condition="{user} || {be_user}">
                 <f:link.action action="list" arguments="{csv: true}" pluginName="{pluginName}" class="btn btn-defaut f-right">Download CSV</f:link.action>
             </f:if>
+
+            <f:form action="list" controller="Editor" pluginName="{pluginName}" objectName="search">
+                <f:form.textfield property="term" />
+            </f:form>
         </p>
     </div>
 

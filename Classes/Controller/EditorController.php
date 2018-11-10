@@ -71,7 +71,13 @@ class EditorController
      */
     final public function listAction()
     {
-        $projects = $this->projectRepository->findAccepted();
+        $args = $this->request->getArguments();
+        if (isset($args['search']['term']) && !empty($args['search']['term'])) {
+            $projects = $this->projectRepository->findAcceptedWithSearchTerm($args['search']['term']);
+        } else {
+            $projects = $this->projectRepository->findAccepted();
+        }
+
         $this->view->assignMultiple(
             [
                 'user' => $this->getUserAuthentication()->user,
