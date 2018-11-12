@@ -86,6 +86,12 @@
 
             </ul>
         </div>
+        <div class="container-fluid">
+            <p class="btn-spacy">
+                <a class="btn btn-primary" href="/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
+                <a class="btn btn-primary"  href="/projects/add-project/">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</a>
+            </p>
+        </div>
         <f:render partial="TableSortScript" section="Main" />
         <f:render partial="GoogleMapsScript" section="Main" arguments="{_all}" />
     </f:section>
