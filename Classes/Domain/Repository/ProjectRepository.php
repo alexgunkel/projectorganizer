@@ -121,6 +121,22 @@ class ProjectRepository
         return $result;
     }
 
+    public function findAcceptedWithSearchTerm(string $term): QueryResultInterface
+    {
+        $query = $this->createQuery();
+        $query->matching(
+            $query->logicalAnd([
+                $query->greaterThanOrEqual('validation_state', Project::VALIDATION_STATE_ACCEPTED),
+                $query->logicalOr([
+                    $query->like('title', '%' . $term . '%'),
+                    $query->like('description', '%' . $term . '%'),
+                ]),
+            ])
+        );
+
+        return $query->execute();
+    }
+
     /**
      * Find all open requests
      *
