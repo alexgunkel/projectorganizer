@@ -136,6 +136,9 @@
             <trans-unit id="projectList.goToDetailView">
                 <target>Projekt ansehen</target>
             </trans-unit>
+            <trans-unit id="projectList.label.search">
+                <target>SUCHE</target>
+            </trans-unit>
             <trans-unit id="projectList.label.title">
                 <target>Titel</target>
             </trans-unit>

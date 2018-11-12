@@ -136,6 +136,9 @@
             <trans-unit id="projectList.goToDetailView">
                 <source>Show project</source>
             </trans-unit>
+            <trans-unit id="projectList.label.search">
+                <source>SEARCH</source>
+            </trans-unit>
             <trans-unit id="projectList.label.title">
                 <source>Titel</source>
             </trans-unit>

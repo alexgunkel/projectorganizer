@@ -63,6 +63,15 @@
 
     <f:section name="Content">
         <div class="projectList">
+            <div class="dataTables_wrapper">
+                <div class="dataTables_filter" style="text-align: left; padding-left: 20px">
+                    <f:form action="list" controller="Editor" pluginName="{pluginName}" objectName="search">
+                        <label>
+                            {f:translate(key: 'projectList.label.search', extensionName: 'project_organizer')}<f:form.textfield property="term" additionalAttributes="{class: 'form-control form-control-sm'}" />
+                        </label>
+                    </f:form>
+                </div>
+            </div>
             <div id="map" style="height:600px;width:100%;margin: 20px 0; background-color:grey;"></div>
             <ul id="projectMapList">
                 <f:for each="{projects}" as="project">

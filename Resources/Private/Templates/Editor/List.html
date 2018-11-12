@@ -63,6 +63,15 @@
 
     <f:section name="Content">
 <div class="projectList">
+    <div class="dataTables_wrapper">
+        <div class="dataTables_filter" style="text-align: left; padding-left: 20px">
+            <f:form action="list" controller="Editor" pluginName="{pluginName}" objectName="search">
+                <label>
+                    {f:translate(key: 'projectList.label.search', extensionName: 'project_organizer')}<f:form.textfield property="term" additionalAttributes="{class: 'form-control form-control-sm'}" />
+                </label>
+            </f:form>
+        </div>
+    </div>
     <table class="table table-style1 table-striped table-sortable">
         <thead>
             <tr>
@@ -102,10 +111,6 @@
             <f:if condition="{user} || {be_user}">
                 <f:link.action action="list" arguments="{csv: true}" pluginName="{pluginName}" class="btn btn-defaut f-right">Download CSV</f:link.action>
             </f:if>
-
-            <f:form action="list" controller="Editor" pluginName="{pluginName}" objectName="search">
-                <f:form.textfield property="term" />
-            </f:form>
         </p>
     </div>
 
