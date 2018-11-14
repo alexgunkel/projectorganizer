@@ -1,10 +1,13 @@
-<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
-     xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
-     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
-     data-namespace-typo3-fluid="true">
-
-    <f:layout name="Default" />
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://www.w3.org/1999/html" lang="en"
+      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+      v:schemaLocation="https://fluidtypo3.org/schemas/vhs-master.xsd">
+<head>
+    <title>Partials: List/Default</title>
+</head>
+<body>
+<f:section name="Main">
+    <f:comment>
     <!--
         =====================
             Display/List.html
@@ -60,8 +63,7 @@
 
 
     -->
-
-    <f:section name="Content">
+    </f:comment>
         <div class="projectList">
             <div class="dataTables_wrapper">
                 <div class="dataTables_filter" style="text-align: left; padding-left: 20px">
@@ -103,5 +105,6 @@
         </div>
         <f:render partial="TableSortScript" section="Main" />
         <f:render partial="GoogleMapsScript" section="Main" arguments="{_all}" />
-    </f:section>
-</div>
+</f:section>
+</body>
+</html>
