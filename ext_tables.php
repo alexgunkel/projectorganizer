@@ -111,7 +111,7 @@ if (TYPO3_MODE === 'BE') {
             'Manager' => 'listOpenRequests, detail, validate, refuse, delete',
         ),
         array(
-            'access' => 'admin',
+            'access' => 'user,group',
             'icon' => 'EXT:project_organizer/Resources/Public/Icons/Backend/project-organizer.svg',
             'labels'  => 'LLL:EXT:project_organizer/Resources/Private/Language/locallang.xlf',
         )
