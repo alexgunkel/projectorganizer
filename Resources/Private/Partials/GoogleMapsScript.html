@@ -18,7 +18,7 @@
                 src="https://maps.googleapis.com/maps/api/js?key={googleKey}&callback=initMap">
         </script>
     </v:asset>
-    <v:asset.script external="0" movable="1" name="gmap02">
+    <v:asset.script external="0" movable="1" name="gmap02"  namedChunks="false" standalone="false">
     var mapLocations =  [
                         <f:for each="{projects}" as="project" iteration="i"><f:if condition="{project.location}">
                             [
@@ -27,7 +27,7 @@
                                 {project.location}<br>\
                                 </strong>
                             <f:format.nl2br>
-                                <v:format.eliminate tabs="1" unixBreaks="1" windowsBreaks="1" nonAscii="1">
+                                <v:format.eliminate whitespaceBetweenHtmlTags="1" tabs="1" unixBreaks="1" windowsBreaks="1" nonAscii="1">
                                     {project.description}
                                 </v:format.eliminate>
                             </f:format.nl2br>

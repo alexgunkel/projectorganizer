@@ -16,7 +16,7 @@
                 src="/typo3conf/ext/custom_template/Resources/Public/js/vendor/dataTables.bootstrap4.min.js">
         </script>
     </v:asset>
-    <v:asset.script external="0" movable="1" dependencies="dataTables" name="dataTables02">
+    <v:asset.script external="0" movable="1" namedChunks="false" standalone="false" dependencies="dataTables" name="dataTables02">
 $(document).ready(function() {
     var $tableSortable = $('.table-sortable');
     if ($tableSortable.length) {
