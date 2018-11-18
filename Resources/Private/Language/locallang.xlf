@@ -3,13 +3,15 @@
     <file t3:id="1496687369" source-language="en" datatype="plaintext" original="messages" date="2017-06-05T20:29:34Z" product-name="project_organizer">
         <header/>
         <body>
+            <trans-unit id="project.deleted">
+                <source>deleted</source>
+            </trans-unit>
             <trans-unit id="title.backToList">
                 <source>Back to list</source>
             </trans-unit>
             <trans-unit id="title.delete">
                 <source>Delete</source>
             </trans-unit>
-
             <trans-unit id="mlang_labels_tablabel">
                 <source>Project Organizer administration module</source>
             </trans-unit>
@@ -19,7 +21,6 @@
             <trans-unit id="mlang_tabs_tab">
                 <source>Project Organizer</source>
             </trans-unit>
-
             <trans-unit id="addProject.legend">
                 <source>Add new Project</source>
             </trans-unit>
@@ -36,7 +37,7 @@
                 <source>Project Link</source>
             </trans-unit>
             <trans-unit id="label.topics">
-                <source>Topic(s)</source>
+                <source>Topics</source>
             </trans-unit>
             <trans-unit id="label.demonstrationsanlage">
                 <source>Demonstrationsanlage</source>
@@ -50,11 +51,23 @@
             <trans-unit id="label.runtime">
                 <source>Runtime</source>
             </trans-unit>
+            <trans-unit id="label.runtimeStart">
+                <source>Runtime start</source>
+            </trans-unit>
+            <trans-unit id="label.runtimeEnd">
+                <source>Runtime end</source>
+            </trans-unit>
             <trans-unit id="label.region">
-                <source>Gefördert durch</source>
+                <source>Funded by</source>
             </trans-unit>
             <trans-unit id="label.contactEmail">
-                <target>E-Mail-Adresse</target>
+                <source>E-mail address</source>
+            </trans-unit>
+            <trans-unit id="label.contactPerson">
+                <source>Contact person</source>
+            </trans-unit>
+            <trans-unit id="label.researchProgram">
+                <source>Research program</source>
             </trans-unit>
             <trans-unit id="label.wskelements">
                 <source>WSK</source>
@@ -65,11 +78,14 @@
             <trans-unit id="addProject.label.editSubmit">
                 <source>Submit</source>
             </trans-unit>
+            <trans-unit id="addProject.region.noFunding">
+                <source>-- no funding --</source>
+            </trans-unit>
             <trans-unit id="label.volume">
-                <source>Fördervolumen</source>
+                <source>Amount of funding</source>
             </trans-unit>
             <trans-unit id="label.overallVolume">
-                <source>Gesamtvolumen</source>
+                <source>Overall volume</source>
             </trans-unit>
             <trans-unit id="label.locationLabel">
                 <source>Visible Address</source>
@@ -85,52 +101,52 @@
             </trans-unit>
 
             <trans-unit id="projectDetail.label.topic">
-                <source>Themenfeld</source>
+                <source>Topic</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.wsk">
                 <source>Wertschöpfungskettenelemente</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.institution">
-                <source>Beteiligte Einrichtungen</source>
+                <source>Involved institutions</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.status">
                 <source>Status</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.volume">
-                <source>Fördervolumen</source>
+                <source>Amount of funding</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.overallVolume">
-                <source>Gesamtvolumen</source>
+                <source>Overall volume</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.researchprogram">
-                <source>Förderprogramm</source>
+                <source>Funding program</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.link">
-                <source>Link zum Programm</source>
+                <source>Link to the program</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.contactPerson">
-                <source>Ansprechpartner</source>
+                <source>Contact Person</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.description">
-                <source>Beschreibung</source>
+                <source>Description</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.region">
-                <source>Gefördert durch</source>
+                <source>Funded by</source>
             </trans-unit>
             <trans-unit id="projectDetail.label.publication">
-                <source>Veröffentlichungen</source>
+                <source>Publications</source>
             </trans-unit>
             <trans-unit id="projectDetail.title.backToList">
-                <source>Zurück zur Liste</source>
+                <source>Back to list</source>
             </trans-unit>
             <trans-unit id="projectDetail.title.edit">
-                <target>Edit</target>
+                <source>Edit</source>
             </trans-unit>
             <trans-unit id="projectDetail.title.addNewProject">
-                <target>Add new project</target>
+                <source>Add new project</source>
             </trans-unit>
             <trans-unit id="projectDetail.title.overview">
-                <target>To overview</target>
+                <source>To overview</source>
             </trans-unit>
 
             <trans-unit id="projectList.goToDetailView">
@@ -140,57 +156,53 @@
                 <source>SEARCH</source>
             </trans-unit>
             <trans-unit id="projectList.label.title">
-                <source>Titel</source>
+                <source>Title</source>
             </trans-unit>
             <trans-unit id="projectList.label.topic">
-                <source>Themenfeld</source>
+                <source>Topic</source>
             </trans-unit>
             <trans-unit id="projectList.label.runtime">
-                <source>Laufzeit bis</source>
+                <source>Runtime until</source>
             </trans-unit>
             <trans-unit id="projectList.label.status">
                 <source>Status</source>
             </trans-unit>
             <trans-unit id="projectList.label.region">
-                <source>Gefördert durch</source>
+                <source>Funded by</source>
             </trans-unit>
-
             <trans-unit id="projectSubmit.text.submitted">
                 <source>Thank you, your project request was submitted.</source>
             </trans-unit>
-
             <trans-unit id="listInstitution.heading">
                 <source>Institution list</source>
             </trans-unit>
             <trans-unit id="institution.label.projects">
-                <source>Projekte</source>
+                <source>Projects</source>
             </trans-unit>
             <trans-unit id="institution.label.type">
                 <source>Typ</source>
             </trans-unit>
             <trans-unit id="institution.label.location">
-                <source>Hauptsitz</source>
+                <source>Head office</source>
             </trans-unit>
             <trans-unit id="institution.label.state">
-                <source>Bundesland</source>
+                <source>State</source>
             </trans-unit>
             <trans-unit id="institution.label.country">
-                <source>Land</source>
+                <source>Country</source>
             </trans-unit>
             <trans-unit id="institution.label.topics">
-                <source>Themen</source>
+                <source>Topics</source>
             </trans-unit>
             <trans-unit id="institution.label.wskelements">
                 <source>WSK-Element</source>
             </trans-unit>
-
             <trans-unit id="addInstitution.label.title">
                 <source>Institution</source>
             </trans-unit>
             <trans-unit id="addInstitution.submit">
                 <source>Add Institution</source>
             </trans-unit>
-
             <trans-unit id="addInstitution.label.name">
                 <source>Name</source>
             </trans-unit>
@@ -203,7 +215,6 @@
             <trans-unit id="addInstitution.institutionWasAdded">
                 <source>Institution was added.</source>
             </trans-unit>
-
             <trans-unit id="addExpert.label.name">
                 <source>Name</source>
             </trans-unit>
@@ -216,12 +227,11 @@
             <trans-unit id="addExpert.expertWasAdded">
                 <source>Expert was added.</source>
             </trans-unit>
-
             <trans-unit id="expertDetail.label.email">
                 <source>E-Mail</source>
             </trans-unit>
             <trans-unit id="expertDetail.label.description">
-                <source>Beschreibung</source>
+                <source>Description</source>
             </trans-unit>
             <trans-unit id="expertDetail.label.specialistField">
                 <source>Fachbereich</source>
@@ -230,7 +240,7 @@
                 <source>Tätig im Wasserstoffsektor seit</source>
             </trans-unit>
             <trans-unit id="expertDetail.label.topics">
-                <source>Themenfelder</source>
+                <source>Topics</source>
             </trans-unit>
             <trans-unit id="expertDetail.label.institutions">
                 <source>Institutions</source>

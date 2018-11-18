@@ -3,6 +3,9 @@
     <file t3:id="1496687369" source-language="en" target-language="de" datatype="plaintext" original="messages" date="2017-06-05T20:29:34Z" product-name="project_organizer">
         <header/>
         <body>
+            <trans-unit id="project.deleted">
+                <target>gelöscht</target>
+            </trans-unit>
             <trans-unit id="title.backToList">
                 <target>Zurück zur Liste</target>
             </trans-unit>
@@ -36,7 +39,7 @@
                 <target>Link zu Projektseite</target>
             </trans-unit>
             <trans-unit id="label.topics">
-                <target>Themenfeld(er)</target>
+                <target>Themenfelder</target>
             </trans-unit>
             <trans-unit id="label.demonstrationsanlage">
                 <target>Demonstrationsanlage</target>
@@ -50,8 +53,20 @@
             <trans-unit id="label.runtime">
                 <target>Laufzeit</target>
             </trans-unit>
+            <trans-unit id="label.runtimeStart">
+                <target>Laufzeit Start</target>
+            </trans-unit>
+            <trans-unit id="label.runtimeEnd">
+                <target>Laufzeit Ende</target>
+            </trans-unit>
             <trans-unit id="label.contactEmail">
                 <target>E-Mail-Adresse</target>
+            </trans-unit>
+            <trans-unit id="label.contactPerson">
+                <target>Ansprechpartner</target>
+            </trans-unit>
+            <trans-unit id="label.researchProgram">
+                <target>Forschungsprogramm</target>
             </trans-unit>
             <trans-unit id="label.region">
                 <target>Gefördert durch</target>
@@ -64,6 +79,9 @@
             </trans-unit>
             <trans-unit id="addProject.label.editSubmit">
                 <target>Absenden</target>
+            </trans-unit>
+            <trans-unit id="addProject.region.noFunding">
+                <target>-- keine Förderung --</target>
             </trans-unit>
             <trans-unit id="label.volume">
                 <target>Fördervolumen</target>
@@ -143,7 +161,7 @@
                 <target>Titel</target>
             </trans-unit>
             <trans-unit id="projectList.label.topic">
-                <target>Themenfeld(er)</target>
+                <target>Themenfelder</target>
             </trans-unit>
             <trans-unit id="projectList.label.runtime">
                 <target>Laufzeit bis</target>
