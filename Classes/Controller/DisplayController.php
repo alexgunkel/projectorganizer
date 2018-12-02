@@ -71,6 +71,21 @@ class DisplayController
         );
     }
 
+    final public function listByAction(): void
+    {
+        $possibleKeys = [
+            'topic',
+            'institution',
+            'wsk',
+        ];
+
+        $filter = array_intersect_key(
+            $this->request->getArguments(),
+            array_flip($possibleKeys)
+        );
+
+    }
+
     /**
      *
      */

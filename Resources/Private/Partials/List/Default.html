@@ -94,14 +94,22 @@
                     </td>
                     <td>
                         <f:for each="{project.topics}" as="topic" iteration="iterator">
-                            <f:link.action action="listByTopic" arguments="{topic:topic.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                            <f:link.action action="listByTopic" arguments="{topics:topic.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
                                 {topic.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
                             </f:link.action>
                         </f:for>
                     </td>
                     <td><f:format.date format="d.m.Y">{project.runtimeEnd}</f:format.date></td>
-                    <td>{project.status.title}</td>
-                    <td>{project.region.title}</td>
+                    <td>
+                        <f:link.action action="listByTopic" arguments="{status:project.status.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                            {project.status.title}
+                        </f:link.action>
+                    </td>
+                    <td>
+                        <f:link.action action="listByTopic" arguments="{region:project.region.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                            {project.region.title}
+                        </f:link.action>
+                    </td>
                 </tr>
             </f:for>
         </tbody>

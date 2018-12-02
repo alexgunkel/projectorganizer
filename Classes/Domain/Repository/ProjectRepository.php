@@ -100,6 +100,36 @@ class ProjectRepository
             )
         );
 
+        DebuggerUtility::var_dump($query->execute());
+        return $query->execute();
+    }
+
+    public function findAcceptedByFilter(array $filter): QueryResultInterface
+    {
+        $query = $this->createQuery();
+        array_walk(
+            $filter,
+            function (&$value, string $key) use ($query) {
+                $value = $query->equals(
+                    $key . '.uid',
+                    $value
+                );
+            }
+        );
+        $criteria = array_merge(
+            [
+                $query->greaterThanOrEqual(
+                    'validation_state',
+                    Project::VALIDATION_STATE_ACCEPTED
+                ),
+            ],
+            $filter
+        );
+
+        $query->matching(
+            call_user_func_array([$query, 'logicalAnd'], $criteria)
+        );
+
         var_dump($query->getStatement());
         return $query->execute();
     }

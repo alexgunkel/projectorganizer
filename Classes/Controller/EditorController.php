@@ -97,7 +97,7 @@ class EditorController
     /**
      *
      */
-    final public function listByTopicAction(): void
+    final public function listByAction(): void
     {
         $this->view->assignMultiple(
             [
@@ -105,6 +105,35 @@ class EditorController
                 'be_user' => $this->getBeUserAuthentication(),
                 'topic_id' => $this->request->getArgument('topic'),
                 'projects' => $projects = $this->projectRepository->findAcceptedByTopicUid($this->request->getArgument('topic')),
+                'pluginName' => $this->request->getPluginName(),
+                'listView' => $this->readAsString('list_view') ?? 'list',
+            ]
+        );
+
+        if ($this->request->hasArgument('csv')) {
+            $this->sendCsv($projects->toArray());
+        }
+    }
+
+    final public function listByTopicAction(): void
+    {
+        $possibleKeys = [
+            'topics',
+            'institutions',
+            'wsk',
+            'region',
+        ];
+
+        $filter = array_intersect_key(
+            $this->request->getArguments(),
+            array_flip($possibleKeys)
+        );
+
+        $this->view->assignMultiple(
+            [
+                'user' => $this->getUserAuthentication()->user,
+                'be_user' => $this->getBeUserAuthentication(),
+                'projects' => $projects = $this->projectRepository->findAcceptedByFilter($filter),
                 'pluginName' => $this->request->getPluginName(),
                 'listView' => $this->readAsString('list_view') ?? 'list',
             ]
