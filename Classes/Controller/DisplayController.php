@@ -41,7 +41,6 @@ class DisplayController
         );
 
         if ($this->request->hasArgument('csv')) {
-            die;
             $list = [];
             foreach ($projects as $project) {
                 $array = [];

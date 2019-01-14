@@ -40,6 +40,15 @@ class WskelementRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
     }
 
-}
 
-?>
+    public function findNonEmpty()
+    {
+        $query = $this->createQuery();
+        $query->statement(
+            'SELECT t.* FROM tx_projectorganizer_domain_model_wskelement t
+                WHERE uid in (SELECT uid_foreign FROM tx_projectorganizer_mm_project_wskelement);'
+        );
+
+        return $query->execute();
+    }
+}

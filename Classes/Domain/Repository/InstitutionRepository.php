@@ -130,4 +130,15 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
             self::propertyRepositories
         );
     }
+
+    public function findNonEmpty()
+    {
+        $query = $this->createQuery();
+        $query->statement(
+            'SELECT t.* FROM tx_projectorganizer_domain_model_institution t
+                WHERE uid in (SELECT uid_foreign FROM tx_projectorganizer_mm_project_institution);'
+        );
+
+        return $query->execute();
+    }
 }

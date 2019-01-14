@@ -39,4 +39,15 @@ class StatusRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
         $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
     }
+
+    public function findNonEmpty()
+    {
+        $query = $this->createQuery();
+        $query->statement(
+            'SELECT * FROM tx_projectorganizer_domain_model_status
+                WHERE uid in (SELECT DISTINCT status FROM tx_projectorganizer_domain_model_project);'
+        );
+
+        return $query->execute();
+    }
 }

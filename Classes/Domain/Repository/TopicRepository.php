@@ -40,4 +40,15 @@ class TopicRepository
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
         $this->setDefaultQuerySettings($querySettings->setRespectStoragePage(false));
     }
+
+    public function findNonEmpty()
+    {
+        $query = $this->createQuery();
+        $query->statement(
+            'SELECT t.* FROM tx_projectorganizer_domain_model_topic t
+                WHERE uid in (SELECT uid_foreign FROM tx_projectorganizer_mm_project_topic);'
+        );
+
+        return $query->execute();
+    }
 }

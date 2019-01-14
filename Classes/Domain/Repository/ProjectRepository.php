@@ -246,6 +246,26 @@ class ProjectRepository
             self::propertyRepositories
         );
     }
+
+    public function getActiveOptions(): array
+    {
+        $options = [
+            'topics' => TopicRepository::class,
+            'status' => StatusRepository::class,
+            'institutions' => InstitutionRepository::class,
+            'wsk_elements' => WskelementRepository::class,
+        ];
+
+        $options = array_map(
+            function (string $classname): QueryResultInterface {
+                $repo = $this->objectManager->get($classname);
+                return $repo->findNonEmpty();
+            },
+            $options
+        );
+
+        return $options;
+    }
     
     /**
      * 

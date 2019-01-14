@@ -62,6 +62,12 @@
     -->
 
     <f:section name="Content">
+        <f:debug>{_all}</f:debug>
+        <f:for each="{options}" as="option">
+            <f:link.action action="listByTopic" arguments="{status:project.status.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                {project.status.title}
+            </f:link.action>
+        </f:for>
         <f:if condition="{settings.list_view} == 'map'">
             <f:then>
                 <f:render partial="List/ProjectMap" section="Main" arguments="{_all}" />

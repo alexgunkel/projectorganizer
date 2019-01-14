@@ -83,6 +83,8 @@ class EditorController
                 'user' => $this->getUserAuthentication()->user,
                 'be_user' => $this->getBeUserAuthentication(),
                 'projects' => $projects,
+                'parameter' => $this->request->getArguments(),
+                'options' => $this->projectRepository->getActiveOptions(),
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
                 'listView' => $this->readAsString('list_view') ?? 'list',
@@ -133,6 +135,8 @@ class EditorController
             [
                 'user' => $this->getUserAuthentication()->user,
                 'be_user' => $this->getBeUserAuthentication(),
+                'parameter' => $this->request->getArguments(),
+                'options' => $this->projectRepository->getActiveOptions(),
                 'projects' => $projects = $this->projectRepository->findAcceptedByFilter($filter),
                 'pluginName' => $this->request->getPluginName(),
                 'listView' => $this->readAsString('list_view') ?? 'list',
