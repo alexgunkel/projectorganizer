@@ -130,7 +130,6 @@ class ProjectRepository
             call_user_func_array([$query, 'logicalAnd'], $criteria)
         );
 
-        var_dump($query->getStatement());
         return $query->execute();
     }
 

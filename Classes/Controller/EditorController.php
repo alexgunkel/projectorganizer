@@ -124,6 +124,7 @@ class EditorController
             'institutions',
             'wsk',
             'region',
+            'status',
         ];
 
         $filter = array_intersect_key(
