@@ -50,10 +50,12 @@
                                         <v:variable.set name="error-wskelements" value="has-error"/>
                                     </f:case>
                                 </f:switch>
-                                <li>{propertyPath}
+                                <li>
+                                    <v:variable.set name="errorkey">{propertyPath -> v:format.replace(substring: 'project', replacement: 'label')}</v:variable.set>
+                                    {f:translate(key: errorkey, extensionName: 'project_organizer')}
                                     <ul>
                                         <f:for each="{errors}" as="error">
-                                            <li>{error.code}: {error}</li>
+                                            <li data-code="{error.code}">{error}</li>
                                         </f:for>
                                     </ul>
                                 </li>
@@ -64,6 +66,35 @@
                 <f:if condition="{f:translate(key: 'addProject.legend', extensionName: 'project_organizer')}">
                     <legend>{f:translate(key: 'addProject.legend', extensionName: 'project_organizer')}</legend>
                 </f:if>
+                <div class="form-group {error-institution}">
+                    <label for="institutions">{f:translate(key: 'select.label.institution', extensionName: 'project_organizer')}</label>
+                    <v:form.select property="institutions"
+                                   id="institutions"
+                                   multiple="true"
+                                   class="form-control"
+                                   errorClass="has-error">
+                        <f:for each="{institutions}" as="institution">
+                            <v:form.select.option value="{institution.uid}">
+                                {institution.title}
+                            </v:form.select.option>
+                        </f:for>
+                    </v:form.select>
+                    <p class="help-block">
+                        <f:link.action controller="Institution" action="insertForm" target="_blank"
+                                       pluginName="institutions_insert" pageUid="{insertInstitutionPage}">
+                            {f:translate(key: 'label.insertInstitution', extensionName: 'project_organizer')}
+                        </f:link.action>
+                    </p>
+                    <f:form.validationResults for="project.institutions">
+                        <f:if condition="{validationResults.flattenedErrors}">
+                            <ul class="errors">
+                                <f:for each="{validationResults.errors}" as="error">
+                                    <li>{error}</li>
+                                </f:for>
+                            </ul>
+                        </f:if>
+                    </f:form.validationResults>
+                </div>
                 <div class="form-group {error-title}">
                     <label for="title">{f:translate(key: 'label.title', extensionName: 'project_organizer')}</label>
                     <f:form.textfield size="30" id="title" property="title" class="form-control"
@@ -109,7 +140,7 @@
 
                 <div class="form-group {error-volume}">
                     <label for="volume">{f:translate(key: 'label.volume', extensionName: 'project_organizer')}</label>
-                    <f:form.textfield property="volume" id="volume" class="form-control" errorClass="has-error"/>
+                    <f:form.textfield property="volume" id="volume" class="form-control" type="number" errorClass="has-error"/>
                     <f:form.validationResults for="project.volume">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
@@ -124,7 +155,7 @@
                     <label for="overallVolume">{f:translate(key: 'label.overallVolume', extensionName:
                         'project_organizer')}</label>
                     <f:form.textfield property="overallVolume" id="overallVolume" class="form-control"
-                                      errorClass="has-error"/>
+                                      type="number" errorClass="has-error"/>
                     <f:form.validationResults for="project.overallVolume">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
@@ -193,8 +224,11 @@
                         {f:translate(key: 'label.demonstrationsanlage', extensionName: 'project_organizer')}</label>
                 </div>
                 <div class="form-group {error-topics}">
-                    <label for="topics">{f:translate(key: 'label.topics', extensionName: 'project_organizer')}</label>
-                    <v:form.select property="topics" id="topics" multiple="true" class="form-control"
+                    <label for="topics">{f:translate(key: 'select.label.topics', extensionName: 'project_organizer')}</label>
+                    <v:form.select property="topics"
+                                   id="topics"
+                                   multiple="true"
+                                   class="form-control"
                                    errorClass="has-error">
                         <f:for each="{topics}" as="topic">
                             <v:form.select.option selected="false"
@@ -264,37 +298,8 @@
                         </f:if>
                     </f:form.validationResults>
                 </div>
-                <div class="form-group {error-institution}">
-                    <label for="institutions">{f:translate(key: 'addInstitution.label.title', extensionName: 'project_organizer')}</label>
-                    <v:form.select property="institutions"
-                                   id="institutions"
-                                   multiple="true"
-                                   class="form-control"
-                                   errorClass="has-error">
-                        <f:for each="{institutions}" as="institution">
-                            <v:form.select.option value="{institution.uid}">
-                                {institution.title}
-                            </v:form.select.option>
-                        </f:for>
-                    </v:form.select>
-                    <p class="help-block">
-                        <f:link.action controller="Institution" action="insertForm" target="_blank"
-                                       pluginName="institutions_insert" pageUid="{insertInstitutionPage}">
-                            {f:translate(key: 'label.insertInstitution', extensionName: 'project_organizer')}
-                        </f:link.action>
-                    </p>
-                    <f:form.validationResults for="project.institutions">
-                        <f:if condition="{validationResults.flattenedErrors}">
-                            <ul class="errors">
-                                <f:for each="{validationResults.errors}" as="error">
-                                    <li>{error}</li>
-                                </f:for>
-                            </ul>
-                        </f:if>
-                    </f:form.validationResults>
-                </div>
                 <div class="form-group {error-wskelements}">
-                    <label for="wskelements">{f:translate(key: 'label.wskelements', extensionName:
+                    <label for="wskelements">{f:translate(key: 'select.label.wskelements', extensionName:
                         'project_organizer')}</label>
                     <v:form.select property="wskelements"
                                    id="wskelements"

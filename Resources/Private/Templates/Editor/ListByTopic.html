@@ -7,61 +7,68 @@
 
     <!--
         =====================
-            Display/ListByTopic.html
+            Display/List.html
+
+            object projects:
+                  validationState => protected1 (integer)
+                  passwordHash => protected'$pbkdf2-sha256$25000$Ks0B2069nvdnq2sbTD/b3g$rEj2ET8sI0nl76rgpKKnHXXLxhBXizBL
+                     RHdn0JcxJEk' (87 chars)
+                  password => protectedNULL
+                  institutions => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (3 items)
+                  location => protected'Ort01' (5 chars)
+                  contactEmail => protected'test01@klickdienst.de' (21 chars)
+                  showInMap => protectedFALSE
+                  hypos => protectedFALSE
+                  orig => protectedNULL
+                  researchprogram => protected'' (0 chars)
+                  demoProject => protectedTRUE
+                  uid => protected40 (integer)
+                  _localizedUid => protected40 (integer)modified
+                  _languageUid => protectedNULL
+                  _versionedUid => protected40 (integer)modified
+                  pid => protected245 (integer)
+                  contactPerson => protected'Anpsprech01' (11 chars)
+                  description => protected'Beschreibung 01' (15 chars)
+                  link => protected'www.link-01.de' (14 chars)
+                  overallVolume => protected'Gesamt01' (8 chars)
+                  publications => protectedTYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorageprototypeobject (empty)
+                  region => protectedAlexGunkel\ProjectOrganizer\Domain\Model\Regionprototypepersistent object (uid=1, pid=245)
+                  researchprograms => protectedNULL
+                  runtimeStart => protected'1529884800' (10 chars)
+                  runtimeEnd => protected'1533340800' (10 chars)
+                  status => protectedAlexGunkel\ProjectOrganizer\Domain\Model\Statusprototypepersistent object (uid=2, pid=245)
+                  title => protected'Testprojekt 01' (14 chars)
+                  topics => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (2 items)
+                  volume => protected'Volume01' (8 chars)
+                  wskelements => protectedTYPO3\CMS\Extbase\Persistence\ObjectStorageprototypeobject (1 items)
+                  hidden => protectedFALSE
+                  deleted => protectedNULL
+                  crDate => protected0 (integer)
+                  tstamp => protected
+
+
+
+
+                  #########################
+
+
+                  HYPOS HALLE POSITION:
+
+                  HYPOS Hydrogen Power Storage &amp; Solutions East Germany e.V.
+                  Blücherstraße 26, 06120 Halle (Saale)
+                  51.491311, 11.934074
+
+
     -->
 
     <f:section name="Content">
-<div class="projectTopicList">
-    <f:debug>{_all}</f:debug>
-    <f:for each="{projects}" as="project">
-        <div class="projectList">
-            <table class="table table-style1 table-striped table-sortable">
-                <thead>
-                <tr>
-                    <th scope="col">{f:translate(key: 'projectList.label.title', extensionName: 'project_organizer')}</th>
-                    <th scope="col">{f:translate(key: 'projectList.label.topic', extensionName: 'project_organizer')}</th>
-                    <th scope="col">{f:translate(key: 'projectList.label.runtime', extensionName: 'project_organizer')}</th>
-                    <th scope="col">{f:translate(key: 'projectList.label.status', extensionName: 'project_organizer')}</th>
-                    <th scope="col">{f:translate(key: 'projectList.label.region', extensionName: 'project_organizer')}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <f:for each="{projects}" as="project">
-                    <tr>
-                        <td>
-                            <f:link.action action="detail" pluginName="{pluginName}" arguments="{uid:project.uid}" pageUid="{detailViewPage}">
-                                {project.title}
-                            </f:link.action>
-                        </td>
-                        <td>
-                            <f:for each="{project.topics}" as="topic" iteration="iterator">
-                                <f:link.action action="listByTopic" arguments="{topics:topic.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
-                                    {topic.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
-                                </f:link.action>
-                            </f:for>
-                        </td>
-                        <td><f:format.date format="d.m.Y">{project.runtimeEnd}</f:format.date></td>
-                        <td>{project.status.title}</td>
-                        <td>{project.region.title}</td>
-                    </tr>
-                </f:for>
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col-sm-12">
-                    <p class="btn-spacy">
-                        <a class="btn btn-primary" href="/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
-                        <a class="btn btn-primary"  href="/projects/add-project/">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</a>
-                        <f:if condition="{user} || {be_user}">
-                            <f:link.action action="listByTopic" arguments="{topic:topic_id,csv:'true'}" pluginName="{pluginName}"  class="btn btn-defaut f-right">Download CSV</f:link.action>
-                        </f:if>
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </f:for>
-</div>
+        <f:if condition="{settings.list_view} == 'map'">
+            <f:then>
+                <f:render partial="List/ProjectMap" section="Main" arguments="{_all}" />
+            </f:then>
+            <f:else>
+                <f:render partial="List/Default" section="Main" arguments="{_all}" />
+            </f:else>
+        </f:if>
     </f:section>
 </div>
-

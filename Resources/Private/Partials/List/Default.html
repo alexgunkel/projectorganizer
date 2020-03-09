@@ -65,23 +65,83 @@
     -->
     </f:comment>
 <div class="projectList">
-    <div class="dataTables_wrapper">
-        <div class="dataTables_filter" style="text-align: left; padding-left: 20px">
-            <f:form action="list" controller="Editor" pluginName="{pluginName}" objectName="search">
-                <label>
-                    {f:translate(key: 'projectList.label.search', extensionName: 'project_organizer')}<f:form.textfield property="term" additionalAttributes="{class: 'form-control form-control-sm'}" />
-                </label>
-            </f:form>
+    <div class="row dataTables_wrapper tables-filter">
+        <div class="col-md-12">
+            <div class="dataTables_filter btn-group" style="">
+                <f:form action="list" controller="Editor" pluginName="{pluginName}" objectName="search">
+                    <label>
+                        {f:translate(key: 'projectList.label.search', extensionName: 'project_organizer')}<f:form.textfield property="term" additionalAttributes="{class: 'form-control form-control-sm'}" />
+                    </label>
+                </f:form>
+            </div>
+            <f:comment>Options added by JS !!!</f:comment>
+            <div class="btn-group">
+                <div class="dropdown" data-filter-target="topic">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="dropdown-label">{f:translate(key: 'projectList.select.label.topic', extensionName: 'project_organizer')}</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>
+                            <f:link.action
+                                    action="listByTopic"
+                                    pluginName="{pluginName}"
+                                    pageUid="{listViewPage}">
+                                {f:translate(key: 'projectList.label.showall', extensionName: 'project_organizer')}
+                            </f:link.action>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-group">
+                <div class="dropdown" data-filter-target="status">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="dropdown-label">{f:translate(key: 'projectList.label.status', extensionName: 'project_organizer')}</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li>
+                            <f:link.action
+                                    action="listByTopic"
+                                    pluginName="{pluginName}"
+                                    pageUid="{listViewPage}">
+                                {f:translate(key: 'projectList.label.showall', extensionName: 'project_organizer')}
+                            </f:link.action>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-group">
+                <div class="dropdown" data-filter-target="region">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        <span class="dropdown-label">{f:translate(key: 'projectList.label.region', extensionName: 'project_organizer')}</span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                        <li>
+                            <f:link.action
+                                    action="listByTopic"
+                                    pluginName="{pluginName}"
+                                    pageUid="{listViewPage}">
+                                {f:translate(key: 'projectList.label.showall', extensionName: 'project_organizer')}
+                            </f:link.action>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <table class="table table-style1 table-striped table-sortable">
+    <table class="table table-style1 table-striped table-sortable table-filter">
         <thead>
             <tr>
                 <th scope="col">{f:translate(key: 'projectList.label.title', extensionName: 'project_organizer')}</th>
-                <th scope="col">{f:translate(key: 'projectList.label.topic', extensionName: 'project_organizer')}</th>
+                <th scope="col" data-filter-id="topic">{f:translate(key: 'projectList.label.topic', extensionName: 'project_organizer')}</th>
                 <th scope="col">{f:translate(key: 'projectList.label.runtime', extensionName: 'project_organizer')}</th>
-                <th scope="col">{f:translate(key: 'projectList.label.status', extensionName: 'project_organizer')}</th>
-                <th scope="col">{f:translate(key: 'projectList.label.region', extensionName: 'project_organizer')}</th>
+                <th scope="col" data-filter-id="status">{f:translate(key: 'projectList.label.status', extensionName: 'project_organizer')}</th>
+                <th scope="col" data-filter-id="region">{f:translate(key: 'projectList.label.region', extensionName: 'project_organizer')}</th>
             </tr>
         </thead>
             <tbody>
@@ -92,21 +152,36 @@
                             {project.title}
                         </f:link.action>
                     </td>
-                    <td>
+                    <td data-filter-id="topic">
                         <f:for each="{project.topics}" as="topic" iteration="iterator">
-                            <f:link.action action="listByTopic" arguments="{topics:topic.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                            <f:link.action
+                                    action="listByTopic"
+                                    arguments="{topics:topic.uid}"
+                                    pluginName="{pluginName}"
+                                    pageUid="{listViewPage}"
+                                    class="filter-item">
                                 {topic.title}{f:if(then: '', else: ', ', condition: '{iterator.isLast}')}
                             </f:link.action>
                         </f:for>
                     </td>
                     <td><f:format.date format="d.m.Y">{project.runtimeEnd}</f:format.date></td>
-                    <td>
-                        <f:link.action action="listByTopic" arguments="{status:project.status.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                    <td data-filter-id="status">
+                        <f:link.action
+                                action="listByTopic"
+                                arguments="{status:project.status.uid}"
+                                pluginName="{pluginName}"
+                                pageUid="{listViewPage}"
+                                class="filter-item">
                             {project.status.title}
                         </f:link.action>
                     </td>
-                    <td>
-                        <f:link.action action="listByTopic" arguments="{region:project.region.uid}" pluginName="{pluginName}" pageUid="{listViewPage}">
+                    <td data-filter-id="region">
+                        <f:link.action
+                                action="listByTopic"
+                                arguments="{region:project.region.uid}"
+                                pluginName="{pluginName}"
+                                pageUid="{listViewPage}"
+                                class="filter-item">
                             {project.region.title}
                         </f:link.action>
                     </td>
@@ -117,7 +192,9 @@
     <div class="container-fluid">
         <p class="btn-spacy">
             <a class="btn btn-primary" href="/projects/">{f:translate(key: 'projectDetail.title.overview', extensionName: 'project_organizer')}</a>
-            <a class="btn btn-primary"  href="/projects/add-project/">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</a>
+            <f:if condition="{addNewProjectPage}">
+                <f:link.page pageUid="{addNewProjectPage}" class="btn btn-primary">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</f:link.page>
+            </f:if>
             <f:if condition="{user} || {be_user}">
                 <f:link.action action="list" arguments="{csv: true}" pluginName="{pluginName}" class="btn btn-defaut f-right">Download CSV</f:link.action>
             </f:if>
