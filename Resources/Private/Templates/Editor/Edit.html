@@ -32,7 +32,10 @@
                                     <f:case value="project.region"><v:variable.set name="error-region" value="has-error" /></f:case>
                                     <f:case value="project.wskelements"><v:variable.set name="error-wskelements" value="has-error" /></f:case>
                                 </f:switch>
-                                <li>{propertyPath}
+
+                                <li>
+                                    <v:variable.set name="errorkey">{propertyPath -> v:format.replace(substring: 'project', replacement: 'label')}</v:variable.set>
+                                    {f:translate(key: errorkey, extensionName: 'project_organizer')}
                                     <ul>
                                         <f:for each="{errors}" as="error">
                                             <li data-code="{error.code}">{error}</li>
