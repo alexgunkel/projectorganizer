@@ -132,7 +132,7 @@ return array(
         ],
     ),
     'types' => [
-        '1' => ['showitem' => 'title, institution_type, location, country, wsk_element, topic'],
+        '1' => ['showitem' => 'title, institution_type, location, country, state, wskelements, topics, validation_state'],
     ],
     'palettes' => array(),
 );
