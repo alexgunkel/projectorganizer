@@ -29,6 +29,7 @@ return array(
         'hideTable' => false,
         'rootLevel' => false,
         'default_sortby' => 'ORDER BY title ASC',
+        'iconfile' => 'EXT:project_organizer/Resources/Public/Icons/Backend/project-organizer.svg',
         'security' => [
             'ignoreWebMountRestriction' => true,
             'ignoreRootLevelRestriction' => true,

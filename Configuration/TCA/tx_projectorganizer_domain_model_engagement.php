@@ -28,6 +28,7 @@ return array(
         'tstamp' => 'tstamp',
         'hideTable' => true,
         'rootLevel' => false,
+        'iconfile' => 'EXT:project_organizer/Resources/Public/Icons/Backend/project-organizer.svg',
         'default_sortby' => 'ORDER BY title ASC',
         'security' => [
             'ignoreWebMountRestriction' => true,
