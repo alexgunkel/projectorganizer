@@ -37,6 +37,7 @@ class DisplayController
                 'projects' => $projects,
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
+                'addNewProjectPage' => $this->readAsInteger('add_new_project_page') ?? $GLOBALS['TSFE']->id,
             ]
         );
 
@@ -94,6 +95,7 @@ class DisplayController
             [
                 'project' => $this->projectRepository->findByUid($this->request->getArgument('uid')),
                 'listViewPage' => $this->readAsInteger('list_view_page') ?? $GLOBALS['TSFE']->id,
+                'addNewProjectPage' => $this->readAsInteger('add_new_project_page') ?? $GLOBALS['TSFE']->id,
             ]
         );
     }

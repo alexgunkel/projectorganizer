@@ -87,6 +87,7 @@ class EditorController
                 'options' => $this->projectRepository->getActiveOptions(),
                 'pluginName' => $this->request->getPluginName(),
                 'detailViewPage' => $this->readAsInteger('detail_view_page') ?? $GLOBALS['TSFE']->id,
+                'addNewProjectPage' => $this->readAsInteger('add_new_project_page') ?? $GLOBALS['TSFE']->id,
                 'listView' => $this->readAsString('list_view') ?? 'list',
             ]
         );
