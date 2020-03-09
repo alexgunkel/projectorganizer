@@ -39,6 +39,9 @@
             <trans-unit id="label.topics">
                 <source>Topics</source>
             </trans-unit>
+            <trans-unit id="select.label.topics">
+                <source>Topics (Ctr for multiple)</source>
+            </trans-unit>
             <trans-unit id="label.demonstrationsanlage">
                 <source>Demonstrationsanlage</source>
             </trans-unit>
@@ -47,6 +50,12 @@
             </trans-unit>
             <trans-unit id="label.status">
                 <source>Status</source>
+            </trans-unit>
+            <trans-unit id="label.institution">
+                <source>Institution</source>
+            </trans-unit>
+            <trans-unit id="select.label.institution">
+                <source>Institution (Ctr for multiple)</source>
             </trans-unit>
             <trans-unit id="label.runtime">
                 <source>Runtime</source>
@@ -71,6 +80,9 @@
             </trans-unit>
             <trans-unit id="label.wskelements">
                 <source>WSK</source>
+            </trans-unit>
+            <trans-unit id="select.label.wskelements">
+                <source>WSK (Ctr for multiple)</source>
             </trans-unit>
             <trans-unit id="addProject.label.submit">
                 <source>Create</source>
@@ -159,6 +171,9 @@
                 <source>Title</source>
             </trans-unit>
             <trans-unit id="projectList.label.topic">
+                <source>Topics</source>
+            </trans-unit>
+            <trans-unit id="projectList.select.label.topic">
                 <source>Topic</source>
             </trans-unit>
             <trans-unit id="projectList.label.runtime">
@@ -169,6 +184,9 @@
             </trans-unit>
             <trans-unit id="projectList.label.region">
                 <source>Funded by</source>
+            </trans-unit>
+            <trans-unit id="projectList.label.showall">
+                <source>Show all</source>
             </trans-unit>
             <trans-unit id="projectSubmit.text.submitted">
                 <source>Thank you, your project request was submitted.</source>

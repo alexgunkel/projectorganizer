@@ -41,6 +41,10 @@
             <trans-unit id="label.topics">
                 <target>Themenfelder</target>
             </trans-unit>
+
+            <trans-unit id="select.label.topics">
+                <target>Themenfelder (Strg-Taste für mehrere)</target>
+            </trans-unit>
             <trans-unit id="label.demonstrationsanlage">
                 <target>Demonstrationsanlage</target>
             </trans-unit>
@@ -49,6 +53,12 @@
             </trans-unit>
             <trans-unit id="label.status">
                 <target>Status</target>
+            </trans-unit>
+            <trans-unit id="label.institution">
+                <target>Institution</target>
+            </trans-unit>
+            <trans-unit id="select.label.institution">
+                <target>Institution (Strg-Taste für mehrere)</target>
             </trans-unit>
             <trans-unit id="label.runtime">
                 <target>Laufzeit</target>
@@ -73,6 +83,9 @@
             </trans-unit>
             <trans-unit id="label.wskelements">
                 <target>WSK</target>
+            </trans-unit>
+            <trans-unit id="select.label.wskelements">
+                <target>WSK (Strg-Taste für mehrere)</target>
             </trans-unit>
             <trans-unit id="addProject.label.submit">
                 <target>Erstellen</target>
@@ -163,6 +176,9 @@
             <trans-unit id="projectList.label.topic">
                 <target>Themenfelder</target>
             </trans-unit>
+            <trans-unit id="projectList.select.label.topic">
+                <target>Themenfeld</target>
+            </trans-unit>
             <trans-unit id="projectList.label.runtime">
                 <target>Laufzeit bis</target>
             </trans-unit>
@@ -171,6 +187,9 @@
             </trans-unit>
             <trans-unit id="projectList.label.region">
                 <target>Gefördert durch</target>
+            </trans-unit>
+            <trans-unit id="projectList.label.showall">
+                <target>Alle</target>
             </trans-unit>
 
             <trans-unit id="projectSubmit.text.submitted">
