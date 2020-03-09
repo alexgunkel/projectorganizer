@@ -67,6 +67,7 @@
                     <legend>{f:translate(key: 'addProject.legend', extensionName: 'project_organizer')}</legend>
                 </f:if>
                 <div class="form-group {error-institution}">
+                    <p class="help-block">Bitte fügen Sie zuerst Ihre Institution/Firma hinzu (wenn diese nicht bereits aufgelistet ist), bevor Sie weitere Daten eingeben. Die Seite muss danach neu geladen werden.</p>
                     <label for="institutions">{f:translate(key: 'select.label.institution', extensionName: 'project_organizer')}</label>
                     <v:form.select property="institutions"
                                    id="institutions"
