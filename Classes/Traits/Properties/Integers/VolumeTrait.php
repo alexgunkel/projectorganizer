@@ -28,11 +28,15 @@ trait VolumeTrait
 {
     /**
      * @var string
+     *
+     * @validate NotEmpty
      */
     protected $volume = '';
 
     /**
      * @param string $volume
+     *
+     * @validate NotEmpty
      *
      * @return self
      */
