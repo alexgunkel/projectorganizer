@@ -47,6 +47,11 @@ class InstitutionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         'types' => TypeRepository::class,
     ];
 
+    // Default ordering
+    protected $defaultOrderings = array(
+        'title' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_ASCENDING
+    );
+
     public function initializeObject() {
         /** @var Typo3QuerySettings $querySettings */
         $querySettings = $this->objectManager->get(Typo3QuerySettings::class);
