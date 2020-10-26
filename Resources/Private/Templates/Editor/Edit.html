@@ -51,17 +51,17 @@
                 </f:if>
                 <div class="form-group {error-institution}">
                     <label for="institutions">{f:translate(key: 'select.label.institution', extensionName: 'project_organizer')}</label>
-                    <v:form.select property="institutions"
+                    <f:form.select property="institutions"
                                    id="institutions"
                                    multiple="true"
                                    class="form-control"
                                    errorClass="has-error">
                         <f:for each="{institutions}" as="institution" >
-                            <v:form.select.option value="{institution.uid}" >
+                            <f:form.select.option value="{institution.uid}" >
                                 {institution.title}
-                            </v:form.select.option>
+                            </f:form.select.option>
                         </f:for>
-                    </v:form.select>
+                    </f:form.select>
                     <p class="help-block">
                         <f:link.action controller="Institution" action="insertForm" target="_blank" pluginName="institutions_insert" pageUid="{insertInstitutionPage}">
                             {f:translate(key: 'label.insertInstitution', extensionName: 'project_organizer')}
@@ -205,14 +205,14 @@
 
                 <div class="form-group {error-topics}">
                     <label for="topics">{f:translate(key: 'select.label.topics', extensionName: 'project_organizer')}</label>
-                    <v:form.select property="topics" id="topics" multiple="true" class="form-control" errorClass="has-error" >
+                    <f:form.select property="topics" id="topics" multiple="true" class="form-control" errorClass="has-error" >
                         <f:for each="{topics}" as="topic" >
-                            <v:form.select.option selected="false"
+                            <f:form.select.option selected="false"
                                                   value="{topic.uid}" >
                                 {topic.title}
-                            </v:form.select.option>
+                            </f:form.select.option>
                         </f:for>
-                    </v:form.select>
+                    </f:form.select>
                     <f:form.validationResults for="project.topics">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
@@ -225,15 +225,15 @@
                 </div>
                 <div class="form-group {error-status}">
                     <label for="status">{f:translate(key: 'label.status', extensionName: 'project_organizer')}</label>
-                    <v:form.select property="status"
+                    <f:form.select property="status"
                                    id="status"
                                    class="form-control"
                                    errorClass="has-error"
                                    multiple="false" >
                         <f:for each="{statusOptions}" as="statusOption" >
-                            <v:form.select.option value="{statusOption.uid}" >{statusOption.title}</v:form.select.option>
+                            <f:form.select.option value="{statusOption.uid}" >{statusOption.title}</f:form.select.option>
                         </f:for>
-                    </v:form.select>
+                    </f:form.select>
                     <f:form.validationResults for="project.status">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
@@ -272,17 +272,17 @@
                 </div>
                 <div class="form-group {error-wskelements}">
             <label for="wskelements">{f:translate(key: 'select.label.wskelements', extensionName: 'project_organizer')}</label>
-            <v:form.select property="wskelements"
+            <f:form.select property="wskelements"
                            id="wskelements"
                            class="form-control"
                            errorClass="has-error"
                            multiple="true" >
                 <f:for each="{wskelements}" as="wsk" >
-                    <v:form.select.option value="{wsk.uid}" >
+                    <f:form.select.option value="{wsk.uid}" >
                         {wsk.title}
-                            </v:form.select.option>
+                            </f:form.select.option>
                         </f:for>
-                    </v:form.select>
+                    </f:form.select>
             <f:form.validationResults for="project.wskelements">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
@@ -295,19 +295,19 @@
                 </div>
                 <div class="form-group {error-region}">
             <label for="region">{f:translate(key: 'label.region', extensionName: 'project_organizer')}</label>
-            <v:form.select property="region"
+            <f:form.select property="region"
                            id="region"
                            class="form-control"
                            errorClass="has-error">
-                <v:form.select.option value="" >
+                <f:form.select.option value="" >
                     -- keine Förderung --
-                </v:form.select.option>
+                </f:form.select.option>
                 <f:for each="{regions}" as="region" >
-                    <v:form.select.option value="{region.uid}" >
+                    <f:form.select.option value="{region.uid}" >
                         {region.title}
-                            </v:form.select.option>
+                            </f:form.select.option>
                         </f:for>
-                    </v:form.select>
+                    </f:form.select>
             <f:form.validationResults for="project.region">
                         <f:if condition="{validationResults.flattenedErrors}">
                             <ul class="errors">
