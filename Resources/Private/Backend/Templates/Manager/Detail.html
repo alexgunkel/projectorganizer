@@ -39,24 +39,25 @@
     </f:for>
 </ol>
 
-<h3>Beteiligte Personen:</h3>
-<ol>
-    <f:for each="{project.persons}" as="persons" >
-        <li>{persons.title}</li>
-    </f:for>
-</ol>
+<f:comment>
+    <h3>Beteiligte Personen:</h3>
+    <ol>
+        <f:for each="{project.persons}" as="persons" >
+            <li>{persons.title}</li>
+        </f:for>
+    </ol>
 
-<p>runtime_start: {project.runtimeStart}</p>
-<p>runtime_end: {project.runtimeEnd}</p>
-<br>
-<p>Location: {project.location}</p>
-<p>geo_location_x: {project.geoLocationX} / {project.geoLocationX}</p>
-<p>Show in Map: {project.showInMap}<br>
-            Is hypos Project: {project.hypos}<br>
-            Is demonstration Project: {project.demoProject}<br>
-            ResearchProgram: {project.researchprogram}<br>
-            Location: {project.location}<br></p>
-
+    <p>runtime_start: {project.runtimeStart}</p>
+    <p>runtime_end: {project.runtimeEnd}</p>
+    <br>
+    <p>Location: {project.location}</p>
+    <p>geo_location_x: {project.geoLocationX} / {project.geoLocationX}</p>
+    <p>Show in Map: {project.showInMap}<br>
+                Is hypos Project: {project.hypos}<br>
+                Is demonstration Project: {project.demoProject}<br>
+                ResearchProgram: {project.researchprogram}<br>
+                Location: {project.location}<br></p>
+</f:comment>
 <f:link.action action="listOpenRequests" >Zurück zur Liste</f:link.action>
     </f:section>
 </div>
