@@ -127,9 +127,10 @@ return array(
         'runtime_start' => [
             'label' => 'Laufzeit von',
             'config' => [
-                'type' => 'text',
+                'type' => 'input',
+                'renderType' => 'inputDateTime',
                 'size' => 20,
-                'eval' => 'trim,required',
+                'eval' => 'date,required',
             ],
         ],
         'runtime_end' => [
