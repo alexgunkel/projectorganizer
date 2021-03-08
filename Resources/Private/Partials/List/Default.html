@@ -70,7 +70,22 @@
             <div class="dataTables_filter btn-group" style="">
                 <f:form action="list" controller="Editor" pluginName="{pluginName}" objectName="search">
                     <label>
-                        {f:translate(key: 'projectList.label.search', extensionName: 'project_organizer')}<f:form.textfield property="term" additionalAttributes="{class: 'form-control form-control-sm'}" />
+                        <f:if condition="{parameter.search.term}">
+                            <f:then>
+                                <f:form.textfield
+                                    property="term"
+                                    type="search"
+                                    value="{parameter.search.term}"
+                                    additionalAttributes="{class: 'form-control form-control-sm'}" />
+                            </f:then>
+                            <f:else>
+                                <f:form.textfield
+                                    property="term"
+                                    type="search"
+                                    placeholder="{f:translate(key: 'projectList.label.search', extensionName: 'project_organizer')}"
+                                    additionalAttributes="{class: 'form-control form-control-sm'}" />
+                            </f:else>
+                        </f:if>
                     </label>
                 </f:form>
             </div>
