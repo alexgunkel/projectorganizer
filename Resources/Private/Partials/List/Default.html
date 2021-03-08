@@ -195,9 +195,11 @@
             <f:if condition="{addNewProjectPage}">
                 <f:link.page pageUid="{addNewProjectPage}" class="btn btn-primary">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</f:link.page>
             </f:if>
-            <f:if condition="{user} || {be_user}">
-                <f:link.action action="list" arguments="{csv: true}" pluginName="{pluginName}" class="btn btn-defaut f-right">Download CSV</f:link.action>
-            </f:if>
+            <f:comment>
+                <f:if condition="{user} || {be_user}">
+                    <f:link.action action="list" arguments="{csv: true}" pluginName="{pluginName}" class="btn btn-defaut f-right">Download CSV</f:link.action>
+                </f:if>
+            </f:comment>
         </p>
     </div>
 </div>

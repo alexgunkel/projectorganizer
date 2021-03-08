@@ -9,8 +9,16 @@
 <f:section name="Main">
 
     <v:asset external="1" movable="1" name="dataTables01">
-        <script src="/typo3conf/ext/custom_template/Resources/Public/js/vendor/jquery.dataTables.min.js">
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js">
         </script>
+        <f:if condition="{user} || {be_user} || true">
+            <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js">
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
+            </script>
+            <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js">
+            </script>
+        </f:if>
         <script src="/typo3conf/ext/custom_template/Resources/Public/js/vendor/dataTables.bootstrap4.min.js">
         </script>
     </v:asset>
@@ -21,6 +29,17 @@ $(document).ready(function() {
         var $usePagination = $tableSortable.find('tbody tr').length > 10;
         // https://datatables.net/examples/basic_init/filter_only.html
         $tableSortable.DataTable({
+        <f:if condition="{user} || {be_user} || true">
+            "dom": 'Bfrtip',
+            "buttons": [
+                {
+                    extend: 'copy',
+                    text: 'Kopie'
+                },
+                'csv',
+                'excel'
+            ],
+        </f:if>
             "paging": $usePagination,
             "info": $usePagination,
             "language": {
