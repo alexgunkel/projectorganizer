@@ -84,6 +84,23 @@ CREATE TABLE tx_projectorganizer_domain_model_wskelement (
   PRIMARY KEY (uid)
 );
 
+CREATE TABLE tx_projectorganizer_domain_model_engagement (
+  uid INT(11) NOT NULL AUTO_INCREMENT,
+  pid INT(11) NOT NULL DEFAULT '0',
+
+  tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+  crdate int(11) unsigned DEFAULT '0' NOT NULL,
+  deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+  sys_language_uid int(11) DEFAULT '0' NOT NULL,
+  l18n_parent int(11) DEFAULT '0' NOT NULL,
+  access_group int(11) DEFAULT '0' NOT NULL,
+
+  title VARCHAR(255) NOT NULL DEFAULT '',
+
+  PRIMARY KEY (uid)
+);
+
 CREATE TABLE tx_projectorganizer_domain_model_institution_type (
   uid INT(11) NOT NULL AUTO_INCREMENT,
   pid INT(11) NOT NULL DEFAULT '0',

@@ -26,7 +26,7 @@ $EM_CONF[$_EXTKEY] = array(
     'title' => 'Project Organizer',
     'description' => 'This is a simple organizer extension to manage projects. Projects can be added, edited and validated.',
     'category' => 'misc',
-    'version' => '0.0.3',
+    'version' => '0.0.4',
     'dependencies' => 'cms',
     'conflicts' => '',
     'priority' => 'top',
@@ -45,8 +45,8 @@ $EM_CONF[$_EXTKEY] = array(
     'CGLcompliance_note' => '',
     'constraints' => array(
         'depends' => array(
-            'typo3' => '7.6.0-8.9.99',
-            'php' => '7.1',
+            'typo3' => '7.6.0-9.9.99',
+            'php' => '7.2',
         ),
         'conflicts' => array(
         ),
