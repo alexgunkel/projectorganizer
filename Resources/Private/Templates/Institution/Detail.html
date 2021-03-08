@@ -75,7 +75,7 @@
         </table>
 
         <f:if condition="{be_user.admin}" >
-            <f:link.action action="delete" class="btn btn-danger" arguments="{uid:institution.uid}">{f:translate(key: 'title.delete', extensionName: 'project_organizer')}</f:link.action>
+            <f:link.action action="delete" class="btn btn-danger" arguments="{uid:institution.uid}">{f:translate(key: 'title.delete', extensionName: 'project_organizer')} (Admin only)</f:link.action>
         </f:if>
         <p><f:link.action class="btn btn-primary" action="list">{f:translate(key: 'title.backToList', extensionName: 'project_organizer')}</f:link.action></p>
     </article>

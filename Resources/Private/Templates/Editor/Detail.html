@@ -102,11 +102,10 @@
                 Location: {project.location}<br></p>
         </f:comment>
         <p class="btn-spacy">
-            <f:link.action action="list" class="btn btn-primary" pageUid="{listViewPage}">{f:translate(key: 'projectDetail.title.backToList', extensionName: 'project_organizer')}</f:link.action>
             <f:link.action action="edit" class="btn btn-primary"  arguments="{uid:project.uid}">{f:translate(key: 'projectDetail.title.edit', extensionName: 'project_organizer')}</f:link.action>
             <a class="btn btn-primary"  href="/projects/add-project/">{f:translate(key: 'projectDetail.title.addNewProject', extensionName: 'project_organizer')}</a>
             <f:if condition="{be_user.admin}" >
-                <f:link.action action="delete" class="btn btn-danger" arguments="{uid:project.uid}">{f:translate(key: 'title.delete', extensionName: 'project_organizer')}</f:link.action>
+                <f:link.action action="delete" class="btn btn-danger" arguments="{uid:project.uid}">{f:translate(key: 'title.delete', extensionName: 'project_organizer')} (Admin only)</f:link.action>
             </f:if>
         </p>
     </article>
