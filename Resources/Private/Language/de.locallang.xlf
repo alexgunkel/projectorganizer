@@ -76,7 +76,7 @@
                 <target>Ansprechpartner</target>
             </trans-unit>
             <trans-unit id="label.researchProgram">
-                <target>Forschungsprogramm</target>
+                <target>Teil eines Forschungsprogramms</target>
             </trans-unit>
             <trans-unit id="placeholder.researchProgram">
                 <target>z.B. HYPOS</target>
