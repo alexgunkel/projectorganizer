@@ -100,7 +100,6 @@ class ProjectRepository
             )
         );
 
-        DebuggerUtility::var_dump($query->execute());
         return $query->execute();
     }
 
