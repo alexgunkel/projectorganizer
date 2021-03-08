@@ -128,8 +128,8 @@ class ValidationCodeMessage
             ->uriFor(
                 'validateByValidationCode',
                 [
-                    'validationCode' => $this->object->getPassword(),
                     'itemUid' => (string) $this->object->getUid(),
+                    'validationCode' => (string) $this->object->getPassword(),
                 ],
                 $this->controller ?? 'Validator',
                 null,
