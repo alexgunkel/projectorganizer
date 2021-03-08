@@ -40,10 +40,10 @@ if (!defined('TYPO3_MODE')) {
     'AlexGunkel.' . $_EXTKEY,
     'edit_projects',
     [
-        'Editor' => 'create, submit, listByTopic, validateByValidationCode',
+        'Editor' => 'create, edit, persist, submit, delete, listByTopic, validateByValidationCode',
     ],
     [
-        'Editor' => 'create, submit, validateByValidationCode',
+        'Editor' => 'create, edit, persist, submit, delete, validateByValidationCode',
     ]
 );
 
