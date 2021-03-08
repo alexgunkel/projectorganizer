@@ -64,10 +64,10 @@
                 <target>Laufzeit</target>
             </trans-unit>
             <trans-unit id="label.runtimeStart">
-                <target>Laufzeit Start</target>
+                <target>Projektlaufzeit von</target>
             </trans-unit>
             <trans-unit id="label.runtimeEnd">
-                <target>Laufzeit Ende</target>
+                <target>bis</target>
             </trans-unit>
             <trans-unit id="label.contactEmail">
                 <target>E-Mail-Adresse</target>
@@ -77,6 +77,9 @@
             </trans-unit>
             <trans-unit id="label.researchProgram">
                 <target>Forschungsprogramm</target>
+            </trans-unit>
+            <trans-unit id="placeholder.researchProgram">
+                <target>z.B. HYPOS</target>
             </trans-unit>
             <trans-unit id="label.region">
                 <target>Gefördert durch</target>
@@ -97,10 +100,10 @@
                 <target>-- keine Förderung --</target>
             </trans-unit>
             <trans-unit id="label.volume">
-                <target>Fördervolumen</target>
+                <target>Fördervolumen (in €)</target>
             </trans-unit>
             <trans-unit id="label.overallVolume">
-                <target>Gesamtvolumen</target>
+                <target>Gesamtvolumen (in €)</target>
             </trans-unit>
             <trans-unit id="label.location">
                 <target>Ort</target>
@@ -135,6 +138,9 @@
             </trans-unit>
             <trans-unit id="projectDetail.label.researchprogram">
                 <target>Förderprogramm</target>
+            </trans-unit>
+            <trans-unit id="projectDetail.placeholder.researchprogram">
+                <target>z.B. HYPOS</target>
             </trans-unit>
             <trans-unit id="projectDetail.label.link">
                 <target>Link zum Programm</target>
