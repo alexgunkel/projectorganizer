@@ -57,7 +57,7 @@ return array(
             ],
         ],
         'location' => [
-            'label' => 'Hauptsitz',
+            'label' => 'Geschäftssitz',
             'config' => [
                 'type' => 'input',
                 'size' => 30,

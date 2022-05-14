@@ -30,7 +30,7 @@
                 <target>Projekt bearbeiten</target>
             </trans-unit>
             <trans-unit id="label.title">
-                <target>Projekttiel</target>
+                <target>Projekttitel</target>
             </trans-unit>
             <trans-unit id="label.description">
                 <target>Beschreibung</target>
@@ -209,7 +209,7 @@
                 <target>Typ</target>
             </trans-unit>
             <trans-unit id="institution.label.location">
-                <target>Hauptsitz</target>
+                <target>Geschäftssitz</target>
             </trans-unit>
             <trans-unit id="institution.label.state">
                 <target>Bundesland</target>
