@@ -220,25 +220,6 @@
                             </f:if>
                         </f:form.validationResults>
                     </div>
-                    <div class="col-md-4 form-group {error-researchprogram}">
-                        <label for="researchprogram">{f:translate(key: 'label.researchProgram', extensionName:
-                            'project_organizer')}</label>
-                        <f:form.textfield property="researchprogram"
-                                          id="researchprogram"
-                                          class="form-control"
-                                          placeholder="{f:translate(key: 'placeholder.researchProgram', extensionName:
-                            'project_organizer')}"
-                                          errorClass="has-error"/>
-                        <f:form.validationResults for="project.researchprogram">
-                            <f:if condition="{validationResults.flattenedErrors}">
-                                <ul class="errors">
-                                    <f:for each="{validationResults.errors}" as="error">
-                                        <li>{error}</li>
-                                    </f:for>
-                                </ul>
-                            </f:if>
-                        </f:form.validationResults>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 form-group {error-topics}">
