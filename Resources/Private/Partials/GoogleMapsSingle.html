@@ -12,24 +12,30 @@
         // https://medium.com/@limichelle21/integrating-google-maps-api-for-multiple-locations-a4329517977a
         // https://www.taniarascia.com/google-maps-apis-for-multiple-locations/
     </f:comment>
-    <v:variable.set name="googleKey">{f:cObject(typoscriptObjectPath: 'lib.config.googleKey')}</v:variable.set>
-    <div id="map" style="width:100%;max-width:500px;height:400px;margin:20px 0; background-color:grey;"></div>
-    <v:asset external="1" movable="1" name="gmap01">
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key={googleKey}&callback=initMap">
+    <f:if condition="{project.location} && {project.geoLocationX}">
+        <v:variable.set name="googleKey">{f:cObject(typoscriptObjectPath: 'lib.config.googleKey')}</v:variable.set>
+        <div id="map" style="width:100%;max-width:500px;height:400px;margin:20px 0; background-color:grey;"></div>
+        <v:asset external="1" movable="1" name="gmap01">
+            <script async
+                    src="https://maps.googleapis.com/maps/api/js?key={googleKey}&callback=initMap">
+            </script>
+        </v:asset>
+        <script>
+            var loc = [];
+            loc['lat'] = {project.geoLocationX};
+            loc['lng'] = {project.geoLocationY};
         </script>
-    </v:asset>
-    <v:asset.script external="0" movable="1" namedChunks="false" standalone="false" name="gmap03">
-        var loc = [];
-        loc['lat'] = {project.geoLocationX};
-        loc['lng'] = {project.geoLocationY};
-        function initMap() {
-            var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 10, center: loc}
-            );
-            var marker = new google.maps.Marker({position: loc, map: map});
-        }
-    </v:asset.script>
+        <v:asset.script external="0" movable="1" namedChunks="false" standalone="false" name="gmap03">
+            if (!!loc['lat'] && !!loc['lng']) {
+                function initMap() {
+                    var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 10, center: loc}
+                    );
+                    var marker = new google.maps.Marker({position: loc, map: map});
+                }
+            }
+        </v:asset.script>
+    </f:if>
 </f:section>
 </body>
 </html>
