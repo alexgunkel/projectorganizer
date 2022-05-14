@@ -129,6 +129,7 @@
                         <label for="runtimeStart">{f:translate(key: 'label.runtimeStart', extensionName: 'project_organizer')}
                         </label>
                         <f:form.textfield id="runtimeStart" property="runtimeStart" class="form-control datepicker"
+                                          data="{date-format:'dd.mm.yyyy'}"
                                           errorClass="has-error"/>
                         <f:form.validationResults for="project.runtimeStart">
                             <f:if condition="{validationResults.flattenedErrors}">
@@ -143,7 +144,10 @@
                     <div class="col-md-4 form-group {error-runtimeEnd}">
                         <label for="runtimeEnd">{f:translate(key: 'label.runtimeEnd', extensionName: 'project_organizer')}
                         </label>
-                        <f:form.textfield id="runtimeEnd" property="runtimeEnd" class="form-control datepicker"
+                        <f:form.textfield id="runtimeEnd"
+                                          property="runtimeEnd"
+                                          class="form-control datepicker"
+                                          data="{date-format:'dd.mm.yyyy'}"
                                           errorClass="has-error"/>
                         <f:form.validationResults for="project.runtimeEnd">
                             <f:if condition="{validationResults.flattenedErrors}">

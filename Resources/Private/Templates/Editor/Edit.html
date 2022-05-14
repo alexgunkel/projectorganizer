@@ -107,7 +107,8 @@
                 <div class="row">
                     <div class="col-md-4 form-group {error-runtimeStart}">
                         <label for="runtimeStart">{f:translate(key: 'label.runtimeStart', extensionName: 'project_organizer')}</label>
-                        <f:form.textfield id="runtimeStart" property="runtimeStart" class="form-control datepicker" errorClass="has-error"/>
+                        <f:form.textfield id="runtimeStart" property="runtimeStart" class="form-control datepicker"
+                                          data="{date-format:'dd.mm.yyyy'}"  errorClass="has-error"/>
                         <f:form.validationResults for="project.runtimeStart">
                             <f:if condition="{validationResults.flattenedErrors}">
                                 <ul class="errors">
@@ -120,7 +121,8 @@
                     </div>
                     <div class="col-md-4 form-group {error-runtimeEnd}">
                         <label for="runtimeEnd">{f:translate(key: 'label.runtimeEnd', extensionName: 'project_organizer')}</label>
-                        <f:form.textfield id="runtimeEnd" property="runtimeEnd" class="form-control datepicker" errorClass="has-error"/>
+                        <f:form.textfield id="runtimeEnd" property="runtimeEnd" class="form-control datepicker"
+                                          data="{date-format:'dd.mm.yyyy'}"  errorClass="has-error"/>
                         <f:form.validationResults for="project.runtimeEnd">
                             <f:if condition="{validationResults.flattenedErrors}">
                                 <ul class="errors">
@@ -185,24 +187,6 @@
                             </f:for>
                         </f:form.select>
                         <f:form.validationResults for="project.region">
-                            <f:if condition="{validationResults.flattenedErrors}">
-                                <ul class="errors">
-                                    <f:for each="{validationResults.errors}" as="error">
-                                        <li>{error}</li>
-                                    </f:for>
-                                </ul>
-                            </f:if>
-                        </f:form.validationResults>
-                    </div>
-                    <div class="col-md-4 form-group {error-researchprogram}">
-                        <label for="researchprogram">{f:translate(key: 'label.researchProgram', extensionName: 'project_organizer')}</label>
-                        <f:form.textfield property="researchprogram"
-                                          id="researchprogram"
-                                          class="form-control"
-                                          placeholder="{f:translate(key: 'placeholder.researchProgram', extensionName:
-                            'project_organizer')}"
-                                          errorClass="has-error"/>
-                        <f:form.validationResults for="project.researchprogram">
                             <f:if condition="{validationResults.flattenedErrors}">
                                 <ul class="errors">
                                     <f:for each="{validationResults.errors}" as="error">
