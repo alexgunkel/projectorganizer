@@ -2,3 +2,5 @@ Build/
 nohup.out
 build/
 nbproject
+vendor/
+public/
